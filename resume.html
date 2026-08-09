@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume — Suresh Sirvi | Full-Stack Developer</title>
+    <meta name="description" content="Resume of Suresh Sirvi — Freelance Full-Stack Developer specialising in React Native, Node.js, TypeScript, and scalable web apps." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        /* ── THEME ── */
+        :root {
+            --bg: #06060e;
+            --card: #0f0f1e;
+            --border: rgba(99,102,241,0.15);
+            --accent: #6366f1;
+            --accent-sec: #a855f7;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --green: #10b981;
+            --blur: blur(16px);
+        }
+        [data-theme="light"] {
+            --bg: #f4f4f8;
+            --card: #ffffff;
+            --border: rgba(99,102,241,0.12);
+            --text: #0f172a;
+            --text-dim: #475569;
+            --text-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ── TOPBAR ── */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(6,6,18,0.85);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px;
+        }
+        [data-theme="light"] .topbar {
+            background: rgba(244,244,248,0.9);
+        }
+        .topbar-left { display: flex; align-items: center; gap: 12px; }
+        .topbar-back {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-dim); font-size: 0.85rem; font-weight: 600;
+            text-decoration: none; transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--accent); }
+        .topbar-sep { color: var(--text-muted); }
+        .topbar-title { font-weight: 800; font-size: 0.95rem; color: var(--text); }
+
+        .topbar-actions { display: flex; align-items: center; gap: 10px; }
+
+        .btn-action {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 9px 18px; border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem; font-weight: 700;
+            border: none; cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+            text-decoration: none;
+        }
+        .btn-download {
+            background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+        }
+        .btn-download:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.5); }
+
+        .btn-copy {
+            background: rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.25);
+            color: var(--accent);
+        }
+        .btn-copy:hover { background: rgba(99,102,241,0.15); }
+        .btn-copy.copied { color: var(--green); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08); }
+
+        .btn-theme {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            width: 38px; height: 38px; padding: 0;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+        }
+        .btn-theme:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ── LAYOUT ── */
+        .page-wrap {
+            max-width: 900px; margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* ── RESUME CARD ── */
+        .resume-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+        }
+        [data-theme="light"] .resume-card {
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+        }
+
+        /* HEADER BAND */
+        .resume-header {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 60%, #06060e 100%);
+            padding: 48px 52px 40px;
+            position: relative; overflow: hidden;
+        }
+        [data-theme="light"] .resume-header {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 60%, #3730a3 100%);
+        }
+        .resume-header::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .rh-top { display: flex; align-items: center; gap: 28px; position: relative; z-index: 1; }
+        .rh-avatar {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.25);
+            object-fit: cover; object-position: top center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .rh-info { flex: 1; }
+        .rh-name {
+            font-size: 2.2rem; font-weight: 900;
+            color: #fff; letter-spacing: -1px;
+            line-height: 1.1; margin-bottom: 6px;
+        }
+        .rh-role {
+            font-size: 1rem; font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 14px;
+        }
+        .rh-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+        .rh-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 0.75rem; font-weight: 700;
+            color: rgba(255,255,255,0.9);
+        }
+        .rh-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+        /* CONTACT ROW */
+        .resume-contact {
+            padding: 20px 52px;
+            background: rgba(99,102,241,0.06);
+            border-bottom: 1px solid var(--border);
+            display: flex; flex-wrap: wrap; gap: 20px;
+            align-items: center;
+        }
+        .rc-item {
+            display: flex; align-items: center; gap: 7px;
+            font-size: 0.82rem; font-weight: 600;
+            color: var(--text-dim); text-decoration: none;
+            transition: color 0.2s;
+        }
+        .rc-item:hover { color: var(--accent); }
+        .rc-icon { font-size: 1rem; flex-shrink: 0; }
+
+        /* BODY */
+        .resume-body {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        /* SIDEBAR */
+        .resume-sidebar {
+            padding: 36px 32px;
+            border-right: 1px solid var(--border);
+        }
+
+        /* MAIN */
+        .resume-main { padding: 36px 40px; }
+
+        /* SECTION */
+        .r-section { margin-bottom: 36px; }
+        .r-section:last-child { margin-bottom: 0; }
+        .r-section-title {
+            font-size: 0.7rem; font-weight: 800;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .r-section-title::before {
+            content: '';
+            display: inline-block; width: 3px; height: 14px;
+            background: linear-gradient(var(--accent), var(--accent-sec));
+            border-radius: 2px; flex-shrink: 0;
+        }
+
+        /* SKILL PILLS */
+        .skill-group { margin-bottom: 20px; }
+        .skill-group-label {
+            font-size: 0.72rem; font-weight: 700;
+            color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .skill-tag {
+            background: rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.18);
+            border-radius: 100px;
+            padding: 4px 11px;
+            font-size: 0.72rem; font-weight: 700;
+            color: var(--text);
+        }
+        [data-theme="light"] .skill-tag { background: rgba(99,102,241,0.05); }
+
+        /* EXPERIENCE */
+        .exp-item { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+        .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+        .exp-title { font-size: 1rem; font-weight: 800; color: var(--text); line-height: 1.3; }
+        .exp-company { font-size: 0.82rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+        .exp-date {
+            font-size: 0.72rem; font-weight: 700;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 100px;
+            padding: 3px 10px;
+            color: var(--accent);
+            white-space: nowrap; flex-shrink: 0;
+        }
+        .exp-points { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+        .exp-points li {
+            font-size: 0.82rem; color: var(--text-dim);
+            padding-left: 14px; position: relative; line-height: 1.5;
+        }
+        .exp-points li::before {
+            content: '▸';
+            position: absolute; left: 0;
+            color: var(--accent); font-size: 0.7rem;
+            top: 2px;
+        }
+
+        /* PROJECT */
+        .proj-item {
+            padding: 16px;
+            background: rgba(99,102,241,0.04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .proj-item:last-child { margin-bottom: 0; }
+        .proj-name { font-size: 0.88rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+        .proj-tech {
+            display: flex; flex-wrap: wrap; gap: 5px;
+            margin-bottom: 6px;
+        }
+        .proj-tech span {
+            font-size: 0.65rem; font-weight: 700;
+            color: var(--accent);
+            background: rgba(99,102,241,0.1);
+            border-radius: 4px; padding: 2px 7px;
+        }
+        .proj-desc { font-size: 0.78rem; color: var(--text-dim); line-height: 1.5; }
+
+        /* EDUCATION */
+        .edu-item { margin-bottom: 20px; }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-degree { font-size: 0.9rem; font-weight: 800; color: var(--text); }
+        .edu-school { font-size: 0.8rem; font-weight: 600; color: var(--accent); }
+        .edu-year { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+
+        /* STAT ROW */
+        .stat-row { display: flex; gap: 0; margin-bottom: 20px; }
+        .stat-block {
+            flex: 1; text-align: center;
+            background: rgba(99,102,241,0.06);
+            border: 1px solid var(--border);
+            padding: 14px 8px;
+        }
+        .stat-block:first-child { border-radius: 12px 0 0 12px; border-right: none; }
+        .stat-block:last-child  { border-radius: 0 12px 12px 0; border-left: none; }
+        .stat-num {
+            font-size: 1.4rem; font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-lbl { font-size: 0.65rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* LANGUAGE */
+        .lang-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .lang-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+        .lang-level { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); }
+        .lang-bar-wrap { width: 100%; height: 4px; background: rgba(99,102,241,0.1); border-radius: 2px; margin-top: 4px; }
+        .lang-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-sec)); }
+
+        /* COPY TOAST */
+        .toast {
+            position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
+            background: var(--green); color: #fff;
+            padding: 10px 24px; border-radius: 100px;
+            font-size: 0.85rem; font-weight: 700;
+            box-shadow: 0 8px 24px rgba(16,185,129,0.4);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+            opacity: 0; z-index: 999; white-space: nowrap;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .topbar { padding: 12px 20px; }
+            .page-wrap { padding: 24px 12px 60px; }
+            .resume-header { padding: 32px 24px 28px; }
+            .resume-contact { padding: 16px 24px; }
+            .resume-body { grid-template-columns: 1fr; }
+            .resume-sidebar { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+            .resume-main { padding: 28px 24px; }
+            .rh-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .rh-avatar { width: 80px; height: 80px; }
+            .rh-name { font-size: 1.7rem; }
+            .topbar-actions .btn-copy span { display: none; }
+        }
+        @media (max-width: 480px) {
+            .rc-item span { display: none; }
+        }
+
+        @media print {
+            .topbar, .toast { display: none !important; }
+            body { background: #fff; color: #000; }
+            .resume-card { box-shadow: none; border: none; }
+            .resume-header { background: #4f46e5 !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOPBAR -->
+    <nav class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                Portfolio
+            </a>
+            <span class="topbar-sep">/</span>
+            <span class="topbar-title">Resume</span>
+        </div>
+        <div class="topbar-actions">
+            <button class="btn-action btn-copy" id="copy-btn" onclick="copyURL()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copy URL</span>
+            </button>
+            <a href="Resume.pdf" download="Suresh_Sirvi_Resume.pdf" class="btn-action btn-download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+            </a>
+            <button class="btn-action btn-theme" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+        </div>
+    </nav>
+
+    <!-- RESUME BODY -->
+    <div class="page-wrap">
+            <!-- PDF PREVIEW -->
+            <div style="width: 100%; height: 85vh; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 24px 60px rgba(0,0,0,0.3); background: var(--card);">
+                <object data="Resume.pdf" type="application/pdf" width="100%" height="100%">
+                    <div style="padding: 40px; text-align: center;">
+                        <p style="margin-bottom: 16px;">It appears your browser doesn't support embedded PDFs.</p>
+                        <a href="Resume.pdf" download="Suresh_Sirvi_Resume.pdf" class="btn-action btn-download" style="display: inline-flex;">
+                            Download PDF Instead
+                        </a>
+                    </div>
+                </object>
+            </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">✅ URL Copied to clipboard!</div>
+
+    <script>
+        function copyURL() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.getElementById('copy-btn');
+                const toast = document.getElementById('toast');
+                btn.classList.add('copied');
+                btn.querySelector('span') && (btn.querySelector('span').textContent = 'Copied!');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.querySelector('span') && (btn.querySelector('span').textContent = 'Copy URL');
+                    toast.classList.remove('show');
+                }, 2500);
+            }).catch(() => {
+                // Fallback
+                const ta = document.createElement('textarea');
+                ta.value = url; document.body.appendChild(ta);
+                ta.select(); document.execCommand('copy');
+                document.body.removeChild(ta);
+            });
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            document.getElementById('theme-btn').textContent = isDark ? '🌙' : '☀️';
+            localStorage.setItem('resume-theme', isDark ? 'light' : 'dark');
+        }
+
+        // Restore saved theme
+        const saved = localStorage.getItem('resume-theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('theme-btn').textContent = saved === 'light' ? '🌙' : '☀️';
+        }
+    </script>
+</body>
+</html>

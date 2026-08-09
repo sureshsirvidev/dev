@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitch & Comment Hub — Suresh Choudhary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f0f4f8;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --primary: #4f46e5;
+      --primary-light: #eef2ff;
+      --primary-dark: #3730a3;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --orange: #d97706;
+      --orange-light: #fef3c7;
+      --pink: #db2777;
+      --pink-light: #fce7f3;
+      --blue: #0284c7;
+      --blue-light: #e0f2fe;
+      --text: #1e293b;
+      --text-dim: #64748b;
+      --text-muted: #94a3b8;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --shadow-md: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13px;
+      min-height: 100vh;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(79,70,229,0.35);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-bar-icon {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+
+    .top-bar-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .top-bar-sub {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    .profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 61px;
+      z-index: 90;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .filter-chip {
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .filter-chip:hover { border-color: var(--primary); color: var(--primary); }
+    .filter-chip.active { background: var(--primary); border-color: var(--primary); color: white; }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 24px 0 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .section-title { font-size: 14px; font-weight: 700; }
+    .section-desc { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
+
+    .section-count {
+      margin-left: auto;
+      font-size: 10px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    /* ── PITCH CARD ── */
+    .pitch-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.2s;
+      box-shadow: var(--shadow);
+    }
+
+    .pitch-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .pitch-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      gap: 8px;
+    }
+
+    .pitch-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pitch-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+
+    .char-badge {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .char-badge.green { background: var(--green-light); color: var(--green); }
+    .char-badge.orange { background: var(--orange-light); color: var(--orange); }
+    .char-badge.pink { background: var(--pink-light); color: var(--pink); }
+    .char-badge.blue { background: var(--blue-light); color: var(--blue); }
+    .char-badge.purple { background: var(--primary-light); color: var(--primary); }
+
+    .scenario-badge {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .btn-copy-card {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.18s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-copy-card:hover { background: var(--primary-dark); }
+    .btn-copy-card.copied { background: var(--green); }
+
+    .btn-copy-card svg { width: 12px; height: 12px; }
+
+    .pitch-body {
+      padding: 14px;
+    }
+
+    .pitch-text {
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre-wrap;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+
+    .pitch-text:hover { color: var(--primary); }
+
+    /* ── SCENARIO TAG ── */
+    .scenario-tag {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(79,70,229,0.3);
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 22px; font-weight: 800; }
+    .stat-label { font-size: 10px; opacity: 0.8; font-weight: 500; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e293b;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+
+    /* ── SEARCH ── */
+    .search-box {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px; height: 16px;
+      color: var(--text-muted);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 12px 10px 38px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.18s;
+    }
+
+    .search-input:focus { border-color: var(--primary); }
+
+    /* ── HIDDEN ── */
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <a href="index.html" style="color:white; text-decoration:none; display:flex; align-items:center; gap:5px; margin-right:15px; font-weight:600; font-size:13px; opacity:0.9; transition:opacity 0.2s;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Portfolio
+    </a>
+    <div class="top-bar-icon">💬</div>
+    <div>
+      <div class="top-bar-title">Pitch &amp; Comment Hub</div>
+      <div class="top-bar-sub">Ready-to-send LinkedIn posts, comments &amp; DMs</div>
+    </div>
+  </div>
+  <div class="profile-badge">
+    👤 Suresh Choudhary · Full-Stack Freelancer
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-chip active" onclick="filterCards('all', this)">All Templates</button>
+  <button class="filter-chip" onclick="filterCards('connect', this)">🤝 Connection Notes</button>
+  <button class="filter-chip" onclick="filterCards('comment', this)">💬 Post Comments</button>
+  <button class="filter-chip" onclick="filterCards('dm', this)">📩 DM / Outreach</button>
+  <button class="filter-chip" onclick="filterCards('interest', this)">⭐ Show Interest</button>
+  <button class="filter-chip" onclick="filterCards('project', this)">🚀 Project Inquiry</button>
+  <button class="filter-chip" onclick="filterCards('followup', this)">🔄 Follow-Up</button>
+  <button class="filter-chip" onclick="filterCards('short', this)">⚡ Short & Punchy</button>
+</div>
+
+<div class="content">
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num" id="totalCount">40</div>
+      <div class="stat-label">Total Templates</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Categories</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4 yrs</div>
+      <div class="stat-label">Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$15/hr</div>
+      <div class="stat-label">Starter Rate</div>
+    </div>
+    <div class="stat-item" style="margin-left:auto;">
+      <div style="font-size:11px; opacity:0.8;">Click any card to copy instantly ⚡</div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input class="search-input" id="searchInput" placeholder="Search templates..." oninput="searchCards()" />
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 1: CONNECTION REQUEST NOTES (300 char limit)       -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#eef2ff;">🤝</div>
+    <div>
+      <div class="section-title">LinkedIn Connection Request Notes</div>
+      <div class="section-desc">300-character limit · Short, personal, no pitch</div>
+    </div>
+    <span class="section-count">10 notes</span>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid">
+
+    <!-- CONNECT 1 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a Full-Stack Developer (4 yrs) specializing in React Native, React.js & Node.js. Available for freelance contracts immediately. Let's connect!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #1</span>
+          <span class="char-badge green">✓ 157 chars</span>
+          <span class="scenario-badge" style="background:#eef2ff;color:#4f46e5;">General Connect</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! I'm a Full-Stack Developer (4 yrs) specializing in React Native, React.js & Node.js. Available for freelance contracts immediately. Let's connect!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 2 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi, I'm Ramesh — Full-Stack JS Developer with 4 yrs exp. React Native, React.js & Node.js. Open to freelance & contract work globally. Would love to connect!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #2</span>
+          <span class="char-badge green">✓ 163 chars</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">Name-First</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi, I'm Ramesh — Full-Stack JS Developer with 4 yrs exp. React Native, React.js & Node.js. Open to freelance & contract work globally. Would love to connect!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 3 -->
+    <div class="pitch-card" data-category="connect" data-text="Hey! I noticed we share interests in React Native & mobile development. I'm a freelance Full-Stack Dev (4 yrs) — React Native, React.js, Node.js. Happy to connect and share ideas!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #3</span>
+          <span class="char-badge green">✓ 179 chars</span>
+          <span class="scenario-badge" style="background:#fce7f3;color:#9d174d;">Shared Interest</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hey! I noticed we share interests in React Native & mobile development. I'm a freelance Full-Stack Dev (4 yrs) — React Native, React.js, Node.js. Happy to connect and share ideas!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 4 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a freelance Full-Stack Developer in Bengaluru with 4 yrs building React Native mobile apps & Node.js backends. Available immediately for new contracts. Let's connect!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #4</span>
+          <span class="char-badge green">✓ 174 chars</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Location-Based</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! I'm a freelance Full-Stack Developer in Bengaluru with 4 yrs building React Native mobile apps & Node.js backends. Available immediately for new contracts. Let's connect!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 5 -->
+    <div class="pitch-card" data-category="connect" data-text="Hello! Ramesh here. I build React Native apps & full-stack web solutions. 4 deployed mobile apps on Play Store & App Store. Available for freelance work. Would love to connect!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #5</span>
+          <span class="char-badge green">✓ 175 chars</span>
+          <span class="scenario-badge" style="background:#e0f2fe;color:#0369a1;">Achievement-Led</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hello! Ramesh here. I build React Native apps & full-stack web solutions. 4 deployed mobile apps on Play Store & App Store. Available for freelance work. Would love to connect!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 6 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi! Loved your profile. I'm also a Full-Stack Dev specializing in React Native & Node.js — 4 yrs, freelance. Always great to connect with fellow developers in the space!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #6</span>
+          <span class="char-badge green">✓ 168 chars</span>
+          <span class="scenario-badge" style="background:#f3e8ff;color:#6b21a8;">Fellow Dev</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! Loved your profile. I'm also a Full-Stack Dev specializing in React Native & Node.js — 4 yrs, freelance. Always great to connect with fellow developers in the space!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 7 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm Ramesh, a freelance Full-Stack Developer (React Native + React.js + Node.js, 4 yrs). Portfolio: ramseervi2024.github.io/portfolio · Let's connect and collaborate!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #7</span>
+          <span class="char-badge green">✓ 172 chars</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">Portfolio Link</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! I'm Ramesh, a freelance Full-Stack Developer (React Native + React.js + Node.js, 4 yrs). Portfolio: ramseervi2024.github.io/portfolio · Let's connect and collaborate!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 8 -->
+    <div class="pitch-card" data-category="connect" data-text="Hello! I came across your profile and I'm impressed by your work. I'm a freelance React Native & Full-Stack Developer (4 yrs). Open to collaborations. Let's connect!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #8</span>
+          <span class="char-badge green">✓ 164 chars</span>
+          <span class="scenario-badge" style="background:#fce7f3;color:#9d174d;">Compliment-Led</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hello! I came across your profile and I'm impressed by your work. I'm a freelance React Native & Full-Stack Developer (4 yrs). Open to collaborations. Let's connect!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 9 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a Full-Stack JS freelancer — React Native, React.js, Node.js. 4 yrs building mobile & web apps. Immediate availability. I'd love to grow my network with fellow tech professionals!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #9</span>
+          <span class="char-badge green">✓ 186 chars</span>
+          <span class="scenario-badge" style="background:#e0f2fe;color:#0369a1;">Network Build</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! I'm a Full-Stack JS freelancer — React Native, React.js, Node.js. 4 yrs building mobile & web apps. Immediate availability. I'd love to grow my network with fellow tech professionals!</div>
+      </div>
+    </div>
+
+    <!-- CONNECT 10 -->
+    <div class="pitch-card" data-category="connect" data-text="Hi! Ramesh here — freelance Full-Stack Developer (React Native, React, Node.js) with 4 yrs. Starter rates: $15-$25/hr. Available now. Let's connect and see if there's a fit!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Connection Note #10</span>
+          <span class="char-badge orange">⚡ 174 chars</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Rate Mention</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! Ramesh here — freelance Full-Stack Developer (React Native, React, Node.js) with 4 yrs. Starter rates: $15-$25/hr. Available now. Let's connect and see if there's a fit!</div>
+      </div>
+    </div>
+
+    <!-- ══ POST COMMENTS ══ -->
+    <div class="section-header" style="grid-column:1/-1;margin-top:12px;">
+      <div class="section-icon" style="background:#fce7f3;">💬</div>
+      <div>
+        <div class="section-title">Post Comments — Show Interest & Add Value</div>
+        <div class="section-desc">Comment on hiring posts, project posts, tech discussions</div>
+      </div>
+      <span class="section-count">10 comments</span>
+    </div>
+
+    <!-- COMMENT 1 -->
+    <div class="pitch-card" data-category="comment" data-text="Interested! I'm a Full-Stack Developer with 4 yrs exp in React Native, React.js & Node.js. 4 live apps on Play Store & App Store. Available immediately for freelance/contract work. Dropped a connection request — DM open! 🚀">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Comment on Hiring Post</span>
+          <span class="char-badge green">✓ General</span>
+          <span class="scenario-badge" style="background:#fce7f3;color:#9d174d;">🔥 Hiring Post</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Interested! I'm a Full-Stack Developer with 4 yrs exp in React Native, React.js & Node.js. 4 live apps on Play Store & App Store. Available immediately for freelance/contract work. Dropped a connection request — DM open! 🚀</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 2 -->
+    <div class="pitch-card" data-category="comment" data-text="This is exactly what I do! React Native + Node.js Full-Stack Developer, 4 yrs exp, Bengaluru. Deployed multiple production-grade apps. Immediate availability. Would love to discuss — sending you a connection request!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">React Native Post Comment</span>
+          <span class="char-badge blue">React Native</span>
+          <span class="scenario-badge" style="background:#e0f2fe;color:#0369a1;">Tech Match</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">This is exactly what I do! React Native + Node.js Full-Stack Developer, 4 yrs exp, Bengaluru. Deployed multiple production-grade apps. Immediate availability. Would love to discuss — sending you a connection request!</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 3 -->
+    <div class="pitch-card" data-category="comment" data-text="Great post! I specialize in exactly this — React Native mobile apps + React.js web frontends + Node.js backends. 4 years of production experience. Available for contract work at starter rates ($15-$25/hr). Let's connect! 💼">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Value-Add Comment</span>
+          <span class="char-badge orange">Rate Mention</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Budget-Friendly</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Great post! I specialize in exactly this — React Native mobile apps + React.js web frontends + Node.js backends. 4 years of production experience. Available for contract work at starter rates ($15-$25/hr). Let's connect! 💼</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 4 -->
+    <div class="pitch-card" data-category="comment" data-text="I'd love to help! I'm Ramesh — Full-Stack Freelancer (React Native, React.js, Node.js). 4 yrs building mobile apps & web solutions. Immediate start. Sent you a connection request — feel free to DM me anytime! 👋">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Friendly Comment</span>
+          <span class="char-badge green">Warm Tone</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">Helper</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">I'd love to help! I'm Ramesh — Full-Stack Freelancer (React Native, React.js, Node.js). 4 yrs building mobile apps & web solutions. Immediate start. Sent you a connection request — feel free to DM me anytime! 👋</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 5 -->
+    <div class="pitch-card" data-category="comment" data-text="Looks like a great project! I've built similar solutions — React Native mobile apps with Node.js backend, admin dashboards & REST APIs. 4 yrs exp, available for immediate contract work. Would love to discuss scope & timeline!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Project Post Comment</span>
+          <span class="char-badge purple">Project-Fit</span>
+          <span class="scenario-badge" style="background:#eef2ff;color:#4f46e5;">🚀 Project Reply</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Looks like a great project! I've built similar solutions — React Native mobile apps with Node.js backend, admin dashboards & REST APIs. 4 yrs exp, available for immediate contract work. Would love to discuss scope & timeline!</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 6 -->
+    <div class="pitch-card" data-category="comment" data-text="🙋 Available! Full-Stack Developer — React Native, React.js, Node.js. 4 years. Portfolio: ramseervi2024.github.io/portfolio
+Video intro: bit.ly/ramesh-pitch
+Immediate start. DM me!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Short Comment with Links</span>
+          <span class="char-badge green">Concise</span>
+          <span class="scenario-badge" style="background:#fce7f3;color:#9d174d;">⚡ Power Pitch</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">🙋 Available! Full-Stack Developer — React Native, React.js, Node.js. 4 years. Portfolio: ramseervi2024.github.io/portfolio
+Video intro: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+Immediate start. DM me!</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 7 -->
+    <div class="pitch-card" data-category="comment" data-text="I have experience with this! Here's what I bring: ✅ React Native (4 deployed apps) ✅ React.js web frontends ✅ Node.js / Express REST APIs ✅ Immediate availability. Starter rate $15/hr. Would love to connect and explore this!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Checklist Comment</span>
+          <span class="char-badge blue">Structured</span>
+          <span class="scenario-badge" style="background:#e0f2fe;color:#0369a1;">✅ Checklist</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">I have experience with this! Here's what I bring:
+✅ React Native (4 deployed apps)
+✅ React.js web frontends
+✅ Node.js / Express REST APIs
+✅ Immediate availability. Starter rate $15/hr.
+Would love to connect and explore this!</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 8 -->
+    <div class="pitch-card" data-category="comment" data-text="This resonates! I'm a Full-Stack Freelancer in Bengaluru — React Native, React.js, Node.js. 4 years of hands-on experience building mobile apps and web products. Available immediately. Let's connect and chat! 🤝">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Resonance Comment</span>
+          <span class="char-badge green">Engaging</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">Empathy</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">This resonates! I'm a Full-Stack Freelancer in Bengaluru — React Native, React.js, Node.js. 4 years of hands-on experience building mobile apps and web products. Available immediately. Let's connect and chat! 🤝</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 9 -->
+    <div class="pitch-card" data-category="comment" data-text="Raised my hand! 🙋‍♂️ I'm Ramesh, a freelance Full-Stack Developer (React Native + React.js + Node.js). Built 4 live production apps. Immediate joiner. My portfolio: ramseervi2024.github.io/portfolio — happy to jump on a call anytime!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Casual-Enthusiastic Comment</span>
+          <span class="char-badge purple">Enthusiastic</span>
+          <span class="scenario-badge" style="background:#eef2ff;color:#4f46e5;">🙋 Hand Raised</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Raised my hand! 🙋‍♂️ I'm Ramesh, a freelance Full-Stack Developer (React Native + React.js + Node.js). Built 4 live production apps. Immediate start. My portfolio: ramseervi2024.github.io/portfolio — happy to jump on a call anytime!</div>
+      </div>
+    </div>
+
+    <!-- COMMENT 10 -->
+    <div class="pitch-card" data-category="comment" data-text="I can take this on! 💪 Full-Stack JS Developer — React Native, React.js, Node.js. 4 years. Budget-friendly rates for the right project. Available to start within 24 hrs. DM me or check: ramseervi2024.github.io/portfolio">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Bold CTA Comment</span>
+          <span class="char-badge orange">Bold CTA</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">💪 Confident</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">I can take this on! 💪 Full-Stack JS Developer — React Native, React.js, Node.js. 4 years. Budget-friendly rates for the right project. Available to start within 24 hrs. DM me or check: ramseervi2024.github.io/portfolio</div>
+      </div>
+    </div>
+
+    <!-- ══ DM / OUTREACH ══ -->
+    <div class="section-header" style="grid-column:1/-1;margin-top:12px;">
+      <div class="section-icon" style="background:#fef3c7;">📩</div>
+      <div>
+        <div class="section-title">Direct Messages & Outreach Pitches</div>
+        <div class="section-desc">Personalized DMs for cold outreach to clients/founders</div>
+      </div>
+      <span class="section-count">8 DMs</span>
+    </div>
+
+    <!-- DM 1 -->
+    <div class="pitch-card" data-category="dm" data-text="Hi [Name],
+
+I came across your profile and noticed you work with [Company/Startup]. I'm a Full-Stack JavaScript Developer with 4 years of experience in React Native, React.js, and Node.js.
+
+I've built 4+ production mobile apps (Play Store & App Store) and full-stack web solutions. I'm currently available for freelance contracts at starter rates ($15-$25/hr).
+
+Would love to explore if there's a fit. Here's my portfolio:
+🌐 ramseervi2024.github.io/portfolio
+📄 Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view
+
+Happy to jump on a quick call!
+
+Best,
+Suresh Choudhary">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Cold DM #1 — Founder/CTO</span>
+          <span class="char-badge blue">Full DM</span>
+          <span class="scenario-badge" style="background:#e0f2fe;color:#0369a1;">👤 Founder</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name],
+
+I came across your profile and noticed you work with [Company/Startup]. I'm a Full-Stack JavaScript Developer with 4 years of experience in React Native, React.js, and Node.js.
+
+I've built 4+ production mobile apps (Play Store & App Store) and full-stack web solutions. I'm currently available for freelance contracts at starter rates ($15-$25/hr).
+
+Would love to explore if there's a fit. Here's my portfolio:
+🌐 ramseervi2024.github.io/portfolio
+📄 Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view
+
+Happy to jump on a quick call!
+
+Best,
+Suresh Choudhary</div>
+      </div>
+    </div>
+
+    <!-- DM 2 -->
+    <div class="pitch-card" data-category="dm" data-text="Hi [Name],
+
+I saw your post about [project/requirement]. I believe I can help!
+
+I'm Ramesh — Full-Stack JS Freelancer with 4 years building:
+• Mobile apps (React Native — 4 live on stores)
+• Web apps (React.js + Node.js + Express)
+• REST APIs, Firebase, MongoDB
+
+Starter rate: $15-$25/hr | Fixed MVP: from $500
+
+Portfolio: ramseervi2024.github.io/portfolio
+Video pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+
+Shall we schedule a 15-min call?
+
+Ramesh">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">DM Reply to Post</span>
+          <span class="char-badge purple">Post Reply</span>
+          <span class="scenario-badge" style="background:#eef2ff;color:#4f46e5;">📢 Seen Post</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name],
+
+I saw your post about [project/requirement]. I believe I can help!
+
+I'm Ramesh — Full-Stack JS Freelancer with 4 years building:
+• Mobile apps (React Native — 4 live on stores)
+• Web apps (React.js + Node.js + Express)
+• REST APIs, Firebase, MongoDB
+
+Starter rate: $15-$25/hr | Fixed MVP: from $500
+
+Portfolio: ramseervi2024.github.io/portfolio
+Video pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+
+Shall we schedule a 15-min call?
+
+Ramesh</div>
+      </div>
+    </div>
+
+    <!-- DM 3 — SHORT -->
+    <div class="pitch-card" data-category="dm short" data-text="Hi [Name]! Ramesh here — Full-Stack Freelancer (React Native, React.js, Node.js). 4 yrs. Immediate start. Starter rates $15-$25/hr. Portfolio: ramseervi2024.github.io/portfolio — Would love to work together!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Short DM — Quick Pitch</span>
+          <span class="char-badge green">⚡ Short</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">Quick Pitch</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name]! Ramesh here — Full-Stack Freelancer (React Native, React.js, Node.js). 4 yrs. Immediate start. Starter rates $15-$25/hr. Portfolio: ramseervi2024.github.io/portfolio — Would love to work together!</div>
+      </div>
+    </div>
+
+    <!-- DM 4 — Agency -->
+    <div class="pitch-card" data-category="dm" data-text="Hi [Name],
+
+I'm reaching out as I noticed your agency works on mobile and web projects. I'm a Full-Stack JavaScript Developer with 4 years of experience and I'm open to white-label freelance collaborations.
+
+My expertise:
+→ React Native mobile apps (Android + iOS)
+→ React.js web frontends
+→ Node.js / Express backends & REST APIs
+→ Firebase, MongoDB, Redux
+
+Rates are very competitive — starting at $15/hr. I can integrate as a team member or handle full-stack modules independently.
+
+Would love to explore a collaboration!
+
+Portfolio: ramseervi2024.github.io/portfolio
+
+Best,
+Suresh Choudhary">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Agency / White-Label DM</span>
+          <span class="char-badge orange">Agency</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">🏢 Agency</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name],
+
+I'm reaching out as I noticed your agency works on mobile and web projects. I'm a Full-Stack JavaScript Developer with 4 years of experience and I'm open to white-label freelance collaborations.
+
+My expertise:
+→ React Native mobile apps (Android + iOS)
+→ React.js web frontends
+→ Node.js / Express backends & REST APIs
+→ Firebase, MongoDB, Redux
+
+Rates are very competitive — starting at $15/hr. I can integrate as a team member or handle full-stack modules independently.
+
+Would love to explore a collaboration!
+
+Portfolio: ramseervi2024.github.io/portfolio
+
+Best,
+Suresh Choudhary</div>
+      </div>
+    </div>
+
+    <!-- ══ SHOW INTEREST ══ -->
+    <div class="section-header" style="grid-column:1/-1;margin-top:12px;">
+      <div class="section-icon" style="background:#eef2ff;">⭐</div>
+      <div>
+        <div class="section-title">Show Interest — Profile Visits & Mutual Connections</div>
+        <div class="section-desc">When someone views your profile or you want to show genuine interest</div>
+      </div>
+      <span class="section-count">6 messages</span>
+    </div>
+
+    <!-- INTEREST 1 -->
+    <div class="pitch-card" data-category="interest" data-text="Hi [Name]! I noticed you viewed my profile — thanks for stopping by! I'm a Full-Stack Freelancer specializing in React Native, React.js & Node.js (4 yrs). If you have any projects or requirements, I'd love to chat. My portfolio: ramseervi2024.github.io/portfolio 😊">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Profile View Response</span>
+          <span class="char-badge green">Warm</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">👀 Viewed Profile</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name]! I noticed you viewed my profile — thanks for stopping by! I'm a Full-Stack Freelancer specializing in React Native, React.js & Node.js (4 yrs). If you have any projects or requirements, I'd love to chat. My portfolio: ramseervi2024.github.io/portfolio 😊</div>
+      </div>
+    </div>
+
+    <!-- INTEREST 2 -->
+    <div class="pitch-card" data-category="interest" data-text="Hi [Name]! Your profile is really impressive — love how you've built [their work]. I'm Ramesh, a fellow freelance Full-Stack Dev (React Native, React.js, Node.js). I'd love to connect, share experiences, and explore possible collaborations!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Profile Appreciation Message</span>
+          <span class="char-badge purple">Genuine</span>
+          <span class="scenario-badge" style="background:#eef2ff;color:#4f46e5;">🌟 Appreciate</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name]! Your profile is really impressive — love how you've built [their work]. I'm Ramesh, a fellow freelance Full-Stack Dev (React Native, React.js, Node.js). I'd love to connect, share experiences, and explore possible collaborations!</div>
+      </div>
+    </div>
+
+    <!-- INTEREST 3 -->
+    <div class="pitch-card" data-category="interest" data-text="Hi! We have mutual connections and similar backgrounds in Full-Stack development. I'm Ramesh — React Native, React.js & Node.js freelancer (4 yrs, Bengaluru). Would love to add you to my network and potentially collaborate in the future!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Mutual Connection Note</span>
+          <span class="char-badge blue">Mutual</span>
+          <span class="scenario-badge" style="background:#e0f2fe;color:#0369a1;">🤝 Mutual</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! We have mutual connections and similar backgrounds in Full-Stack development. I'm Ramesh — React Native, React.js & Node.js freelancer (4 yrs, Bengaluru). Would love to add you to my network and potentially collaborate in the future!</div>
+      </div>
+    </div>
+
+    <!-- ══ PROJECT INQUIRY ══ -->
+    <div class="section-header" style="grid-column:1/-1;margin-top:12px;">
+      <div class="section-icon" style="background:#d1fae5;">🚀</div>
+      <div>
+        <div class="section-title">Project Inquiry Messages</div>
+        <div class="section-desc">When someone posts a project requirement or RFP</div>
+      </div>
+      <span class="section-count">4 messages</span>
+    </div>
+
+    <!-- PROJECT 1 -->
+    <div class="pitch-card" data-category="project" data-text="Hi [Name],
+
+I came across your requirement for a [type] developer and I'd love to work on this!
+
+Here's what I bring:
+✅ React Native (4 apps on Play Store + App Store)
+✅ React.js frontends — responsive, fast, scalable
+✅ Node.js + Express + MongoDB backends
+✅ Immediate start (within 24 hours)
+✅ Budget-friendly: $15-$25/hr OR fixed price
+
+I can share a detailed quote and timeline once we discuss the scope. Would love to jump on a quick call!
+
+Portfolio: ramseervi2024.github.io/portfolio
+Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view
+
+Best,
+Suresh Choudhary | +91 6360494477">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Project Proposal DM</span>
+          <span class="char-badge purple">Full Proposal</span>
+          <span class="scenario-badge" style="background:#d1fae5;color:#065f46;">🚀 Proposal</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name],
+
+I came across your requirement for a [type] developer and I'd love to work on this!
+
+Here's what I bring:
+✅ React Native (4 apps on Play Store + App Store)
+✅ React.js frontends — responsive, fast, scalable
+✅ Node.js + Express + MongoDB backends
+✅ Immediate start (within 24 hours)
+✅ Budget-friendly: $15-$25/hr OR fixed price
+
+I can share a detailed quote and timeline once we discuss the scope. Would love to jump on a quick call!
+
+Portfolio: ramseervi2024.github.io/portfolio
+Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view
+
+Best,
+Suresh Choudhary | +91 6360494477</div>
+      </div>
+    </div>
+
+    <!-- ══ FOLLOW-UP ══ -->
+    <div class="section-header" style="grid-column:1/-1;margin-top:12px;">
+      <div class="section-icon" style="background:#fce7f3;">🔄</div>
+      <div>
+        <div class="section-title">Follow-Up Messages</div>
+        <div class="section-desc">Gentle follow-ups after no reply or after interview</div>
+      </div>
+      <span class="section-count">3 messages</span>
+    </div>
+
+    <!-- FOLLOWUP 1 -->
+    <div class="pitch-card" data-category="followup" data-text="Hi [Name]! Just following up on my earlier message. I'm still very interested in discussing potential collaboration. I'm a React Native + Full-Stack JS Developer, 4 yrs exp, available immediately. No pressure — just wanted to check if there's a good time to connect! 🙂">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Gentle Follow-Up</span>
+          <span class="char-badge green">Polite</span>
+          <span class="scenario-badge" style="background:#fce7f3;color:#9d174d;">🔄 Follow-Up</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi [Name]! Just following up on my earlier message. I'm still very interested in discussing potential collaboration. I'm a React Native + Full-Stack JS Developer, 4 yrs exp, available immediately. No pressure — just wanted to check if there's a good time to connect! 🙂</div>
+      </div>
+    </div>
+
+    <!-- ══ SHORT & PUNCHY ══ -->
+    <div class="section-header" style="grid-column:1/-1;margin-top:12px;">
+      <div class="section-icon" style="background:#fef3c7;">⚡</div>
+      <div>
+        <div class="section-title">Short & Punchy One-Liners</div>
+        <div class="section-desc">Ultra-short texts for WhatsApp, SMS, or tight comment boxes</div>
+      </div>
+      <span class="section-count">5 texts</span>
+    </div>
+
+    <!-- SHORT 1 -->
+    <div class="pitch-card" data-category="short" data-text="Hi! I'm a Full-Stack JS Developer with 4 yrs experience (React Native, React, Node.js). Available for immediate joining in Bengaluru. Portfolio: https://ramseervi2024.github.io/portfolio/ Let's connect!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Original Short Pitch</span>
+          <span class="char-badge green">⚡ The OG</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">⭐ Original</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi! I'm a Full-Stack JS Developer with 4 yrs experience (React Native, React, Node.js). Available for immediate joining in Bengaluru. Portfolio: https://ramseervi2024.github.io/portfolio/ Let's connect!</div>
+      </div>
+    </div>
+
+    <!-- SHORT 2 -->
+    <div class="pitch-card" data-category="short" data-text="Suresh Choudhary | Full-Stack Dev | React Native + React.js + Node.js | 4 yrs | Immediate start | $15/hr | ramseervi2024.github.io/portfolio">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">One-Line Bio</span>
+          <span class="char-badge green">⚡ One-Line</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Suresh Choudhary | Full-Stack Dev | React Native + React.js + Node.js | 4 yrs | Immediate start | $15/hr | ramseervi2024.github.io/portfolio</div>
+      </div>
+    </div>
+
+    <!-- SHORT 3 -->
+    <div class="pitch-card" data-category="short" data-text="Hi Suresh Choudhary here. Full Stack Developer (4 yrs exp) React Native + Node.js. Available immediately for contract roles globally.
+
+Portfolio: https://ramseervi2024.github.io/portfolio/
+Video: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">WhatsApp / SMS Pitch</span>
+          <span class="char-badge orange">📱 SMS</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi Suresh Choudhary here. Full Stack Developer (4 yrs exp) React Native + Node.js. Available immediately for contract roles globally.
+
+Portfolio: https://ramseervi2024.github.io/portfolio/
+Video: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view</div>
+      </div>
+    </div>
+
+    <!-- SHORT 4 -->
+    <div class="pitch-card" data-category="short" data-text="🚀 React Native Dev available NOW
+✅ 4 yrs exp | 4 live apps
+✅ Full-stack: React + Node.js
+✅ $15-$25/hr starter rate
+✅ Immediate start
+📂 ramseervi2024.github.io/portfolio">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Emoji-Led Short Pitch</span>
+          <span class="char-badge green">✅ Emoji</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">🚀 React Native Dev available NOW
+✅ 4 yrs exp | 4 live apps
+✅ Full-stack: React + Node.js
+✅ $15-$25/hr starter rate
+✅ Immediate start
+📂 ramseervi2024.github.io/portfolio</div>
+      </div>
+    </div>
+
+    <!-- SHORT 5 -->
+    <div class="pitch-card" data-category="short" data-text="Hi, I'm a Full-Stack Developer (React Native + React.js + Node.js) with 4 years experience. Available immediately. Starter rate: $15/hr. Let me know if you need help with your project!">
+      <div class="pitch-card-header">
+        <div class="pitch-card-meta">
+          <span class="pitch-label">Minimal & Clean</span>
+          <span class="char-badge blue">Clean</span>
+        </div>
+        <button class="btn-copy-card" onclick="copyCard(this)">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="pitch-body" onclick="copyCardBody(this)">
+        <div class="pitch-text">Hi, I'm a Full-Stack Developer (React Native + React.js + Node.js) with 4 years experience. Available immediately. Starter rate: $15/hr. Let me know if you need help with your project!</div>
+      </div>
+    </div>
+
+  </div><!-- end cardsGrid -->
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg">Copied to clipboard!</span>
+</div>
+
+<script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => showToast('✅ Copied to clipboard!'));
+    } else {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      showToast('✅ Copied to clipboard!');
+    }
+  }
+
+  function copyCard(btn) {
+    const card = btn.closest('.pitch-card');
+    const text = card.dataset.text;
+    copyToClipboard(text);
+    btn.classList.add('copied');
+    btn.textContent = '✓ Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy`;
+    }, 2000);
+  }
+
+  function copyCardBody(el) {
+    const card = el.closest('.pitch-card');
+    const text = card.dataset.text;
+    copyToClipboard(text);
+  }
+
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.pitch-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const cats = card.dataset.category || '';
+      if (category === 'all' || cats.includes(category)) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    document.getElementById('totalCount').textContent = visible;
+  }
+
+  function searchCards() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.pitch-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const text = (card.dataset.text || '').toLowerCase();
+      const label = card.querySelector('.pitch-label')?.textContent.toLowerCase() || '';
+      if (!query || text.includes(query) || label.includes(query)) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    document.getElementById('totalCount').textContent = visible;
+  }
+
+  // Count cards on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const count = document.querySelectorAll('.pitch-card').length;
+    document.getElementById('totalCount').textContent = count;
+  });
+</script>
+</body>
+</html>
