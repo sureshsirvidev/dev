@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresh Sirvi | Advanced Full-Stack Developer</title>
+    <meta name="description" content="Suresh Sirvi — Freelance Full-Stack Developer specializing in React Native, Node.js, and premium web experiences. 40+ projects shipped.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+    <div class="custom-cursor"></div>
+
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+
+            <!-- Logo: Full Name + Role -->
+            <a href="#" class="logo" id="nav-logo">
+                <div class="logo-text-block">
+                    <span class="logo-name">SURESH SIRVI</span>
+                    <span class="logo-role">Full-Stack Developer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="nav-pill nav-links" id="nav-links">
+                <a href="#about" class="nav-link" data-label="01">About</a>
+                <a href="#expertise" class="nav-link" data-label="02">Expertise</a>
+                <a href="#process" class="nav-link" data-label="03">Process</a>
+                <a href="#work" class="nav-link" data-label="04">Work</a>
+                <a href="#contact" class="nav-link" data-label="05">Contact</a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="nav-actions">
+                <!-- Availability Badge -->
+                <div class="nav-avail-badge">
+                    <span class="nav-avail-dot"></span>
+                    <span>Available</span>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <!-- CTA -->
+                <a href="#contact" class="btn-nav magnetic-btn">
+                    <span>Let's Talk</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <!-- Decorative Orb -->
+        <div class="mob-orb"></div>
+
+        <!-- Header Row inside overlay -->
+        <div class="mob-header">
+            <a href="#" class="logo mob-logo">
+                <div class="logo-text-block">
+                    <span class="logo-name">SURESH SIRVI</span>
+                    <span class="logo-role">Full-Stack Developer</span>
+                </div>
+            </a>
+            <button class="mob-close-btn" id="mob-close-btn" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="mob-nav">
+            <a href="#about"    class="mob-link" data-index="0"><span class="mob-num">01</span><span class="mob-text">About</span><span class="mob-arrow">↗</span></a>
+            <a href="#expertise" class="mob-link" data-index="1"><span class="mob-num">02</span><span class="mob-text">Expertise</span><span class="mob-arrow">↗</span></a>
+            <a href="#process"  class="mob-link" data-index="2"><span class="mob-num">03</span><span class="mob-text">Process</span><span class="mob-arrow">↗</span></a>
+            <a href="#work"     class="mob-link" data-index="3"><span class="mob-num">04</span><span class="mob-text">Work</span><span class="mob-arrow">↗</span></a>
+            <a href="#contact"  class="mob-link" data-index="4"><span class="mob-num">05</span><span class="mob-text">Contact</span><span class="mob-arrow">↗</span></a>
+        </div>
+
+        <!-- Footer Row -->
+        <div class="mob-footer">
+            <a href="mailto:sureshsirvi.dev@gmail.com" class="mob-contact-item">
+                <span>sureshsirvi.dev@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/suresh-sirvi-261151428/" target="_blank" class="mob-contact-item">
+                <span>LinkedIn ↗</span>
+            </a>
+            <a href="#contact" class="btn-primary mob-cta">Start a Project →</a>
+        </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-layout">
+
+                <!-- LEFT: Text Content -->
+                <div class="hero-content">
+                    <div class="avail-badge">
+                        <div class="avail-dot"></div>
+                        Accepting New Freelance Projects
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="line"><span class="line-inner">Engineering</span></span>
+                        <span class="line"><span class="line-inner">Digital <span class="gradient">Excellence.</span></span></span>
+                    </h1>
+
+                    <p class="hero-desc">I'm Suresh Sirvi — a Freelance Full-Stack Developer building high-performance React Native apps, scalable Node.js backends, and premium web platforms that clients trust.</p>
+
+                    <div class="btn-group">
+                        <a href="#work" class="btn-primary magnetic-btn">Explore Work ↓</a>
+                        <a href="#contact" class="btn-secondary magnetic-btn">Get In Touch →</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Profile Photo + Floating Elements -->
+                <div class="hero-visual">
+
+                    <!-- Glowing orb behind everything -->
+                    <div class="hero-orb"></div>
+
+                    <!-- Stat: 100% Satisfaction -->
+                    <div class="hero-badge hb-satisfaction">
+                        <div class="hb-icon">⭐</div>
+                        <div class="hb-text">
+                            <span class="hb-num">100%</span>
+                            <span class="hb-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat: 40+ Projects -->
+                    <div class="hero-badge hb-projects">
+                        <div class="hb-icon">🚀</div>
+                        <div class="hb-text">
+                            <span class="hb-num">40+</span>
+                            <span class="hb-label">Projects Shipped</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Pills -->
+                    <div class="hero-tech-pill htp-rn">
+                        <span class="htp-dot" style="background:#61dafb;"></span>
+                        React Native
+                    </div>
+                    <div class="hero-tech-pill htp-node">
+                        <span class="htp-dot" style="background:#8cc84b;"></span>
+                        Node.js
+                    </div>
+                    <div class="hero-tech-pill htp-mongo">
+                        <span class="htp-dot" style="background:#47a248;"></span>
+                        MongoDB
+                    </div>
+                    <div class="hero-tech-pill htp-ts">
+                        <span class="htp-dot" style="background:#3178c6;"></span>
+                        TypeScript
+                    </div>
+                    <div class="hero-tech-pill htp-angular">
+                        <span class="htp-dot" style="background:#dd0031;"></span>
+                        Angular
+                    </div>
+                    <div class="hero-tech-pill htp-react">
+                        <span class="htp-dot" style="background:#61dafb;"></span>
+                        React.js
+                    </div>
+                    <div class="hero-tech-pill htp-firebase">
+                        <span class="htp-dot" style="background:#f5a623;"></span>
+                        Firebase
+                    </div>
+                    <div class="hero-tech-pill htp-nextjs">
+                        <span class="htp-dot" style="background:#ffffff;"></span>
+                        Next.js
+                    </div>
+
+                    <!-- Desktop: Phone Mockup -->
+                    <div class="hero-phone">
+                        <div class="hp-notch"></div>
+                        <div class="hp-screen">
+                            <div class="hp-bar" style="width:80%; height:10px; border-radius:6px; background:rgba(255,255,255,0.1); margin-bottom:10px;"></div>
+                            <div class="hp-bar" style="width:100%; height:48px; border-radius:10px; background:linear-gradient(135deg,#6366f1,#a855f7); margin-bottom:10px;"></div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                                <div class="hp-bar" style="height:56px; border-radius:8px; background:rgba(255,255,255,0.06);"></div>
+                                <div class="hp-bar" style="height:56px; border-radius:8px; background:rgba(255,255,255,0.06);"></div>
+                                <div class="hp-bar" style="height:56px; border-radius:8px; background:rgba(255,255,255,0.06);"></div>
+                                <div class="hp-bar" style="height:56px; border-radius:8px; background:rgba(168,85,247,0.3);"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile: Profile Image Card (hidden on desktop) -->
+                    <div class="hero-mob-profile">
+                        <div class="hmp-ring"></div>
+                        <div class="hmp-card">
+                            <img src="profile.png" alt="Suresh Sirvi" class="hmp-img" />
+                            <div class="hmp-overlay"></div>
+                            <div class="hmp-name-tag">
+                                <span class="hmp-name">Suresh Sirvi</span>
+                                <span class="hmp-role">Full-Stack Developer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MOBILE PROFILE SECTION (hidden on desktop) ===================== -->
+    <section class="mobile-profile-section" id="mobile-profile">
+        <div class="container">
+            <div class="mob-profile-inner">
+
+                <!-- Profile Photo -->
+                <div class="mob-profile-photo-wrap">
+                    <div class="mob-profile-ring"></div>
+                    <div class="mob-profile-card">
+                        <img src="profile.png" alt="Suresh Sirvi" class="mob-profile-img" />
+                        <div class="mob-profile-overlay"></div>
+                    </div>
+                    <!-- Floating badges -->
+                    <div class="mob-stat-badge mob-stat-top">
+                        <span class="mob-stat-icon">⭐</span>
+                        <div>
+                            <span class="mob-stat-num">100%</span>
+                            <span class="mob-stat-lbl">Satisfaction</span>
+                        </div>
+                    </div>
+                    <div class="mob-stat-badge mob-stat-bot">
+                        <span class="mob-stat-icon">🚀</span>
+                        <div>
+                            <span class="mob-stat-num">40+</span>
+                            <span class="mob-stat-lbl">Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Name + Role + Skills -->
+                <div class="mob-profile-info">
+                    <h2 class="mob-profile-name">Suresh Sirvi</h2>
+                    <p class="mob-profile-role">Freelance Full-Stack Developer</p>
+                    <div class="mob-profile-tags">
+                        <span class="mob-tag">⚛ React Native</span>
+                        <span class="mob-tag">🟢 Node.js</span>
+                        <span class="mob-tag">🔵 TypeScript</span>
+                        <span class="mob-tag">🍃 MongoDB</span>
+                        <span class="mob-tag">⚡ Next.js</span>
+                        <span class="mob-tag">🔴 Angular</span>
+                        <span class="mob-tag">🟠 Firebase</span>
+                        <span class="mob-tag">🎨 React.js</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>REACT NATIVE</span>✦<span>NODE.JS</span>✦<span>FULL-STACK</span>✦<span>SAAS</span>✦<span>MONGODB</span>✦<span>TYPESCRIPT</span>✦
+                <span>REACT NATIVE</span>✦<span>NODE.JS</span>✦<span>FULL-STACK</span>✦<span>SAAS</span>✦<span>MONGODB</span>✦<span>TYPESCRIPT</span>✦
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid reveal">
+                <div class="about-text">
+                    <div class="section-eyebrow">Who I Am</div>
+                    <h2 class="section-title">Beyond the <span>Code.</span></h2>
+                    <p class="section-subtitle" style="max-width:100%; margin-bottom:20px;">I work closely with clients to understand what they actually need and turn that idea into a working product — handling the entire process from planning, API integration, testing, deployment, and ongoing support.</p>
+                    <p class="section-subtitle" style="max-width:100%;">I'm equally comfortable working from a clear specification or an early-stage idea that still needs shaping. My priority is always to deliver software that genuinely works for your business.</p>
+                </div>
+                <div class="about-visual">
+                    <!-- Profile Card -->
+                    <div class="profile-card spotlight-card">
+                        <div class="profile-card-glow"></div>
+
+                        <!-- Photo -->
+                        <div class="profile-photo-wrap">
+                            <div class="profile-photo-ring"></div>
+                            <img src="profile.png" alt="Suresh Sirvi" class="profile-photo" />
+                            <!-- Online badge -->
+                            <div class="profile-online-badge">
+                                <span class="profile-online-dot"></span>
+                                Available for Work
+                            </div>
+                        </div>
+
+                        <!-- Name & Role -->
+                        <div class="profile-info">
+                            <h3 class="profile-card-name">Suresh Sirvi</h3>
+                            <p class="profile-card-role">Freelance Full-Stack Developer</p>
+                            <p class="profile-card-location">📍 Bengaluru, India · Remote Worldwide</p>
+                        </div>
+
+                        <!-- Stats Row -->
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="ps-num">40+</span>
+                                <span class="ps-lbl">Projects</span>
+                            </div>
+                            <div class="profile-stat-divider"></div>
+                            <div class="profile-stat">
+                                <span class="ps-num">6+</span>
+                                <span class="ps-lbl">Yrs Exp</span>
+                            </div>
+                            <div class="profile-stat-divider"></div>
+                            <div class="profile-stat">
+                                <span class="ps-num">100%</span>
+                                <span class="ps-lbl">Satisfaction</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="profile-actions">
+                            <a href="#contact" class="btn-primary profile-btn-cta">Hire Me ↗</a>
+                            <a href="https://www.linkedin.com/in/suresh-sirvi-261151428/" target="_blank" class="profile-btn-social">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== EXPERTISE ===================== -->
+    <section id="expertise">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Skills</div>
+                <h2 class="section-title">Technical <span>Arsenal</span></h2>
+                <p class="section-subtitle">A comprehensive toolkit mastered over years of shipping production software.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card large-card reveal spotlight-card">
+                    <div class="bento-icon">📱</div>
+                    <h3>Cross-Platform Mobile</h3>
+                    <p>Native-quality Android & iOS apps from a single codebase using React Native — smooth animations, complex state management, deep device integrations, and successful App Store submissions.</p>
+                </div>
+                <div class="bento-card reveal spotlight-card" style="transition-delay:.1s">
+                    <div class="bento-icon">⚡</div>
+                    <h3>Modern Web</h3>
+                    <p>Responsive, accessible, ultra-fast web platforms built with React, TypeScript, and modern tooling.</p>
+                </div>
+                <div class="bento-card reveal spotlight-card" style="transition-delay:.15s">
+                    <div class="bento-icon">⚙️</div>
+                    <h3>Backend & APIs</h3>
+                    <p>Scalable, secure REST APIs built with Node.js & Express, backed by MongoDB or PostgreSQL. Ready for high traffic.</p>
+                </div>
+                <div class="bento-card large-card reveal spotlight-card" style="transition-delay:.1s">
+                    <div class="bento-icon">🚀</div>
+                    <h3>End-to-End Solutions</h3>
+                    <p>I don't just write code — I deliver complete business solutions. Whether a SaaS product, custom ERP, or multi-vendor marketplace, I handle everything: database design, third-party integrations, and production deployment.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Skills Filter Matrix -->
+            <div class="skills-matrix reveal">
+                <div class="skills-matrix-header">
+                    <h3>Specialized Skills & Stack</h3>
+                    <p>Filter by domain or inspect my complete technical toolkit.</p>
+                </div>
+
+                <div class="skills-filter-tabs">
+                    <button class="skill-tab active" data-filter="all">All Skills</button>
+                    <button class="skill-tab" data-filter="industry">Industry Knowledge</button>
+                    <button class="skill-tab" data-filter="tools">Tools & Technologies</button>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Industry Knowledge -->
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">Full-Stack Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">SaaS Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">Mobile Application Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">Web Application Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">Custom Software Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">Admin Dashboard Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">API Development & Integration</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">E-Commerce Development</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="industry">
+                        <h4 class="skill-name">Freelancing & Consulting</h4>
+                    </div>
+
+                    <!-- Tools & Technologies -->
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">React Native</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">React.js</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Node.js</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Express.js</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">TypeScript</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">JavaScript</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">MongoDB</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">MySQL</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Amazon Web Services (AWS)</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">AWS Lambda</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Firebase</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">REST APIs</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Angular</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">AngularJS</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">HTML5</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">CSS3</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">SCSS / Sass</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Bootstrap</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Tailwind CSS</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Next.js</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Redux</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">GraphQL</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">SQL / PostgreSQL</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Figma</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Postman</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">Git / GitHub</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">WooCommerce</h4>
+                    </div>
+                    <div class="skill-card spotlight-card" data-category="tools">
+                        <h4 class="skill-name">WordPress</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section id="process" class="process-section-bg">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">How I Work</div>
+                <h2 class="section-title">My <span>Process</span></h2>
+                <p class="section-subtitle">From early-stage idea to a production-ready application — a reliable, repeatable process.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step reveal spotlight-card">
+                    <div class="step-num">01</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Discovery</h3>
+                    <p>Understanding requirements, target audience, and feature scope. I help refine ideas into clear technical specifications.</p>
+                </div>
+                <div class="process-step reveal spotlight-card" style="transition-delay:.1s">
+                    <div class="step-num">02</div>
+                    <div class="step-icon">🏗️</div>
+                    <h3>Architecture</h3>
+                    <p>Database schema design, API structure planning, and selecting the right tech stack for long-term scalability.</p>
+                </div>
+                <div class="process-step reveal spotlight-card" style="transition-delay:.2s">
+                    <div class="step-num">03</div>
+                    <div class="step-icon">💻</div>
+                    <h3>Development</h3>
+                    <p>Building mobile and web interfaces with secure backend APIs. I write clean, modular, and well-documented code.</p>
+                </div>
+                <div class="process-step reveal spotlight-card" style="transition-delay:.3s">
+                    <div class="step-num">04</div>
+                    <div class="step-icon">🚀</div>
+                    <h3>Deployment</h3>
+                    <p>App Store & Play Store launches, server deployment, comprehensive testing, and ongoing maintenance support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Experience</div>
+                <h2 class="section-title">Career <span>Journey</span></h2>
+                <p class="section-subtitle">A track record of growth and successful project deliveries.</p>
+            </div>
+
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content spotlight-card">
+                        <span class="timeline-date">Mar 2020 – Present · 6+ Years</span>
+                        <h3>Freelance Full-Stack Developer</h3>
+                        <h4>Self-Employed · Remote</h4>
+                        <p>Partnering with founders and businesses worldwide to build complete digital solutions. Architected and delivered 40+ projects including e-commerce platforms, SaaS dashboards, booking systems, and workforce management applications using React Native, React.js, Node.js, and MongoDB.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content spotlight-card">
+                        <span class="timeline-date">Feb 2022 – Oct 2022</span>
+                        <h3>Web Developer Intern</h3>
+                        <h4>Gridrnd · Bengaluru, India</h4>
+                        <p>Built responsive web interfaces with React.js and Redux. Integrated RESTful APIs with Axios, and developed backend microservices with Node.js, Express, and MongoDB. Consistently improved UI/UX through client feedback and data-driven iterations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content spotlight-card">
+                        <span class="timeline-date">2018 – 2022</span>
+                        <h3>B.E. in Computer Science</h3>
+                        <h4>Bangalore Institute of Technology · CGPA 8.2</h4>
+                        <p>Graduated with strong foundations in data structures, algorithms, DBMS, and software engineering principles that continue to inform every production system I build today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="work">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Portfolio</div>
+                <h2 class="section-title">Selected <span>Work</span></h2>
+                <p class="section-subtitle">Real-world applications built to solve complex business challenges.</p>
+            </div>
+
+            <div class="project-list">
+
+                <!-- Project 1 — Ondeen -->
+                <div class="project-row reveal">
+                    <div class="project-visual">
+                        <div class="mockup-mobile mockup-phone-secondary">
+                            <div class="mockup-web-bar" style="height:32px; background:#111; border-bottom:1px solid #222;"></div>
+                            <div class="mockup-web-body">
+                                <div class="mk-line" style="height:56px; border-radius:8px;"></div>
+                                <div class="mk-line" style="height:56px; border-radius:8px;"></div>
+                            </div>
+                        </div>
+                        <div class="mockup-mobile mockup-phone-primary">
+                            <div class="mockup-web-body" style="padding-top:32px;">
+                                <div class="mk-line" style="width:60%; height:16px; margin-bottom:16px;"></div>
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                                    <div class="mk-line" style="height:90px;border-radius:10px;background:#6366f1;"></div>
+                                    <div class="mk-line" style="height:90px;border-radius:10px;"></div>
+                                    <div class="mk-line" style="height:90px;border-radius:10px;"></div>
+                                    <div class="mk-line" style="height:90px;border-radius:10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-type-tag">Mobile Platform</div>
+                        <h3>Ondeen Event Booking</h3>
+                        <p class="project-desc">A premium cross-platform event booking application with real-time seat selection, Apple Pay & Google Pay integration, and a comprehensive organizer dashboard for full attendee management.</p>
+                        <div class="project-meta">
+                            <div class="meta-item"><h5>Stack</h5><p>React Native · Node.js</p></div>
+                            <div class="meta-item"><h5>Role</h5><p>Lead Full-Stack</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 — UrExpert -->
+                <div class="project-row reverse reveal">
+                    <div class="project-info">
+                        <div class="project-type-tag">Web Application</div>
+                        <h3>UrExpert Marketplace</h3>
+                        <p class="project-desc">A full-featured freelancing marketplace supporting job postings, product auctions, item rentals, and team collaboration with complex role-based access control (RBAC) built from the ground up.</p>
+                        <div class="project-meta">
+                            <div class="meta-item"><h5>Stack</h5><p>React.js · MongoDB</p></div>
+                            <div class="meta-item"><h5>Impact</h5><p>End-to-End Delivery</p></div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="mockup-web">
+                            <div class="mockup-web-bar">
+                                <div class="w-dot w-dot-r"></div>
+                                <div class="w-dot w-dot-y"></div>
+                                <div class="w-dot w-dot-g"></div>
+                            </div>
+                            <div class="mockup-web-body" style="flex-direction:row; gap:16px;">
+                                <div style="width:22%;background:var(--surface-color);border-radius:8px;"></div>
+                                <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+                                    <div class="mk-line" style="width:45%;height:24px;border-radius:6px;"></div>
+                                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+                                        <div class="mk-line" style="height:72px;background:#a855f7;border-radius:8px;"></div>
+                                        <div class="mk-line" style="height:72px;border-radius:8px;"></div>
+                                        <div class="mk-line" style="height:72px;border-radius:8px;"></div>
+                                    </div>
+                                    <div class="mk-line" style="flex:1;border-radius:8px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 — Timeinlive -->
+                <div class="project-row reveal">
+                    <div class="project-visual">
+                        <div class="mockup-mobile mockup-phone-primary">
+                            <div class="mockup-web-body" style="padding-top:32px;gap:8px;">
+                                <div class="mk-line" style="width:75%;height:24px;border-radius:4px;"></div>
+                                <div class="mk-line" style="height:52px;background:#10b981;border-radius:8px;"></div>
+                                <div class="mk-line" style="height:52px;border-radius:8px;"></div>
+                                <div class="mk-line" style="height:52px;border-radius:8px;"></div>
+                                <div class="mk-line" style="height:52px;border-radius:8px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-type-tag">Workforce App</div>
+                        <h3>Timeinlive Productivity</h3>
+                        <p class="project-desc">A comprehensive workforce management platform — employee attendance tracking, product catalog management, sales monitoring, and real-time reporting with advanced role-based permissions across multiple access levels.</p>
+                        <div class="project-meta">
+                            <div class="meta-item"><h5>Stack</h5><p>React Native · Node.js</p></div>
+                            <div class="meta-item"><h5>Role</h5><p>Full-Stack Developer</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 — Treat-It -->
+                <div class="project-row reverse reveal">
+                    <div class="project-info">
+                        <div class="project-type-tag">SaaS Web App</div>
+                        <h3>Treat-It Booking</h3>
+                        <p class="project-desc">A React-based booking engine for salon and at-home beauty services. Features professional dashboards for pricing and availability management, and seamless Stripe payment integration for a smooth consumer experience.</p>
+                        <div class="project-meta">
+                            <div class="meta-item"><h5>Stack</h5><p>React.js · Node.js · Stripe</p></div>
+                            <div class="meta-item"><h5>Impact</h5><p>B2C Booking System</p></div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="mockup-web">
+                            <div class="mockup-web-bar">
+                                <div class="w-dot w-dot-r"></div>
+                                <div class="w-dot w-dot-y"></div>
+                                <div class="w-dot w-dot-g"></div>
+                            </div>
+                            <div class="mockup-web-body" style="align-items:center;justify-content:center;gap:20px;">
+                                <div class="mk-line" style="width:50%;height:32px;border-radius:6px;"></div>
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;">
+                                    <div class="mk-line" style="height:100px;background:#10b981;border-radius:12px;"></div>
+                                    <div class="mk-line" style="height:100px;border-radius:12px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 — Organiser -->
+                <div class="project-row reveal">
+                    <div class="project-visual">
+                        <div class="mockup-mobile mockup-phone-secondary">
+                            <div class="mockup-web-body" style="padding-top:32px;">
+                                <div class="mk-line" style="height:56px;border-radius:8px;"></div>
+                            </div>
+                        </div>
+                        <div class="mockup-mobile mockup-phone-primary">
+                            <div class="mockup-web-body" style="padding-top:32px;gap:8px;">
+                                <div class="mk-line" style="width:75%;height:18px;background:#a855f7;border-radius:4px;"></div>
+                                <div class="mk-line" style="height:100px;border-radius:10px;"></div>
+                                <div class="mk-line" style="width:55%;height:16px;border-radius:4px;"></div>
+                                <div class="mk-line" style="width:70%;height:16px;border-radius:4px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-type-tag">Mobile App</div>
+                        <h3>Organiser Events</h3>
+                        <p class="project-desc">An event management platform purpose-built for organizers — secure ticket scanning, real-time announcements, speaker management, integrated wallet, and granular role-based access control for event staff.</p>
+                        <div class="project-meta">
+                            <div class="meta-item"><h5>Stack</h5><p>React Native · Node.js</p></div>
+                            <div class="meta-item"><h5>Impact</h5><p>Full Event Operations</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 — Holiday-Home -->
+                <div class="project-row reverse reveal">
+                    <div class="project-info">
+                        <div class="project-type-tag">Web Portal</div>
+                        <h3>Holiday-Home</h3>
+                        <p class="project-desc">A hotel and homestay booking platform designed for seamless search, filtering, and accommodation discovery. Features intuitive user dashboards and a dedicated admin panel for property owners to manage listings and bookings.</p>
+                        <div class="project-meta">
+                            <div class="meta-item"><h5>Stack</h5><p>React.js · Express</p></div>
+                            <div class="meta-item"><h5>Focus</h5><p>Search & Discovery</p></div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="mockup-web">
+                            <div class="mockup-web-bar">
+                                <div class="w-dot w-dot-r"></div>
+                                <div class="w-dot w-dot-y"></div>
+                                <div class="w-dot w-dot-g"></div>
+                            </div>
+                            <div class="mockup-web-body" style="gap:12px;">
+                                <div class="mk-line" style="width:100%;height:48px;border-radius:8px;"></div>
+                                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;flex:1;">
+                                    <div class="mk-line" style="border-radius:8px;min-height:80px;"></div>
+                                    <div class="mk-line" style="border-radius:8px;min-height:80px;"></div>
+                                    <div class="mk-line" style="border-radius:8px;min-height:80px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact">
+        <div class="container reveal">
+            <div class="contact-wrap">
+                <div class="contact-wrap-glow"></div>
+                <div class="contact-text">
+                    <div class="section-eyebrow">Get In Touch</div>
+                    <h2>Ready to scale<br>your vision?</h2>
+                    <p>I partner with startups and forward-thinking businesses to build software that drives real results. Let's discuss your next project.</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link-card spotlight-card">
+                        <div class="clc-info"><h4>Email Me</h4><p>sureshsirvi.dev@gmail.com</p></div>
+                        <div class="clc-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </div>
+                    </a>
+                    <a href="tel:+919902965742" class="contact-link-card spotlight-card">
+                        <div class="clc-info"><h4>Call Me</h4><p>+91 9902965742</p></div>
+                        <div class="clc-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/suresh-sirvi-261151428/" target="_blank" rel="noopener" class="contact-link-card spotlight-card">
+                        <div class="clc-info"><h4>LinkedIn</h4><p>Connect professionally</p></div>
+                        <div class="clc-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="footer-circle-wrap">
+            <!-- Circular Rotating Text -->
+            <div class="footer-circle-badge">
+                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="circlePath"
+                            d="M 100,100
+                               m -72,0
+                               a 72,72 0 1,1 144,0
+                               a 72,72 0 1,1 -144,0" />
+                    </defs>
+                    <text class="circle-text">
+                        <textPath href="#circlePath" startOffset="0%">
+                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Center icon -->
+                <div class="circle-center-icon">
+                    <span>⚡</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
