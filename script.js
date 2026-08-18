@@ -42,11 +42,11 @@ const setTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     if (theme === 'light') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'block';
     } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
+        if (sunIcon) sunIcon.style.display = 'block';
+        if (moonIcon) moonIcon.style.display = 'none';
     }
 };
 
@@ -122,9 +122,9 @@ spotlightCards.forEach(card => {
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
+        if (nav) nav.classList.add('scrolled');
     } else {
-        nav.classList.remove('scrolled');
+        if (nav) nav.classList.remove('scrolled');
     }
 });
 

@@ -1,0 +1,3282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outreach CRM & Toolkit | Suresh Sirvi</title>
+    <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+            font-family: 'Outfit', sans-serif;
+      font-family: var(--font);
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: block;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .header-container {
+      max-width: 800px;
+            margin: 50px auto;
+            width: 95%;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo-section {
+      display: block;
+    }
+
+    .logo-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+    }
+
+    .logo-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* ── TABS NAVIGATION ── */
+    .tabs-nav {
+      display: flex;
+      background: var(--bg-color);
+      padding: 4px;
+      border-radius: 30px;
+      border: 1px solid var(--surface-border);
+    }
+
+    .tab-button {
+      background: transparent;
+      border: none;
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-button:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-button.active {
+      background: var(--nav-bg);
+      color: var(--accent);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .tab-button svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* ── LAYOUT CONTENT ── */
+    .main-layout {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px;
+      display: block;
+      gap: 24px;
+      flex: 1;
+    }
+
+    /* ── RESOURCES CARD ── */
+    .resources-card {
+      background: #e0e7ff;
+      border: 1px solid #c7d2fe;
+      border-radius: var(--radius);
+      padding: 16px;
+      color: #312e81;
+      box-shadow: var(--shadow);
+    }
+
+    .resources-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .resource-item {
+      background: var(--nav-bg);
+      border: 1px solid #c7d2fe;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .resource-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+
+    .resource-info:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .btn-link-copy {
+      background: var(--bg-color);
+      border: 1px solid var(--surface-border);
+      color: var(--text-secondary);
+      padding: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .btn-link-copy:hover {
+      background: var(--primary-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-link-copy svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* ── TEMPLATE CARD ── */
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.2s ease-out forwards;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tpl-card {
+      background: var(--nav-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .tpl-header {
+      padding: 14px 20px;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--surface-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tpl-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .char-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .char-badge.green {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .char-badge.warn {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .char-badge.danger {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-copy {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s;
+    }
+
+    .btn-copy:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-copy svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .tpl-body {
+      padding: 18px 20px;
+    }
+
+    .tpl-preview {
+      background: var(--card-bg);
+      border: 1px solid #f1f5f9;
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    /* ── BOOLEAN GENERATOR ── */
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    textarea.input-styled,
+    select.input-styled,
+    input.input-styled {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    textarea.input-styled:focus,
+    select.input-styled:focus,
+    input.input-styled:focus {
+      border-color: var(--accent);
+      background: var(--nav-bg);
+      box-shadow: 0 0 0 2px var(--primary-glow);
+    }
+
+    /* ── TAGS ── */
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .keyword-tag {
+      background: var(--bg-color);
+      border: 1px solid var(--surface-border);
+      color: var(--text-dim);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .keyword-tag:hover {
+      background: var(--primary-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── TOAST ── */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-color);
+      color: white;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 1000;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-indicator {
+      width: 6px;
+      height: 6px;
+      background: var(--secondary);
+      border-radius: 50%;
+    }
+
+    /* ── CHECKLIST ── */
+    .chk-list {
+      display: block;
+      gap: 10px;
+    }
+
+    .chk-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+
+    .chk-item:hover {
+      border-color: var(--border-focus);
+    }
+
+    .chk-item.checked {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: var(--text-secondary);
+      text-decoration: line-through;
+    }
+
+    .chk-box {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--text-secondary);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chk-item.checked .chk-box {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .chk-box svg {
+      width: 10px;
+      height: 10px;
+      fill: none;
+      stroke: white;
+      stroke-width: 3px;
+      display: none;
+    }
+
+    .chk-item.checked .chk-box svg {
+      display: block;
+    }
+
+    /* ── POWER SEARCH PLATFORM STYLES ── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .platform-box {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      display: block;
+      gap: 8px;
+    }
+
+    .platform-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .platform-query-input {
+      font-family: monospace;
+      font-size: 0.75rem;
+      background: white !important;
+      border: 1px solid var(--surface-border) !important;
+      border-radius: 4px;
+      padding: 6px 8px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .platform-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-plat-action {
+      flex: 1;
+      padding: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+
+    .btn-plat-copy {
+      background: white;
+      border: 1px solid var(--surface-border);
+      color: var(--text-dim);
+    }
+
+    .btn-plat-copy:hover {
+      background: var(--primary-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-plat-launch {
+      background: var(--text-primary);
+      border: none;
+      color: white;
+    }
+
+    .btn-plat-launch:hover {
+      background: var(--card-bg);
+    }
+
+    @media (max-width: 768px) {
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .tabs-nav {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* ── INTERVIEW Q&A TAB STYLES ── */
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 16px 14px 44px;
+      font-size: 0.95rem;
+      background: var(--nav-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-pill {
+      background: var(--bg-color);
+      border: 1px solid var(--surface-border);
+      color: var(--text-dim);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .filter-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .qa-card {
+      background: var(--nav-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .qa-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-color: var(--primary-light);
+    }
+
+    .qa-header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .qa-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .qa-category-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .badge-rn {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .badge-react {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .badge-node {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-js {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-hr {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    .badge-portal {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .qa-question {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .qa-toggle-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--text-dim);
+      transition: transform 0.3s ease;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .qa-card.open .qa-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .qa-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .qa-content {
+      padding: 0 20px 20px 20px;
+      border-top: 1px solid var(--border-light);
+      margin-top: 0;
+    }
+
+    .qa-answer-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      margin-top: 14px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .qa-answer-box {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.88rem;
+      background: var(--bg-color);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text-bright);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      position: relative;
+    }
+
+    .highlight {
+      background: rgba(234, 179, 8, 0.2);
+      color: #facc15;
+      padding: 1px 3px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+  
+        /* ── TOPBAR ── */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 14px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+        }
+        .topbar-left { display: flex; align-items: center; gap: 12px; }
+        .topbar-back {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--accent); }
+        .topbar-sep { color: var(--text-secondary); opacity: 0.5; }
+        .topbar-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+        
+        .topbar-contact { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; }
+        .contact-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .contact-link:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .topbar { padding: 12px 20px; flex-wrap: wrap; }
+            .topbar-contact { display: none; /* Hide on mobile */ }
+            .container { margin: 30px auto !important; width: 92% !important; }
+            body { padding: 0 0 50px 0 !important; }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="custom-cursor"></div>
+
+    <div class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-back">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Back to Portfolio
+            </a>
+            <span class="topbar-sep">/</span>
+            <span class="topbar-title">Outreach Copy Hub</span>
+        </div>
+        <div class="topbar-contact">
+            <a href="tel:+919902965742" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91 8310634421
+            </a>
+            <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                sureshsirvi.dev@gmail.com
+            </a>
+        </div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+  <!-- ── HEADER & NAVIGATION ── -->
+  <header>
+    <div class="header-container">
+
+      <div class="tabs-nav">
+        <button class="tab-button active" data-tab="linkedin">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8h2.8v-4.87c0-.26.05-.5.14-.69a1.62 1.62 0 0 1 1.48-1.08c.75 0 1.3.58 1.3 1.42v5.22h2.8M6.5 8.37a1.37 1.37 0 0 0 1.38-1.37c0-.76-.62-1.38-1.38-1.38A1.37 1.37 0 0 0 5.1 7c0 .75.62 1.37 1.4 1.37m1.4 10.13V10.5h-2.8v8h2.8z" />
+          </svg>
+          LinkedIn
+        </button>
+        <button class="tab-button" data-tab="mobile">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+          </svg>
+          Mobile Message
+        </button>
+        <button class="tab-button" data-tab="search">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
+          Project Search
+        </button>
+        <button class="tab-button" data-tab="power-search">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M13.13 22.19L11.5 22l.25-5.5H7.5c-.83 0-1.5-.67-1.5-1.5 0-.25.06-.48.18-.69L10.87 2.19 12.5 2l-.25 5.5H16.5c.83 0 1.5.67 1.5 1.5 0 .25-.06.48-.18.69L13.13 22.19z" />
+          </svg>
+          Power Searches
+        </button>
+        <button class="tab-button" data-tab="interview-qa">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z" />
+          </svg>
+          Interview Q&A
+        </button>
+        <button class="tab-button" data-tab="form-deck">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+          </svg>
+          Form Deck
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN CRM GRID LAYOUT ── -->
+  <div class="main-layout">
+
+    <!-- ── TAB: LINKEDIN ── -->
+    <div class="tab-panel active" id="panel-linkedin">
+      <!-- Common Resources embedded in tab -->
+      <div class="resources-card" style="margin-bottom: 20px;">
+        <div class="resources-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+          Suresh Sirvi Resources
+        </div>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <a class="resource-info"
+              href="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+              target="_blank">📄 Resume Link</a>
+            <button class="btn-link-copy"
+              onclick="copyText('https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info"
+              href="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
+              target="_blank">🎥 Video Pitch</a>
+            <button class="btn-link-copy"
+              onclick="copyText('https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info" href="https://www.linkedin.com/in/ramesh-seervi-3976802b0" target="_blank">🔗
+              LinkedIn</a>
+            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/ramesh-seervi-3976802b0')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info" href="https://github.com/ramseervi2024" target="_blank">🐱 GitHub Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://github.com/ramseervi2024')" title="Copy Link"><svg
+                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template 1 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">
+            1. Connection Request Note
+            <span class="char-badge green" id="badge-li-req">0 / 300</span>
+          </span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('li-req')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-li-req"></div>
+        </div>
+      </div>
+
+      <!-- Template 2 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">2. Short Pitch Message / DM</span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('li-dm')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-li-dm"></div>
+        </div>
+      </div>
+
+      <!-- Template 3 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">3. Value Comment on Project Postings</span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('li-comment')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-li-comment"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: MOBILE MESSAGE ── -->
+    <div class="tab-panel" id="panel-mobile">
+      <!-- Common Resources embedded in tab -->
+      <div class="resources-card" style="margin-bottom: 20px;">
+        <div class="resources-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+          Suresh Sirvi Resources
+        </div>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <a class="resource-info"
+              href="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+              target="_blank">📄 Resume Link</a>
+            <button class="btn-link-copy"
+              onclick="copyText('https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info"
+              href="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
+              target="_blank">🎥 Video Pitch</a>
+            <button class="btn-link-copy"
+              onclick="copyText('https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info" href="https://www.linkedin.com/in/ramesh-seervi-3976802b0" target="_blank">🔗
+              LinkedIn</a>
+            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/ramesh-seervi-3976802b0')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info" href="https://github.com/ramseervi2024" target="_blank">🐱 GitHub Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://github.com/ramseervi2024')" title="Copy Link"><svg
+                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template 1 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">1. Recruiter WhatsApp Outreach Pitch</span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('wa-pitch')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-wa-pitch"></div>
+        </div>
+      </div>
+
+      <!-- Template 2 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">2. Naukri Direct Message Pitch</span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('naukri-pitch')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-naukri-pitch"></div>
+        </div>
+      </div>
+
+      <!-- Template 3 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">3. Short Mobile Text / SMS Pitch</span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('sms-pitch')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-sms-pitch"></div>
+        </div>
+      </div>
+
+      <!-- Template 4 -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">4. Common Cover Letter</span>
+          <div class="action-buttons">
+            <button class="btn-copy" onclick="copyVal('cover-letter')">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-preview" id="preview-cover-letter"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: PROJECT SEARCH ── -->
+    <div class="tab-panel" id="panel-search">
+      <!-- Common Resources embedded in tab -->
+      <div class="resources-card" style="margin-bottom: 20px;">
+        <div class="resources-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+          Suresh Sirvi Resources
+        </div>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <a class="resource-info"
+              href="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+              target="_blank">📄 Resume Link</a>
+            <button class="btn-link-copy"
+              onclick="copyText('https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info"
+              href="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
+              target="_blank">🎥 Video Pitch</a>
+            <button class="btn-link-copy"
+              onclick="copyText('https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info" href="https://www.linkedin.com/in/ramesh-seervi-3976802b0" target="_blank">🔗
+              LinkedIn</a>
+            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/ramesh-seervi-3976802b0')"
+              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+          <div class="resource-item">
+            <a class="resource-info" href="https://github.com/ramseervi2024" target="_blank">🐱 GitHub Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://github.com/ramseervi2024')" title="Copy Link"><svg
+                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boolean Search -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">Boolean Query Builder</span>
+        </div>
+        <div class="tpl-body">
+          <div class="search-row">
+            <div class="input-group">
+              <label>Job Titles (OR)</label>
+              <input type="text" id="b-roles" value='"React Native" OR "React.js" OR "React Developer"'>
+            </div>
+            <div class="input-group">
+              <label>Location/Status</label>
+              <input type="text" id="b-loc" value='"Bengaluru" OR "Bangalore" OR "Remote"'>
+            </div>
+          </div>
+          <div class="search-row">
+            <div class="input-group">
+              <label>Target People (OR)</label>
+              <input type="text" id="b-rec" value='"Technical Recruiter" OR "Hiring Manager" OR "Founder"'>
+            </div>
+            <div class="input-group">
+              <label>Search Platform Filter</label>
+              <select class="input-styled" id="b-plat">
+                <option value="li-profiles">Google Search for LinkedIn Profiles</option>
+                <option value="li-posts">Google Search for active hiring posts</option>
+              </select>
+            </div>
+          </div>
+
+          <textarea id="booleanOutput" class="input-styled"
+            style="height: 80px; font-family: monospace; font-size: 0.82rem; margin-bottom: 12px;" readonly></textarea>
+
+          <div style="display:flex; gap:10px;">
+            <button class="btn-copy" style="flex:1; justify-content:center;" id="btnCopyBool">Copy Search
+              String</button>
+            <button class="btn-copy" style="flex:1; justify-content:center; background: var(--card-bg);"
+              id="btnLaunchBool">Search on Google</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recruiter Boolean Library -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">Ready-to-Use Recruiter X-Ray Finder</span>
+        </div>
+        <div class="tpl-body">
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 12px;">X-Ray search LinkedIn to find
+            decision-makers hiring for React/React Native in Bangalore:</p>
+
+          <div style="display: block; gap:12px;">
+            <!-- Row 1 -->
+            <div
+              style="background: var(--card-bg); border:1px solid var(--surface-border); padding:10px; border-radius:var(--radius-sm); display: block; gap:6px;">
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">1. Tech Recruiters &amp; Talent
+                Acquisition (Bangalore)</span>
+              <input type="text" class="platform-query-input" id="rec-bool-1" readonly
+                value='site:linkedin.com/in/ AND ("Technical Recruiter" OR "Talent Acquisition" OR "HR Recruiter") AND ("React Native" OR "React.js") AND ("Bangalore" OR "Bengaluru")'>
+              <div style="display:flex; gap:6px;">
+                <button class="btn-plat-action btn-plat-copy" style="padding:4px;"
+                  onclick="copyText(document.getElementById('rec-bool-1').value, 'Query copied!')">Copy Query</button>
+                <button class="btn-plat-action btn-plat-launch" style="padding:4px;"
+                  onclick="window.open('https://www.google.com/search?q=' + encodeURIComponent(document.getElementById('rec-bool-1').value), '_blank')">Launch
+                  on Google</button>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div
+              style="background: var(--card-bg); border:1px solid var(--surface-border); padding:10px; border-radius:var(--radius-sm); display: block; gap:6px;">
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">2. Startup Founders &amp; CTOs
+                (Bangalore/Remote)</span>
+              <input type="text" class="platform-query-input" id="rec-bool-2" readonly
+                value='site:linkedin.com/in/ AND ("Founder" OR "Co-Founder" OR "CTO" OR "CEO") AND ("React Native" OR "React.js") AND ("Bangalore" OR "Bengaluru" OR "Remote")'>
+              <div style="display:flex; gap:6px;">
+                <button class="btn-plat-action btn-plat-copy" style="padding:4px;"
+                  onclick="copyText(document.getElementById('rec-bool-2').value, 'Query copied!')">Copy Query</button>
+                <button class="btn-plat-action btn-plat-launch" style="padding:4px;"
+                  onclick="window.open('https://www.google.com/search?q=' + encodeURIComponent(document.getElementById('rec-bool-2').value), '_blank')">Launch
+                  on Google</button>
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div
+              style="background: var(--card-bg); border:1px solid var(--surface-border); padding:10px; border-radius:var(--radius-sm); display: block; gap:6px;">
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">3. Engineering Managers &amp;
+                Tech Leads (Bangalore)</span>
+              <input type="text" class="platform-query-input" id="rec-bool-3" readonly
+                value='site:linkedin.com/in/ AND ("Engineering Manager" OR "Tech Lead" OR "VP of Engineering") AND ("React Native" OR "React" OR "Node.js") AND ("Bangalore" OR "Bengaluru")'>
+              <div style="display:flex; gap:6px;">
+                <button class="btn-plat-action btn-plat-copy" style="padding:4px;"
+                  onclick="copyText(document.getElementById('rec-bool-3').value, 'Query copied!')">Copy Query</button>
+                <button class="btn-plat-action btn-plat-launch" style="padding:4px;"
+                  onclick="window.open('https://www.google.com/search?q=' + encodeURIComponent(document.getElementById('rec-bool-3').value), '_blank')">Launch
+                  on Google</button>
+              </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div
+              style="background: var(--card-bg); border:1px solid var(--surface-border); padding:10px; border-radius:var(--radius-sm); display: block; gap:6px;">
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">4. Clients seeking "Immediate
+                Freelancers" (Global)</span>
+              <input type="text" class="platform-query-input" id="rec-bool-4" readonly
+                value='site:linkedin.com/in/ AND ("Founder" OR "CTO") AND ("React Native" OR "React") AND "freelance" AND ("Remote" OR "Global")'>
+              <div style="display:flex; gap:6px;">
+                <button class="btn-plat-action btn-plat-copy" style="padding:4px;"
+                  onclick="copyText(document.getElementById('rec-bool-4').value, 'Query copied!')">Copy Query</button>
+                <button class="btn-plat-action btn-plat-launch" style="padding:4px;"
+                  onclick="window.open('https://www.google.com/search?q=' + encodeURIComponent(document.getElementById('rec-bool-4').value), '_blank')">Launch
+                  on Google</button>
+              </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div
+              style="background: var(--card-bg); border:1px solid var(--surface-border); padding:10px; border-radius:var(--radius-sm); display: block; gap:6px;">
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">5. Direct Google Forms/Docs Contract
+                Postings</span>
+              <input type="text" class="platform-query-input" id="rec-bool-5" readonly
+                value='site:docs.google.com/forms/ AND ("React Native" OR "React") AND "freelance" AND "Remote"'>
+              <div style="display:flex; gap:6px;">
+                <button class="btn-plat-action btn-plat-copy" style="padding:4px;"
+                  onclick="copyText(document.getElementById('rec-bool-5').value, 'Query copied!')">Copy Query</button>
+                <button class="btn-plat-action btn-plat-launch" style="padding:4px;"
+                  onclick="window.open('https://www.google.com/search?q=' + encodeURIComponent(document.getElementById('rec-bool-5').value), '_blank')">Launch
+                  on Google</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LinkedIn Search Tags -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">LinkedIn Search Tags &amp; Snippets</span>
+        </div>
+        <div class="tpl-body">
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 10px;">Click to copy these search terms to
+            paste into LinkedIn's search bar to find hiring posts:</p>
+          <div class="tag-container">
+            <button class="keyword-tag" onclick="copyTag('\" React Native\" AND \"hiring\" AND \"Bangalore\"')">🏷️
+              "React Native" AND "hiring" AND "Bangalore"</button>
+            <button class="keyword-tag" onclick="copyTag('\" React Native\" Bengaluru immediate')">🏷️ "React Native"
+              Bengaluru immediate</button>
+            <button class="keyword-tag" onclick="copyTag('\" actively hiring\" \"React Native\"')">🏷️ "actively hiring"
+              "React Native"</button>
+            <button class="keyword-tag" onclick="copyTag('\" Full Stack\" AND \"React Native\" AND \"immediate\"')">🏷️
+              "Full Stack" AND "React Native" AND "immediate"</button>
+            <button class="keyword-tag" onclick="copyTag('\" React Native Developer\" \"Bangalore\"')">🏷️ "React Native
+              Developer" "Bangalore"</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Naukri Search Tags & Key Skills -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">Naukri Key Skills &amp; Search Tags</span>
+        </div>
+        <div class="tpl-body">
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 10px;">Copy these key skills/tags to add
+            to your Naukri profile or search bar to match active hiring software:</p>
+          <div class="tag-container">
+            <button class="keyword-tag" onclick="copyTag('React Native')">🏷️ React Native</button>
+            <button class="keyword-tag" onclick="copyTag('React.js')">🏷️ React.js</button>
+            <button class="keyword-tag" onclick="copyTag('Node.js')">🏷️ Node.js</button>
+            <button class="keyword-tag" onclick="copyTag('Redux')">🏷️ Redux</button>
+            <button class="keyword-tag" onclick="copyTag('JavaScript')">🏷️ JavaScript</button>
+            <button class="keyword-tag" onclick="copyTag('TypeScript')">🏷️ TypeScript</button>
+            <button class="keyword-tag" onclick="copyTag('Express.js')">🏷️ Express.js</button>
+            <button class="keyword-tag" onclick="copyTag('MongoDB')">🏷️ MongoDB</button>
+            <button class="keyword-tag" onclick="copyTag('Immediate Freelancer')">🏷️ Immediate Freelancer</button>
+            <button class="keyword-tag" onclick="copyTag('MERN Stack')">🏷️ MERN Stack</button>
+            <button class="keyword-tag" onclick="copyTag('Full Stack Freelance Developer')">🏷️ Full Stack Freelance
+              Developer</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Search Checklist -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">Daily Search Checklist</span>
+        </div>
+        <div class="tpl-body">
+          <div class="chk-list" id="chk-container">
+            <!-- Checklist items filled by JS -->
+          </div>
+          <button class="btn-copy" style="margin-top: 14px; background:#64748b;" id="btnResetChk">Reset Checked
+            Items</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: POWER SEARCH ── -->
+    <div class="tab-panel" id="panel-power-search">
+      <!-- Info Header -->
+      <div class="resources-card"
+        style="margin-bottom: 20px; background: #e0f2fe; border-color: #bae6fd; color: #0369a1;">
+        <div class="resources-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          Smart Project Search Assistant
+        </div>
+        </p>
+      </div>
+
+      <!-- Card 1: Immediate Freelance Roles (Last 3 Days Only) -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">
+            <span
+              style="background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;">Fresh
+              (Last 3 Days)</span>
+            1. Immediate Freelance Search
+          </span>
+        </div>
+        <div class="tpl-body">
+          <div class="platform-grid">
+            <!-- Google (Last 3 Days) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#db4437;">
+                Google Search (Last 3 Days)
+              </div>
+              <input type="text" class="platform-query-input" id="q-google-immediate" readonly
+                value='site:linkedin.com/posts/ AND ("freelance" OR "contract") AND ("React Native" OR "React JS" OR "Node.js") AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-google-immediate').value, 'Google query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('google-immediate', 'q-google-immediate')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Posts (Sorted by Date) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Posts (Latest)
+              </div>
+              <input type="text" class="platform-query-input" id="q-li-immediate" readonly
+                value='("freelance" OR "contract") AND ("React Native" OR "React") AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-li-immediate').value, 'LinkedIn query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-posts', 'q-li-immediate')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Jobs (Job Board) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-lijobs-immediate" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-lijobs-immediate').value, 'LinkedIn contract query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-jobs', 'q-lijobs-immediate')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Naukri -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#4f46e5;">
+                Naukri Freelance
+              </div>
+              <input type="text" class="platform-query-input" id="q-naukri-immediate" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-naukri-immediate').value, 'Naukri query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('naukri', 'q-naukri-immediate', '3')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Instahyre -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#10b981;">
+                Instahyre Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-instahyre-immediate" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-instahyre-immediate').value, 'Instahyre query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('instahyre', 'q-instahyre-immediate')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Hirist -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#8b5cf6;">
+                Hirist Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-hirist-immediate" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-hirist-immediate').value, 'Hirist query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('hirist', 'q-hirist-immediate')">Launch</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outreach Message Pitch -->
+          <div style="margin-top: 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--text-dim);">Custom Pitch: Immediate Freelancer
+                (Global/Remote)</span>
+              <button class="btn-copy" onclick="copyVal('query-immediate-pitch')">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Pitch
+              </button>
+            </div>
+            <div class="tpl-preview" id="preview-query-immediate-pitch"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Walk-in Drive - React Native / React (Bangalore, Recent only) -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">
+            <span
+              style="background: #e0e7ff; color: #3730a3; padding: 2px 8px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;">Bangalore
+              Walk-Ins</span>
+            2. Walk-in Drive - React Native / React
+          </span>
+        </div>
+        <div class="tpl-body">
+          <div class="platform-grid">
+            <!-- Google (Last 7 Days) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#db4437;">
+                Google Search (Last 7 Days)
+              </div>
+              <input type="text" class="platform-query-input" id="q-google-walkin" readonly
+                value='site:linkedin.com/posts/ AND ("walkin" OR "walk-in" OR "drive") AND ("React Native" OR "React JS" OR "React") AND "Bangalore"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-google-walkin').value, 'Google query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('google-recent', 'q-google-walkin')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Posts (Sorted by Date) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Posts (Latest)
+              </div>
+              <input type="text" class="platform-query-input" id="q-li-walkin" readonly
+                value='"walk-in" OR "walkin" AND ("React Native" OR "React") AND "Bangalore" AND ("upcoming" OR "ongoing" OR "hiring")'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-li-walkin').value, 'LinkedIn query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-posts', 'q-li-walkin')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Jobs (Job Board) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-lijobs-walkin" readonly value="React Native Walkin">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-lijobs-walkin').value, 'LinkedIn contract query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-jobs', 'q-lijobs-walkin')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Naukri -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#4f46e5;">
+                Naukri Freelance
+              </div>
+              <input type="text" class="platform-query-input" id="q-naukri-walkin" readonly value="React Native Walkin">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-naukri-walkin').value, 'Naukri query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('naukri', 'q-naukri-walkin')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Instahyre -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#10b981;">
+                Instahyre Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-instahyre-walkin" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-instahyre-walkin').value, 'Instahyre query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('instahyre', 'q-instahyre-walkin')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Hirist -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#8b5cf6;">
+                Hirist Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-hirist-walkin" readonly value="React Native Walkin">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-hirist-walkin').value, 'Hirist query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('hirist', 'q-hirist-walkin')">Launch</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outreach Message Pitch -->
+          <div style="margin-top: 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--text-dim);">Custom Pitch: Walk-in Drive
+                Inquiries</span>
+              <button class="btn-copy" onclick="copyVal('query-walkin-pitch')">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Pitch
+              </button>
+            </div>
+            <div class="tpl-preview" id="preview-query-walkin-pitch"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: React.js, JavaScript, Node.js Hiring -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">
+            <span
+              style="background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;">Full-Stack</span>
+            3. React.js, JavaScript, Node.js Hiring
+          </span>
+        </div>
+        <div class="tpl-body">
+          <div class="platform-grid">
+            <!-- Google (Last 7 Days) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#db4437;">
+                Google Search (Last 7 Days)
+              </div>
+              <input type="text" class="platform-query-input" id="q-google-reactnode" readonly
+                value='site:linkedin.com/posts/ ("React JS" OR "React.js" OR "Full Stack") AND ("NodeJS" OR "Node.js") AND "Bangalore" AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-google-reactnode').value, 'Google query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('google-recent', 'q-google-reactnode')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Posts (Sorted by Date) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Posts (Latest)
+              </div>
+              <input type="text" class="platform-query-input" id="q-li-reactnode" readonly
+                value='"React.js" AND "Node.js" AND "hiring" AND "Bangalore"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-li-reactnode').value, 'LinkedIn query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-posts', 'q-li-reactnode')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Jobs (Job Board) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-lijobs-reactnode" readonly value="React Node">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-lijobs-reactnode').value, 'LinkedIn contract query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-jobs', 'q-lijobs-reactnode')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Naukri -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#4f46e5;">
+                Naukri Freelance
+              </div>
+              <input type="text" class="platform-query-input" id="q-naukri-reactnode" readonly value="React Node">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-naukri-reactnode').value, 'Naukri query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('naukri', 'q-naukri-reactnode', '3')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Instahyre -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#10b981;">
+                Instahyre Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-instahyre-reactnode" readonly value="React Node">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-instahyre-reactnode').value, 'Instahyre query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('instahyre', 'q-instahyre-reactnode')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Hirist -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#8b5cf6;">
+                Hirist Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-hirist-reactnode" readonly value="React Node">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-hirist-reactnode').value, 'Hirist query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('hirist', 'q-hirist-reactnode')">Launch</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outreach Message Pitch -->
+          <div style="margin-top: 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--text-dim);">Custom Pitch: React JS / Node JS
+                Roles</span>
+              <button class="btn-copy" onclick="copyVal('query-reactnode-pitch')">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Pitch
+              </button>
+            </div>
+            <div class="tpl-preview" id="preview-query-reactnode-pitch"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: 3-6+ years experience Roles -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">
+            <span
+              style="background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;">3-4
+              Yrs Exp</span>
+            4. 3-6+ years experience Roles
+          </span>
+        </div>
+        <div class="tpl-body">
+          <div class="platform-grid">
+            <!-- Google (Last 7 Days) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#db4437;">
+                Google Search (Last 7 Days)
+              </div>
+              <input type="text" class="platform-query-input" id="q-google-3-4-year" readonly
+                value='site:linkedin.com/posts/ ("React Native" OR "React JS") AND ("3+ years" OR "3-4 years") AND "Bangalore" AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-google-3-4-year').value, 'Google query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('google-recent', 'q-google-3-4-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Posts (Sorted by Date) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Posts (Latest)
+              </div>
+              <input type="text" class="platform-query-input" id="q-li-3-4-year" readonly
+                value='("React Native" OR "React") AND ("3+ years" OR "3-4 years") AND "Bangalore" AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-li-3-4-year').value, 'LinkedIn query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-posts', 'q-li-3-4-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Jobs (Job Board) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-lijobs-3-4-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-lijobs-3-4-year').value, 'LinkedIn contract query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-jobs', 'q-lijobs-3-4-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Naukri -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#4f46e5;">
+                Naukri Freelance
+              </div>
+              <input type="text" class="platform-query-input" id="q-naukri-3-4-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-naukri-3-4-year').value, 'Naukri query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('naukri', 'q-naukri-3-4-year', '3')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Instahyre -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#10b981;">
+                Instahyre Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-instahyre-3-4-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-instahyre-3-4-year').value, 'Instahyre query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('instahyre', 'q-instahyre-3-4-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Hirist -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#8b5cf6;">
+                Hirist Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-hirist-3-4-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-hirist-3-4-year').value, 'Hirist query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('hirist', 'q-hirist-3-4-year')">Launch</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outreach Message Pitch -->
+          <div style="margin-top: 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--text-dim);">Custom Pitch: 3-4 Years Exp
+                Roles</span>
+              <button class="btn-copy" onclick="copyVal('query-3-4-year-pitch')">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Pitch
+              </button>
+            </div>
+            <div class="tpl-preview" id="preview-query-3-4-year-pitch"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: 4-5 Years Experience Roles -->
+      <div class="tpl-card">
+        <div class="tpl-header">
+          <span class="tpl-title">
+            <span
+              style="background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 12px; font-size: 0.72rem; font-weight: 700;">4-5
+              Yrs Exp</span>
+            5. 4-5 Years Experience Roles (Senior Pitch)
+          </span>
+        </div>
+        <div class="tpl-body">
+          <div class="platform-grid">
+            <!-- Google (Last 7 Days) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#db4437;">
+                Google Search (Last 7 Days)
+              </div>
+              <input type="text" class="platform-query-input" id="q-google-4-5-year" readonly
+                value='site:linkedin.com/posts/ ("React Native" OR "React JS") AND ("4 years" OR "4-5 years") AND "Bangalore" AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-google-4-5-year').value, 'Google query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('google-recent', 'q-google-4-5-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Posts (Sorted by Date) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Posts (Latest)
+              </div>
+              <input type="text" class="platform-query-input" id="q-li-4-5-year" readonly
+                value='("React Native" OR "React") AND ("4 years" OR "4-5 years") AND "Bangalore" AND "hiring"'>
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-li-4-5-year').value, 'LinkedIn query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-posts', 'q-li-4-5-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Jobs (Job Board) -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#0077b5;">
+                LinkedIn Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-lijobs-4-5-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-lijobs-4-5-year').value, 'LinkedIn contract query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('li-jobs', 'q-lijobs-4-5-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Naukri -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#4f46e5;">
+                Naukri Freelance
+              </div>
+              <input type="text" class="platform-query-input" id="q-naukri-4-5-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-naukri-4-5-year').value, 'Naukri query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('naukri', 'q-naukri-4-5-year', '4')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Instahyre -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#10b981;">
+                Instahyre Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-instahyre-4-5-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-instahyre-4-5-year').value, 'Instahyre query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('instahyre', 'q-instahyre-4-5-year')">Launch</button>
+              </div>
+            </div>
+
+            <!-- Hirist -->
+            <div class="platform-box">
+              <div class="platform-name" style="color:#8b5cf6;">
+                Hirist Contracts
+              </div>
+              <input type="text" class="platform-query-input" id="q-hirist-4-5-year" readonly value="React Native">
+              <div class="platform-actions">
+                <button class="btn-plat-action btn-plat-copy"
+                  onclick="copyText(document.getElementById('q-hirist-4-5-year').value, 'Hirist query copied!')">Copy</button>
+                <button class="btn-plat-action btn-plat-launch"
+                  onclick="launchSearch('hirist', 'q-hirist-4-5-year')">Launch</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outreach Message Pitch -->
+          <div style="margin-top: 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--text-dim);">Custom Pitch: 4-5 Years Exp
+                Roles</span>
+              <button class="btn-copy" onclick="copyVal('query-4-5-year-pitch')">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Pitch
+              </button>
+            </div>
+            <div class="tpl-preview" id="preview-query-4-5-year-pitch"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: INTERVIEW Q&A ── -->
+    <div class="tab-panel" id="panel-interview-qa">
+      <!-- Info Header -->
+      <div class="resources-card"
+        style="margin-bottom: 20px; background: #e0f2fe; border-color: #bae6fd; color: #0369a1;">
+        <div class="resources-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z" />
+          </svg>
+          Interactive Interview Q&A Copier
+        </div>
+        <p style="font-size: 0.82rem; line-height: 1.4; color: var(--text-dim);">
+          Quickly search, filter, and copy high-impact short answers for technical screens, chat pitches, and HR
+          discussions. Click any card to expand/collapse.
+        </p>
+      </div>
+
+      <!-- Search and Filter Section -->
+      <div class="search-wrapper">
+        <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" id="qaSearch" placeholder="Search questions, answers, or keywords..."
+          oninput="filterQA()">
+      </div>
+
+      <div class="filter-container">
+        <button class="filter-pill active" onclick="filterCategory('all', this)">All Questions</button>
+        <button class="filter-pill" onclick="filterCategory('hr', this)">HR & Profile</button>
+        <button class="filter-pill" onclick="filterCategory('portal', this)">Form Auto-Fill</button>
+        <button class="filter-pill" onclick="filterCategory('rn', this)">React Native</button>
+        <button class="filter-pill" onclick="filterCategory('react', this)">React JS</button>
+        <button class="filter-pill" onclick="filterCategory('node', this)">Node.js & Express</button>
+        <button class="filter-pill" onclick="filterCategory('js', this)">JS & TS</button>
+      </div>
+
+      <!-- Q&A List Container -->
+      <div class="qa-list" id="qaList">
+        <!-- Cards populated dynamically -->
+      </div>
+    </div>
+
+        <!-- ── TAB: FORM DECK ── -->
+    <div class="tab-panel" id="panel-form-deck">
+      <div style="margin-bottom: 12px; background: var(--primary-glow); padding: 12px; border-radius: var(--radius); border: 1px solid var(--accent);">
+        <h3 style="margin-bottom: 6px; font-size: 14px; color: var(--accent); display: flex; align-items: center; gap: 6px;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          Rapid Portal Form Autofill Deck
+        </h3>
+        <button class="btn-copy" style="width: 100%; justify-content: center; background: var(--accent); color: white; border: none; padding: 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; cursor: pointer;" id="btnCopyMasterProfile">
+          Copy Master Profile Clipboard Package
+        </button>
+      </div>
+
+      <div class="deck-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-bottom: 16px;">
+        <div data-copy-text="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Resume URL</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 1</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing</div>
+        </div>
+        <div data-copy-text="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Video Pitch URL</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 2</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link</div>
+        </div>
+        <div data-copy-text="https://www.linkedin.com/in/ramesh-seervi-3976802b0" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">LinkedIn Profile</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 3</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://www.linkedin.com/in/ramesh-seervi-3976802b0</div>
+        </div>
+        <div data-copy-text="https://github.com/ramseervi2024" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">GitHub Link</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 4</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://github.com/ramseervi2024</div>
+        </div>
+        <div data-copy-text="sureshsirvi.dev@gmail.com" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Email Address</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 5</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">sureshsirvi.dev@gmail.com</div>
+        </div>
+        <div data-copy-text="+91 8310634421" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Phone Number</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 6</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">+91 8310634421</div>
+        </div>
+        <div data-copy-text="Immediate (Ready for New Projects)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Availability</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 7</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Immediate (Ready for New Projects)</div>
+        </div>
+        <div data-copy-text="$15-$25/hr | £12-£20/hr | ₹400-₹800/hr" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Starter Rates / Pricing</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 8</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$15-$25/hr | £12-£20/hr | ₹400-₹800/hr</div>
+        </div>
+        <div data-copy-text="React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Skills (Comma-Separated)</span>
+            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 9</span>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git</div>
+        </div>
+        <div data-copy-text="B.E. in Computer Science - Bangalore Institute of Technology" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Highest Education</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B.E. in Computer Science - Bangalore Institute of Technology</div>
+        </div>
+        <div data-copy-text="30% Backend : 70% Frontend" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Full Stack Split</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">30% Backend : 70% Frontend</div>
+        </div>
+        <div data-copy-text="Electronic City, Bangalore - 560100" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Location / Address</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Electronic City, Bangalore - 560100</div>
+        </div>
+        <div data-copy-text="I am a Full Stack JavaScript Developer with approximately 6+ years of experience building production-ready Web, Android, and iOS applications using React Native, React.js, and Node.js. I have a proven track record of deploying scalable solutions and am ready to join immediately." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Tell us about yourself</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I am a Full Stack JavaScript Developer with approximately 6+ years of experience building production-ready Web, Android, and iOS applications using React Native, React.js, and Node.js. I have a proven track record of deploying scalable solutions and am ready to join immediately.</div>
+        </div>
+        <div data-copy-text="I am looking for a stable, growth-oriented role where I can work on impactful products, take ownership of features, and contribute to a fast-paced team environment." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why are you looking for a change?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I am looking for a stable, growth-oriented role where I can work on impactful products, take ownership of features, and contribute to a fast-paced team environment.</div>
+        </div>
+        <div data-copy-text="I am excited about your impactful products, modern technology stack, and the growth opportunities. I believe my hands-on experience aligns perfectly with your goals." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why do you want to join us?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I am excited about your impactful products, modern technology stack, and the growth opportunities. I believe my hands-on experience aligns perfectly with your goals.</div>
+        </div>
+        <div data-copy-text="With my comprehensive full-stack experience in React Native and Node.js, I can jump right in and start contributing from Day 1. I am an immediate freelancer with a track record of delivering high-quality production applications." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why should we hire you?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">With my comprehensive full-stack experience in React Native and Node.js, I can jump right in and start contributing from Day 1. I am an immediate freelancer with a track record of delivering high-quality production applications.</div>
+        </div>
+        <div data-copy-text="Delivering multiple live mobile and web apps to real customers, achieving seamless performance across platforms, and consistently hitting tight deadlines." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Biggest achievement?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Delivering multiple live mobile and web apps to real customers, achieving seamless performance across platforms, and consistently hitting tight deadlines.</div>
+        </div>
+        <div data-copy-text="Resolving complex performance bottlenecks in React Native and scaling backend APIs, which required deep debugging and optimization under strict timelines." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Biggest challenge?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Resolving complex performance bottlenecks in React Native and scaling backend APIs, which required deep debugging and optimization under strict timelines.</div>
+        </div>
+        <div data-copy-text="Problem-solving, taking ownership of features end-to-end, teamwork, and quick learning of new technologies." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Strengths</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Problem-solving, taking ownership of features end-to-end, teamwork, and quick learning of new technologies.</div>
+        </div>
+        <div data-copy-text="I tend to spend extra time refining and optimizing code for the highest quality, which I actively balance with time management to meet all delivery timelines." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Weaknesses</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I tend to spend extra time refining and optimizing code for the highest quality, which I actively balance with time management to meet all delivery timelines.</div>
+        </div>
+        <div data-copy-text="My goal is to become a strong Full Stack Software Engineer, architecting and building highly scalable and user-centric products." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Career goals</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">My goal is to become a strong Full Stack Software Engineer, architecting and building highly scalable and user-centric products.</div>
+        </div>
+        <div data-copy-text="Full Stack Developer / React Native Developer / React.js Developer / Node.js Developer" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred role</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Full Stack Developer / React Native Developer / React.js Developer / Node.js Developer</div>
+        </div>
+        <div data-copy-text="Bengaluru (Open to Remote / Hybrid)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred location</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bengaluru (Open to Remote / Hybrid)</div>
+        </div>
+        <div data-copy-text="Open to Remote, Hybrid, and Onsite work models." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Remote / Hybrid / Onsite?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Open to Remote, Hybrid, and Onsite work models.</div>
+        </div>
+        <div data-copy-text="While I haven&#39;t had a formal &#39;Lead&#39; title, I have taken ownership of core features, driven technical decisions, and actively mentored junior developers." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Have you led a team?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">While I haven&#39;t had a formal &#39;Lead&#39; title, I have taken ownership of core features, driven technical decisions, and actively mentored junior developers.</div>
+        </div>
+        <div data-copy-text="Yes, I regularly assist teammates, conduct thorough code reviews, and share best practices within the team." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Have you mentored juniors?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Yes, I regularly assist teammates, conduct thorough code reviews, and share best practices within the team.</div>
+        </div>
+        <div data-copy-text="My hands-on experience across the entire software development lifecycle, from frontend and mobile development to backend APIs and deployment, combined with my immediate availability." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">What makes you different?</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">My hands-on experience across the entire software development lifecycle, from frontend and mobile development to backend APIs and deployment, combined with my immediate availability.</div>
+        </div>
+        <div data-copy-text="Developing and maintaining mobile and web apps, integrating REST APIs, implementing real-time features, and collaborating closely with cross-functional teams." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Current Responsibilities</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Developing and maintaining mobile and web apps, integrating REST APIs, implementing real-time features, and collaborating closely with cross-functional teams.</div>
+        </div>
+        <div data-copy-text="12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">12th Summary</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)</div>
+        </div>
+        <div data-copy-text="10th - Govt Senior Secondary School Sojat City (74%)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">10th Summary</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">10th - Govt Senior Secondary School Sojat City (74%)</div>
+        </div>
+        <div data-copy-text="~4 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Experience Summary</span>
+            
+          </div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">~4 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js.</div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  <!-- TOAST POPUP -->
+  <div class="toast-box" id="toast">
+    <span class="toast-indicator"></span>
+    <span id="toastMsg">Action complete</span>
+  </div>
+
+  <script>
+    // ── COMMON COPIABLE SHORT & POWERFUL OUTREACH TEXTS ──
+    const TEMPLATES = {
+      'li-req': {
+        limit: 300,
+        content: `Hi, I'm a Full-Stack JS Developer with 6+ yrs experience (React Native, React, Node.js). 
+Available for immediate joining in Bengaluru. 
+Portfolio: https://ramseervi2024.github.io/portfolio/
+Let's connect!`
+      },
+      'li-dm': {
+        content: `Hi,
+
+I am a Full-Stack JavaScript Developer with 6+ years of experience specializing in React Native, React, and Node.js. I am based in Bengaluru and available to join immediately.
+
+Key Highlights:
+• Deployed 4+ production React Native apps to Google Play & App Store
+• Developed responsive React web apps and scalable Node.js/Express APIs
+• CGPA: 8.2/10 | B.E. in Computer Science
+
+Links:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+
+I would love to discuss developer opportunities with you. Let me know if we can connect.
+
+Best,
+Suresh Sirvi
++91 8310634421`
+      },
+      'li-comment': {
+        content: `Hi, I'm a Full-Stack Developer (6+ yrs exp) specializing in React Native+ React Js + Node.js. 
+Immediate freelancer ready for technical rounds and project discovery calls.
+Let's connect!
+
+Portfolio: https://ramseervi2024.github.io/portfolio/`
+      },
+      'wa-pitch': {
+        content: `Hi, I am reaching out for Full-Time Freelance, Retainer, or Contract Developer work. I am a Full-Stack & Mobile Developer (4+ YOE) specializing in React Native, React.js, Next.js, and Node.js. Starter Rates: $15 - $25/hr ($) | £12 - £20/hr (£) | ₹400 - ₹800/hr (₹). Ready for immediate start across PST, EST, GMT, and IST.`
+      },
+      'naukri-pitch': {
+        content: `Hello, I am interested in contract developer opportunities. I am a Full-Stack JS Developer with 6+ years experience in React Native + Node.js, and am available for immediate start globally. Starter Rates: $15-$25/hr. Ready for technical discovery.
+
+Portfolio: https://ramseervi2024.github.io/portfolio/`
+      },
+      'sms-pitch': {
+        content: `Hi, Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React Native + Node.js. Available immediately for contract roles globally.
+
+Portfolio: https://ramseervi2024.github.io/portfolio/
+Video: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+GitHub: https://github.com/ramseervi2024`
+      },
+      'cover-letter': {
+        content: `Dear Hiring Team,
+
+I am writing to express my interest in joining your team as a Software Developer. With 4 years of professional experience developing end-to-end web and mobile applications using React, React Native, and Node.js, I am confident in my ability to make an immediate impact.
+
+In my previous roles, I have:
+• Built and deployed 4+ React Native mobile apps to the App Store and Google Play Store
+• Constructed robust REST APIs using Node.js, Express.js, and MongoDB
+• Developed responsive frontend interfaces in React.js
+
+I am currently based in Bengaluru and available to join immediately. You can review my details here:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Video Intro: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+
+Thank you for your consideration. I look forward to speaking with you.
+
+Sincerely,
+Suresh Sirvi
++91 8310634421 | sureshsirvi.dev@gmail.com`
+      },
+      'query-immediate-pitch': {
+        content: `Hi,
+
+I saw your requirement for freelance developers. I am a Full-Stack JavaScript Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. 
+
+I am available for an immediate contract start globally. 
+
+My references:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+
+I'd love to connect for a brief discussion.
+
+Best,
+Suresh Sirvi
++91 8310634421`
+      },
+      'query-walkin-pitch': {
+        content: `Hi,
+
+I noticed your post regarding the upcoming React Native / React project requirement.
+
+With 6+ years of experience building mobile applications (deployed 4+ apps on stores) and web frontends, I would love to discuss a freelance arrangement. Could you please confirm the project scope and timelines?
+
+Here is my profile:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+
+Looking forward to your response.
+
+Best,
+Suresh Sirvi
++91 8310634421`
+      },
+      'query-reactnode-pitch': {
+        content: `Hi,
+
+I am writing to express my interest in your React JS & Node.js contract requirement. 
+
+I'm a Full-Stack JavaScript Developer with 6+ years of experience. I specialize in frontends using React.js and backend architectures using Node.js, Express, and MongoDB. I'm available for immediate freelance start.
+
+Summary of qualifications:
+• Deployed production React Native mobile apps and robust web frontends.
+• Architected scalable REST APIs with Node.js/Express.
+• Highly proficient with JavaScript/TypeScript and Redux.
+
+My details:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+
+Please let me know if we can connect for a short call.
+
+Best,
+Suresh Sirvi
++91 8310634421`
+      },
+      'query-3-4-year-pitch': {
+        content: `Hi,
+
+I saw your posting for a freelance Developer requiring 3-6+ years of experience. With 4 years of hands-on experience building mobile apps with React Native (deployed 4+ apps) and web apps with React.js + Node.js, I am an ideal fit.
+
+Key strengths:
+• Mobile: React Native, Redux, Store Deployments
+• Frontend & Backend: React.js, Node.js, Express, MongoDB
+• Availability: Immediate freelance start
+
+My references:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+
+I would appreciate the chance to discuss how I can contribute.
+
+Best,
+Suresh Sirvi
++91 8310634421`
+      },
+      'query-4-5-year-pitch': {
+        content: `Hi,
+
+I'm reaching out regarding your requirement for a developer with 4-5 years of experience. While I have 4 years of professional experience, I have independently built and deployed 4+ production mobile apps to the App Store and Google Play, and scaled Node.js REST APIs. I bring strong self-direction and full-stack ownership for independent contract work.
+
+Key Highlights:
+• End-to-End Delivery: React Native (App Store & Play Store)
+• Full-Stack JS: React.js web apps + Node.js/Express APIs
+• Availability: Immediate start for new contracts
+
+My links:
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+
+I would love to connect for a short discussion to demonstrate how I can deliver value from day one.
+
+Best,
+Suresh Sirvi
++91 8310634421`
+      }
+    };
+
+    const CHECKLIST = [
+      { id: 'chk1', text: 'Send 15 LinkedIn Connection Notes to Founders' },
+      { id: 'chk2', text: 'Pitch to 15 Contract Roles on portals (LinkedIn/Wellfound)' },
+      { id: 'chk3', text: 'Send 10 WhatsApp / Direct client pitches' },
+      { id: 'chk4', text: 'Search clients & agencies using Boolean queries' },
+      { id: 'chk5', text: 'Interact/Comment on 5 founder hiring posts' }
+    ];
+
+    function populatePreviews() {
+      for (const [id, tpl] of Object.entries(TEMPLATES)) {
+        const previewEl = document.getElementById(`preview-${id}`);
+        if (previewEl) {
+          previewEl.textContent = tpl.content;
+        }
+
+        // Character badge updating
+        const badgeEl = document.getElementById(`badge-${id}`);
+        if (badgeEl && tpl.limit) {
+          const len = tpl.content.length;
+          badgeEl.textContent = `${len} / ${tpl.limit}`;
+          if (len <= tpl.limit) {
+            badgeEl.className = "char-badge green";
+          } else {
+            badgeEl.className = "char-badge danger";
+          }
+        }
+      }
+      buildBooleanSearch();
+    }
+
+    // ── TABS NAVIGATION ──
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const activeTab = btn.getAttribute('data-tab');
+        document.getElementById(`panel-${activeTab}`).classList.add('active');
+      });
+    });
+
+    // ── CLIPBOARD UTILS ──
+    let toastTimer = null;
+    function showToast(msg) {
+      clearTimeout(toastTimer);
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    async function copyText(text, successMsg = "Copied to clipboard!") {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast(successMsg);
+      } catch (err) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMsg);
+        } catch (e) {
+          showToast('Clipboard copy failed.');
+        }
+        document.body.removeChild(textArea);
+      }
+    }
+
+    function copyVal(id) {
+      const content = TEMPLATES[id].content;
+      copyText(content, "Template copied!");
+    }
+
+    function copyTag(tagValue) {
+      copyText(tagValue, `Tag copied: ${tagValue}`);
+    }
+
+    function launchSearch(platform, queryId, exp = "") {
+      const baseQuery = document.getElementById(queryId).value;
+      let url = "";
+
+      switch (platform) {
+        case 'google-immediate':
+          url = `https://www.google.com/search?q=${encodeURIComponent(baseQuery)}&tbs=qdr:d3`;
+          break;
+        case 'google-recent':
+          url = `https://www.google.com/search?q=${encodeURIComponent(baseQuery)}&tbs=qdr:w`;
+          break;
+        case 'li-posts':
+          url = `https://www.linkedin.com/search/results/content/?keywords=${encodeURIComponent(baseQuery)}&sortBy=date`;
+          break;
+        case 'li-jobs':
+          url = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(baseQuery)}&f_WT=2`; // Remote
+          break;
+        case 'naukri':
+          url = `https://www.naukri.com/freelance-jobs?keyword=${encodeURIComponent(baseQuery)}`;
+          break;
+        case 'instahyre':
+          url = `https://www.instahyre.com/search-jobs?skills=${encodeURIComponent(baseQuery)}&location=Remote`;
+          break;
+        case 'hirist':
+          url = `https://www.hirist.com/search.html?query=${encodeURIComponent(baseQuery)}&location=Bangalore`;
+          break;
+        default:
+          url = `https://www.google.com/search?q=${encodeURIComponent(baseQuery)}`;
+      }
+      window.open(url, '_blank');
+    }
+
+    // ── BOOLEAN GENERATOR ──
+    document.getElementById('b-roles').addEventListener('input', buildBooleanSearch);
+    document.getElementById('b-loc').addEventListener('input', buildBooleanSearch);
+    document.getElementById('b-rec').addEventListener('input', buildBooleanSearch);
+    document.getElementById('b-plat').addEventListener('change', buildBooleanSearch);
+
+    function buildBooleanSearch() {
+      const roles = document.getElementById('b-roles').value.trim();
+      const loc = document.getElementById('b-loc').value.trim();
+      const rec = document.getElementById('b-rec').value.trim();
+      const plat = document.getElementById('b-plat').value;
+
+      let query = "";
+      if (plat === "li-profiles") {
+        query = `site:linkedin.com/in/ AND (${rec}) AND (${roles}) AND (${loc})`;
+      } else {
+        query = `(${roles}) AND (${rec}) AND (${loc}) "hiring"`;
+      }
+
+      document.getElementById('booleanOutput').value = query;
+    }
+
+    document.getElementById('btnCopyBool').addEventListener('click', () => {
+      const q = document.getElementById('booleanOutput').value;
+      copyText(q, "Boolean query copied!");
+    });
+
+    document.getElementById('btnLaunchBool').addEventListener('click', () => {
+      const q = document.getElementById('booleanOutput').value;
+      if (q) {
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(q)}`, '_blank');
+      }
+    });
+
+    // ── DAILY CHECKLIST ──
+    let checklistState = JSON.parse(localStorage.getItem('outreach_checklist_v2')) || {};
+
+    function renderChecklist() {
+      const container = document.getElementById('chk-container');
+      container.innerHTML = CHECKLIST.map(item => {
+        const isChecked = checklistState[item.id] || false;
+        return `
+          <div class="chk-item ${isChecked ? 'checked' : ''}" onclick="toggleCheck('${item.id}')">
+            <div class="chk-box">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span>${item.text}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleCheck(id) {
+      checklistState[id] = !checklistState[id];
+      localStorage.setItem('outreach_checklist_v2', JSON.stringify(checklistState));
+      renderChecklist();
+    }
+
+    document.getElementById('btnResetChk').addEventListener('click', () => {
+      checklistState = {};
+      localStorage.setItem('outreach_checklist_v2', JSON.stringify(checklistState));
+      renderChecklist();
+      showToast("Checklist reset!");
+    });
+
+    // ── INTERVIEW Q&A DATABASE ──
+    const QA_DATABASE = [
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'Tell me about yourself / Summarize your professional experience.',
+        answer: "I'm a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. I have built and deployed 4+ production mobile apps to the App Store and Google Play Store, and engineered scalable REST APIs. I'm highly self-driven, based in Bangalore, and ready to join immediately."
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What is your current address and location?',
+        answer: "Electronic City, Bangalore, Karnataka, India - Pin: 560100"
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What is your hometown?',
+        answer: "Sojat City, Pali District, Rajasthan, India"
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What are your education qualifications (College, University, Degree, Stream)?',
+        answer: "• Degree: B.E. (Bachelor of Engineering) in Computer Science\n• College: Bangalore Institute of Technology\n• University: Visvesvaraya Technological University (VTU)\n• Performance: CGPA: 8.2/10\n• Batch: 2018-2022\n\n• High School: 11th-12th (Science Stream)\n• School: Govt Senior Secondary School Sojat City, Rajasthan\n• Performance: Percentage: 70%\n• Batch: 2016-2018"
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What is your detailed work experience (Company Names)?',
+        answer: "• Total Experience: 4 years in Web & Mobile App Development\n\n1. Company Name: Imcrinox Technologies, Bengaluru\n   • Role: React & React Native Developer\n   • Duration: Nov 2022 - Present (Full-time)\n   • Impact: Developed/deployed 4+ apps on App/Play Store, integrated Axios, Firebase, Google Maps, Apple/Google Pay, and Node.js APIs.\n\n2. Company Name: Gridrnd, Bengaluru\n   • Role: Web Developer Intern\n   • Duration: Feb 2022 - Oct 2022\n   • Impact: React/Redux UI building, Node/Express/MongoDB backend services, Postman testing."
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'Why are you interested in our company?',
+        answer: "I am highly interested because your company builds scalable products that align with my hands-on experience in React Native optimization (Hermes, FlatList memory tuning) and full-stack JavaScript. I want to contribute to an active, product-focused team and help deliver robust web and mobile app releases from day one."
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What languages are you proficient in?',
+        answer: "• English: Professional Working Proficiency (Technical/Business discussions)\n• Hindi: Native/Bilingual Proficiency"
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What is your notice period and availability?',
+        answer: "I am not serving an active notice period and am available to join immediately. I can complete onboarding and start working within 24 to 48 hours of receiving an offer."
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'Why are you looking for new freelance projects / contracts?',
+        answer: "I'm looking to partner with ambitious clients where I can take on larger technical ownership. Having built multiple end-to-end applications, I want to apply my expertise in React Native performance optimizations and full-stack architecture on a contract basis."
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'What are your freelance rates, retainer packages, and pricing models?',
+        answer: "I offer budget-friendly starter pricing for initial client acquisition:\n• Starter Hourly Rate: $15 - $25/hr ($) | £12 - £20/hr (£) | ₹400 - ₹800/hr (₹)\n• Fixed MVP Scope: $500 - $1,200 (2-week turnaround)\n• Monthly Retainers: $500/mo (10h/wk), $1,000/mo (20h/wk), $1,800/mo (40h/wk full contract)\n• 100% Timezone overlap for PST, EST, GMT, CET, and IST."
+      },
+      {
+        category: 'hr',
+        categoryName: 'HR & Profile',
+        question: 'Can you clarify your recent employment timeline / TCS schedule delay?',
+        answer: "I was recently with TCS where onboarding and project allocation schedules faced delays. I proactively decided to seek direct, high-impact product-based opportunities where I can immediately write production-ready code and contribute to mobile and web releases from day one."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'GitHub Profile Link URL',
+        answer: "https://github.com/ramseervi2024"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'LinkedIn Profile Link URL',
+        answer: "https://www.linkedin.com/in/ramesh-seervi-3976802b0"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Resume / CV Shareable Link',
+        answer: "https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Video Pitch Introduction Link',
+        answer: "https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Freelance Availability Duration',
+        answer: "Immediate Start (Available across major global timezones)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Are you willing to relocate? (relocation choice)',
+        answer: "Yes, willing to relocate to Bangalore or work remote."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Work Mode Preference (Remote/Hybrid/Onsite)',
+        answer: "Open to Remote, Hybrid, or On-site roles (based in Electronic City, Bangalore)."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Work Authorization & Visa Sponsorship Requirement',
+        answer: "Yes, authorized to work in India. Do not require sponsorship."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Highest Education Level & Institution name',
+        answer: "B.E. (Bachelor of Engineering) in Computer Science from Bangalore Institute of Technology"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Years of React Native Experience (for portals)',
+        answer: "4"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Years of React.js / Frontend Experience (for portals)',
+        answer: "4"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Years of Node.js / Backend Experience (for portals)',
+        answer: "4"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Preferred Phone & Country Code',
+        answer: "+91 8310634421"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Preferred Email Address',
+        answer: "sureshsirvi.dev@gmail.com"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Contract Start Availability',
+        answer: "Immediately available to begin new contracts / milestones."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'What is your starter hourly freelance rate?',
+        answer: "$15 - $25/hr ($ USD) | £12 - £20/hr (£ GBP) | ₹400 - ₹800/hr (₹ INR)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'What are your monthly retainer packages?',
+        answer: "$500/mo (10h/wk) | $1,000/mo (20h/wk) | $1,800/mo (40h/wk full contract)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'What is your availability and earliest project start date?',
+        answer: "Immediate Start. Earliest kick-off date: Within 24-48 hours of contract."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'YoE in skills mentioned on TalentPromise (TP)',
+        answer: "React Native: 4 Years\nReact.js: 4 Years\nNode.js: 4 Years\nJavaScript/TypeScript: 4 Years"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Location preference - Bangalore/Kochi',
+        answer: "Bangalore (Preferred / Residing in Electronic City). Open to Kochi or remote opportunities."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Why did you leave your last company? Also, explain the reasons for frequent switches, if any.',
+        answer: "Leaving to seek larger technical ownership and face new challenges in a product-focused environment. No frequent switches (2+ years at Imcrinox, Gridrnd was a planned 9-month internship conversion)."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Seniority Level (L5/L6)',
+        answer: "L5 (Mid-to-Senior Engineer level. Capable of end-to-end frontend/backend ownership and performance tuning)."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Explain the product you are working on in your most recent company & your contribution to it.',
+        answer: "At Imcrinox, I developed key products:\n1. Organiser App: A workforce & event management tool for organizers. Built tickets scanners, notifications, speaker manager, wallet integrations, and role-based access.\n2. Ondeen App: Event booking platform. Integrated Apple/Google Pay, Google Maps, calendar views, and Node.js APIs.\nMy contribution: Migrated engine to Hermes, optimized FlatList rendering speed by 40% using memoization, and built scalable Express backend routes."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'As a fullstack engineer, what is your backend : frontend split?',
+        answer: "Backend (Node.js/Express) 30% : Frontend (React Native & React.js) 70%"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: "Candidate's communication rating (Scale 1 to 5)",
+        answer: "4.5 / 5 (Strong professional verbal/written communication, experienced coordinating directly with product managers and developers)."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'How many years of experience do you have in Python/Node?',
+        answer: "Node.js: 4 Years\nPython: 0 Years (Stack focus is JavaScript/TypeScript, React, Node, Express, MongoDB)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Do you have capacity for new concurrent projects?',
+        answer: "Yes, currently taking on new clients and have bandwidth for 20-40hrs/week."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Qualification Name / Degree Title',
+        answer: "B.E. in Computer Science (Bachelor of Engineering)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Education Level',
+        answer: "Bachelor's Degree (Undergraduate - 4 Years Course)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Name of Institution (School / College / University)',
+        answer: "Bangalore Institute of Technology (Visvesvaraya Technological University)"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Employer Name (Current Company)',
+        answer: "Imcrinox Technologies Pvt Ltd"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Job Title (Current Designation)',
+        answer: "React Native & React.js Developer"
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Job Description (Current Role Summary)',
+        answer: "Developed and deployed 4+ production React Native mobile applications for Android & iOS. Integrated RESTful APIs via Axios and Typescript, optimizing performance for user experience. Managed state using Redux Toolkit. Built Node.js and Express backend API routes. Managed store deployments to Google Play Store and Apple App Store."
+      },
+      {
+        category: 'portal',
+        categoryName: 'Form Auto-Fill',
+        question: 'Professional Skills (Comma-Separated for Portals)',
+        answer: "React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, Redux, Redux Toolkit, Firebase, Axios, REST APIs, MongoDB, HTML5, CSS3, Git, Postman, Xcode, Android Studio"
+      },
+      {
+        category: 'rn',
+        categoryName: 'React Native',
+        question: 'How do you optimize FlatList performance for large datasets?',
+        answer: "To optimize FlatList performance:\n1. Use 'getItemLayout' to skip dynamically measuring item dimensions.\n2. Adjust 'windowSize' (e.g. 5 or 7) to limit memory consumption.\n3. Wrap child items in 'React.memo' to prevent unnecessary re-renders.\n4. Limit 'initialNumToRender' to only cover the initial viewport height.\n5. Avoid anonymous functions or inline arrays as props to renderItem."
+      },
+      {
+        category: 'rn',
+        categoryName: 'React Native',
+        question: 'Explain JSI and the New Architecture vs. the Old Bridge Architecture.',
+        answer: "The Old Architecture relies on an asynchronous JSON bridge to serialize and deserialize data between JS and Native threads. The New Architecture uses JSI (JavaScript Interface), allowing the JS thread to hold direct C++ references to host objects and invoke native methods synchronously. This enables TurboModules (lazy-loaded native modules) and Fabric (new UI renderer)."
+      },
+      {
+        category: 'rn',
+        categoryName: 'React Native',
+        question: 'How do you optimize React Native app startup time and prevent frame drops?',
+        answer: "1. Enable the Hermes JS engine to benefit from pre-compiled bytecode and fast garbage collection.\n2. Optimize and compress static assets, using 'react-native-fast-image' for image caching.\n3. Run expensive JS tasks off the main thread, or use 'InteractionManager.runAfterInteractions'.\n4. For animations, set 'useNativeDriver: true' or use react-native-reanimated for native-thread UI updates."
+      },
+      {
+        category: 'rn',
+        categoryName: 'React Native',
+        question: 'How do you integrate native libraries or write a custom Native Module?',
+        answer: "For Android, create a class subclassing 'ReactContextBaseJavaModule', annotate methods with '@ReactMethod', and register it in a package extending 'ReactPackage'. For iOS, implement 'RCTBridgeModule' in Objective-C or Swift (using '@objc' macros) and use 'RCT_EXPORT_METHOD'. Access in JS using 'NativeModules.MyModule'."
+      },
+      {
+        category: 'rn',
+        categoryName: 'React Native',
+        question: 'What is your Redux Toolkit state architecture?',
+        answer: "I configure the store using 'configureStore' from Redux Toolkit. I define slices using 'createSlice' which manages actions, state, and reducers locally. Asynchronous operations are managed using 'createAsyncThunk'. Components read state via the 'useSelector' hook and dispatch updates with the 'useDispatch' hook."
+      },
+      {
+        category: 'react',
+        categoryName: 'React JS',
+        question: 'What is the difference between useCallback and useMemo?',
+        answer: "'useMemo' memoizes and returns the computed result of an expensive calculation to avoid recalculating on every render. 'useCallback' memoizes and returns the function definition itself to prevent recreating child functions, which helps avoid unnecessary re-renders of memoized child components."
+      },
+      {
+        category: 'react',
+        categoryName: 'React JS',
+        question: 'How does React Virtual DOM and Reconciliation work?',
+        answer: "React maintains a light-weight representation of the real DOM called the Virtual DOM. When state changes, React builds a new Virtual DOM tree. It compares this tree with the previous one using a diffing algorithm (Reconciliation) and computes the minimal set of changes (batches them) to efficiently update the real DOM."
+      },
+      {
+        category: 'react',
+        categoryName: 'React JS',
+        question: 'Why and when do you write Custom Hooks?',
+        answer: "Custom hooks are written to encapsulate and share stateful logic across multiple components without adding wrapper components. I write them when I notice repeated logic like API data fetching, form state handlers, or browser/sensor event listeners that can be reused cleanly."
+      },
+      {
+        category: 'react',
+        categoryName: 'React JS',
+        question: 'When do you use Context API vs. Redux?',
+        answer: "Use the Context API for static or low-frequency state sharing, like localization, UI themes, or user profiles. For high-frequency, complex state mutations, nested slices, or scenarios requiring custom middleware, Redux (or Redux Toolkit) is preferred for better debugging and rendering isolation."
+      },
+      {
+        category: 'node',
+        categoryName: 'Node.js & Express',
+        question: 'How does the Node.js Event Loop work?',
+        answer: "Node.js runs on a single thread and handles concurrent async requests via the Event Loop. It processes callbacks in phases: Timers, Pending, Poll (I/O), Check (setImmediate), and Close. Microtask queues (promises and process.nextTick) execute immediately after the current phase operation before moving to the next phase."
+      },
+      {
+        category: 'node',
+        categoryName: 'Node.js & Express',
+        question: 'What is the difference between Streams and Buffers?',
+        answer: "A Buffer allocates a fixed-size chunk of memory to store raw binary data temporarily. Streams read or write data incrementally in chunks. Buffers load the entire file into RAM, whereas Streams process data piece-by-piece, which is far more memory-efficient when handling large files or continuous network streams."
+      },
+      {
+        category: 'node',
+        categoryName: 'Node.js & Express',
+        question: 'How do you secure and optimize an Express REST API?',
+        answer: "1. Security: Secure HTTP headers with 'helmet', implement CORS rules, hash passwords using bcrypt, use JWTs for stateless sessions, and apply rate-limiting using 'express-rate-limit'.\n2. Optimization: Implement database indexes, compile queries, compress responses using 'compression', and cache static resources or repeated DB results with Redis."
+      },
+      {
+        category: 'node',
+        categoryName: 'Node.js & Express',
+        question: 'Explain the Middleware pattern in Express.',
+        answer: "Middleware functions have access to the request (req), response (res), and the next middleware function (next). They can execute code, modify req/res objects, end the request-response cycle, or call 'next()' to pass control forward. They are commonly used for logging, parsing data, auth checks, and error handling."
+      },
+      {
+        category: 'js',
+        categoryName: 'JS & TS',
+        question: 'What is a Closure in JavaScript and its use case?',
+        answer: "A closure is formed when a function retains access to its lexical scope (outer variables) even after the outer function has finished executing. Practical use cases include data privacy (implementing private variables/methods), currying, and memoization caches."
+      },
+      {
+        category: 'js',
+        categoryName: 'JS & TS',
+        question: 'What is the difference between Promises and Async/Await?',
+        answer: "Promises handle asynchronous code using callback chaining via '.then()' and '.catch()'. Async/Await is a syntax layer on top of Promises that makes asynchronous code read like synchronous code. It uses 'try/catch' blocks, reducing nested callback structures."
+      },
+      {
+        category: 'js',
+        categoryName: 'JS & TS',
+        question: 'In TypeScript, what is the difference between Interface and Type?',
+        answer: "1. Declaration Merging: Interfaces with the same name merge automatically, whereas Type aliases cannot be redeclared.\n2. Syntax Capabilities: Types can define unions, intersections, primitives, and tuples (e.g., 'type Status = \"active\" | \"inactive\"'), while Interfaces are strictly limited to declaring object shapes."
+      },
+      {
+        category: 'js',
+        categoryName: 'JS & TS',
+        question: 'What are TypeScript Generics and why are they used?',
+        answer: "Generics allow you to write reusable, type-safe structures (classes, interfaces, functions) that operate on a variety of types. They act as type variables (e.g. '<T>'), retaining the compile-time type safety of inputs rather than falling back to 'any'."
+      }
+    ];
+
+    let currentCategory = "all";
+
+    function renderQA(filterText = "", category = "all") {
+      const container = document.getElementById('qaList');
+      const lowerSearch = filterText.toLowerCase();
+
+      // Filter
+      const filtered = QA_DATABASE.filter(item => {
+        const matchesCategory = (category === "all" || item.category === category);
+        const matchesSearch = (
+          item.question.toLowerCase().includes(lowerSearch) ||
+          item.answer.toLowerCase().includes(lowerSearch)
+        );
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 40px; color: var(--text-dim);">
+            <div style="font-size: 1.5rem; margin-bottom: 8px;">🔍</div>
+            <div>No matching questions found. Try a different keyword!</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((item, idx) => {
+        let questionHtml = item.question;
+        let answerHtml = item.answer;
+
+        if (lowerSearch) {
+          const regex = new RegExp(`(${escapeRegExp(lowerSearch)})`, 'gi');
+          questionHtml = item.question.replace(regex, '<span class="highlight">$1</span>');
+          answerHtml = item.answer.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        // Find correct index in original database for copying ID mapping
+        const originalIndex = QA_DATABASE.findIndex(q => q.question === item.question);
+
+        return `
+          <div class="qa-card ${lowerSearch ? 'open' : ''}" id="qa-${originalIndex}">
+            <div class="qa-header" onclick="toggleQACard(${originalIndex})">
+              <div class="qa-title-group">
+                <span class="qa-category-badge badge-${item.category}">${item.categoryName}</span>
+                <div class="qa-question">${questionHtml}</div>
+              </div>
+              <svg class="qa-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="qa-body" style="${lowerSearch ? 'max-height: 1000px;' : ''}">
+              <div class="qa-content" onclick="event.stopPropagation()">
+                <div class="qa-answer-label">
+                  <span>Suggested Short Answer</span>
+                  <button class="btn-copy" onclick="copyText(document.getElementById('ans-text-${originalIndex}').innerText.trim(), 'Answer copied!')">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy Answer
+                  </button>
+                </div>
+                <div class="qa-answer-box" id="ans-text-${originalIndex}">${answerHtml}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleQACard(idx) {
+      const card = document.getElementById(`qa-${idx}`);
+      if (!card) return;
+
+      const body = card.querySelector('.qa-body');
+      const isOpen = card.classList.contains('open');
+
+      if (isOpen) {
+        card.classList.remove('open');
+        body.style.maxHeight = null;
+      } else {
+        card.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+
+      // Update active state of pills
+      document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      const searchText = document.getElementById('qaSearch').value;
+      renderQA(searchText, cat);
+    }
+
+    function filterQA() {
+      const searchText = document.getElementById('qaSearch').value;
+      renderQA(searchText, currentCategory);
+    }
+
+    function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // ── INITIAL LOAD ──
+    populatePreviews();
+    renderChecklist();
+    renderQA();
+  
+    // Chrome Extension CSP inline-click handler workaround
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[onclick]').forEach(el => {
+        el.dataset.clickAction = el.getAttribute('onclick');
+        el.removeAttribute('onclick');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      let btn = e.target.closest('[data-click-action]');
+      if (!btn) return;
+      
+      let action = btn.dataset.clickAction;
+      
+      if (action.startsWith("copyText('")) {
+        let text = action.substring(10, action.length - 2);
+        copyText(text);
+      } else if (action.startsWith("copyVal('")) {
+        let id = action.substring(9, action.length - 2);
+        copyVal(id);
+      } else if (action.startsWith("copyText(document.getElementById('")) {
+        let match = action.match(/getElementById\('([^']+)'\)\.value,\s*'([^']+)'/);
+        if (match) {
+          let val = document.getElementById(match[1]).value;
+          copyText(val, match[2]);
+        }
+      } else if (action.startsWith("launchSearch('")) {
+        let match = action.match(/launchSearch\('([^']+)',\s*'([^']+)'(?:,\s*'([^']*)')?\)/);
+        if (match) {
+          launchSearch(match[1], match[2], match[3] || "");
+        }
+      }
+    });
+
+
+// ── FORM DECK LOGIC ────────────────────────────────────────────────────────────
+
+const formDeckItems = [
+    { shortcut: '1', text: "https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing" },
+    { shortcut: '2', text: "https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link" },
+    { shortcut: '3', text: "https://www.linkedin.com/in/ramesh-seervi-3976802b0" },
+    { shortcut: '4', text: "https://github.com/ramseervi2024" },
+    { shortcut: '5', text: "sureshsirvi.dev@gmail.com" },
+    { shortcut: '6', text: "+91 8310634421" },
+    { shortcut: '7', text: "Immediate (Ready for New Projects)" },
+    { shortcut: '8', text: "$15-$25/hr | £12-£20/hr | ₹400-₹800/hr" },
+    { shortcut: '9', text: "React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git" }
+];
+
+document.addEventListener('keydown', (e) => {
+    // Only handle Alt + number
+    if (e.altKey && !e.ctrlKey && !e.shiftKey) {
+        const item = formDeckItems.find(i => i.shortcut === e.key);
+        if (item) {
+            e.preventDefault();
+            copyTextFallback(item.text); // copy fallback handles toast inside its normal flow or we can just call copyTextToClipboard
+            copyTextToClipboard(item.text).then(() => {
+                showToast(`Copied Shortcut Alt+${e.key}`);
+            });
+        }
+    }
+});
+
+const btnCopyMasterProfile = document.getElementById('btnCopyMasterProfile');
+if (btnCopyMasterProfile) {
+    btnCopyMasterProfile.addEventListener('click', () => {
+        const masterProfile = `**Suresh Sirvi | Full Stack JavaScript Developer**
+
+**Contact Information**
+- Email: sureshsirvi.dev@gmail.com
+- Phone: +91 8310634421
+- Location: Electronic City, Bangalore - 560100
+
+**Profiles & Links**
+- Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+- Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+- LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0
+- GitHub: https://github.com/ramseervi2024
+
+**Professional Details**
+- Experience: ~4 Years
+- Full Stack Split: 30% Backend : 70% Frontend
+- Starter Hourly Rate: $15 - $25/hr ($ USD) | £12 - £20/hr (£ GBP) | ₹400 - ₹800/hr (₹ INR)
+- Starter Retainers: $500/mo (10h/wk) | $1,000/mo (20h/wk) | $1,800/mo (40h/wk)
+- Availability: Immediate (Ready for New Projects)
+
+**Skills**
+React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git
+
+**Education**
+- B.E. in Computer Science - Bangalore Institute of Technology
+- 12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)
+- 10th - Govt Senior Secondary School Sojat City (74%)`;
+
+        copyTextToClipboard(masterProfile).then(() => {
+            showToast('✅ Master Profile Copied!');
+        });
+    });
+}
+
+</script>
+
+    <footer>
+        <div class="footer-circle-wrap">
+            <!-- Circular Rotating Text -->
+            <div class="footer-circle-badge">
+                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="circlePath"
+                            d="M 100,100
+                               m -72,0
+                               a 72,72 0 1,1 144,0
+                               a 72,72 0 1,1 -144,0" />
+                    </defs>
+                    <text class="circle-text">
+                        <textPath href="#circlePath" startOffset="0%">
+                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Center icon -->
+                <div class="circle-center-icon">
+                    <span>⚡</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
+                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                </div>
+                <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

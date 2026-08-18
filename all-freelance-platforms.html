@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Freelance & Contract Command Center | India, USA, UK & Worldwide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            
+            
+            /* Platform Theme Accent Colors */
+            --upwork: #14a800;
+            --toptal: #3863a0;
+            --fiverr: #1dbf73;
+            --arc: #4b6fff;
+            --lemon: #ffca28;
+            --braintrust: #111111;
+            --gunio: #24292e;
+            --turing: #0081ff;
+            --wwr: #22c55e;
+            --remoteok: #ff4742;
+            --wellfound: #e61e25;
+            --flexjobs: #0284c7;
+            --linkedin: #0a66c2;
+            --reddit: #ff4500;
+            --twitter: #1d9bf0;
+            --indiehackers: #ff6600;
+            --cutshort: #8b5cf6;
+            --instahyre: #00b0ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(20, 168, 0, 0.12) 0px, transparent 40%),
+                radial-gradient(at 90% 90%, rgba(56, 189, 248, 0.12) 0px, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0 0 50px 0;
+            
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            background: var(--nav-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 45px;
+            max-width: 1280px;
+            width: 95%;
+            margin: 50px auto;
+            width: 100%;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0 0 12px 0;
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            margin: 0 auto;
+            max-width: 860px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .candidate-profile-strip {
+            background: var(--card-bg);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 16px;
+            padding: 20px 26px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            background: var(--badge-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--badge-border);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .starter-badge {
+            background: var(--badge-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--badge-border);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+        }
+
+        .profile-sub {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .profile-rates {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-mini {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: var(--btn-primary-text);
+            border: none;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-mini:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-mini-accent {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: var(--btn-primary-text);
+        }
+
+        .btn-outline {
+            background: var(--btn-secondary-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--surface-border);
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 14px;
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        .stat-val {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .stat-lbl {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Filter Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 20px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cat-tab {
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--surface-border);
+            color: var(--text-secondary);
+            padding: 9px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .cat-tab:hover {
+            color: var(--text-primary);
+            border-color: #10b981;
+        }
+
+        .cat-tab.active {
+            background: linear-gradient(135deg, #10b981, #38bdf8);
+            color: var(--btn-primary-text);
+            font-weight: 800;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 260px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: #10b981;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 22px;
+        }
+
+        .platform-card {
+            background: var(--card-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 18px;
+            padding: 26px 22px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .card-upwork::before { background: var(--upwork); }
+        .card-toptal::before { background: var(--toptal); }
+        .card-fiverr::before { background: var(--fiverr); }
+        .card-arc::before { background: var(--arc); }
+        .card-lemon::before { background: var(--lemon); }
+        .card-braintrust::before { background: var(--braintrust); }
+        .card-gunio::before { background: var(--gunio); }
+        .card-turing::before { background: var(--turing); }
+        .card-wwr::before { background: var(--wwr); }
+        .card-remoteok::before { background: var(--remoteok); }
+        .card-wellfound::before { background: var(--wellfound); }
+        .card-flexjobs::before { background: var(--flexjobs); }
+        .card-linkedin::before { background: var(--linkedin); }
+        .card-reddit::before { background: var(--reddit); }
+        .card-twitter::before { background: var(--twitter); }
+        .card-indiehackers::before { background: var(--indiehackers); }
+        .card-cutshort::before { background: var(--cutshort); }
+        .card-instahyre::before { background: var(--instahyre); }
+
+        .platform-card:hover {
+            background: var(--btn-secondary-bg);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.3);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .platform-icon {
+            font-size: 2.2rem;
+        }
+
+        .badge-cat {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid var(--surface-border);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .platform-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .platform-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .batch-actions {
+            margin-top: 45px;
+            padding-top: 30px;
+            border-top: 1px solid var(--surface-border);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .batch-btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .main-btn {
+            background: linear-gradient(135deg, #10b981, #38bdf8);
+            color: var(--btn-primary-text);
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+
+        .main-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
+        }
+
+        .sub-btn {
+            background: var(--btn-secondary-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--surface-border);
+            padding: 14px 22px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .sub-btn:hover {
+            border-color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        /* Modal styling for Pitch Builder & Rate Calculator */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 35px;
+            max-width: 750px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            color: var(--text-primary);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+        }
+
+        .modal-header h3 { margin: 0; font-size: 1.4rem; color: var(--accent); font-weight: 800; }
+        .close-modal { cursor: pointer; font-size: 1.8rem; color: var(--text-secondary); line-height: 1; }
+
+        .modal-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal-tab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--surface-border);
+            color: var(--text-secondary);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .modal-tab.active {
+            background: #10b981;
+            color: var(--btn-primary-text);
+            border-color: #10b981;
+            font-weight: 700;
+        }
+
+        .field-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .field-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        .field-item input, .field-item select {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .field-item input:focus, .field-item select:focus {
+            border-color: var(--accent);
+        }
+
+        .copy-box {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            min-height: 220px;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: var(--btn-primary-text);
+            border: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+
+        .copy-btn:hover { opacity: 0.9; }
+
+        /* Rate Calculator Grid */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .calc-card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .calc-val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #10b981;
+            margin-top: 5px;
+        }
+
+        .calc-lbl {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+    
+        /* ── TOPBAR ── */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 14px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+        }
+        .topbar-left { display: flex; align-items: center; gap: 12px; }
+        .topbar-back {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--accent); }
+        .topbar-sep { color: var(--text-secondary); opacity: 0.5; }
+        .topbar-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+
+        @media (max-width: 768px) {
+            .dashboard { padding: 25px; margin: 30px auto; width: 92%; border-radius: 18px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .tabs { overflow-x: auto; white-space: nowrap; width: 100%; justify-content: flex-start; padding-bottom: 5px; }
+            .stat-cards { flex-direction: column; }
+            .stat-card { width: 100%; }
+            .topbar { padding: 12px 20px; }
+            .platforms-grid { grid-template-columns: 1fr; }
+        }
+
+    
+        .topbar-contact { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; }
+        .contact-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .contact-link:hover { color: var(--accent); }
+        @media (max-width: 768px) { .topbar-contact { display: none; } }
+
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <div class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-back">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Back to Portfolio
+            </a>
+            <span class="topbar-sep">/</span>
+            <span class="topbar-title">Global Freelance Hub</span>
+        </div>
+
+        
+        <div class="topbar-contact">
+            <a href="tel:+919902965742" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91 9902965742
+            </a>
+            <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                sureshsirvi.dev@gmail.com
+            </a>
+        </div>
+        <div class="topbar-actions">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+    <div class="dashboard">
+        <div class="header">
+            <h1>🌐 Global Freelance & Contract Command Center</h1>
+            <p>Target clients worldwide across <strong>USA 🇺🇸, UK 🇬🇧, India 🇮🇳, Europe 🇪🇺, UAE 🇦🇪, Canada 🇨🇦, Australia 🇦🇺 & Top Tech Hubs</strong> with budget starter pricing ($15–$25/hr | £12–£20/hr | ₹400–₹800/hr) to close clients fast.</p>
+            
+            <div class="candidate-profile-strip">
+                <div class="profile-info">
+                    <div class="profile-name">
+                        👤 Suresh Sirvi — Lead Full-Stack & Mobile Developer (6+ YOE)
+                        <span class="starter-badge">🚀 Starter Budget Rates Active</span>
+                        <span class="status-badge">🟢 Open for Contracts</span>
+                    </div>
+                    <div class="profile-sub">React.js • React Native • Node.js • Express • Next.js • MongoDB • AWS • Web & Mobile MVPs</div>
+                    <div class="profile-rates">Budget Starter Rates: $15–$25/hr ($) • £12–£20/hr (£) • ₹400–₹800/hr (₹) • Low-Cost Retainers & MVPs • PST / EST / GMT / CET / IST</div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-mini" onclick="openPitchModal()">📋 Global Proposal Builder</button>
+                    <button class="btn-mini btn-mini-accent" onclick="openCalcModal()">🧮 Multi-Currency Rate Calc</button>
+                    <a href="../Resume.md" target="_blank" class="btn-outline">📄 Portfolio & Resume</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-val">18</div>
+                <div class="stat-lbl">Global Platforms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">$15 - $25/hr</div>
+                <div class="stat-lbl">Starter Budget Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">$, £, €, ₹</div>
+                <div class="stat-lbl">Multi-Currency Billing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">USA • UK • India</div>
+                <div class="stat-lbl">Client Regions</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="category-tabs">
+                <button class="cat-tab active" onclick="filterCategory('all', this)">All Platforms (18)</button>
+                <button class="cat-tab" onclick="filterCategory('global', this)">Global & US Networks</button>
+                <button class="cat-tab" onclick="filterCategory('uk_eu', this)">UK & Europe Boards</button>
+                <button class="cat-tab" onclick="filterCategory('india', this)">India Tech Hubs</button>
+                <button class="cat-tab" onclick="filterCategory('outreach', this)">Direct Client Dorking</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="searchCards()" placeholder="Search country, platform, skill, or currency...">
+            </div>
+        </div>
+
+        <div class="grid" id="platformGrid">
+            <!-- 1. Upwork Global -->
+            <a href="https://www.upwork.com/nx/search/jobs/?q=react%20node%20full%20stack%20mobile&sort=recency" target="_blank" class="platform-card card-upwork" data-category="global" data-keywords="upwork global freelance USA UK europe india fixed price hourly client contracts react node fullstack mobile app">
+                <div class="card-top">
+                    <div class="platform-icon">💚</div>
+                    <span class="badge-cat">Global Marketplace</span>
+                </div>
+                <div class="platform-title">Upwork Global Feed</div>
+                <div class="platform-desc">#1 marketplace for initial client acquisition in USA, UK, Europe & India. Win fast fixed-price MVPs & hourly gigs.</div>
+                <div class="card-footer">
+                    <span>$15 - $25/hr Starter</span>
+                    <span>Launch Feed →</span>
+                </div>
+            </a>
+
+            <!-- 2. Toptal Network -->
+            <a href="https://www.toptal.com/freelance-jobs" target="_blank" class="platform-card card-toptal" data-category="global" data-keywords="toptal top 3 percent elite developers USA UK europe senior react native full stack contract $50-$100/hr">
+                <div class="card-top">
+                    <div class="platform-icon">💎</div>
+                    <span class="badge-cat">US & UK Elite</span>
+                </div>
+                <div class="platform-title">Toptal Network</div>
+                <div class="platform-desc">Elite top 3% developer network matching senior engineers with high-budget US & UK clients ($50–$100+/hr).</div>
+                <div class="card-footer">
+                    <span>Premium Vetted</span>
+                    <span>Launch Toptal →</span>
+                </div>
+            </a>
+
+            <!-- 3. Fiverr Pro -->
+            <a href="https://www.fiverr.com/gigs/react-developer" target="_blank" class="platform-card card-fiverr" data-category="global" data-keywords="fiverr pro productized services full web app mvp mobile app bug fixing high ticket retainer global USA UK">
+                <div class="card-top">
+                    <div class="platform-icon">🟢</div>
+                    <span class="badge-cat">Global Marketplace</span>
+                </div>
+                <div class="platform-title">Fiverr Pro Hub</div>
+                <div class="platform-desc">Offer competitive budget gigs ($150-$500) for Web MVPs, Mobile App bug fixes, and monthly tech support.</div>
+                <div class="card-footer">
+                    <span>Budget Starter Gigs</span>
+                    <span>Launch Fiverr →</span>
+                </div>
+            </a>
+
+            <!-- 4. Cutshort (India & International) -->
+            <a href="https://cutshort.io/jobs/full-stack-developer-jobs" target="_blank" class="platform-card card-cutshort" data-category="india" data-keywords="cutshort india bangalore startups founders CTO chat direct contract fullstack react node">
+                <div class="card-top">
+                    <div class="platform-icon">⚡</div>
+                    <span class="badge-cat">India & Asia Hub</span>
+                </div>
+                <div class="platform-title">Cutshort India & Remote</div>
+                <div class="platform-desc">Direct chat with Indian tech founders & global startups hiring contract Full-Stack devs at ₹400-₹800/hr.</div>
+                <div class="card-footer">
+                    <span>Direct Founder Chat</span>
+                    <span>Launch Cutshort →</span>
+                </div>
+            </a>
+
+            <!-- 5. Arc.dev -->
+            <a href="https://arc.dev/developer-jobs" target="_blank" class="platform-card card-arc" data-category="global" data-keywords="arc dev remote contract jobs vetted developers US UK europe startups full stack react native node">
+                <div class="card-top">
+                    <div class="platform-icon">🌐</div>
+                    <span class="badge-cat">US & Global</span>
+                </div>
+                <div class="platform-title">Arc.dev Remote Contracts</div>
+                <div class="platform-desc">Pre-vetted remote developer network connecting senior React, Node, and Mobile engineers to US & UK tech companies.</div>
+                <div class="card-footer">
+                    <span>Vetted Contracts</span>
+                    <span>Launch Arc →</span>
+                </div>
+            </a>
+
+            <!-- 6. Lemon.io -->
+            <a href="https://lemon.io/for-developers/" target="_blank" class="platform-card card-lemon" data-category="uk_eu" data-keywords="lemon io startup freelance contract US EU UK clients react node developer $35-$75/hr">
+                <div class="card-top">
+                    <div class="platform-icon">🍋</div>
+                    <span class="badge-cat">UK & EU Hub</span>
+                </div>
+                <div class="platform-title">Lemon.io (US & Europe)</div>
+                <div class="platform-desc">Hand-picked developer matching platform pairing senior devs with vetted US & European startups.</div>
+                <div class="card-footer">
+                    <span>US & EU Clients</span>
+                    <span>Launch Lemon →</span>
+                </div>
+            </a>
+
+            <!-- 7. Instahyre India -->
+            <a href="https://www.instahyre.com/search-jobs/?query=full+stack+developer" target="_blank" class="platform-card card-instahyre" data-category="india" data-keywords="instahyre india fast track unicorns AI match bangalore contract full stack react node">
+                <div class="card-top">
+                    <div class="platform-icon">🚀</div>
+                    <span class="badge-cat">India Tech Hub</span>
+                </div>
+                <div class="platform-title">Instahyre India Hub</div>
+                <div class="platform-desc">Fast-track contract & consulting opportunities at top Indian tech unicorns and international dev centers.</div>
+                <div class="card-footer">
+                    <span>India & Remote Hub</span>
+                    <span>Launch Instahyre →</span>
+                </div>
+            </a>
+
+            <!-- 8. Braintrust -->
+            <a href="https://www.usebraintrust.com/jobs" target="_blank" class="platform-card card-braintrust" data-category="global" data-keywords="braintrust web3 decentralized 0 percent commission talent fee enterprise clients google nike NASA USA global">
+                <div class="card-top">
+                    <div class="platform-icon">🧠</div>
+                    <span class="badge-cat">0% Fee Network</span>
+                </div>
+                <div class="platform-title">Braintrust (0% Fee)</div>
+                <div class="platform-desc">User-owned freelance network with 0% talent fees, connecting engineers directly to US & Fortune 500 clients.</div>
+                <div class="card-footer">
+                    <span>0% Fee Network</span>
+                    <span>Launch Braintrust →</span>
+                </div>
+            </a>
+
+            <!-- 9. Gun.io -->
+            <a href="https://www.gun.io/" target="_blank" class="platform-card card-gunio" data-category="global" data-keywords="gun.io premium freelance engineering contracts enterprise clients high hourly rates USA UK">
+                <div class="card-top">
+                    <div class="platform-icon">🎯</div>
+                    <span class="badge-cat">US Premium</span>
+                </div>
+                <div class="platform-title">Gun.io High-End Freelance</div>
+                <div class="platform-desc">Elite freelance engineering contracts with dedicated client matching and guaranteed USD payment protection.</div>
+                <div class="card-footer">
+                    <span>High USD Rates</span>
+                    <span>Launch Gun.io →</span>
+                </div>
+            </a>
+
+            <!-- 10. Turing -->
+            <a href="https://www.turing.com/jobs" target="_blank" class="platform-card card-turing" data-category="global" data-keywords="turing ai talent matching long term remote contracts US dollar payout full time contract global india USA">
+                <div class="card-top">
+                    <div class="platform-icon">🤖</div>
+                    <span class="badge-cat">Global AI Matching</span>
+                </div>
+                <div class="platform-title">Turing Remote Contracts</div>
+                <div class="platform-desc">AI-powered remote contract platform providing full-time, long-term engagements with global Silicon Valley companies.</div>
+                <div class="card-footer">
+                    <span>Long-Term Contracts</span>
+                    <span>Launch Turing →</span>
+                </div>
+            </a>
+
+            <!-- 11. We Work Remotely -->
+            <a href="https://weworkremotely.com/categories/remote-full-stack-programming-jobs" target="_blank" class="platform-card card-wwr" data-category="uk_eu" data-keywords="we work remotely wwr remote contract full stack react node app developer US UK Europe global">
+                <div class="card-top">
+                    <div class="platform-icon">💼</div>
+                    <span class="badge-cat">UK & US Board</span>
+                </div>
+                <div class="platform-title">We Work Remotely (WWR)</div>
+                <div class="platform-desc">World's largest remote work community featuring high-budget contract roles for US, UK, and European clients.</div>
+                <div class="card-footer">
+                    <span>Direct Client Hiring</span>
+                    <span>Launch WWR →</span>
+                </div>
+            </a>
+
+            <!-- 12. RemoteOK Contracts -->
+            <a href="https://remoteok.com/remote-contract-jobs" target="_blank" class="platform-card card-remoteok" data-category="uk_eu" data-keywords="remoteok contract jobs freelance software engineering USD EUR GBP payments instant apply global">
+                <div class="card-top">
+                    <div class="platform-icon">🔥</div>
+                    <span class="badge-cat">Global Remote</span>
+                </div>
+                <div class="platform-title">RemoteOK Contract Feed</div>
+                <div class="platform-desc">Real-time remote contract job board focused on tech startups, high USD/EUR compensation, and quick apply.</div>
+                <div class="card-footer">
+                    <span>Remote USD/EUR/GBP</span>
+                    <span>Launch RemoteOK →</span>
+                </div>
+            </a>
+
+            <!-- 13. Wellfound Startup Contracts -->
+            <a href="https://wellfound.com/jobs?job_types[]=contract" target="_blank" class="platform-card card-wellfound" data-category="global" data-keywords="wellfound angellist contract startup founder equity hourly rate mvp build USA India UK">
+                <div class="card-top">
+                    <div class="platform-icon">🚀</div>
+                    <span class="badge-cat">Founder Direct</span>
+                </div>
+                <div class="platform-title">Wellfound Startup Contracts</div>
+                <div class="platform-desc">Connect directly with seed & Series-A startup founders in USA, UK, & India looking for contract engineers.</div>
+                <div class="card-footer">
+                    <span>Founder Direct</span>
+                    <span>Launch Wellfound →</span>
+                </div>
+            </a>
+
+            <!-- 14. FlexJobs -->
+            <a href="https://www.flexjobs.com/search?search=full+stack+developer&job_type%5B%5D=Freelance" target="_blank" class="platform-card card-flexjobs" data-category="global" data-keywords="flexjobs vetted freelance tech contract roles part time full time contract scam free USA UK">
+                <div class="card-top">
+                    <div class="platform-icon">🛡️</div>
+                    <span class="badge-cat">Vetted US & UK</span>
+                </div>
+                <div class="platform-title">FlexJobs Freelance Board</div>
+                <div class="platform-desc">Hand-screened, verified freelance contracts and flexible engineering opportunities with US & UK businesses.</div>
+                <div class="card-footer">
+                    <span>Vetted Listings</span>
+                    <span>Launch FlexJobs →</span>
+                </div>
+            </a>
+
+            <!-- 15. LinkedIn Client Dorking -->
+            <a href="https://www.linkedin.com/search/results/content/?keywords=%22hiring%22%20AND%20(%22freelance%22%20OR%20%22contract%22)%20AND%20(%22React%22%20OR%20%22Node%22%20OR%20%22Full%20Stack%22)&origin=GLOBAL_SEARCH_HEADER&sortBy=%22date_posted%22" target="_blank" class="platform-card card-linkedin" data-category="outreach" data-keywords="linkedin client dorking hiring freelance contract react node fullstack outreach DM direct founder USA UK India">
+                <div class="card-top">
+                    <div class="platform-icon">⚡</div>
+                    <span class="badge-cat">Global Dorking</span>
+                </div>
+                <div class="platform-title">LinkedIn Client Dorking</div>
+                <div class="platform-desc">Direct X-Ray search queries filtering real-time posts from founders & CTOs hiring `#freelance #contract` devs globally.</div>
+                <div class="card-footer">
+                    <span>Live Post Search</span>
+                    <span>Launch Dorking →</span>
+                </div>
+            </a>
+
+            <!-- 16. Reddit r/forhire -->
+            <a href="https://www.reddit.com/r/forhire/search/?q=flair%3AHiring%20(React%20OR%20Node%20OR%20Developer)&restrict_sr=1&sort=new" target="_blank" class="platform-card card-reddit" data-category="outreach" data-keywords="reddit r forhire hiring post client proposal direct PM web mobile app dev USA UK EU India">
+                <div class="card-top">
+                    <div class="platform-icon">🤖</div>
+                    <span class="badge-cat">Direct Client PM</span>
+                </div>
+                <div class="platform-title">Reddit r/forhire Feed</div>
+                <div class="platform-desc">Monitor live `[Hiring]` posts on Reddit for immediate web & mobile app contracts with 0% middleman fees.</div>
+                <div class="card-footer">
+                    <span>0% Fee Direct PM</span>
+                    <span>Launch Reddit →</span>
+                </div>
+            </a>
+
+            <!-- 17. Twitter / X Tech Gigs -->
+            <a href="https://twitter.com/search?q=hiring%20(freelance%20OR%20contract)%20(react%20OR%20node%20OR%20fullstack)&f=live" target="_blank" class="platform-card card-twitter" data-category="outreach" data-keywords="twitter x tech gigs hiring freelance contract react node mobile app startup founder DM global USA UK">
+                <div class="card-top">
+                    <div class="platform-icon">🐦</div>
+                    <span class="badge-cat">Real-Time Tweets</span>
+                </div>
+                <div class="platform-title">Twitter / X Live Gigs</div>
+                <div class="platform-desc">Real-time search feed tracking startup founders tweeting for immediate contract devs, web MVPs, and bug fixes.</div>
+                <div class="card-footer">
+                    <span>Real-Time Tweets</span>
+                    <span>Launch Twitter →</span>
+                </div>
+            </a>
+
+            <!-- 18. Indie Hackers -->
+            <a href="https://www.indiehackers.com/groups/looking-for-developers" target="_blank" class="platform-card card-indiehackers" data-category="outreach" data-keywords="indie hackers founder tech partner contract dev MVP build micro saas react node mobile USA UK India">
+                <div class="card-top">
+                    <div class="platform-icon">💡</div>
+                    <span class="badge-cat">Founder Community</span>
+                </div>
+                <div class="platform-title">Indie Hackers Hub</div>
+                <div class="platform-desc">Partner with non-technical founders building Micro-SaaS, web tools, and mobile MVPs on a contract basis.</div>
+                <div class="card-footer">
+                    <span>Founder Network</span>
+                    <span>Launch IH Hub →</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="batch-actions">
+            <h3 style="margin: 0; color: var(--text-primary); font-size: 1.3rem; font-weight: 800;">⚡ Rapid Launcher Actions</h3>
+            <div class="batch-btn-group">
+                <button class="main-btn" onclick="openAllPlatforms()">Open ALL 18 Platforms</button>
+                <button class="sub-btn" onclick="openBatch(['https://www.upwork.com/nx/search/jobs/?q=react%20node%20full%20stack%20mobile&sort=recency', 'https://www.toptal.com/freelance-jobs', 'https://www.fiverr.com/gigs/react-developer', 'https://arc.dev/developer-jobs'])">Open US & Global Marketplaces</button>
+                <button class="sub-btn" onclick="openBatch(['https://lemon.io/for-developers/', 'https://weworkremotely.com/categories/remote-full-stack-programming-jobs', 'https://remoteok.com/remote-contract-jobs', 'https://www.flexjobs.com/search?search=full+stack+developer&job_type%5B%5D=Freelance'])">Open UK & European Boards</button>
+                <button class="sub-btn" onclick="openBatch(['https://cutshort.io/jobs/full-stack-developer-jobs', 'https://www.instahyre.com/search-jobs/?query=full+stack+developer', 'https://wellfound.com/jobs?job_types[]=contract'])">Open India & Asia Hubs</button>
+                <button class="sub-btn" onclick="openBatch(['https://www.linkedin.com/search/results/content/?keywords=%22hiring%22%20AND%20(%22freelance%22%20OR%20%22contract%22)%20AND%20(%22React%22%20OR%20%22Node%22%20OR%20%22Full%20Stack%22)&origin=GLOBAL_SEARCH_HEADER&sortBy=%22date_posted%22', 'https://www.reddit.com/r/forhire/search/?q=flair%3AHiring%20(React%20OR%20Node%20OR%20Developer)&restrict_sr=1&sort=new', 'https://twitter.com/search?q=hiring%20(freelance%20OR%20contract)%20(react%20OR%20node%20OR%20fullstack)&f=live', 'https://www.indiehackers.com/groups/looking-for-developers'])">Open Client Dorking Engines</button>
+            </div>
+            <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Make sure browser pop-ups are allowed for multi-tab batch opening.</p>
+        </div>
+    </div>
+
+    <!-- Modal 1: Client Proposal & Pitch Builder -->
+    <div class="modal-overlay" id="pitchModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📋 High-Converting Global Proposal Builder</h3>
+                <span class="close-modal" onclick="closePitchModal()">×</span>
+            </div>
+            
+            <div class="modal-nav">
+                <button class="modal-tab active" onclick="switchPitchTemplate('upwork', this)">Upwork Cover Letter</button>
+                <button class="modal-tab" onclick="switchPitchTemplate('cold', this)">Cold Client Email / DM</button>
+                <button class="modal-tab" onclick="switchPitchTemplate('retainer', this)">Monthly Retainer Pitch</button>
+                <button class="modal-tab" onclick="switchPitchTemplate('mvp', this)">Fixed MVP Proposal</button>
+            </div>
+
+            <div class="field-group">
+                <div class="field-item">
+                    <label>Pricing Strategy</label>
+                    <select id="pitchTier" onchange="updatePitchText()">
+                        <option value="starter" selected>🚀 Starter Budget Rate (Fast Client Win)</option>
+                        <option value="standard">💎 Standard Senior Rate</option>
+                    </select>
+                </div>
+                <div class="field-item">
+                    <label>Target Region</label>
+                    <select id="pitchRegion" onchange="updatePitchText()">
+                        <option value="USA">🇺🇸 USA & North America ($ USD)</option>
+                        <option value="UK_EU">🇬🇧 UK & Europe (£ GBP / € EUR)</option>
+                        <option value="India">🇮🇳 India & Domestic (₹ INR)</option>
+                        <option value="Global" selected>🌐 Global / Worldwide (Multi-Currency)</option>
+                    </select>
+                </div>
+                <div class="field-item">
+                    <label>Client Name / Business</label>
+                    <input type="text" id="pitchClient" value="Alex" oninput="updatePitchText()">
+                </div>
+                <div class="field-item">
+                    <label>Project Scope</label>
+                    <input type="text" id="pitchProject" value="Cross-Platform Mobile App & Web MVP" oninput="updatePitchText()">
+                </div>
+                <div class="field-item">
+                    <label>Primary Tech Stack</label>
+                    <input type="text" id="pitchStack" value="React Native, React.js, Node.js, MongoDB" oninput="updatePitchText()">
+                </div>
+                <div class="field-item">
+                    <label>Delivery Timeline</label>
+                    <input type="text" id="pitchTimeline" value="2-3 Weeks" oninput="updatePitchText()">
+                </div>
+            </div>
+
+            <div class="copy-box" id="pitchOutput">Loading template...</div>
+            <button class="copy-btn" id="copyPitchBtn" onclick="copyPitchText()">Copy Pitch to Clipboard</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Freelance Rate & Retainer Calculator -->
+    <div class="modal-overlay" id="calcModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🧮 Multi-Currency Rate & Retainer Calculator</h3>
+                <span class="close-modal" onclick="closeCalcModal()">×</span>
+            </div>
+
+            <div class="field-group">
+                <div class="field-item">
+                    <label>Pricing Mode</label>
+                    <select id="calcTier" onchange="calculateRates()">
+                        <option value="starter" selected>🚀 Starter Budget Rates (Fast Client Win)</option>
+                        <option value="standard">💎 Standard Senior Rates</option>
+                    </select>
+                </div>
+                <div class="field-item">
+                    <label>Billing Currency</label>
+                    <select id="calcCurrency" onchange="calculateRates()">
+                        <option value="USD" selected>🇺🇸 USD ($)</option>
+                        <option value="GBP">🇬🇧 GBP (£)</option>
+                        <option value="EUR">🇪🇺 EUR (€)</option>
+                        <option value="INR">🇮🇳 INR (₹)</option>
+                    </select>
+                </div>
+                <div class="field-item">
+                    <label>Target Monthly Income</label>
+                    <input type="number" id="calcIncome" value="2500" step="250" oninput="calculateRates()">
+                </div>
+                <div class="field-item">
+                    <label>Billable Hours / Week</label>
+                    <input type="number" id="calcHours" value="30" step="5" oninput="calculateRates()">
+                </div>
+            </div>
+
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <div class="calc-lbl">Starter Base Rate</div>
+                    <div class="calc-val" id="resBaseRate">$20 / hr</div>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-lbl">Recommended Rate</div>
+                    <div class="calc-val" id="resRecRate">$25 / hr</div>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-lbl">10h/wk Part Retainer</div>
+                    <div class="calc-val" id="resRetainer10">$1,000 / mo</div>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-lbl">20h/wk Half Retainer</div>
+                    <div class="calc-val" id="resRetainer20">$2,000 / mo</div>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-lbl">40h/wk Full Contract</div>
+                    <div class="calc-val" id="resRetainer40">$4,000 / mo</div>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-lbl">2-Week MVP Fixed Price</div>
+                    <div class="calc-val" id="resMVPPrice">$1,500</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const allLinks = [
+            "https://www.upwork.com/nx/search/jobs/?q=react%20node%20full%20stack%20mobile&sort=recency",
+            "https://www.toptal.com/freelance-jobs",
+            "https://www.fiverr.com/gigs/react-developer",
+            "https://cutshort.io/jobs/full-stack-developer-jobs",
+            "https://arc.dev/developer-jobs",
+            "https://lemon.io/for-developers/",
+            "https://www.instahyre.com/search-jobs/?query=full+stack+developer",
+            "https://www.usebraintrust.com/jobs",
+            "https://www.gun.io/",
+            "https://www.turing.com/jobs",
+            "https://weworkremotely.com/categories/remote-full-stack-programming-jobs",
+            "https://remoteok.com/remote-contract-jobs",
+            "https://wellfound.com/jobs?job_types[]=contract",
+            "https://www.flexjobs.com/search?search=full+stack+developer&job_type%5B%5D=Freelance",
+            "https://www.linkedin.com/search/results/content/?keywords=%22hiring%22%20AND%20(%22freelance%22%20OR%20%22contract%22)%20AND%20(%22React%22%20OR%20%22Node%22%20OR%20%22Full%20Stack%22)&origin=GLOBAL_SEARCH_HEADER&sortBy=%22date_posted%22",
+            "https://www.reddit.com/r/forhire/search/?q=flair%3AHiring%20(React%20OR%20Node%20OR%20Developer)&restrict_sr=1&sort=new",
+            "https://twitter.com/search?q=hiring%20(freelance%20OR%20contract)%20(react%20OR%20node%20OR%20fullstack)&f=live",
+            "https://www.indiehackers.com/groups/looking-for-developers"
+        ];
+
+        let currentPitchType = 'upwork';
+
+        function openAllPlatforms() {
+            if(confirm('This will open all 18 freelance & contract platform hubs in new tabs. Proceed?')) {
+                allLinks.forEach(link => {
+                    window.open(link, '_blank');
+                });
+            }
+        }
+
+        function openBatch(links) {
+            if(confirm(`Open ${links.length} selected freelance links in new tabs?`)) {
+                links.forEach(link => {
+                    window.open(link, '_blank');
+                });
+            }
+        }
+
+        function filterCategory(cat, element) {
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+
+            const cards = document.querySelectorAll('.platform-card');
+            cards.forEach(card => {
+                if(cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchCards() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.platform-card');
+            cards.forEach(card => {
+                const text = (card.innerText + " " + (card.dataset.keywords || '')).toLowerCase();
+                if(text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        /* Modal logic */
+        function openPitchModal() {
+            document.getElementById('pitchModal').style.display = 'flex';
+            updatePitchText();
+        }
+
+        function closePitchModal() {
+            document.getElementById('pitchModal').style.display = 'none';
+        }
+
+        function openCalcModal() {
+            document.getElementById('calcModal').style.display = 'flex';
+            calculateRates();
+        }
+
+        function closeCalcModal() {
+            document.getElementById('calcModal').style.display = 'none';
+        }
+
+        function switchPitchTemplate(type, el) {
+            currentPitchType = type;
+            document.querySelectorAll('.modal-tab').forEach(tab => tab.classList.remove('active'));
+            el.classList.add('active');
+            updatePitchText();
+        }
+
+        function updatePitchText() {
+            const tier = document.getElementById('pitchTier').value || 'starter';
+            const region = document.getElementById('pitchRegion').value || 'Global';
+            const client = document.getElementById('pitchClient').value || 'there';
+            const project = document.getElementById('pitchProject').value || 'Web & Mobile App';
+            const stack = document.getElementById('pitchStack').value || 'React Native, React.js, Node.js, MongoDB';
+            const timeline = document.getElementById('pitchTimeline').value || '2-3 Weeks';
+
+            let rateStr = '$20/hr (Special Starter Client Rate)';
+            if (tier === 'starter') {
+                rateStr = region === 'USA' ? '$18 - $25/hr' : region === 'UK_EU' ? '£14 - £20/hr' : region === 'India' ? '₹450 - ₹750/hr' : '$18 - $25/hr';
+            } else {
+                rateStr = region === 'USA' ? '$35 - $50/hr' : region === 'UK_EU' ? '£30 - £45/hr' : region === 'India' ? '₹1,500 - ₹3,000/hr' : '$35 - $55/hr';
+            }
+
+            const tzStr = region === 'USA' ? 'PST/EST' : region === 'UK_EU' ? 'GMT/BST/CET' : region === 'India' ? 'IST (Bengaluru Base)' : 'PST/EST/GMT/CET/IST (Worldwide Overlap)';
+
+            let output = '';
+
+            if (currentPitchType === 'upwork') {
+                output = `Hi ${client},
+
+I saw your posting for a ${project} and I'd love to help you build and deploy this seamlessly.
+
+I am a Lead Full-Stack & Mobile Developer (6+ years of experience) specializing in ${stack}. I am offering a Special Starter Promotional Rate (${rateStr}) to establish strong long-term client relationships and 5-star reviews on initial projects.
+
+Why work with me?
+1. Speed & Clean Code: Modular architectures, secure REST APIs, and clean UI components.
+2. Global Timezone Support: Daily updates with smooth overlap across ${tzStr}.
+3. Fast Turnaround: Can complete this scope in ${timeline} at an attractive starter rate of ${rateStr}.
+
+Recent Portfolio Highlights:
+- Ondeen iOS App: https://apps.apple.com/us/app/ondeen/id6740039443
+- Bukih Web Platform: https://bukih.com/
+- Timeinlive Android App: https://play.google.com/store/apps/details?id=timeinlive.smartwork
+- UrExpert Web App: https://urxprt.com/
+
+Would love to hop on a quick 10-minute call or do a quick test task to prove my work quality!
+
+Best regards,
+Suresh Sirvi
+Full-Stack & Mobile Developer
+Email: sureshsirvi.dev@gmail.com | Phone: +91 8310634421
+LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0/`;
+            } else if (currentPitchType === 'cold') {
+                output = `Subject: Freelance Developer for ${project} — Starter Rate Offer
+
+Hi ${client},
+
+I came across your business and noticed you might be building or scaling a ${project}.
+
+I'm Suresh Sirvi, a Senior Full-Stack & Mobile Developer with 6+ years of hands-on experience working with clients across USA, UK, Europe, India, and global tech hubs. I specialize in ${stack}.
+
+I help founders and engineering teams:
+• Build & Launch MVPs fast (${timeline})
+• Refactor legacy codebases & optimize app performance
+• Integrate REST APIs, payment gateways, and third-party tools
+
+I am currently taking on new freelance projects at an attractive starter rate (${rateStr}) to build new long-term client partnerships. 100% time-zone alignment for ${tzStr}.
+
+Would you be open to a quick 5-minute discovery chat this week?
+
+Best regards,
+Suresh Sirvi
+Phone: +91 8310634421 | Email: sureshsirvi.dev@gmail.com
+LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0/`;
+            } else if (currentPitchType === 'retainer') {
+                output = `Hi ${client},
+
+Hope you're having a great week!
+
+Now that we've discussed updates on ${project}, I wanted to propose transitioning to an ongoing Monthly Engineering Retainer at a budget-friendly starter price.
+
+Proposed Starter Retainer Packages:
+- Option A: 10 Hours / Week — Maintenance, bug fixes & minor updates ($500/mo | ₹25,000/mo)
+- Option B: 20 Hours / Week — Active feature development & API updates ($1,000/mo | ₹45,000/mo)
+- Option C: Dedicated Full-Time (40 Hours/wk) — Full-time contract developer ($1,800/mo | ₹80,000/mo)
+
+Benefits for your business:
+• Guaranteed priority turnaround on all urgent tickets at budget pricing
+• Seamless continuous delivery & app store maintenance
+• Predictable monthly dev budget with overlap across ${tzStr}
+
+Let me know which option aligns best with your roadmap for next month!
+
+Best regards,
+Suresh Sirvi`;
+            } else if (currentPitchType === 'mvp') {
+                output = `FIXED-SCOPE STARTER MVP PROPOSAL
+
+Project: ${project}
+Prepared for: ${client}
+Target Region: ${region}
+Prepared by: Suresh Sirvi (Full-Stack & Mobile Developer)
+
+1. OBJECTIVE & SCOPE
+Building a production-ready, highly responsive ${project} utilizing ${stack}.
+• Frontend: Responsive UI components, user auth flows, admin dashboards.
+• Mobile: Cross-Platform iOS & Android apps (React Native).
+• Backend: Scalable REST APIs, database schemas (MongoDB), payment integrations.
+
+2. TIMELINE & DELIVERABLES
+• Phase 1 (Week 1): Architecture, DB schema, auth API & core UI screens.
+• Phase 2 (Week 2): Core feature buildout, API integrations, state management.
+• Phase 3 (Week 3): Testing, bug fixes, deployment to server & app stores.
+Target Completion: ${timeline}
+
+3. INVESTMENT & TERMS
+• Starter Fixed Package Fee: ${rateStr}
+• Timezone Overlap: ${tzStr}
+• Support: 14-day post-launch QA bug fix support included.
+
+Ready to get started? Let me know and I'll send over the agreement!
+
+Best,
+Suresh Sirvi`;
+            }
+
+            document.getElementById('pitchOutput').innerText = output;
+        }
+
+        function copyPitchText() {
+            const text = document.getElementById('pitchOutput').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyPitchBtn');
+                btn.innerText = '✓ Copied to Clipboard!';
+                setTimeout(() => {
+                    btn.innerText = 'Copy Pitch to Clipboard';
+                }, 2000);
+            });
+        }
+
+        /* Rate Calculator Logic */
+        function calculateRates() {
+            const tier = document.getElementById('calcTier').value || 'starter';
+            const curr = document.getElementById('calcCurrency').value || 'USD';
+            const income = parseFloat(document.getElementById('calcIncome').value) || 2500;
+            const hoursPerWeek = parseFloat(document.getElementById('calcHours').value) || 30;
+
+            const sym = curr === 'USD' ? '$' : curr === 'GBP' ? '£' : curr === 'EUR' ? '€' : '₹';
+            const weeksPerMonth = 4.33;
+
+            let baseRate = 0;
+            let recRate = 0;
+
+            if (tier === 'starter') {
+                baseRate = curr === 'INR' ? 450 : curr === 'GBP' ? 14 : curr === 'EUR' ? 16 : 18;
+                recRate = curr === 'INR' ? 650 : curr === 'GBP' ? 18 : curr === 'EUR' ? 20 : 22;
+            } else {
+                baseRate = curr === 'INR' ? 1500 : curr === 'GBP' ? 30 : curr === 'EUR' ? 35 : 40;
+                recRate = curr === 'INR' ? 2200 : curr === 'GBP' ? 40 : curr === 'EUR' ? 45 : 50;
+            }
+
+            const retainer10 = Math.round(recRate * 10 * weeksPerMonth);
+            const retainer20 = Math.round(recRate * 20 * weeksPerMonth);
+            const retainer40 = Math.round(recRate * 40 * weeksPerMonth);
+            const mvpPrice = Math.round(recRate * 40);
+
+            document.getElementById('resBaseRate').innerText = `${sym}${baseRate.toLocaleString()} / hr`;
+            document.getElementById('resRecRate').innerText = `${sym}${recRate.toLocaleString()} / hr`;
+            document.getElementById('resRetainer10').innerText = `${sym}${retainer10.toLocaleString()} / mo`;
+            document.getElementById('resRetainer20').innerText = `${sym}${retainer20.toLocaleString()} / mo`;
+            document.getElementById('resRetainer40').innerText = `${sym}${retainer40.toLocaleString()} / mo`;
+            document.getElementById('resMVPPrice').innerText = `${sym}${mvpPrice.toLocaleString()}`;
+        }
+    </script>
+
+    <footer>
+        <div class="footer-circle-wrap">
+            <!-- Circular Rotating Text -->
+            <div class="footer-circle-badge">
+                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="circlePath"
+                            d="M 100,100
+                               m -72,0
+                               a 72,72 0 1,1 144,0
+                               a 72,72 0 1,1 -144,0" />
+                    </defs>
+                    <text class="circle-text">
+                        <textPath href="#circlePath" startOffset="0%">
+                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Center icon -->
+                <div class="circle-center-icon">
+                    <span>⚡</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
+                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                </div>
+                <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Freelance Client Outreach & Email Dispatcher</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.12) 0px, transparent 40%),
+                radial-gradient(at 90% 90%, rgba(56, 189, 248, 0.12) 0px, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            display: block;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0 0 50px 0;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 36px;
+            width: 100%;
+            max-width: 880px;
+            margin: 50px auto;
+            width: 95%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--surface-border);
+            backdrop-filter: blur(12px);
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.65rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-pill {
+            background: var(--badge-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--badge-border);
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .starter-badge {
+            background: var(--badge-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--badge-border);
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 800;
+        }
+
+        .sub-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .region-selector-bar {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid var(--surface-border);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .selector-item label {
+            display: block;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 290px;
+            line-height: 1.6;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 240px;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            font-family: inherit;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #0F172A;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #38BDF8, #0284C7);
+            color: #0F172A;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.95;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.5;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--surface-border);
+        }
+
+        /* The hidden rich text template */
+        #emailTemplate {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+        }
+
+        /* Tabs navigation styling */
+        .tabs-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            color: #0F172A;
+            background: linear-gradient(135deg, #10B981, #38BDF8);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    
+        /* ── TOPBAR ── */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 14px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+        }
+        .topbar-left { display: flex; align-items: center; gap: 12px; }
+        .topbar-back {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--accent); }
+        .topbar-sep { color: var(--text-secondary); opacity: 0.5; }
+        .topbar-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+        
+        .topbar-contact { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; }
+        .contact-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .contact-link:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .topbar { padding: 12px 20px; flex-wrap: wrap; }
+            .topbar-contact { display: none; /* Hide on mobile */ }
+            .container { margin: 30px auto !important; width: 92% !important; }
+            body { padding: 0 0 50px 0 !important; }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="custom-cursor"></div>
+
+    <div class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-back">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Back to Portfolio
+            </a>
+            <span class="topbar-sep">/</span>
+            <span class="topbar-title">Email Dispatcher</span>
+        </div>
+        <div class="topbar-contact">
+            <a href="tel:+919902965742" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91 9902965742
+            </a>
+            <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                sureshsirvi.dev@gmail.com
+            </a>
+        </div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+    <div class="container">
+        <div class="header-title">
+            <h1>🌐 Freelance Client Outreach Dispatcher</h1>
+            <div>
+                <span class="starter-badge">🔥 Starter Budget Pricing Active</span>
+                <span class="status-pill">🌍 USA • UK • India • Global</span>
+            </div>
+        </div>
+        <p class="sub-desc">Target client prospects with competitive, budget-friendly starter pricing ($15–$25/hr | £12–£20/hr | ₹400–₹800/hr) to close your initial freelance clients fast!</p>
+
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('email', this)">📧 Email Client Pitch</button>
+            <button class="tab-btn" onclick="switchTab('whatsapp', this)">💬 WhatsApp Client Pitch</button>
+        </div>
+
+        <div id="tabContentEmail" class="tab-content active">
+            <div class="region-selector-bar">
+                <div class="selector-item">
+                    <label for="priceTierSelect">💵 Pricing Strategy Tier</label>
+                    <select id="priceTierSelect" onchange="loadSelectedTemplate()">
+                        <option value="starter" selected>🚀 Starter Budget Rates (Fast Client Close: $15–$25/hr | ₹400–₹800/hr)</option>
+                        <option value="standard">💎 Standard Senior Rates ($30–$60/hr | ₹1,500–₹3,500/hr)</option>
+                    </select>
+                </div>
+                <div class="selector-item">
+                    <label for="regionSelect">🌍 Target Country / Region</label>
+                    <select id="regionSelect" onchange="loadSelectedTemplate()">
+                        <option value="usa">🇺🇸 USA & North America ($ USD)</option>
+                        <option value="uk_eu">🇬🇧 UK & Europe (£ GBP / € EUR)</option>
+                        <option value="india">🇮🇳 India & Domestic Hubs (₹ INR)</option>
+                        <option value="global" selected>🌐 Top Global Tech Hubs (Worldwide)</option>
+                    </select>
+                </div>
+                <div class="selector-item">
+                    <label for="templateSelect">🎯 Pitch Strategy & Goal</label>
+                    <select id="templateSelect" onchange="loadSelectedTemplate()">
+                        <option value="cold_pitch">1. Freelance Pitch (Special Starter Rate Offer)</option>
+                        <option value="mvp_proposal">2. Low-Cost Fixed MVP Scope ($500 – $1,200)</option>
+                        <option value="retainer_proposal">3. Budget Monthly Retainer ($500 – $1,800/mo)</option>
+                        <option value="short_pitch">4. Quick Risk-Free Trial Pitch</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="recipient">Recipient Email</label>
+                <input type="email" id="recipient" placeholder="client@company.com or founder@startup.io" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Email Subject Line</label>
+                <input type="text" id="subject" value="Full-Stack JavaScript & Mobile Developer | Starter Freelance Rate | Suresh Sirvi">
+            </div>
+
+            <div class="form-group">
+                <label for="body">Email Body (Editable Text)</label>
+                <textarea id="body"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="sendEmailAutoFill()">
+                    <div>1. Auto-Fill Gmail (Plain Text)</div>
+                    <span>Launches Gmail compose with pre-filled content</span>
+                </button>
+
+                <button class="btn btn-secondary" onclick="copyAndOpenGmail()">
+                    <div>2. Copy & Paste (Rich Text Blue Links)</div>
+                    <span>Copies clickable links. Paste (Cmd+V) into Gmail body</span>
+                </button>
+            </div>
+
+            <p class="note"><strong>💡 Pro Tip:</strong> Click <b>Button 1</b> for auto-fill or <b>Button 2</b> to copy formatted text with clickable blue links for Gmail.</p>
+        </div> <!-- End of tabContentEmail -->
+
+        <!-- WhatsApp Tab Content -->
+        <div id="tabContentWhatsApp" class="tab-content">
+            <div class="form-group">
+                <label for="waRecipient">Recipient WhatsApp Number</label>
+                <input type="tel" id="waRecipient" placeholder="e.g. 6360494477 (Indian numbers add +91 automatically, or include country code for US/UK/Global)">
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                    <input type="checkbox" id="waUseDesktop" style="width: auto; cursor: pointer; margin: 0;" checked>
+                    <label for="waUseDesktop" style="margin-bottom: 0; cursor: pointer; user-select: none; font-size: 0.85rem; font-weight: normal;">Use WhatsApp Desktop App (instead of Web)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="waBody1">WhatsApp Message 1 (Intro Pitch)</label>
+                <textarea id="waBody1" style="min-height: 160px; font-family: inherit; font-size: 0.92rem;">Hi,
+
+Hope you're having a great week!
+
+I am reaching out to offer my development services for Full-Time Freelance, Retainer, or Contract work at a special starter budget rate.
+
+I am a *Full-Stack & Mobile Developer (6+ years of experience)* specializing in *React.js, React Native, Node.js, Express, Next.js, and MongoDB*. I help founders build web apps, mobile MVPs, and REST APIs with fast 24-48h turnarounds.
+
+*Special Starter Pricing:*
+• Hourly Contract: $15 - $25/hr | £12 - £20/hr | ₹400 - ₹800/hr
+• Fixed MVP Build: $500 - $1,200 | ₹30k - ₹75k
+• Monthly Retainers: $500 - $1,600/mo | ₹25k - ₹80k/mo
+• Timezone Overlap: USA (PST/EST), UK/Europe (GMT/CET), India (IST)
+
+Would love to share my portfolio and build a small test feature or task to prove my value!</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="waBody2">WhatsApp Message 2 (Portfolio & Links)</label>
+                <textarea id="waBody2" style="min-height: 180px; font-family: inherit; font-size: 0.92rem;">For your reference, here are my live production apps and professional links:
+
+📱 *Live Mobile Apps:*
+• Timeinlive (Android): https://play.google.com/store/apps/details?id=timeinlive.smartwork
+• Ondeen (iOS): https://apps.apple.com/us/app/ondeen/id6740039443
+• Bukih Driver (Android): https://play.google.com/store/apps/details?id=com.buikh.driver
+
+🌐 *Live Web Apps:*
+• Bukih: https://bukih.com/
+• Ondeen: https://ondeen.app/
+• UrExpert: https://urxprt.com/
+
+💼 *Professional Links:*
+• LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0
+• GitHub: https://github.com/ramseervi2024
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+
+Looking forward to connecting!</textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="sendWhatsAppMessages(1)">
+                    <div>1. Send Message 1</div>
+                    <span>Launches WhatsApp with Msg 1 (Copies Msg 2 to clipboard)</span>
+                </button>
+                <button class="btn btn-secondary" onclick="sendWhatsAppMessages(2)">
+                    <div>2. Send Message 2</div>
+                    <span>Launches WhatsApp with Msg 2 (Backup option)</span>
+                </button>
+            </div>
+
+            <p class="note"><strong>WhatsApp Flow:</strong> Click <b>Send Message 1</b> to launch WhatsApp. Message 2 is automatically copied to your clipboard—simply press Paste (Cmd+V) and Enter to send Message 2 right after!</p>
+        </div> <!-- End of tabContentWhatsApp -->
+    </div> <!-- End of container -->
+
+    <!-- Hidden HTML Container for Rich Text Copying -->
+    <div id="emailTemplate"></div>
+
+    <script>
+        const pricingTiers = {
+            starter: {
+                usa: { currency: "$ USD", rateRange: "$15 – $25 / hr", retainerRange: "$500 – $1,600 / month", mvpRange: "$500 – $1,200" },
+                uk_eu: { currency: "£ GBP / € EUR", rateRange: "£12 – £20 / hr (€15 – €25 / hr)", retainerRange: "£400 – £1,200 / month (€450 – €1,400 / mo)", mvpRange: "£400 – £900 (€450 – €1,000)" },
+                india: { currency: "₹ INR", rateRange: "₹400 – ₹800 / hr", retainerRange: "₹25,000 – ₹80,000 / month", mvpRange: "₹30,000 – ₹75,000" },
+                global: { currency: "$ USD / Multi-Currency", rateRange: "$15 – $25 / hr", retainerRange: "$500 – $1,600 / month", mvpRange: "$500 – $1,200" }
+            },
+            standard: {
+                usa: { currency: "$ USD", rateRange: "$30 – $60 / hr", retainerRange: "$1,500 – $5,000 / month", mvpRange: "$2,500 – $5,000" },
+                uk_eu: { currency: "£ GBP / € EUR", rateRange: "£25 – £50 / hr (€30 – €60 / hr)", retainerRange: "£1,200 – £4,000 / month (€1,400 – £4,500 / mo)", mvpRange: "£2,000 – £4,000" },
+                india: { currency: "₹ INR", rateRange: "₹1,500 – ₹3,500 / hr", retainerRange: "₹80,000 – ₹2,50,000 / month", mvpRange: "₹1,50,000 – ₹3,50,000" },
+                global: { currency: "$ USD / Multi-Currency", rateRange: "$30 – $60+ / hr", retainerRange: "$2,000 – $6,000 / month", mvpRange: "$2,500 – $5,000+" }
+            }
+        };
+
+        const regionMeta = {
+            usa: { flag: "🇺🇸", timezones: "PST, EST, and CST timezones", payments: "Stripe, Wise, PayPal, or USD Wire" },
+            uk_eu: { flag: "🇬🇧 🇪🇺", timezones: "GMT, BST, and CET timezones", payments: "Wise, SEPA, IBAN, or PayPal" },
+            india: { flag: "🇮🇳", timezones: "IST (Indian Standard Time — Local Bengaluru Base)", payments: "Razorpay, UPI, or Bank Transfer (NEFT)" },
+            global: { flag: "🌐", timezones: "PST, EST, GMT, CET, and IST (24/7 Global Timezone Overlap)", payments: "Wise, Stripe, PayPal, or Wire" }
+        };
+
+        function getPitchContent(strategyKey, regionKey, tierKey) {
+            const tier = pricingTiers[tierKey] ? pricingTiers[tierKey][regionKey] : pricingTiers.starter[regionKey];
+            const meta = regionMeta[regionKey] || regionMeta.global;
+
+            if (strategyKey === 'cold_pitch') {
+                return {
+                    subject: `Full-Stack JavaScript & Mobile Developer | Starter Rate (${tier.rateRange}) | Suresh Sirvi`,
+                    body: `Dear Client / Hiring Manager,
+
+I hope you are doing well.
+
+I am Suresh Sirvi, a Lead Full-Stack JavaScript & Mobile Developer with 6+ years of hands-on experience building production-ready Web, Mobile, and Backend applications using React Native, React.js, Next.js, Node.js, and MongoDB.
+
+I am currently offering a Special Starter Promotional Rate (${tier.rateRange}) for initial contract projects, fixed MVPs, and monthly retainers to build long-term client relationships.
+
+Technical Expertise:
+• Mobile Development: React Native, Expo, iOS, Android (Cross-Platform Apps)
+• Web Frontend: React.js, Next.js, TypeScript, Redux, Tailwind CSS, Modern UI/UX
+• Backend & APIs: Node.js, Express.js, REST APIs, GraphQL, MongoDB, PostgreSQL
+• Cloud & Tools: AWS, Firebase, Stripe, Razorpay, JWT Auth, Push Notifications, Git
+
+Live Production Apps & Web Projects:
+• Bukih (Web & App) – https://bukih.com/
+• Ondeen (iOS App) – https://apps.apple.com/us/app/ondeen/id6740039443
+• UrExpert (Web App) – https://urxprt.com/
+• Timeinlive (Android App) – https://play.google.com/store/apps/details?id=timeinlive.smartwork
+• MEDirect – https://medirect.link/
+• Bukih Driver (Android App) – https://play.google.com/store/apps/details?id=com.buikh.driver
+
+Starter Pricing & Terms:
+• Promotional Starter Hourly Rate: ${tier.rateRange}
+• Starter Retainers: ${tier.retainerRange}
+• Timezone Coverage: Seamless overlap across ${meta.timezones}
+• Billing & Invoicing: ${tier.currency} via ${meta.payments}
+
+Portfolio & Professional Links:
+• Portfolio: https://ramseervi2024.github.io/portfolio/
+• GitHub: https://github.com/ramseervi2024
+• LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0
+• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+• Video Intro: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+
+I would love to help you build or fix a small feature first at this starter rate so you can test my code quality and delivery speed.
+
+Best Regards,
+
+Suresh Sirvi
+Full-Stack & Mobile Developer
+📞 +91 9902965742 | 📧 ramseervi4321@gmail.com
+LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0`
+                };
+            } else if (strategyKey === 'mvp_proposal') {
+                return {
+                    subject: `Budget-Friendly Web & Mobile MVP Scope (${tier.mvpRange}) | Suresh Sirvi`,
+                    body: `Hi,
+
+I hope you're having a great week!
+
+I noticed you're looking to build or launch a web or mobile MVP. As a Full-Stack & Mobile Developer (4+ YOE), I am offering budget-friendly starter MVP packages for startups and founders.
+
+What I offer for Starter MVP Builds:
+1. Complete Build: Frontend (React.js / Next.js), Mobile App (React Native iOS & Android), and Backend REST APIs (Node.js & MongoDB).
+2. Clean Codebase: Scalable architecture, database schemas, user authentication, and payment integration.
+3. Rapid 2-Week Delivery: Complete build in 10-14 days with milestone updates in ${meta.timezones}.
+
+Live Production Work:
+• Ondeen iOS App: https://apps.apple.com/us/app/ondeen/id6740039443
+• Bukih Web Platform: https://bukih.com/
+• UrExpert Platform: https://urxprt.com/
+
+Starter MVP Investment:
+• Fixed Package Price: ${tier.mvpRange} (${tier.currency})
+• Includes: 14-day post-launch QA bug fix support included
+
+Let me know if you'd be open to reviewing a fast feature breakdown or jumping on a 5-minute call!
+
+Best regards,
+
+Suresh Sirvi
+Full-Stack & Mobile Developer
+📞 +91 9902965742 | 📧 ramseervi4321@gmail.com
+Portfolio: https://ramseervi2024.github.io/portfolio/`
+                };
+            } else if (strategyKey === 'retainer_proposal') {
+                return {
+                    subject: `Budget Monthly Engineering Retainer (${tier.currency}) — Suresh Sirvi`,
+                    body: `Hi,
+
+I hope you're doing well.
+
+I am proposing an affordable Monthly Engineering Retainer to provide ongoing development support for your web and mobile applications at a very competitive starter rate.
+
+Services Included:
+• Feature updates, UI improvements & React Native mobile fixes
+• Node.js REST API maintenance & database tuning
+• App Store & Play Store update deployments
+
+Starter Monthly Retainer Packages (${tier.currency}):
+• Tier 1 (10 Hours / Week): ${tier.currency === '$ USD' ? '$500/mo' : tier.currency.includes('GBP') ? '£400/mo' : tier.currency.includes('INR') ? '₹25,000/mo' : '$500/mo'} — Maintenance & minor feature updates
+• Tier 2 (20 Hours / Week): ${tier.currency === '$ USD' ? '$1,000/mo' : tier.currency.includes('GBP') ? '£800/mo' : tier.currency.includes('INR') ? '₹45,000/mo' : '$1,000/mo'} — Active feature buildout & API development
+• Tier 3 (40 Hours / Week Full-Time): ${tier.currency === '$ USD' ? '$1,800/mo' : tier.currency.includes('GBP') ? '£1,500/mo' : tier.currency.includes('INR') ? '₹80,000/mo' : '$1,800/mo'} — Dedicated full-time contract engineer
+
+Why Choose This Retainer?
+• Highly affordable starter pricing for ongoing dev work
+• Daily updates with overlap in ${meta.timezones}
+• Billing via ${meta.payments}
+
+Portfolio: https://ramseervi2024.github.io/portfolio/
+
+Let me know which retainer package fits your budget for this month!
+
+Best regards,
+
+Suresh Sirvi
+📞 +91 9902965742 | 📧 ramseervi4321@gmail.com`
+                };
+            } else {
+                return {
+                    subject: `Senior Developer for Short Project / Bug Fix (${tier.rateRange})`,
+                    body: `Hi,
+
+Looking for a reliable Full-Stack or Mobile Developer to fix a bug, build a feature, or launch an app at an affordable starter price?
+
+I'm Ramesh, a Full-Stack JavaScript & Mobile Freelancer (4+ YOE) offering starter rates (${tier.rateRange}) for initial client projects.
+
+Quick Highlights:
+• Shipped 4+ live apps on App Store & Play Store (Ondeen, Timeinlive, Bukih)
+• Built scalable SaaS web apps (Bukih.com, UrExpert.com)
+• Budget Starter Rate: ${tier.rateRange} (${tier.currency})
+• Timezone Overlap: ${meta.timezones}
+
+Portfolio: https://ramseervi2024.github.io/portfolio/
+Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
+
+I can complete a small test task today to demonstrate my work quality. Let me know!
+
+Best regards,
+Suresh Sirvi
+Phone: +91 9902965742 | Email: ramseervi4321@gmail.com`
+                };
+            }
+        }
+
+        function loadSelectedTemplate() {
+            const tierKey = document.getElementById('priceTierSelect').value;
+            const regionKey = document.getElementById('regionSelect').value;
+            const strategyKey = document.getElementById('templateSelect').value;
+            const pitch = getPitchContent(strategyKey, regionKey, tierKey);
+
+            document.getElementById('subject').value = pitch.subject;
+            document.getElementById('body').value = pitch.body;
+            syncRichTextTemplate();
+        }
+
+        function syncRichTextTemplate() {
+            const bodyText = document.getElementById('body').value;
+            
+            let formattedHtml = bodyText
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" style="color: #0066cc; text-decoration: underline;" target="_blank">$1</a>')
+                .replace(/\n/g, '<br>');
+
+            document.getElementById('emailTemplate').innerHTML = `<div style="font-family: Arial, sans-serif; font-size: 14px; color: #333; line-height: 1.6;">${formattedHtml}</div>`;
+        }
+
+        document.getElementById('body').addEventListener('input', syncRichTextTemplate);
+
+        function getValues() {
+            const recipient = document.getElementById('recipient').value.trim();
+            const subject = document.getElementById('subject').value;
+            const body = document.getElementById('body').value;
+
+            if (!recipient) {
+                alert('Please enter a recipient email address.');
+                document.getElementById('recipient').focus();
+                return null;
+            }
+            return { recipient, subject, body };
+        }
+
+        function sendEmailAutoFill() {
+            const vals = getValues();
+            if (!vals) return;
+            const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(vals.recipient)}&su=${encodeURIComponent(vals.subject)}&body=${encodeURIComponent(vals.body)}`;
+            window.open(url, '_blank');
+        }
+
+        function copyTextToClipboard(text) {
+            return new Promise((resolve) => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => resolve(true))
+                        .catch(() => resolve(copyTextFallback(text)));
+                } else {
+                    resolve(copyTextFallback(text));
+                }
+            });
+        }
+
+        function copyTextFallback(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textArea);
+                return successful;
+            } catch (err) {
+                console.error('Fallback plain text copy failed:', err);
+                document.body.removeChild(textArea);
+                return false;
+            }
+        }
+
+        function copyRichTextToClipboard(html, text) {
+            return new Promise((resolve) => {
+                if (navigator.clipboard && navigator.clipboard.write) {
+                    const blobHtml = new Blob([html], { type: 'text/html' });
+                    const blobText = new Blob([text], { type: 'text/plain' });
+                    const data = [new ClipboardItem({
+                        'text/html': blobHtml,
+                        'text/plain': blobText
+                    })];
+                    navigator.clipboard.write(data)
+                        .then(() => resolve(true))
+                        .catch(() => resolve(copyRichTextFallback(html, text)));
+                } else {
+                    resolve(copyRichTextFallback(html, text));
+                }
+            });
+        }
+
+        function copyRichTextFallback(html, text) {
+            const handler = function (e) {
+                e.clipboardData.setData('text/html', html);
+                e.clipboardData.setData('text/plain', text);
+                e.preventDefault();
+            };
+            document.addEventListener('copy', handler);
+            try {
+                const successful = document.execCommand('copy');
+                document.removeEventListener('copy', handler);
+                return successful;
+            } catch (err) {
+                console.error('Fallback rich text copy failed:', err);
+                document.removeEventListener('copy', handler);
+                return false;
+            }
+        }
+
+        async function copyAndOpenGmail() {
+            const vals = getValues();
+            if (!vals) return;
+
+            syncRichTextTemplate();
+            const htmlContent = document.getElementById('emailTemplate').innerHTML;
+            const plainText = document.getElementById('body').value;
+
+            const success = await copyRichTextToClipboard(htmlContent, plainText);
+
+            const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(vals.recipient)}&su=${encodeURIComponent(vals.subject)}`;
+            window.open(url, '_blank');
+
+            if (success) {
+                alert('Email pitch copied in rich text format!\n\nClick inside the Gmail message body and press Paste (Cmd+V / Ctrl+V) to insert it with clickable blue links.');
+            } else {
+                alert('Auto-copy failed. Please copy the template text manually.');
+            }
+        }
+
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            if (tabId === 'email') {
+                document.getElementById('tabContentEmail').classList.add('active');
+            } else {
+                document.getElementById('tabContentWhatsApp').classList.add('active');
+            }
+        }
+
+        async function sendWhatsAppMessages(msgIndex = 1) {
+            const rawPhone = document.getElementById('waRecipient').value.trim();
+            if (!rawPhone) {
+                alert('Please enter a recipient WhatsApp number.');
+                document.getElementById('waRecipient').focus();
+                return;
+            }
+
+            let phone = rawPhone.replace(/\D/g, '');
+
+            if (!phone) {
+                alert('Please enter a valid WhatsApp number (digits only).');
+                document.getElementById('waRecipient').focus();
+                return;
+            }
+
+            if (phone.length === 10) {
+                phone = '91' + phone;
+            }
+
+            const msg1 = document.getElementById('waBody1').value;
+            const msg2 = document.getElementById('waBody2').value;
+            const useDesktop = document.getElementById('waUseDesktop').checked;
+
+            if (msgIndex === 1) {
+                const copySuccess = await copyTextToClipboard(msg2);
+
+                if (useDesktop) {
+                    const desktopUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(msg1)}`;
+                    const link = document.createElement('a');
+                    link.href = desktopUrl;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    const webUrl = `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg1)}`;
+                    window.open(webUrl, '_blank');
+                }
+
+                if (copySuccess) {
+                    alert(useDesktop
+                        ? 'Launching WhatsApp Desktop App with Message 1.\n\nMessage 2 copied to clipboard! Press Paste (Cmd+V) and Enter to send Message 2 immediately after.'
+                        : 'Opening WhatsApp Web with Message 1.\n\nMessage 2 copied to clipboard! Click Send on Msg 1, then Paste (Cmd+V) and Enter to send Message 2.');
+                } else {
+                    alert('Opening WhatsApp Web. Please copy Message 2 manually.');
+                }
+            } else {
+                if (useDesktop) {
+                    const desktopUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(msg2)}`;
+                    const link = document.createElement('a');
+                    link.href = desktopUrl;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    const webUrl = `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg2)}`;
+                    window.open(webUrl, '_blank');
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSelectedTemplate();
+        });
+    </script>
+
+    <footer>
+        <div class="footer-circle-wrap">
+            <!-- Circular Rotating Text -->
+            <div class="footer-circle-badge">
+                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="circlePath"
+                            d="M 100,100
+                               m -72,0
+                               a 72,72 0 1,1 144,0
+                               a 72,72 0 1,1 -144,0" />
+                    </defs>
+                    <text class="circle-text">
+                        <textPath href="#circlePath" startOffset="0%">
+                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Center icon -->
+                <div class="circle-center-icon">
+                    <span>⚡</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
+                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                </div>
+                <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

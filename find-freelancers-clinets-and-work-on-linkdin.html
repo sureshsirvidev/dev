@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LinkedIn Client Finder — Suresh Sirvi</title>
+    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+            font-family: 'Outfit', sans-serif; font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-primary); font-size: 13px; }
+
+    /* TOP BAR */
+    .topbar {
+      background: linear-gradient(135deg, #0077b5 0%, #005f8e 100%);
+      color: white; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,119,181,0.35);
+    }
+    .topbar-left { display: flex; align-items: center; gap: 10px; }
+    .topbar-icon { width: 34px; height: 34px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .topbar-title { font-size: 15px; font-weight: 800; }
+    .topbar-sub { font-size: 11px; opacity: 0.8; }
+    .profile-badge { background: rgba(255,255,255,0.15); border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 700; }
+
+    /* TABS */
+    .tab-nav { background: white; border-bottom: 2px solid var(--surface-border); padding: 0 20px; display: flex; gap: 4px; position: sticky; top: 62px; z-index: 90; overflow-x: auto; }
+    .tab-btn { padding: 12px 16px; border: none; background: none; font-size: 12px; font-weight: 600; color: var(--text-secondary); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; font-family: 'Inter', sans-serif; white-space: nowrap; transition: all 0.18s; }
+    .tab-btn:hover { color: var(--accent); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* CONTENT */
+    .content { max-width: 960px; margin: 0 auto; padding: 20px; }
+
+    /* HERO BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, #0077b5, #0ea5e9);
+      color: white; border-radius: var(--radius); padding: 20px 24px;
+      margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      box-shadow: 0 4px 20px rgba(0,119,181,0.3);
+    }
+    .hero-title { font-size: 18px; font-weight: 800; }
+    .hero-sub { font-size: 12px; opacity: 0.85; margin-top: 4px; }
+    .hero-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 22px; font-weight: 800; }
+    .hero-stat-label { font-size: 10px; opacity: 0.8; }
+
+    /* SEARCH CARD */
+    .search-card {
+      background: var(--surface); border: 1.5px solid var(--surface-border); border-radius: var(--radius);
+      overflow: hidden; margin-bottom: 14px; box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+    .search-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
+    .search-card-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: 10px 14px; background: #f8fafc; border-bottom: 1px solid var(--surface-border);
+    }
+    .search-label { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+    .search-desc { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+    .badge { font-size: 10px; padding: 2px 9px; border-radius: 10px; font-weight: 700; white-space: nowrap; }
+    .badge-hot { background: #fee2e2; color: #991b1b; }
+    .badge-new { background: #d1fae5; color: #065f46; }
+    .badge-best { background: #fef3c7; color: #92400e; }
+    .badge-global { background: #ede9fe; color: #5b21b6; }
+    .badge-local { background: #e0f2fe; color: #0369a1; }
+
+    .search-body { padding: 12px 14px; display: block; gap: 10px; }
+    .query-box {
+      display: flex; align-items: center; gap: 8px;
+      background: #f1f5f9; border: 1px solid var(--surface-border); border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .query-text {
+      flex: 1; font-size: 11.5px; color: var(--text-dim); font-family: 'Courier New', monospace;
+      word-break: break-all; line-height: 1.5;
+    }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer; border: none; font-family: 'Inter', sans-serif; transition: all 0.18s; text-decoration: none; white-space: nowrap; }
+    .btn-li { background: #0077b5; color: white; }
+    .btn-li:hover { background: #005f8e; }
+    .btn-google { background: #db4437; color: white; }
+    .btn-google:hover { background: #b33124; }
+    .btn-copy { background: #f1f5f9; color: var(--text-dim); border: 1px solid var(--surface-border); }
+    .btn-copy:hover { background: #e2e8f0; }
+    .btn-copy.copied { background: var(--green); color: white; border-color: var(--green); }
+    .btn-green { background: var(--green); color: white; }
+    .btn-green:hover { background: #047857; }
+
+    .action-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+    /* PITCH CARD */
+    .pitch-card {
+      background: var(--surface); border: 1.5px solid var(--surface-border); border-radius: var(--radius);
+      overflow: hidden; margin-bottom: 12px; box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+    .pitch-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .pitch-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: 10px 14px; background: #f8fafc; border-bottom: 1px solid var(--surface-border);
+    }
+    .pitch-body { padding: 14px; }
+    .pitch-text { font-size: 12.5px; line-height: 1.75; color: var(--text-primary); white-space: pre-wrap; cursor: pointer; }
+    .pitch-text:hover { color: var(--accent); }
+    .pitch-label { font-size: 11px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.4px; }
+
+    /* SECTION HEADER */
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin: 24px 0 12px; padding-bottom: 10px;
+      border-bottom: 2px solid var(--surface-border);
+    }
+    .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .section-title { font-size: 14px; font-weight: 800; }
+    .section-desc { font-size: 11px; color: var(--text-secondary); }
+    .section-count { margin-left: auto; font-size: 10px; background: var(--primary-light); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+
+    /* GRID */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* KEYWORD TAGS */
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 7px; padding: 12px 14px; }
+    .tag { padding: 5px 12px; background: var(--primary-light); color: var(--accent); border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid #bfdbfe; transition: all 0.15s; }
+    .tag:hover { background: var(--accent); color: white; }
+    .tag.copied { background: var(--green); color: white; border-color: var(--green); }
+
+    /* TOAST */
+    .toast { position: fixed; bottom: 20px; right: 20px; background: var(--card-bg); color: white; padding: 10px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 8px; opacity: 0; transform: translateY(10px); transition: all 0.25s; z-index: 9999; pointer-events: none; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+
+    /* TIP BOX */
+    .tip-box { background: var(--green-light); border: 1px solid #a7f3d0; border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px; font-size: 12px; color: #065f46; line-height: 1.6; }
+    .tip-box strong { font-weight: 700; }
+    .warning-box { background: var(--orange-light); border: 1px solid #fcd34d; border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px; font-size: 12px; color: #92400e; line-height: 1.6; }
+
+    input[type=text] { width: 100%; padding: 9px 12px; border: 1.5px solid var(--surface-border); border-radius: 6px; font-size: 12px; font-family: 'Inter', sans-serif; background: white; color: var(--text-primary); outline: none; transition: border-color 0.18s; }
+    input[type=text]:focus { border-color: var(--accent); }
+  
+        /* ── TOPBAR ── */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 14px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+        }
+        .topbar-left { display: flex; align-items: center; gap: 12px; }
+        .topbar-back {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--accent); }
+        .topbar-sep { color: var(--text-secondary); opacity: 0.5; }
+        .topbar-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+        
+        .topbar-contact { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; }
+        .contact-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .contact-link:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .topbar { padding: 12px 20px; flex-wrap: wrap; }
+            .topbar-contact { display: none; /* Hide on mobile */ }
+            .container { margin: 30px auto !important; width: 92% !important; }
+            body { padding: 0 0 50px 0 !important; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+
+    <div class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-back">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Back to Portfolio
+            </a>
+            <span class="topbar-sep">/</span>
+            <span class="topbar-title">LinkedIn Finder</span>
+        </div>
+        <div class="topbar-contact">
+            <a href="tel:+919902965742" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91 9902965742
+            </a>
+            <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                sureshsirvi.dev@gmail.com
+            </a>
+        </div>
+    </div>
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-icon">🎯</div>
+    <div>
+      <div class="topbar-title">LinkedIn Client Finder</div>
+      <div class="topbar-sub">Find people posting "Looking for Freelance Developer" & pitch instantly</div>
+    </div>
+  </div>
+  <div class="profile-badge">👤 Suresh Sirvi · Full-Stack Freelancer</div>
+</div>
+
+<!-- TABS -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('searches', this)">🔍 Live Searches</button>
+  <button class="tab-btn" onclick="switchTab('keywords', this)">🏷️ Keywords & Tags</button>
+  <button class="tab-btn" onclick="switchTab('pitches', this)">💬 Pitch Templates</button>
+  <button class="tab-btn" onclick="switchTab('checklist', this)">✅ Daily Routine</button>
+</div>
+
+<!-- ════════════════════════ TAB: LIVE SEARCHES ════════════════════════ -->
+<div class="tab-panel active" id="panel-searches">
+<div class="content">
+
+  <div class="hero-banner">
+    <div>
+      <div class="hero-title">🎯 Find Clients Actively Looking Right Now</div>
+      <div class="hero-sub">Pre-built boolean searches to find posts like "Looking for a Freelance Developer" on LinkedIn</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">30+</div><div class="hero-stat-label">Search Queries</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Client Types</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">1-click</div><div class="hero-stat-label">Launch</div></div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>💡 How to use:</strong> Click <strong>"Search LinkedIn"</strong> to open search in a new tab → Sort by <strong>Latest</strong> → Find fresh posts → Copy a pitch template and comment or DM them!
+  </div>
+
+  <!-- ─── SECTION: EXACT PHRASE SEARCHES ─── -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#fee2e2;">🔥</div>
+    <div>
+      <div class="section-title">Exact Phrase Searches — "Looking for a Freelance Developer"</div>
+      <div class="section-desc">People who literally posted they need a developer right now</div>
+    </div>
+    <span class="section-count">10 queries</span>
+  </div>
+
+  <!-- QUERY 1 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">1. "Looking for a Freelance Developer" — All Platforms</div>
+        <div class="search-desc">Broadest search — catches all types of project posts</div>
+      </div>
+      <span class="badge badge-hot">🔥 HOT</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q1">"looking for a freelance developer" OR "need a freelance developer" OR "hiring a freelance developer"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q1')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q1')">
+          🌐 Google Search
+        </button>
+        <button class="btn btn-copy" id="btn-q1" onclick="copyQuery('q1', 'btn-q1')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 2 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">2. "Looking for a Freelance React Developer"</div>
+        <div class="search-desc">Specifically React / React Native — your exact stack</div>
+      </div>
+      <span class="badge badge-hot">🎯 Your Stack</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q2">"looking for a freelance" AND ("React Native" OR "React developer" OR "React.js" OR "React Native developer")</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q2')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q2')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q2" onclick="copyQuery('q2', 'btn-q2')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 3 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">3. "Looking for a Freelance Website Developer"</div>
+        <div class="search-desc">Businesses posting they need a web developer</div>
+      </div>
+      <span class="badge badge-best">⭐ Website</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q3">"looking for a freelance website developer" OR "need a website developer" OR "looking for a web developer" OR "need a freelance web developer"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q3')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q3')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q3" onclick="copyQuery('q3', 'btn-q3')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 4 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">4. "Need a Mobile App Developer"</div>
+        <div class="search-desc">People posting they need an app built</div>
+      </div>
+      <span class="badge badge-hot">📱 Mobile</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q4">"need a mobile app developer" OR "looking for mobile app developer" OR "need someone to build my app" OR "looking for app developer" OR "need a React Native developer"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q4')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q4')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q4" onclick="copyQuery('q4', 'btn-q4')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 5 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">5. Startup Founders Looking for Developers</div>
+        <div class="search-desc">Founder/CTO posts asking for dev help — best paying clients</div>
+      </div>
+      <span class="badge badge-best">💰 High Value</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q5">("looking for a developer" OR "need a developer" OR "hiring a developer") AND ("startup" OR "founder" OR "CTO" OR "building" OR "MVP")</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q5')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q5')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q5" onclick="copyQuery('q5', 'btn-q5')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 6 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">6. "Recommend a Developer" Posts</div>
+        <div class="search-desc">People asking their network to recommend a freelancer</div>
+      </div>
+      <span class="badge badge-new">✨ Warm Lead</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q6">"recommend a developer" OR "recommend a freelancer" OR "know a good developer" OR "suggest a developer" OR "looking for recommendations"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q6')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q6')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q6" onclick="copyQuery('q6', 'btn-q6')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 7 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">7. India / Remote Freelance Posts</div>
+        <div class="search-desc">India-specific or remote-friendly project posts</div>
+      </div>
+      <span class="badge badge-local">🇮🇳 India</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q7">("looking for a freelancer" OR "need a freelancer" OR "hiring freelancer") AND ("India" OR "remote" OR "Bangalore" OR "Bengaluru")</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q7')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q7')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q7" onclick="copyQuery('q7', 'btn-q7')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 8 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">8. "Build My App" / MVP Posts</div>
+        <div class="search-desc">People wanting to build a product from scratch</div>
+      </div>
+      <span class="badge badge-best">🚀 MVP</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q8">"build my app" OR "build my website" OR "build an app" OR "build an MVP" OR "need someone to build" OR "looking for someone to build"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q8')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q8')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q8" onclick="copyQuery('q8', 'btn-q8')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 9 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">9. Global Remote Freelance Work</div>
+        <div class="search-desc">International clients looking for remote developers (USD/GBP)</div>
+      </div>
+      <span class="badge badge-global">🌍 Global</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q9">("looking for a freelance developer" OR "need a freelance developer") AND ("remote" OR "global" OR "USD" OR "US" OR "UK" OR "Europe")</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q9')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q9')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q9" onclick="copyQuery('q9', 'btn-q9')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERY 10 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">10. Agencies Outsourcing / Subcontracting</div>
+        <div class="search-desc">Digital agencies looking for freelancers to sub-contract work</div>
+      </div>
+      <span class="badge badge-new">🏢 Agency</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="q10">("looking for a developer" OR "need a developer" OR "hiring freelancer") AND ("agency" OR "digital agency" OR "outsource" OR "subcontract" OR "white label")</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-li" onclick="launchLI('q10')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Search LinkedIn
+        </button>
+        <button class="btn btn-google" onclick="launchGoogle('q10')">🌐 Google Search</button>
+        <button class="btn btn-copy" id="btn-q10" onclick="copyQuery('q10', 'btn-q10')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SECTION: GOOGLE X-RAY SEARCHES ─── -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef3c7;">🔭</div>
+    <div>
+      <div class="section-title">Google X-Ray LinkedIn Searches</div>
+      <div class="section-desc">Use Google to find recent LinkedIn posts — often shows newer results than LinkedIn itself</div>
+    </div>
+    <span class="section-count">6 queries</span>
+  </div>
+
+  <!-- XRAY 1 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">X-Ray 1: Fresh "Looking for Developer" Posts on LinkedIn</div>
+        <div class="search-desc">Google shows LinkedIn posts from last 24 hours</div>
+      </div>
+      <span class="badge badge-hot">🔥 Latest</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="xray1">site:linkedin.com/posts/ "looking for a freelance developer" OR "need a React Native developer" OR "looking for a web developer"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-google" onclick="launchGoogleXray('xray1')">🌐 Search on Google (Last 24h)</button>
+        <button class="btn btn-copy" id="btn-xray1" onclick="copyQuery('xray1', 'btn-xray1')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- XRAY 2 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">X-Ray 2: "Need a Developer" Posts — India/Bangalore</div>
+      </div>
+      <span class="badge badge-local">🇮🇳 India</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="xray2">site:linkedin.com/posts/ ("need a developer" OR "looking for a developer" OR "hiring a freelancer") "India" OR "Bangalore" OR "remote"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-google" onclick="launchGoogleXray('xray2')">🌐 Search on Google</button>
+        <button class="btn btn-copy" id="btn-xray2" onclick="copyQuery('xray2', 'btn-xray2')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- XRAY 3 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">X-Ray 3: Startup Founders Looking for Tech Help</div>
+      </div>
+      <span class="badge badge-best">🚀 Startups</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="xray3">site:linkedin.com/posts/ ("founder" OR "CTO" OR "startup") ("looking for" OR "need") ("developer" OR "React" OR "mobile app")</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-google" onclick="launchGoogleXray('xray3')">🌐 Search on Google</button>
+        <button class="btn btn-copy" id="btn-xray3" onclick="copyQuery('xray3', 'btn-xray3')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- XRAY 4 -->
+  <div class="search-card">
+    <div class="search-card-header">
+      <div>
+        <div class="search-label">X-Ray 4: "Build My App" / MVP Project Posts</div>
+      </div>
+      <span class="badge badge-global">🌍 Global</span>
+    </div>
+    <div class="search-body">
+      <div class="query-box">
+        <span class="query-text" id="xray4">site:linkedin.com/posts/ "build my app" OR "build an MVP" OR "build my website" OR "looking for someone to develop"</span>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-google" onclick="launchGoogleXray('xray4')">🌐 Search on Google</button>
+        <button class="btn btn-copy" id="btn-xray4" onclick="copyQuery('xray4', 'btn-xray4')">📋 Copy Query</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end content -->
+</div><!-- end panel-searches -->
+
+<!-- ════════════════════════ TAB: KEYWORDS ════════════════════════ -->
+<div class="tab-panel" id="panel-keywords">
+<div class="content">
+
+  <div class="tip-box">
+    <strong>💡 How to use:</strong> Click any keyword tag → it copies instantly → paste into LinkedIn search bar → switch filter to <strong>"Posts"</strong> → sort by <strong>"Latest"</strong> to find freshest client posts.
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#fee2e2;">🔥</div>
+    <div><div class="section-title">Hot Intent Keywords</div><div class="section-desc">People actively looking to hire right now</div></div>
+  </div>
+  <div class="search-card">
+    <div class="tag-grid" id="hotTags">
+      <span class="tag" onclick="copyTag(this)">looking for a freelance developer</span>
+      <span class="tag" onclick="copyTag(this)">need a React Native developer</span>
+      <span class="tag" onclick="copyTag(this)">looking for a web developer</span>
+      <span class="tag" onclick="copyTag(this)">need a freelancer</span>
+      <span class="tag" onclick="copyTag(this)">hiring a developer</span>
+      <span class="tag" onclick="copyTag(this)">looking for a mobile app developer</span>
+      <span class="tag" onclick="copyTag(this)">need someone to build my app</span>
+      <span class="tag" onclick="copyTag(this)">recommend a developer</span>
+      <span class="tag" onclick="copyTag(this)">looking for freelance React developer</span>
+      <span class="tag" onclick="copyTag(this)">building a startup need developer</span>
+      <span class="tag" onclick="copyTag(this)">need a full stack developer</span>
+      <span class="tag" onclick="copyTag(this)">looking for Node.js developer</span>
+      <span class="tag" onclick="copyTag(this)">build my website freelancer</span>
+      <span class="tag" onclick="copyTag(this)">MVP development</span>
+      <span class="tag" onclick="copyTag(this)">outsource development</span>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#d1fae5;">💰</div>
+    <div><div class="section-title">Budget / Project Keywords</div><div class="section-desc">Find posts by project type or budget</div></div>
+  </div>
+  <div class="search-card">
+    <div class="tag-grid">
+      <span class="tag" onclick="copyTag(this)">fixed price project</span>
+      <span class="tag" onclick="copyTag(this)">hourly developer</span>
+      <span class="tag" onclick="copyTag(this)">monthly retainer developer</span>
+      <span class="tag" onclick="copyTag(this)">white label developer</span>
+      <span class="tag" onclick="copyTag(this)">contract developer</span>
+      <span class="tag" onclick="copyTag(this)">short term project developer</span>
+      <span class="tag" onclick="copyTag(this)">affordable developer</span>
+      <span class="tag" onclick="copyTag(this)">budget friendly developer</span>
+      <span class="tag" onclick="copyTag(this)">part time developer</span>
+      <span class="tag" onclick="copyTag(this)">project based developer</span>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#ede9fe;">🛠️</div>
+    <div><div class="section-title">Tech Stack Keywords</div><div class="section-desc">Searches by specific tech they need</div></div>
+  </div>
+  <div class="search-card">
+    <div class="tag-grid">
+      <span class="tag" onclick="copyTag(this)">React Native developer freelance</span>
+      <span class="tag" onclick="copyTag(this)">React.js developer remote</span>
+      <span class="tag" onclick="copyTag(this)">Node.js developer freelance</span>
+      <span class="tag" onclick="copyTag(this)">MERN stack developer</span>
+      <span class="tag" onclick="copyTag(this)">full stack JavaScript developer</span>
+      <span class="tag" onclick="copyTag(this)">WordPress developer freelance</span>
+      <span class="tag" onclick="copyTag(this)">Android iOS developer freelance</span>
+      <span class="tag" onclick="copyTag(this)">MongoDB Express React Node</span>
+      <span class="tag" onclick="copyTag(this)">Firebase developer freelance</span>
+      <span class="tag" onclick="copyTag(this)">REST API developer</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════════════ TAB: PITCHES ════════════════════════ -->
+<div class="tab-panel" id="panel-pitches">
+<div class="content">
+
+  <div class="tip-box">
+    <strong>💡 Process:</strong> Find a post using the search tab → Read what they need → Pick the matching pitch below → Click copy → Comment on their post or send a DM. Personalize [brackets] before sending!
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#fee2e2;">💬</div>
+    <div><div class="section-title">Comment Pitches — For "Looking for Developer" Posts</div></div>
+  </div>
+
+  <!-- PITCH 1: Website Developer -->
+  <div class="pitch-card" data-text="Interested! I'm a Full-Stack Developer with 6+ years of experience building websites, mobile apps, and custom web solutions (React.js, Node.js, WordPress, WooCommerce). Available immediately. Starter rate: $15-$25/hr. Portfolio: ramseervi2024.github.io/portfolio — Sent you a connection request! 🚀">
+    <div class="pitch-header">
+      <span class="pitch-label">💬 For "Looking for Website Developer" Posts</span>
+      <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
+    </div>
+    <div class="pitch-body" onclick="copyCardPitchBody(this)">
+      <div class="pitch-text">Interested! I'm a Full-Stack Developer with 6+ years of experience building websites, mobile apps, and custom web solutions (React.js, Node.js, WordPress, WooCommerce). Available immediately. Starter rate: $15-$25/hr. Portfolio: ramseervi2024.github.io/portfolio — Sent you a connection request! 🚀</div>
+    </div>
+  </div>
+
+  <!-- PITCH 2: Mobile App -->
+  <div class="pitch-card" data-text="I can help with this! I specialize in React Native mobile apps (Android & iOS) — 6+ years experience, 4 live apps deployed on Play Store & App Store. Available immediately for freelance contracts. Let me know the details — DM me or check my work: ramseervi2024.github.io/portfolio">
+    <div class="pitch-header">
+      <span class="pitch-label">📱 For "Need a Mobile App Developer" Posts</span>
+      <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
+    </div>
+    <div class="pitch-body" onclick="copyCardPitchBody(this)">
+      <div class="pitch-text">I can help with this! I specialize in React Native mobile apps (Android & iOS) — 6+ years experience, 4 live apps deployed on Play Store & App Store. Available immediately for freelance contracts. Let me know the details — DM me or check my work: ramseervi2024.github.io/portfolio</div>
+    </div>
+  </div>
+
+  <!-- PITCH 3: Startup / MVP -->
+  <div class="pitch-card" data-text="This is exactly what I do! I help startups build their MVP — React Native apps, React.js web frontends, Node.js backends. 6+ years experience. Budget-friendly rates to get started ($15-$25/hr or fixed price). Can start within 24 hours. Would love to hear more about your project — DM me! 🚀">
+    <div class="pitch-header">
+      <span class="pitch-label">🚀 For Startup Founders / MVP Posts</span>
+      <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
+    </div>
+    <div class="pitch-body" onclick="copyCardPitchBody(this)">
+      <div class="pitch-text">This is exactly what I do! I help startups build their MVP — React Native apps, React.js web frontends, Node.js backends. 6+ years experience. Budget-friendly rates to get started ($15-$25/hr or fixed price). Can start within 24 hours. Would love to hear more about your project — DM me! 🚀</div>
+    </div>
+  </div>
+
+  <!-- PITCH 4: Recommend -->
+  <div class="pitch-card" data-text="Happy to jump in! 🙋‍♂️ I'm Suresh Sirvi — Full-Stack Freelancer (React Native, React.js, Node.js, WordPress). 6+ years experience, immediate availability. Starter rate: $15-$25/hr. Portfolio: ramseervi2024.github.io/portfolio — Feel free to DM me directly!">
+    <div class="pitch-header">
+      <span class="pitch-label">🤝 For "Recommend a Developer" Posts</span>
+      <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
+    </div>
+    <div class="pitch-body" onclick="copyCardPitchBody(this)">
+      <div class="pitch-text">Happy to jump in! 🙋‍♂️ I'm Suresh Sirvi — Full-Stack Freelancer (React Native, React.js, Node.js, WordPress). 6+ years experience, immediate availability. Starter rate: $15-$25/hr. Portfolio: ramseervi2024.github.io/portfolio — Feel free to DM me directly!</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:24px;">
+    <div class="section-icon" style="background:#fef3c7;">📩</div>
+    <div><div class="section-title">Full DM Pitches — After Commenting</div></div>
+  </div>
+
+  <!-- DM PITCH 1 -->
+  <div class="pitch-card" data-text="Hi [Name],
+
+I saw your post about looking for a freelance developer and wanted to reach out!
+
+I'm Suresh Sirvi — Full-Stack Developer with 6+ years of experience building:
+✅ Mobile apps (React Native — Android & iOS)
+✅ Web apps (React.js, Node.js, WordPress)
+✅ Admin panels, CRM, ERP solutions
+✅ E-commerce (WooCommerce, custom)
+
+Immediate availability. Budget-friendly starter rates: $15-$25/hr or fixed price from $500.
+
+Can I ask — what type of project are you working on? I'd love to discuss the scope and see if I'm a good fit.
+
+Portfolio: ramseervi2024.github.io/portfolio
+Video pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+
+Best,
+Suresh Sirvi
++91 9902965742">
+    <div class="pitch-header">
+      <span class="pitch-label">📩 Full DM — General Freelance Inquiry</span>
+      <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
+    </div>
+    <div class="pitch-body" onclick="copyCardPitchBody(this)">
+      <div class="pitch-text">Hi [Name],
+
+I saw your post about looking for a freelance developer and wanted to reach out!
+
+I'm Suresh Sirvi — Full-Stack Developer with 6+ years of experience building:
+✅ Mobile apps (React Native — Android & iOS)
+✅ Web apps (React.js, Node.js, WordPress)
+✅ Admin panels, CRM, ERP solutions
+✅ E-commerce (WooCommerce, custom)
+
+Immediate availability. Budget-friendly starter rates: $15-$25/hr or fixed price from $500.
+
+Can I ask — what type of project are you working on? I'd love to discuss the scope and see if I'm a good fit.
+
+Portfolio: ramseervi2024.github.io/portfolio
+Video pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view
+
+Best,
+Suresh Sirvi
++91 9902965742</div>
+    </div>
+  </div>
+
+  <!-- DM PITCH 2 — SHORT -->
+  <div class="pitch-card" data-text="Hi [Name]! Saw your post — I'm available and can start immediately.
+
+Quick summary:
+• 6+ yrs Full-Stack Dev (React Native, React.js, Node.js)
+• 4 live apps on Play Store + App Store
+• Starter rate: $15-$25/hr
+• Available: Immediately
+
+Portfolio: ramseervi2024.github.io/portfolio
+
+Happy to do a quick 15-min call to discuss your project!
+
+— Suresh Sirvi | +91 9902965742">
+    <div class="pitch-header">
+      <span class="pitch-label">⚡ Short DM — Quick & Punchy</span>
+      <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
+    </div>
+    <div class="pitch-body" onclick="copyCardPitchBody(this)">
+      <div class="pitch-text">Hi [Name]! Saw your post — I'm available and can start immediately.
+
+Quick summary:
+• 6+ yrs Full-Stack Dev (React Native, React.js, Node.js)
+• 4 live apps on Play Store + App Store
+• Starter rate: $15-$25/hr
+• Available: Immediately
+
+Portfolio: ramseervi2024.github.io/portfolio
+
+Happy to do a quick 15-min call to discuss your project!
+
+— Suresh Sirvi | +91 9902965742</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════════════ TAB: CHECKLIST ════════════════════════ -->
+<div class="tab-panel" id="panel-checklist">
+<div class="content">
+
+  <div class="hero-banner">
+    <div>
+      <div class="hero-title">✅ Daily LinkedIn Client-Finding Routine</div>
+      <div class="hero-sub">Follow this every day to consistently land new freelance projects</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#d1fae5;">🌅</div>
+    <div><div class="section-title">Morning Routine (30 mins)</div></div>
+  </div>
+  <div class="search-card">
+    <div class="search-body" style="gap:12px;">
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>1. Run the "Looking for Freelance Developer" search</strong> (Search tab → Query 1) → Sort by Latest → Open top 10 posts</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>2. Run the "Need a Mobile App Developer" search</strong> (Query 4) → Sort by Latest → Open top 10 posts</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>3. Run the Startup Founder search</strong> (Query 5) → Comment on 5 relevant posts</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>4. Run the X-Ray Google search</strong> (X-Ray 1 — last 24h) → Find fresh posts → Comment + Connect</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>5. Send 10 connection requests</strong> using the Connection Notes from the Pitch templates tab</span></label>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef3c7;">🌇</div>
+    <div><div class="section-title">Evening Routine (15 mins)</div></div>
+  </div>
+  <div class="search-card">
+    <div class="search-body" style="gap:12px;">
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>6. Check LinkedIn notifications</strong> → Reply to all comments and connection acceptances</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>7. Send DMs</strong> to people who viewed your profile today (use the "Profile View Response" pitch)</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>8. Search "Recommend a Developer"</strong> (Query 6) → Comment on 3-5 fresh posts</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>9. Follow up</strong> on any connections from 2-3 days ago who haven't replied yet</span></label>
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;"><input type="checkbox" style="width:auto;margin-top:2px;"/><span><strong>10. Post 1 LinkedIn post</strong> showcasing your work, rates, or availability</span></label>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon" style="background:#ede9fe;">📊</div>
+    <div><div class="section-title">Weekly Targets</div></div>
+  </div>
+  <div class="two-col">
+    <div class="search-card">
+      <div class="search-card-header"><div class="search-label">🎯 Outreach Targets</div></div>
+      <div class="search-body" style="gap:8px;">
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--surface-border);"><span>Connection Requests Sent</span><strong>70/week</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--surface-border);"><span>Post Comments</span><strong>50/week</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--surface-border);"><span>Direct DMs Sent</span><strong>30/week</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--surface-border);"><span>LinkedIn Posts Published</span><strong>5/week</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;"><span>Discovery Calls Booked</span><strong>3+/week</strong></div>
+      </div>
+    </div>
+    <div class="search-card">
+      <div class="search-card-header"><div class="search-label">💡 Pro Tips</div></div>
+      <div class="search-body" style="gap:8px;font-size:12px;line-height:1.6;color:var(--text-dim);">
+        <p>✅ Always sort LinkedIn searches by <strong>Latest</strong> not Relevance</p>
+        <p>✅ Respond to posts within <strong>1 hour</strong> of posting for best visibility</p>
+        <p>✅ Mention a specific detail from their post in your comment</p>
+        <p>✅ Include your portfolio link in <em>every</em> comment and DM</p>
+        <p>✅ Follow up 3 days after no reply — once only, politely</p>
+        <p>✅ Morning (8-10 AM) and evening (6-8 PM) are peak LinkedIn hours</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg">Copied!</span></div>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + id).classList.add('active');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+    } else { fallbackCopy(text); }
+  }
+
+  function fallbackCopy(text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
+
+  function copyQuery(id, btnId) {
+    const text = document.getElementById(id).textContent;
+    copyToClipboard(text);
+    showToast('✅ Query copied!');
+    const btn = document.getElementById(btnId);
+    const orig = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.classList.remove('copied'); btn.textContent = orig; }, 2000);
+  }
+
+  function launchLI(id) {
+    const q = document.getElementById(id).textContent;
+    window.open('https://www.linkedin.com/search/results/content/?keywords=' + encodeURIComponent(q) + '&sortBy=date', '_blank');
+  }
+
+  function launchGoogle(id) {
+    const q = document.getElementById(id).textContent;
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank');
+  }
+
+  function launchGoogleXray(id) {
+    const q = document.getElementById(id).textContent;
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&tbs=qdr:d', '_blank');
+  }
+
+  function copyTag(el) {
+    copyToClipboard(el.textContent.trim());
+    showToast('✅ "' + el.textContent.trim() + '" copied!');
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 2000);
+  }
+
+  function copyCardPitch(btn) {
+    const card = btn.closest('.pitch-card');
+    copyToClipboard(card.dataset.text);
+    showToast('✅ Pitch copied!');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  }
+
+  function copyCardPitchBody(el) {
+    const card = el.closest('.pitch-card');
+    copyToClipboard(card.dataset.text);
+    showToast('✅ Pitch copied!');
+  }
+</script>
+
+    <footer>
+        <div class="footer-circle-wrap">
+            <!-- Circular Rotating Text -->
+            <div class="footer-circle-badge">
+                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <path id="circlePath"
+                            d="M 100,100
+                               m -72,0
+                               a 72,72 0 1,1 144,0
+                               a 72,72 0 1,1 -144,0" />
+                    </defs>
+                    <text class="circle-text">
+                        <textPath href="#circlePath" startOffset="0%">
+                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Center icon -->
+                <div class="circle-center-icon">
+                    <span>⚡</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
+                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                </div>
+                <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
