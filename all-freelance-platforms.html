@@ -37,6 +37,7 @@
 
         body {
             font-family: 'Outfit', sans-serif;
+      font-size: 16px;
             
             background-color: var(--bg-color);
             background-image: 
@@ -647,9 +648,12 @@
     
     <div class="topbar">
         <div class="topbar-left">
-            <a href="index.html" class="topbar-back">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                Back to Portfolio
+            <a href="index.html" class="logo" style="margin-right: 16px;">
+                <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
+                <div class="logo-text-block">
+                    <span class="logo-name">SURESH SIRVI</span>
+                    <span class="logo-role">Full-Stack Developer</span>
+                </div>
             </a>
             <span class="topbar-sep">/</span>
             <span class="topbar-title">Global Freelance Hub</span>
@@ -657,9 +661,9 @@
 
         
         <div class="topbar-contact">
-            <a href="tel:+919902965742" class="contact-link">
+            <a href="tel:+918310634421" class="contact-link">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                +91 9902965742
+                +91 8310634421
             </a>
             <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -685,7 +689,7 @@
             <div class="candidate-profile-strip">
                 <div class="profile-info">
                     <div class="profile-name">
-                        👤 Suresh Sirvi — Lead Full-Stack & Mobile Developer (6+ YOE)
+                        👤 Suresh Sirvi — Lead Full-Stack Developer (6+ YOE)
                         <span class="starter-badge">🚀 Starter Budget Rates Active</span>
                         <span class="status-badge">🟢 Open for Contracts</span>
                     </div>
@@ -1041,7 +1045,7 @@
                 </div>
                 <div class="field-item">
                     <label>Primary Tech Stack</label>
-                    <input type="text" id="pitchStack" value="React Native, React.js, Node.js, MongoDB" oninput="updatePitchText()">
+                    <input type="text" id="pitchStack" value="React.js, Node.js, WordPress, WooCommerce, Mobile Apps, MongoDB" oninput="updatePitchText()">
                 </div>
                 <div class="field-item">
                     <label>Delivery Timeline</label>
@@ -1216,7 +1220,7 @@
             const region = document.getElementById('pitchRegion').value || 'Global';
             const client = document.getElementById('pitchClient').value || 'there';
             const project = document.getElementById('pitchProject').value || 'Web & Mobile App';
-            const stack = document.getElementById('pitchStack').value || 'React Native, React.js, Node.js, MongoDB';
+            const stack = document.getElementById('pitchStack').value || 'React.js, Node.js, WordPress, WooCommerce, Mobile Apps, MongoDB';
             const timeline = document.getElementById('pitchTimeline').value || '2-3 Weeks';
 
             let rateStr = '$20/hr (Special Starter Client Rate)';
@@ -1226,7 +1230,7 @@
                 rateStr = region === 'USA' ? '$35 - $50/hr' : region === 'UK_EU' ? '£30 - £45/hr' : region === 'India' ? '₹1,500 - ₹3,000/hr' : '$35 - $55/hr';
             }
 
-            const tzStr = region === 'USA' ? 'PST/EST' : region === 'UK_EU' ? 'GMT/BST/CET' : region === 'India' ? 'IST (Bengaluru Base)' : 'PST/EST/GMT/CET/IST (Worldwide Overlap)';
+            const tzStr = region === 'USA' ? 'PST/EST' : region === 'UK_EU' ? 'GMT/BST/CET' : region === 'India' ? 'Remote Worldwide' : 'PST/EST/GMT/CET/IST (Worldwide Overlap)';
 
             let output = '';
 
@@ -1235,7 +1239,7 @@
 
 I saw your posting for a ${project} and I'd love to help you build and deploy this seamlessly.
 
-I am a Lead Full-Stack & Mobile Developer (6+ years of experience) specializing in ${stack}. I am offering a Special Starter Promotional Rate (${rateStr}) to establish strong long-term client relationships and 5-star reviews on initial projects.
+I am a Lead Full-Stack Developer (6+ years of experience) specializing in ${stack}. I am offering a Special Starter Promotional Rate (${rateStr}) to establish strong long-term client relationships and 5-star reviews on initial projects.
 
 Why work with me?
 1. Speed & Clean Code: Modular architectures, secure REST APIs, and clean UI components.
@@ -1243,18 +1247,18 @@ Why work with me?
 3. Fast Turnaround: Can complete this scope in ${timeline} at an attractive starter rate of ${rateStr}.
 
 Recent Portfolio Highlights:
-- Ondeen iOS App: https://apps.apple.com/us/app/ondeen/id6740039443
-- Bukih Web Platform: https://bukih.com/
-- Timeinlive Android App: https://play.google.com/store/apps/details?id=timeinlive.smartwork
-- UrExpert Web App: https://urxprt.com/
+- Event Booking iOS App: #
+- Booking Platform: #
+- Productivity Android App: #
+- Freelancing Marketplace Web App: #
 
 Would love to hop on a quick 10-minute call or do a quick test task to prove my work quality!
 
 Best regards,
 Suresh Sirvi
-Full-Stack & Mobile Developer
+Full-Stack Developer
 Email: sureshsirvi.dev@gmail.com | Phone: +91 8310634421
-LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0/`;
+LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428/`;
             } else if (currentPitchType === 'cold') {
                 output = `Subject: Freelance Developer for ${project} — Starter Rate Offer
 
@@ -1262,7 +1266,7 @@ Hi ${client},
 
 I came across your business and noticed you might be building or scaling a ${project}.
 
-I'm Suresh Sirvi, a Senior Full-Stack & Mobile Developer with 6+ years of hands-on experience working with clients across USA, UK, Europe, India, and global tech hubs. I specialize in ${stack}.
+I'm Suresh Sirvi, a Senior Full-Stack Developer with 6+ years of hands-on experience working with clients across USA, UK, Europe, India, and global tech hubs. I specialize in ${stack}.
 
 I help founders and engineering teams:
 • Build & Launch MVPs fast (${timeline})
@@ -1276,7 +1280,7 @@ Would you be open to a quick 5-minute discovery chat this week?
 Best regards,
 Suresh Sirvi
 Phone: +91 8310634421 | Email: sureshsirvi.dev@gmail.com
-LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0/`;
+LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428/`;
             } else if (currentPitchType === 'retainer') {
                 output = `Hi ${client},
 
@@ -1304,7 +1308,7 @@ Suresh Sirvi`;
 Project: ${project}
 Prepared for: ${client}
 Target Region: ${region}
-Prepared by: Suresh Sirvi (Full-Stack & Mobile Developer)
+Prepared by: Suresh Sirvi (Full-Stack Developer)
 
 1. OBJECTIVE & SCOPE
 Building a production-ready, highly responsive ${project} utilizing ${stack}.
@@ -1379,40 +1383,18 @@ Suresh Sirvi`;
     </script>
 
     <footer>
-        <div class="footer-circle-wrap">
-            <!-- Circular Rotating Text -->
-            <div class="footer-circle-badge">
-                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <path id="circlePath"
-                            d="M 100,100
-                               m -72,0
-                               a 72,72 0 1,1 144,0
-                               a 72,72 0 1,1 -144,0" />
-                    </defs>
-                    <text class="circle-text">
-                        <textPath href="#circlePath" startOffset="0%">
-                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
-                        </textPath>
-                    </text>
-                </svg>
-                <!-- Center icon -->
-                <div class="circle-center-icon">
-                    <span>⚡</span>
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="footer-bottom">
                 <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
-                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
-                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
-                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
-                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
-                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
-                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
-                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
-                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                    <a target="_blank" href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a target="_blank" href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a target="_blank" href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a target="_blank" href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a target="_blank" href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a target="_blank" href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a target="_blank" href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a target="_blank" href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
                 </div>
                 <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
             </div>

@@ -22,7 +22,9 @@
 
     body {
             font-family: 'Outfit', sans-serif;
-      font-family: var(--font);
+      font-size: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
       background-color: var(--bg-color);
       color: var(--text-primary);
       min-height: 100vh;
@@ -1885,15 +1887,18 @@
 
     <div class="topbar">
         <div class="topbar-left">
-            <a href="index.html" class="topbar-back">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                Back to Portfolio
+            <a href="index.html" class="logo" style="margin-right: 16px;">
+                <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
+                <div class="logo-text-block">
+                    <span class="logo-name">SURESH SIRVI</span>
+                    <span class="logo-role">Full-Stack Developer</span>
+                </div>
             </a>
             <span class="topbar-sep">/</span>
             <span class="topbar-title">Form Deck</span>
         </div>
         <div class="topbar-contact">
-            <a href="tel:+919902965742" class="contact-link">
+            <a href="tel:+918310634421" class="contact-link">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 +91 8310634421
             </a>
@@ -2271,12 +2276,12 @@
             </div>
 
             <!-- Shortcut fields -->
-            <div class="deck-card shortcut-copy-card" onclick="copyDeckValue('https://ramseervi2024.github.io/portfolio/Resume.pdf', 'Resume Link')">
+            <div class="deck-card shortcut-copy-card" onclick="copyDeckValue('https://sureshsirvidev.github.io/dev/resume.html', 'Resume Link')">
               <div class="deck-card-hdr">
                 <span class="deck-label">Resume URL</span>
                 <span class="shortcut-badge">Alt + 1</span>
               </div>
-              <div class="deck-value">https://ramseervi2024.github.io/portfolio/Resume.pdf</div>
+              <div class="deck-value">https://sureshsirvidev.github.io/dev/resume.html</div>
               <div class="deck-copy-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               </div>
@@ -2362,7 +2367,7 @@
             </div>
 
             <!-- Other details cards -->
-            <div class="deck-card" onclick="copyDeckValue('B.E. (Bachelor of Engineering) in Computer Science from Bangalore Institute of Technology (CGPA: 8.2/10, Batch: 2018-2022)', 'Highest Qualification')">
+            <div class="deck-card" onclick="copyDeckValue('B.E. (Bachelor of Engineering) in Computer Science from VTU University (CGPA: 8.2/10, Batch: 2018-2022)', 'Highest Qualification')">
               <div class="deck-card-hdr"><span class="deck-label">Highest Education</span></div>
               <div class="deck-value">Self-Taught / Portfolio-Driven</div>
             </div>
@@ -2374,7 +2379,7 @@
 
             <div class="deck-card" onclick="copyDeckValue('Electronic City, Bangalore, Karnataka, India - Pin: 560100', 'Current Address')">
               <div class="deck-card-hdr"><span class="deck-label">Location / Address</span></div>
-              <div class="deck-value">Bengaluru, India</div>
+              <div class="deck-value">Remote Worldwide</div>
             </div>
             <div class="deck-card" onclick="copyDeckValue('I’m a freelance full-stack developer with 6+ years of experience building mobile apps, web applications, backend APIs, SaaS products, and custom software for businesses and startups. I work across the full development cycle.', 'Tell us about yourself')">
               <div class="deck-card-hdr"><span class="deck-label">Tell us about yourself</span></div>
@@ -2426,9 +2431,9 @@
               <div class="deck-value">Full Stack / React Native / React.js...</div>
             </div>
 
-            <div class="deck-card" onclick="copyDeckValue('Bengaluru (Open to Remote, Hybrid, or Relocation).', 'Preferred location')">
+            <div class="deck-card" onclick="copyDeckValue('Remote Worldwide.', 'Preferred location')">
               <div class="deck-card-hdr"><span class="deck-label">Preferred location</span></div>
-              <div class="deck-value">Bengaluru (Open to Remote / Hybrid)</div>
+              <div class="deck-value">Remote Worldwide</div>
             </div>
 
             <div class="deck-card" onclick="copyDeckValue('Open to Remote, Hybrid, and Onsite.', 'Remote / Hybrid / Onsite?')">
@@ -3068,7 +3073,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
               <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Attracts both mobile and frontend recruiters.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.08);border-radius:var(--radius-sm);">
-              <strong style="color:var(--text-primary);">Mobile App Engineer | React Native + Node.js</strong>
+              <strong style="color:var(--text-primary);">Mobile App Engineer | React.js, Node.js, WordPress, WooCommerce, Mobile Apps</strong>
               <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Signals full-stack mobile capability.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(249,115,22,0.2);background:rgba(249,115,22,0.08);border-radius:var(--radius-sm);">
@@ -3461,7 +3466,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         <div class="card-header">
           <div class="card-title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3h18v18H3z"></path><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
-            Cutshort Radar — Bengaluru profile jobs
+            Cutshort Radar — Remote profile jobs
           </div>
         </div>
         <div class="card-body">
@@ -3486,7 +3491,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
             </div>
             <div class="linkedin-filter-card">
               <div class="linkedin-filter-label">Location</div>
-              <input id="cutshort-locations" class="linkedin-filter-input" type="text" value="Bengaluru (Bangalore)">
+              <input id="cutshort-locations" class="linkedin-filter-input" type="text" value="Remote">
             </div>
           </div>
 
@@ -3582,7 +3587,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
             </div>
             <div class="linkedin-filter-card">
               <div class="linkedin-filter-label">Location</div>
-              <input id="glassdoor-location" class="linkedin-filter-input" type="text" value="bengaluru-india">
+              <input id="glassdoor-location" class="linkedin-filter-input" type="text" value="remote">
             </div>
             <div class="linkedin-filter-card">
               <div class="linkedin-filter-label">Glassdoor Suffix</div>
@@ -3824,11 +3829,11 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
       availability: "Full-Time Freelancer (Immediate Start)",
       timezones: "PST, EST, GMT, CET, and IST (24/7 Global Timezone Overlap)",
       targetRegions: "USA 🇺🇸, UK 🇬🇧, India 🇮🇳, Europe 🇪🇺, UAE 🇦🇪, Global 🌐",
-      location: "Bengaluru, India (Working Worldwide)",
+      location: "Remote Worldwide",
       phone: "+91 8310634421",
       email: "sureshsirvi.dev@gmail.com",
-      portfolio: "https://ramseervi2024.github.io/portfolio/",
-      resume: "https://ramseervi2024.github.io/portfolio/Resume.pdf",
+      portfolio: "https://sureshsirvidev.github.io/dev/",
+      resume: "https://sureshsirvidev.github.io/dev/resume.html",
             linkedin: "https://www.linkedin.com/in/suresh-sirvi-261151428/",
       github: "https://github.com/sureshsirvidev"
     };
@@ -3861,13 +3866,13 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'What is your education qualification?',
-        answer: "• Degree: B.E. (Bachelor of Engineering) in Computer Science\n• College: Bangalore Institute of Technology\n• University: Visvesvaraya Technological University (VTU)\n• Performance: CGPA: 8.2/10\n• Batch: 2018-2022\n\n• High School: 11th-12th (Science Stream)\n• School: Govt Senior Secondary School Sojat City, Rajasthan\n• Performance: Percentage: 70%\n• Batch: 2016-2018"
+        answer: "• Degree: B.E. (Bachelor of Engineering) in Computer Science\n• College: VTU University\n• University: Visvesvaraya Technological University (VTU)\n• Performance: CGPA: 8.2/10\n• Batch: 2018-2022\n\n• High School: 11th-12th (Science Stream)\n• School: Govt Senior Secondary School Sojat City, Rajasthan\n• Performance: Percentage: 70%\n• Batch: 2016-2018"
       },
       {
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'What is your detailed work experience history?',
-        answer: "• Total Experience: 6+ years in Web & Mobile App Development\n\n1. Company Name: Imcrinox Technologies, Bengaluru\n   • Role: React & React Native Developer\n   • Duration: Nov 2022 - Present (Full-time)\n   • Impact: Developed/deployed 4+ apps on App/Play Store, integrated Axios, Firebase, Google Maps, Apple/Google Pay, and Node.js APIs.\n\n2. Company Name: Gridrnd, Bengaluru\n   • Role: Web Developer Intern\n   • Duration: Feb 2022 - Oct 2022\n   • Impact: React/Redux UI building, Node/Express/MongoDB backend services, Postman testing."
+        answer: "• Total Experience: 6+ years in Web & Mobile App Development\n\n1. Company Name: Tech Company, Bengaluru\n   • Role: React & React Native Developer\n   • Duration: Nov 2022 - Present (Full-time)\n   • Impact: Developed/deployed 4+ apps on App/Play Store, integrated Axios, Firebase, Google Maps, Apple/Google Pay, and Node.js APIs.\n\n2. Company Name: Software Company, Bengaluru\n   • Role: Full Stack Web Developer\n   • Duration: Jan 2019 - March 2020\n   • Impact: React/Redux UI building, Node/Express/MongoDB backend services, Postman testing."
       },
       {
         category: 'hr',
@@ -3939,13 +3944,12 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Resume URL',
-        answer: "https://ramseervi2024.github.io/portfolio/Resume.pdf"
+        answer: "https://sureshsirvidev.github.io/dev/resume.html"
       },
       {
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Video Pitch URL',
-        answer: "https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
       },
       {
         category: 'hr',
@@ -3987,7 +3991,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Location / Address',
-        answer: "Bengaluru, India"
+        answer: "Remote Worldwide"
       },
       {
         category: 'hr',
@@ -3999,7 +4003,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Biggest achievement?',
-        answer: "Successfully delivered ERP-style platforms, e-commerce applications, booking systems, workforce platforms, and SaaS products..g. Ondeen App) handling complex integrations like Firebase and payment gateways."
+        answer: "Successfully delivered ERP-style platforms, e-commerce applications, booking systems, workforce platforms, and SaaS products..g. Event Booking App) handling complex integrations like Firebase and payment gateways."
       },
       {
         category: 'hr',
@@ -4023,7 +4027,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Preferred location',
-        answer: "Bengaluru (Open to Remote / Hybrid)"
+        answer: "Remote Worldwide"
       },
       {
         category: 'hr',
@@ -4150,7 +4154,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Why should we hire you for this React Native / Full Stack role?',
-        answer: "I bring 6+ years of hands-on experience building production Web, Android, and iOS apps with React Native, React.js, Node.js, and MongoDB. I deliver fast, maintainable code, ship apps to the Play Store and App Store, and I am an immediate joiner ready to contribute from day one."
+        answer: "I bring 6+ years of hands-on experience building production Web, Android, and iOS apps with React.js, Node.js, WordPress, WooCommerce, Mobile Apps, and MongoDB. I deliver fast, maintainable code, ship apps to the Play Store and App Store, and I am an immediate joiner ready to contribute from day one."
       },
       {
         category: 'rn',
@@ -4907,10 +4911,10 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
 
 I saw that [Company] is hiring for a React Native Specialist. Instead of just dropping my resume in the portal, I wanted to reach out to you directly.
 
-I'm a Mobile & Web App Developer with 6+ years of experience. At Imcrinox, I recently developed and deployed 4+ production React Native apps to the App Store and Google Play Store. I specialize in frame-rate optimization, having migrated our mobile rendering engines to Hermes, and tuned FlatList parameters to reduce frame drops by 40% on heavy datasets.
+I'm a Mobile & Web App Developer with 6+ years of experience. At Tech Company, I recently developed and deployed 4+ production React Native apps to the App Store and Google Play Store. I specialize in frame-rate optimization, having migrated our mobile rendering engines to Hermes, and tuned FlatList parameters to reduce frame drops by 40% on heavy datasets.
 
 Live production apps I have built:
-• Ondeen (Event Booking App): Integrated Maps, Payments, Calendar, and Push Notifications.
+• Event Booking App: Integrated Maps, Payments, Calendar, and Push Notifications.
 • Organiser (Workforce Manager): QR Ticket scanner, role-based workflows, and Redux Toolkit slices.
 
 My references:
@@ -4918,7 +4922,7 @@ My references:
 • Video Pitch: [Video Link]
 • GitHub: [GitHub Link]
 
-I am based in Bengaluru and available to join immediately. Would you have 10 minutes for a quick call today or tomorrow to see if I could add value to your team?
+I am available for remote contracts and can join immediately. Would you have 10 minutes for a quick call today or tomorrow to see if I could add value to your team?
 
 Best,
 Suresh Sirvi
@@ -4927,7 +4931,7 @@ Suresh Sirvi
 
 I am writing to express my interest in developer opportunities at [Company]. With 6+ years of professional experience specializing in React Native, React.js, and Node.js, I bring end-to-end mobile engineering capabilities that make me an immediate contributor.
 
-During my time at Imcrinox, I took full ownership of building, optimizing, and deploying 4+ mobile products to both Google Play and Apple App Store. I have extensive experience with TypeScript, Redux Toolkit, Firebase integrations, payment gateways, and deep linking configurations.
+During my time at Tech Company, I took full ownership of building, optimizing, and deploying 4+ mobile products to both Google Play and Apple App Store. I have extensive experience with TypeScript, Redux Toolkit, Firebase integrations, payment gateways, and deep linking configurations.
 
 Summary:
 • Freelance Availability: Immediate Start (PST/EST/GMT/IST)
@@ -4942,7 +4946,7 @@ Suresh Sirvi
 +91 8310634421`,
         hr: `Hi [Name],
 
-I saw your posting for freelance developer opportunities. I am a Full-Stack JS Developer with 6+ years of experience specializing in React Native, React, and Node.js. 
+I saw your posting for freelance developer opportunities. I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React, and Node.js. 
 
 I am available to start immediately across global timezones (PST, EST, GMT, IST). 
 
@@ -4964,7 +4968,7 @@ Suresh Sirvi
 
 I noticed your engineering team at [Company] is scaling up. I'm reaching out directly because I can contribute to both your frontend mobile applications and your backend API services from Day 1.
 
-I'm a I’m a freelance full-stack developer with 6+ years of experience building mobile apps, web applications, backend APIs, SaaS products, and custom software for businesses and startups. I work across the full development cycle. experience. I build frontends in React.js and React Native, and construct scalable backend REST APIs using Node.js, Express, and MongoDB. In my previous role at Imcrinox, I designed full features end-to-end: converting Figma files into interactive React UIs, configuring Redux slices, and building JWT-secured Express endpoints with database query indexes.
+I'm a I’m a freelance full-stack developer with 6+ years of experience building mobile apps, web applications, backend APIs, SaaS products, and custom software for businesses and startups. I work across the full development cycle. experience. I build frontends in React.js and React Native, and construct scalable backend REST APIs using Node.js, Express, and MongoDB. In my previous role at Tech Company, I designed full features end-to-end: converting Figma files into interactive React UIs, configuring Redux slices, and building JWT-secured Express endpoints with database query indexes.
 
 Key highlights:
 • Shipped 4+ React Native apps to Google Play & App Store
@@ -4985,7 +4989,7 @@ Suresh Sirvi
 
 I am writing to submit my proposal for Full Stack JavaScript Developer contracts at [Company]. I bring 6+ years of experience building scalable applications using React, React Native, Node.js, Express.js, and MongoDB.
 
-I possess strong software development fundamentals (B.E. in CS, Bangalore Institute of Technology, CGPA: 8.2/10) combined with hands-on startup experience. I specialize in delivering clean, maintainable TypeScript codebases and building responsive frontends coupled with secure backend routing.
+I possess strong software development fundamentals (B.E. in CS, VTU University, CGPA: 8.2/10) combined with hands-on startup experience. I specialize in delivering clean, maintainable TypeScript codebases and building responsive frontends coupled with secure backend routing.
 
 Profile Links:
 • Shareable Resume: [Resume Link]
@@ -5024,7 +5028,7 @@ I saw that [Company] is hiring for React.js Developers. I'm reaching out directl
 I have 6+ years of experience coding interfaces in React.js. I focus heavily on performance: managing complex application states using Redux Toolkit, crafting custom hooks to segregate business logic, and optimizing reconciliation rendering trees to eliminate frame drops.
 
 Here is a summary of my background:
-• Implemented role-based dashboards and state flows for Imcrinox Organizer web portal
+• Implemented role-based dashboards and state flows for Tech Company Organizer web portal
 • B.E. in Computer Science (GPA: 8.2/10)
 • Shareable Resume: [Resume Link]
 • GitHub: [GitHub Link]
@@ -5044,7 +5048,7 @@ Key Resources:
 • CV: [Resume Link]
 • LinkedIn: [LinkedIn Link]
 
-I am based in Bengaluru and ready for immediate technical screening. Thank you for your consideration.
+I am available remotely and ready for immediate technical screening. Thank you for your consideration.
 
 Best Regards,
 Suresh Sirvi
@@ -5141,7 +5145,7 @@ Suresh Sirvi
 
       if (channel === 'li-req') {
         // LinkedIn connection request is very short (300 character limit)
-        pitchText = `Hi ${name}, I am a Full-Stack JS Developer with 6+ yrs experience (React Native, React, Node.js). Available for immediate joining in Bengaluru. Let's connect! Resume: ${CANDIDATE.resume}`;
+        pitchText = `Hi ${name}, I am a Full-Stack Developer with 6+ yrs experience (React.js, Node.js, WordPress, Shopify, Mobile Apps). Available for remote contracts worldwide. Let's connect! Resume: ${CANDIDATE.resume}`;
       } else {
         // Pick based on tone
         pitchText = baseTemplates[tone];
@@ -5290,10 +5294,10 @@ Suresh Sirvi
 *   🐱 **GitHub Repos:** ${CANDIDATE.github}
 
 ## Live Production Apps:
-• Ondeen iOS App: https://apps.apple.com/us/app/ondeen/id6740039443
-• Bukih Web Platform: https://bukih.com/
-• Timeinlive Android App: https://play.google.com/store/apps/details?id=timeinlive.smartwork
-• UrExpert Web Platform: https://urxprt.com/
+• Event Booking iOS App: #
+• Booking Platform: #
+• Productivity Android App: #
+• Freelancing Marketplace: #
 
 ## Freelance Delivery Guarantee:
 * Budget starter pricing for initial client acquisition
@@ -5571,7 +5575,7 @@ Suresh Sirvi
     /* ═══════════════════════════════════════════════════════
        PHASE 2 — ATS KEYWORD MATCHER
     ═══════════════════════════════════════════════════════ */
-    const RAMESH_SKILLS = [
+    const SURESH_SKILLS = [
       'react native','react','react.js','reactjs','javascript','typescript','node.js','node','nodejs',
       'express','express.js','redux','redux toolkit','rtk','firebase','axios','rest api','rest apis',
       'mongodb','html5','html','css3','css','git','postman','xcode','android studio','expo',
@@ -5604,7 +5608,7 @@ Suresh Sirvi
       if (!jd.trim()) { showToast('Paste a Job Description first!', '⚠️'); return; }
 
       const matched = [], gaps = [];
-      const allKeywords = [...new Set([...RAMESH_SKILLS, ...Object.keys(ATS_BULLET_MAP)])];
+      const allKeywords = [...new Set([...SURESH_SKILLS, ...Object.keys(ATS_BULLET_MAP)])];
 
       // Tokenize JD into words/phrases
       const jdWords = jd.replace(/[^a-z0-9./ ]/g, ' ').split(/\s+/);
@@ -5612,14 +5616,14 @@ Suresh Sirvi
       allKeywords.forEach(skill => {
         const inJD = skill.split(' ').every(w => jdWords.some(jw => jw.includes(w))) || jd.includes(skill);
         if (!inJD) return;
-        if (RAMESH_SKILLS.includes(skill)) {
+        if (SURESH_SKILLS.includes(skill)) {
           matched.push(skill);
         } else {
           gaps.push(skill);
         }
       });
 
-      // Additional gaps from JD that aren't in Ramesh's stack
+      // Additional gaps from JD that aren't in Suresh's stack
       const commonTechGapKeywords = ['graphql','jest','docker','kubernetes','redis','postgresql','mysql','swift','kotlin','golang','rust','microservices','websockets','terraform','ansible'];
       commonTechGapKeywords.forEach(g => {
         if (jd.includes(g) && !matched.includes(g) && !gaps.includes(g)) gaps.push(g);
@@ -5664,19 +5668,19 @@ Suresh Sirvi
       3: {
         channel: 'email',
         label: 'Cold Email Follow-up',
-        message: (r, c, role) => `Subject: ${role || 'React Native Developer'} Application — Suresh Sirvi\n\nHi ${r || '[Client Name]'},\n\nI recently sent a connection request on LinkedIn. I wanted to follow up on the ${role || 'React Native Developer'} project at ${c || '[Company]'}.\n\nI have 6+ years of experience building cross-platform mobile apps with React Native + TypeScript, and scalable APIs with Node.js/Express/MongoDB. I am available for immediate start at starter rates of $15-$25/hr or fixed retainers.\n\n📄 Resume: https://ramseervi2024.github.io/portfolio/Resume.pdf\n\nWould love 15 minutes of your time to discuss how I can add value to your team.\n\nBest regards,\nSuresh Sirvi | +91 8310634421`,
+        message: (r, c, role) => `Subject: ${role || 'React Native Developer'} Application — Suresh Sirvi\n\nHi ${r || '[Client Name]'},\n\nI recently sent a connection request on LinkedIn. I wanted to follow up on the ${role || 'React Native Developer'} project at ${c || '[Company]'}.\n\nI have 6+ years of experience building cross-platform mobile apps with React Native + TypeScript, and scalable APIs with Node.js/Express/MongoDB. I am available for immediate start at starter rates of $15-$25/hr or fixed retainers.\n\n📄 Resume: https://sureshsirvidev.github.io/dev/resume.html\n\nWould love 15 minutes of your time to discuss how I can add value to your team.\n\nBest regards,\nSuresh Sirvi | +91 8310634421`,
         platform: 'https://mail.google.com/mail/u/0/#compose'
       },
       5: {
         channel: 'linkedin',
         label: 'LinkedIn Follow-up Message',
-        message: (r, c, role) => `Hi ${r || '[Recruiter Name]'},\n\nJust circling back on my earlier message about the ${role || 'React Native Developer'} role at ${c || '[Company]'}.\n\nI've been following ${c || "your company"}'s product and I'm genuinely excited about the technical challenges involved. I believe my React Native + Node.js background directly maps to your requirements.\n\nHappy to share my portfolio or jump on a quick call this week if the timing works!\n\nCheers,\nRamesh`,
+        message: (r, c, role) => `Hi ${r || '[Recruiter Name]'},\n\nJust circling back on my earlier message about the ${role || 'React Native Developer'} role at ${c || '[Company]'}.\n\nI've been following ${c || "your company"}'s product and I'm genuinely excited about the technical challenges involved. I believe my React.js, Node.js, WordPress, WooCommerce, Mobile Apps background directly maps to your requirements.\n\nHappy to share my portfolio or jump on a quick call this week if the timing works!\n\nCheers,\nSuresh`,
         platform: 'https://www.linkedin.com/messaging/'
       },
       7: {
         channel: 'whatsapp',
         label: 'WhatsApp Gentle Nudge',
-        message: (r, c, role) => `Hi ${r || '[Recruiter Name]'}, this is Suresh Sirvi. I applied for the ${role || 'React Native Developer'} role at ${c || '[Company]'} and also reached out on LinkedIn and email earlier this week.\n\nJust wanted to check if there's any update or if you need any additional information from my end. I'm an immediate joiner and very excited about this opportunity!\n\nResume: https://ramseervi2024.github.io/portfolio/Resume.pdf`,
+        message: (r, c, role) => `Hi ${r || '[Recruiter Name]'}, this is Suresh Sirvi. I applied for the ${role || 'React Native Developer'} role at ${c || '[Company]'} and also reached out on LinkedIn and email earlier this week.\n\nJust wanted to check if there's any update or if you need any additional information from my end. I'm an immediate joiner and very excited about this opportunity!\n\nResume: https://sureshsirvidev.github.io/dev/resume.html`,
         platform: 'https://web.whatsapp.com/'
       }
     };
@@ -6803,40 +6807,18 @@ Suresh Sirvi
   </script>
 
     <footer>
-        <div class="footer-circle-wrap">
-            <!-- Circular Rotating Text -->
-            <div class="footer-circle-badge">
-                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <path id="circlePath"
-                            d="M 100,100
-                               m -72,0
-                               a 72,72 0 1,1 144,0
-                               a 72,72 0 1,1 -144,0" />
-                    </defs>
-                    <text class="circle-text">
-                        <textPath href="#circlePath" startOffset="0%">
-                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
-                        </textPath>
-                    </text>
-                </svg>
-                <!-- Center icon -->
-                <div class="circle-center-icon">
-                    <span>⚡</span>
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="footer-bottom">
                 <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
-                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
-                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
-                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
-                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
-                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
-                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
-                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
-                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                    <a target="_blank" href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a target="_blank" href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a target="_blank" href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a target="_blank" href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a target="_blank" href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a target="_blank" href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a target="_blank" href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a target="_blank" href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
                 </div>
                 <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
             </div>

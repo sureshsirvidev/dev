@@ -21,7 +21,9 @@
 
     body {
             font-family: 'Outfit', sans-serif;
-      font-family: var(--font);
+      font-size: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
       background-color: var(--bg-color);
       color: var(--text-primary);
       min-height: 100vh;
@@ -818,15 +820,18 @@
 
     <div class="topbar">
         <div class="topbar-left">
-            <a href="index.html" class="topbar-back">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                Back to Portfolio
+            <a href="index.html" class="logo" style="margin-right: 16px;">
+                <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
+                <div class="logo-text-block">
+                    <span class="logo-name">SURESH SIRVI</span>
+                    <span class="logo-role">Full-Stack Developer</span>
+                </div>
             </a>
             <span class="topbar-sep">/</span>
             <span class="topbar-title">Outreach Copy Hub</span>
         </div>
         <div class="topbar-contact">
-            <a href="tel:+919902965742" class="contact-link">
+            <a href="tel:+918310634421" class="contact-link">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 +91 8310634421
             </a>
@@ -906,38 +911,28 @@
         <div class="resources-grid">
           <div class="resource-item">
             <a class="resource-info"
-              href="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+              href="https://sureshsirvidev.github.io/dev/resume.html"
               target="_blank">📄 Resume Link</a>
             <button class="btn-link-copy"
-              onclick="copyText('https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing')"
+              onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
+          
           <div class="resource-item">
-            <a class="resource-info"
-              href="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
-              target="_blank">🎥 Video Pitch</a>
-            <button class="btn-link-copy"
-              onclick="copyText('https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link')"
-              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg></button>
-          </div>
-          <div class="resource-item">
-            <a class="resource-info" href="https://www.linkedin.com/in/ramesh-seervi-3976802b0" target="_blank">🔗
+            <a class="resource-info" href="https://www.linkedin.com/in/suresh-sirvi-261151428" target="_blank">🔗
               LinkedIn</a>
-            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/ramesh-seervi-3976802b0')"
+            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/suresh-sirvi-261151428')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
           <div class="resource-item">
-            <a class="resource-info" href="https://github.com/ramseervi2024" target="_blank">🐱 GitHub Link</a>
-            <button class="btn-link-copy" onclick="copyText('https://github.com/ramseervi2024')" title="Copy Link"><svg
+            <a class="resource-info" href="https://github.com/sureshsirvidev" target="_blank">🐱 GitHub Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://github.com/sureshsirvidev')" title="Copy Link"><svg
                 fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1021,38 +1016,28 @@
         <div class="resources-grid">
           <div class="resource-item">
             <a class="resource-info"
-              href="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+              href="https://sureshsirvidev.github.io/dev/resume.html"
               target="_blank">📄 Resume Link</a>
             <button class="btn-link-copy"
-              onclick="copyText('https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing')"
+              onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
+          
           <div class="resource-item">
-            <a class="resource-info"
-              href="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
-              target="_blank">🎥 Video Pitch</a>
-            <button class="btn-link-copy"
-              onclick="copyText('https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link')"
-              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg></button>
-          </div>
-          <div class="resource-item">
-            <a class="resource-info" href="https://www.linkedin.com/in/ramesh-seervi-3976802b0" target="_blank">🔗
+            <a class="resource-info" href="https://www.linkedin.com/in/suresh-sirvi-261151428" target="_blank">🔗
               LinkedIn</a>
-            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/ramesh-seervi-3976802b0')"
+            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/suresh-sirvi-261151428')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
           <div class="resource-item">
-            <a class="resource-info" href="https://github.com/ramseervi2024" target="_blank">🐱 GitHub Link</a>
-            <button class="btn-link-copy" onclick="copyText('https://github.com/ramseervi2024')" title="Copy Link"><svg
+            <a class="resource-info" href="https://github.com/sureshsirvidev" target="_blank">🐱 GitHub Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://github.com/sureshsirvidev')" title="Copy Link"><svg
                 fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1152,38 +1137,28 @@
         <div class="resources-grid">
           <div class="resource-item">
             <a class="resource-info"
-              href="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+              href="https://sureshsirvidev.github.io/dev/resume.html"
               target="_blank">📄 Resume Link</a>
             <button class="btn-link-copy"
-              onclick="copyText('https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing')"
+              onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
+          
           <div class="resource-item">
-            <a class="resource-info"
-              href="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
-              target="_blank">🎥 Video Pitch</a>
-            <button class="btn-link-copy"
-              onclick="copyText('https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link')"
-              title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg></button>
-          </div>
-          <div class="resource-item">
-            <a class="resource-info" href="https://www.linkedin.com/in/ramesh-seervi-3976802b0" target="_blank">🔗
+            <a class="resource-info" href="https://www.linkedin.com/in/suresh-sirvi-261151428" target="_blank">🔗
               LinkedIn</a>
-            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/ramesh-seervi-3976802b0')"
+            <button class="btn-link-copy" onclick="copyText('https://www.linkedin.com/in/suresh-sirvi-261151428')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
           <div class="resource-item">
-            <a class="resource-info" href="https://github.com/ramseervi2024" target="_blank">🐱 GitHub Link</a>
-            <button class="btn-link-copy" onclick="copyText('https://github.com/ramseervi2024')" title="Copy Link"><svg
+            <a class="resource-info" href="https://github.com/sureshsirvidev" target="_blank">🐱 GitHub Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://github.com/sureshsirvidev')" title="Copy Link"><svg
                 fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -2046,33 +2021,27 @@
       </div>
 
       <div class="deck-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-bottom: 16px;">
-        <div data-copy-text="https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="https://sureshsirvidev.github.io/dev/resume.html" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Resume URL</span>
             <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 1</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://sureshsirvidev.github.io/dev/resume.html</div>
         </div>
-        <div data-copy-text="https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Video Pitch URL</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 2</span>
-          </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link</div>
-        </div>
-        <div data-copy-text="https://www.linkedin.com/in/ramesh-seervi-3976802b0" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        
+        <div data-copy-text="https://www.linkedin.com/in/suresh-sirvi-261151428" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">LinkedIn Profile</span>
             <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 3</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://www.linkedin.com/in/ramesh-seervi-3976802b0</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://www.linkedin.com/in/suresh-sirvi-261151428</div>
         </div>
-        <div data-copy-text="https://github.com/ramseervi2024" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="https://github.com/sureshsirvidev" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">GitHub Link</span>
             <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 4</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://github.com/ramseervi2024</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://github.com/sureshsirvidev</div>
         </div>
         <div data-copy-text="sureshsirvi.dev@gmail.com" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
@@ -2109,12 +2078,12 @@
           </div>
           <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git</div>
         </div>
-        <div data-copy-text="B.E. in Computer Science - Bangalore Institute of Technology" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="B.E. in Computer Science - VTU University" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Highest Education</span>
             
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B.E. in Computer Science - Bangalore Institute of Technology</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B.E. in Computer Science - VTU University</div>
         </div>
         <div data-copy-text="30% Backend : 70% Frontend" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
@@ -2200,12 +2169,12 @@
           </div>
           <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Full Stack Developer / React Native Developer / React.js Developer / Node.js Developer</div>
         </div>
-        <div data-copy-text="Bengaluru (Open to Remote / Hybrid)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="Remote Worldwide" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred location</span>
             
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bengaluru (Open to Remote / Hybrid)</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Remote Worldwide</div>
         </div>
         <div data-copy-text="Open to Remote, Hybrid, and Onsite work models." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
@@ -2256,12 +2225,12 @@
           </div>
           <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">10th - Govt Senior Secondary School Sojat City (74%)</div>
         </div>
-        <div data-copy-text="~4 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="~6 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Experience Summary</span>
             
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">~4 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js.</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">~6 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js.</div>
         </div>
       </div>
     </div>
@@ -2279,15 +2248,15 @@
     const TEMPLATES = {
       'li-req': {
         limit: 300,
-        content: `Hi, I'm a Full-Stack JS Developer with 6+ yrs experience (React Native, React, Node.js). 
-Available for immediate joining in Bengaluru. 
-Portfolio: https://ramseervi2024.github.io/portfolio/
+        content: `Hi, I'm a Full-Stack Developer with 6+ yrs experience (React.js, Node.js, WordPress, Shopify, Mobile Apps). 
+Available for remote contracts worldwide. 
+Portfolio: https://sureshsirvidev.github.io/dev/
 Let's connect!`
       },
       'li-dm': {
         content: `Hi,
 
-I am a Full-Stack JavaScript Developer with 6+ years of experience specializing in React Native, React, and Node.js. I am based in Bengaluru and available to join immediately.
+I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React, and Node.js. I am available for remote contracts and can join immediately.
 
 Key Highlights:
 • Deployed 4+ production React Native apps to Google Play & App Store
@@ -2295,10 +2264,9 @@ Key Highlights:
 • CGPA: 8.2/10 | B.E. in Computer Science
 
 Links:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 I would love to discuss developer opportunities with you. Let me know if we can connect.
 
@@ -2311,38 +2279,36 @@ Suresh Sirvi
 Immediate freelancer ready for technical rounds and project discovery calls.
 Let's connect!
 
-Portfolio: https://ramseervi2024.github.io/portfolio/`
+Portfolio: https://sureshsirvidev.github.io/dev/`
       },
       'wa-pitch': {
-        content: `Hi, I am reaching out for Full-Time Freelance, Retainer, or Contract Developer work. I am a Full-Stack & Mobile Developer (4+ YOE) specializing in React Native, React.js, Next.js, and Node.js. Starter Rates: $15 - $25/hr ($) | £12 - £20/hr (£) | ₹400 - ₹800/hr (₹). Ready for immediate start across PST, EST, GMT, and IST.`
+        content: `Hi, I am reaching out for Full-Time Freelance, Retainer, or Contract Developer work. I am a Full-Stack Developer (6+ YOE) specializing in React Native, React.js, Next.js, and Node.js. Starter Rates: $15 - $25/hr ($) | £12 - £20/hr (£) | ₹400 - ₹800/hr (₹). Ready for immediate start across PST, EST, GMT, and IST.`
       },
       'naukri-pitch': {
-        content: `Hello, I am interested in contract developer opportunities. I am a Full-Stack JS Developer with 6+ years experience in React Native + Node.js, and am available for immediate start globally. Starter Rates: $15-$25/hr. Ready for technical discovery.
+        content: `Hello, I am interested in contract developer opportunities. I am a Full-Stack Developer with 6+ years experience in React.js, Node.js, WordPress, WooCommerce, Mobile Apps, and am available for immediate start globally. Starter Rates: $15-$25/hr. Ready for technical discovery.
 
-Portfolio: https://ramseervi2024.github.io/portfolio/`
+Portfolio: https://sureshsirvidev.github.io/dev/`
       },
       'sms-pitch': {
-        content: `Hi, Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React Native + Node.js. Available immediately for contract roles globally.
+        content: `Hi, Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Available immediately for contract roles globally.
 
-Portfolio: https://ramseervi2024.github.io/portfolio/
-Video: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
-GitHub: https://github.com/ramseervi2024`
+Portfolio: https://sureshsirvidev.github.io/dev/
+GitHub: https://github.com/sureshsirvidev`
       },
       'cover-letter': {
         content: `Dear Hiring Team,
 
-I am writing to express my interest in joining your team as a Software Developer. With 4 years of professional experience developing end-to-end web and mobile applications using React, React Native, and Node.js, I am confident in my ability to make an immediate impact.
+I am writing to express my interest in joining your team as a Software Developer. With 6 years of professional experience developing end-to-end web and mobile applications using React, React Native, and Node.js, I am confident in my ability to make an immediate impact.
 
 In my previous roles, I have:
 • Built and deployed 4+ React Native mobile apps to the App Store and Google Play Store
 • Constructed robust REST APIs using Node.js, Express.js, and MongoDB
 • Developed responsive frontend interfaces in React.js
 
-I am currently based in Bengaluru and available to join immediately. You can review my details here:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Video Intro: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
+I am available for remote contracts worldwide and can join immediately. You can review my details here:
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 Thank you for your consideration. I look forward to speaking with you.
 
@@ -2353,15 +2319,14 @@ Suresh Sirvi
       'query-immediate-pitch': {
         content: `Hi,
 
-I saw your requirement for freelance developers. I am a Full-Stack JavaScript Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. 
+I saw your requirement for freelance developers. I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. 
 
 I am available for an immediate contract start globally. 
 
 My references:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 I'd love to connect for a brief discussion.
 
@@ -2377,9 +2342,9 @@ I noticed your post regarding the upcoming React Native / React project requirem
 With 6+ years of experience building mobile applications (deployed 4+ apps on stores) and web frontends, I would love to discuss a freelance arrangement. Could you please confirm the project scope and timelines?
 
 Here is my profile:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 Looking forward to your response.
 
@@ -2392,7 +2357,7 @@ Suresh Sirvi
 
 I am writing to express my interest in your React JS & Node.js contract requirement. 
 
-I'm a Full-Stack JavaScript Developer with 6+ years of experience. I specialize in frontends using React.js and backend architectures using Node.js, Express, and MongoDB. I'm available for immediate freelance start.
+I'm a Full-Stack Developer with 6+ years of experience. I specialize in frontends using React.js and backend architectures using Node.js, Express, and MongoDB. I'm available for immediate freelance start.
 
 Summary of qualifications:
 • Deployed production React Native mobile apps and robust web frontends.
@@ -2400,10 +2365,9 @@ Summary of qualifications:
 • Highly proficient with JavaScript/TypeScript and Redux.
 
 My details:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
-• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 Please let me know if we can connect for a short call.
 
@@ -2414,7 +2378,7 @@ Suresh Sirvi
       'query-3-4-year-pitch': {
         content: `Hi,
 
-I saw your posting for a freelance Developer requiring 3-6+ years of experience. With 4 years of hands-on experience building mobile apps with React Native (deployed 4+ apps) and web apps with React.js + Node.js, I am an ideal fit.
+I saw your posting for a freelance Developer requiring 3-6+ years of experience. With 6 years of hands-on experience building mobile apps with React Native (deployed 4+ apps) and web apps with React.js + Node.js, I am an ideal fit.
 
 Key strengths:
 • Mobile: React Native, Redux, Store Deployments
@@ -2422,10 +2386,9 @@ Key strengths:
 • Availability: Immediate freelance start
 
 My references:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
-• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 I would appreciate the chance to discuss how I can contribute.
 
@@ -2436,7 +2399,7 @@ Suresh Sirvi
       'query-4-5-year-pitch': {
         content: `Hi,
 
-I'm reaching out regarding your requirement for a developer with 4-5 years of experience. While I have 4 years of professional experience, I have independently built and deployed 4+ production mobile apps to the App Store and Google Play, and scaled Node.js REST APIs. I bring strong self-direction and full-stack ownership for independent contract work.
+I'm reaching out regarding your requirement for a developer with 4-5 years of experience. While I have 6 years of professional experience, I have independently built and deployed 4+ production mobile apps to the App Store and Google Play, and scaled Node.js REST APIs. I bring strong self-direction and full-stack ownership for independent contract work.
 
 Key Highlights:
 • End-to-End Delivery: React Native (App Store & Play Store)
@@ -2444,10 +2407,9 @@ Key Highlights:
 • Availability: Immediate start for new contracts
 
 My links:
-• Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-• Portfolio: https://ramseervi2024.github.io/portfolio/
-• GitHub: https://github.com/ramseervi2024
-• Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• GitHub: https://github.com/sureshsirvidev
 
 I would love to connect for a short discussion to demonstrate how I can deliver value from day one.
 
@@ -2666,13 +2628,13 @@ Suresh Sirvi
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'What are your education qualifications (College, University, Degree, Stream)?',
-        answer: "• Degree: B.E. (Bachelor of Engineering) in Computer Science\n• College: Bangalore Institute of Technology\n• University: Visvesvaraya Technological University (VTU)\n• Performance: CGPA: 8.2/10\n• Batch: 2018-2022\n\n• High School: 11th-12th (Science Stream)\n• School: Govt Senior Secondary School Sojat City, Rajasthan\n• Performance: Percentage: 70%\n• Batch: 2016-2018"
+        answer: "• Degree: B.E. (Bachelor of Engineering) in Computer Science\n• College: VTU University\n• University: Visvesvaraya Technological University (VTU)\n• Performance: CGPA: 8.2/10\n• Batch: 2018-2022\n\n• High School: 11th-12th (Science Stream)\n• School: Govt Senior Secondary School Sojat City, Rajasthan\n• Performance: Percentage: 70%\n• Batch: 2016-2018"
       },
       {
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'What is your detailed work experience (Company Names)?',
-        answer: "• Total Experience: 4 years in Web & Mobile App Development\n\n1. Company Name: Imcrinox Technologies, Bengaluru\n   • Role: React & React Native Developer\n   • Duration: Nov 2022 - Present (Full-time)\n   • Impact: Developed/deployed 4+ apps on App/Play Store, integrated Axios, Firebase, Google Maps, Apple/Google Pay, and Node.js APIs.\n\n2. Company Name: Gridrnd, Bengaluru\n   • Role: Web Developer Intern\n   • Duration: Feb 2022 - Oct 2022\n   • Impact: React/Redux UI building, Node/Express/MongoDB backend services, Postman testing."
+        answer: "• Total Experience: 6 years in Web & Mobile App Development\n\n1. Company Name: Tech Company, Bengaluru\n   • Role: React & React Native Developer\n   • Duration: Nov 2022 - Present (Full-time)\n   • Impact: Developed/deployed 4+ apps on App/Play Store, integrated Axios, Firebase, Google Maps, Apple/Google Pay, and Node.js APIs.\n\n2. Company Name: Software Company, Bengaluru\n   • Role: Full Stack Web Developer\n   • Duration: Jan 2019 - March 2020\n   • Impact: React/Redux UI building, Node/Express/MongoDB backend services, Postman testing."
       },
       {
         category: 'hr',
@@ -2714,25 +2676,24 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'GitHub Profile Link URL',
-        answer: "https://github.com/ramseervi2024"
+        answer: "https://github.com/sureshsirvidev"
       },
       {
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'LinkedIn Profile Link URL',
-        answer: "https://www.linkedin.com/in/ramesh-seervi-3976802b0"
+        answer: "https://www.linkedin.com/in/suresh-sirvi-261151428"
       },
       {
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Resume / CV Shareable Link',
-        answer: "https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing"
+        answer: "https://sureshsirvidev.github.io/dev/resume.html"
       },
       {
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Video Pitch Introduction Link',
-        answer: "https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link"
       },
       {
         category: 'portal',
@@ -2762,7 +2723,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Highest Education Level & Institution name',
-        answer: "B.E. (Bachelor of Engineering) in Computer Science from Bangalore Institute of Technology"
+        answer: "B.E. (Bachelor of Engineering) in Computer Science from VTU University"
       },
       {
         category: 'portal',
@@ -2822,7 +2783,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'YoE in skills mentioned on TalentPromise (TP)',
-        answer: "React Native: 4 Years\nReact.js: 4 Years\nNode.js: 4 Years\nJavaScript/TypeScript: 4 Years"
+        answer: "React Native: 6 Years\nReact.js: 6 Years\nNode.js: 6 Years\nJavaScript/TypeScript: 6 Years"
       },
       {
         category: 'portal',
@@ -2834,7 +2795,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Why did you leave your last company? Also, explain the reasons for frequent switches, if any.',
-        answer: "Leaving to seek larger technical ownership and face new challenges in a product-focused environment. No frequent switches (2+ years at Imcrinox, Gridrnd was a planned 9-month internship conversion)."
+        answer: "Leaving to seek larger technical ownership and face new challenges in a product-focused environment. No frequent switches (2+ years at Tech Company, Software Company was a planned 9-month internship conversion)."
       },
       {
         category: 'portal',
@@ -2846,7 +2807,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Explain the product you are working on in your most recent company & your contribution to it.',
-        answer: "At Imcrinox, I developed key products:\n1. Organiser App: A workforce & event management tool for organizers. Built tickets scanners, notifications, speaker manager, wallet integrations, and role-based access.\n2. Ondeen App: Event booking platform. Integrated Apple/Google Pay, Google Maps, calendar views, and Node.js APIs.\nMy contribution: Migrated engine to Hermes, optimized FlatList rendering speed by 40% using memoization, and built scalable Express backend routes."
+        answer: "At Tech Company, I developed key products:\n1. Organiser App: A workforce & event management tool for organizers. Built tickets scanners, notifications, speaker manager, wallet integrations, and role-based access.\n2. Event Booking App: Event booking platform. Integrated Apple/Google Pay, Google Maps, calendar views, and Node.js APIs.\nMy contribution: Migrated engine to Hermes, optimized FlatList rendering speed by 40% using memoization, and built scalable Express backend routes."
       },
       {
         category: 'portal',
@@ -2864,7 +2825,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'How many years of experience do you have in Python/Node?',
-        answer: "Node.js: 4 Years\nPython: 0 Years (Stack focus is JavaScript/TypeScript, React, Node, Express, MongoDB)"
+        answer: "Node.js: 6 Years\nPython: 0 Years (Stack focus is JavaScript/TypeScript, React, Node, Express, MongoDB)"
       },
       {
         category: 'portal',
@@ -2888,13 +2849,13 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Name of Institution (School / College / University)',
-        answer: "Bangalore Institute of Technology (Visvesvaraya Technological University)"
+        answer: "VTU University (Visvesvaraya Technological University)"
       },
       {
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Employer Name (Current Company)',
-        answer: "Imcrinox Technologies Pvt Ltd"
+        answer: "Tech Company"
       },
       {
         category: 'portal',
@@ -3169,10 +3130,9 @@ Suresh Sirvi
 // ── FORM DECK LOGIC ────────────────────────────────────────────────────────────
 
 const formDeckItems = [
-    { shortcut: '1', text: "https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing" },
-    { shortcut: '2', text: "https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link" },
-    { shortcut: '3', text: "https://www.linkedin.com/in/ramesh-seervi-3976802b0" },
-    { shortcut: '4', text: "https://github.com/ramseervi2024" },
+    { shortcut: '1', text: "https://sureshsirvidev.github.io/dev/resume.html" },
+    { shortcut: '3', text: "https://www.linkedin.com/in/suresh-sirvi-261151428" },
+    { shortcut: '4', text: "https://github.com/sureshsirvidev" },
     { shortcut: '5', text: "sureshsirvi.dev@gmail.com" },
     { shortcut: '6', text: "+91 8310634421" },
     { shortcut: '7', text: "Immediate (Ready for New Projects)" },
@@ -3205,13 +3165,12 @@ if (btnCopyMasterProfile) {
 - Location: Electronic City, Bangalore - 560100
 
 **Profiles & Links**
-- Resume: https://drive.google.com/file/d/1SMA6ouALJ9uzKEm-zFy-EbtYbQ5_N4l2/view?usp=sharing
-- Video Pitch: https://drive.google.com/file/d/1nlZ-unJ_i5oCUuqM9IO1x9ANcuHM-_XR/view?usp=drive_link
-- LinkedIn: https://www.linkedin.com/in/ramesh-seervi-3976802b0
-- GitHub: https://github.com/ramseervi2024
+- Resume: https://sureshsirvidev.github.io/dev/resume.html
+- LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428
+- GitHub: https://github.com/sureshsirvidev
 
 **Professional Details**
-- Experience: ~4 Years
+- Experience: ~6 Years
 - Full Stack Split: 30% Backend : 70% Frontend
 - Starter Hourly Rate: $15 - $25/hr ($ USD) | £12 - £20/hr (£ GBP) | ₹400 - ₹800/hr (₹ INR)
 - Starter Retainers: $500/mo (10h/wk) | $1,000/mo (20h/wk) | $1,800/mo (40h/wk)
@@ -3221,7 +3180,7 @@ if (btnCopyMasterProfile) {
 React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git
 
 **Education**
-- B.E. in Computer Science - Bangalore Institute of Technology
+- B.E. in Computer Science - VTU University
 - 12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)
 - 10th - Govt Senior Secondary School Sojat City (74%)`;
 
@@ -3234,40 +3193,18 @@ React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Re
 </script>
 
     <footer>
-        <div class="footer-circle-wrap">
-            <!-- Circular Rotating Text -->
-            <div class="footer-circle-badge">
-                <svg class="circle-text-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <path id="circlePath"
-                            d="M 100,100
-                               m -72,0
-                               a 72,72 0 1,1 144,0
-                               a 72,72 0 1,1 -144,0" />
-                    </defs>
-                    <text class="circle-text">
-                        <textPath href="#circlePath" startOffset="0%">
-                            AVAILABLE FOR HIRE • LET'S BUILD SOMETHING GREAT • 
-                        </textPath>
-                    </text>
-                </svg>
-                <!-- Center icon -->
-                <div class="circle-center-icon">
-                    <span>⚡</span>
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="footer-bottom">
                 <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
-                    <a href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
-                    <a href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
-                    <a href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
-                    <a href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
-                    <a href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
-                    <a href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
-                    <a href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
-                    <a href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
+                    <a target="_blank" href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+                    <a target="_blank" href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+                    <a target="_blank" href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
+                    <a target="_blank" href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
+                    <a target="_blank" href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
+                    <a target="_blank" href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
+                    <a target="_blank" href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
+                    <a target="_blank" href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
                 </div>
                 <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
             </div>
