@@ -12,23 +12,11 @@
     body {
             font-family: 'Outfit', sans-serif; background: var(--bg-color); color: var(--text-primary); font-size: 16px; }
 
-    /* TOP BAR */
-    .topbar {
-      background: linear-gradient(135deg, #0077b5 0%, #005f8e 100%);
-      color: white; padding: 14px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,119,181,0.35);
-    }
-    .topbar-left { display: flex; align-items: center; gap: 10px; }
-    .topbar-icon { width: 36px; height: 36px; background: var(--surface-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .topbar-title { font-size: 15px; font-weight: 800; }
-    .topbar-sub { font-size: 13px; color: var(--text-secondary); opacity: 0.9; margin-top: 4px; font-weight: 500; }
-    .profile-badge { background: var(--primary-light); color: var(--accent); border-radius: 20px; padding: 6px 16px; font-size: 12px; font-weight: 700; border: 1px solid #bfdbfe; display: flex; align-items: center; gap: 6px; }
+
 
     /* TABS */
     .tab-nav { background: white; border-bottom: 2px solid var(--surface-border); padding: 0 20px; display: flex; gap: 4px; position: sticky; top: 62px; z-index: 90; overflow-x: auto; }
-    .tab-btn { padding: 12px 16px; border: none; background: none; font-size: 12px; font-weight: 600; color: var(--text-secondary); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; font-family: 'Outfit', sans-serif; white-space: nowrap; transition: all 0.18s; }
+    .tab-btn { padding: 14px 20px; border: none; background: none; font-size: 15px; font-weight: 600; color: var(--text-secondary); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; font-family: 'Outfit', sans-serif; white-space: nowrap; transition: all 0.18s; }
     .tab-btn:hover { color: var(--accent); }
     .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
     .tab-panel { display: none; }
@@ -40,51 +28,51 @@
     /* HERO BANNER */
     .hero-banner {
       background: linear-gradient(135deg, #0077b5, #0ea5e9);
-      color: white; border-radius: var(--radius); padding: 20px 24px;
+      color: white; border-radius: var(--radius); padding: 24px 30px;
       margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
+      flex-wrap: wrap; gap: 16px;
       box-shadow: 0 4px 20px rgba(0,119,181,0.3);
     }
-    .hero-title { font-size: 18px; font-weight: 800; letter-spacing: normal; text-transform: none; }
-    .hero-sub { font-size: 12px; opacity: 0.85; margin-top: 4px; }
-    .hero-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+    .hero-title { font-size: 24px; font-weight: 800; letter-spacing: normal; text-transform: none; }
+    .hero-sub { font-size: 15px; opacity: 0.9; margin-top: 6px; }
+    .hero-stats { display: flex; gap: 24px; flex-wrap: wrap; }
     .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 22px; font-weight: 800; }
-    .hero-stat-label { font-size: 10px; opacity: 0.8; }
+    .hero-stat-num { font-size: 28px; font-weight: 800; }
+    .hero-stat-label { font-size: 13px; opacity: 0.85; }
 
     /* SEARCH CARD */
     .search-card {
       background: var(--surface); border: 1.5px solid var(--surface-border); border-radius: var(--radius);
-      overflow: hidden; margin-bottom: 14px; box-shadow: var(--shadow);
+      overflow: hidden; margin-bottom: 16px; box-shadow: var(--shadow);
       transition: all 0.2s;
     }
     .search-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
     .search-card-header {
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-      padding: 10px 14px; background: #f8fafc; border-bottom: 1px solid var(--surface-border);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 18px; background: #f8fafc; border-bottom: 1px solid var(--surface-border);
     }
-    .search-label { font-size: 12px; font-weight: 700; color: var(--text-primary); }
-    .search-desc { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
-    .badge { font-size: 10px; padding: 2px 9px; border-radius: 10px; font-weight: 700; white-space: nowrap; }
+    .search-label { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+    .search-desc { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .badge { font-size: 12px; padding: 4px 12px; border-radius: 12px; font-weight: 700; white-space: nowrap; }
     .badge-hot { background: #fee2e2; color: #991b1b; }
     .badge-new { background: #d1fae5; color: #065f46; }
     .badge-best { background: #fef3c7; color: #92400e; }
     .badge-global { background: #ede9fe; color: #5b21b6; }
     .badge-local { background: #e0f2fe; color: #0369a1; }
 
-    .search-body { padding: 12px 14px; display: block; gap: 10px; }
+    .search-body { padding: 16px 18px; display: block; gap: 12px; }
     .query-box {
-      display: flex; align-items: center; gap: 8px;
-      background: #f1f5f9; border: 1px solid var(--surface-border); border-radius: 6px;
-      padding: 8px 10px;
+      display: flex; align-items: center; gap: 10px;
+      background: #f1f5f9; border: 1px solid var(--surface-border); border-radius: 8px;
+      padding: 12px 14px;
     }
     .query-text {
-      flex: 1; font-size: 11.5px; color: var(--text-dim); font-family: 'Courier New', monospace;
-      word-break: break-all; line-height: 1.5;
+      flex: 1; font-size: 14px; color: var(--text-dim); font-family: 'Courier New', monospace;
+      word-break: break-all; line-height: 1.6;
     }
 
     /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer; border: none; font-family: 'Outfit', sans-serif; transition: all 0.18s; text-decoration: none; white-space: nowrap; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 8px; font-size: 13.5px; font-weight: 700; cursor: pointer; border: none; font-family: 'Outfit', sans-serif; transition: all 0.18s; text-decoration: none; white-space: nowrap; }
     .btn-li { background: #0077b5; color: white; }
     .btn-li:hover { background: #005f8e; }
     .btn-google { background: #db4437; color: white; }
@@ -95,98 +83,195 @@
     .btn-green { background: var(--green); color: white; }
     .btn-green:hover { background: #047857; }
 
-    .action-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .action-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
 
     /* PITCH CARD */
     .pitch-card {
       background: var(--surface); border: 1.5px solid var(--surface-border); border-radius: var(--radius);
-      overflow: hidden; margin-bottom: 12px; box-shadow: var(--shadow);
+      overflow: hidden; margin-bottom: 16px; box-shadow: var(--shadow);
       transition: all 0.2s;
     }
     .pitch-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
     .pitch-header {
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-      padding: 10px 14px; background: #f8fafc; border-bottom: 1px solid var(--surface-border);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 18px; background: #f8fafc; border-bottom: 1px solid var(--surface-border);
     }
-    .pitch-body { padding: 14px; }
-    .pitch-text { font-size: 12.5px; line-height: 1.75; color: var(--text-primary); white-space: pre-wrap; cursor: pointer; }
+    .pitch-body { padding: 18px; }
+    .pitch-text { font-size: 15px; line-height: 1.8; color: var(--text-primary); white-space: pre-wrap; cursor: pointer; }
     .pitch-text:hover { color: var(--accent); }
-    .pitch-label { font-size: 11px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.4px; }
+    .pitch-label { font-size: 13px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
 
     /* SECTION HEADER */
     .section-header {
-      display: flex; align-items: center; gap: 10px;
-      margin: 24px 0 12px; padding-bottom: 10px;
+      display: flex; align-items: center; gap: 12px;
+      margin: 32px 0 16px; padding-bottom: 12px;
       border-bottom: 2px solid var(--surface-border);
     }
-    .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-    .section-title { font-size: 14px; font-weight: 800; letter-spacing: normal; text-transform: none; }
-    .section-desc { font-size: 11px; color: var(--text-secondary); }
-    .section-count { margin-left: auto; font-size: 10px; background: var(--primary-light); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+    .section-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .section-title { font-size: 18px; font-weight: 800; letter-spacing: normal; text-transform: none; }
+    .section-desc { font-size: 14px; color: var(--text-secondary); margin-top: 2px; }
+    .section-count { margin-left: auto; font-size: 12px; background: var(--primary-light); color: var(--accent); padding: 4px 10px; border-radius: 12px; font-weight: 700; }
 
     /* GRID */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
 
     /* KEYWORD TAGS */
-    .tag-grid { display: flex; flex-wrap: wrap; gap: 7px; padding: 12px 14px; }
-    .tag { padding: 5px 12px; background: var(--primary-light); color: var(--accent); border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid #bfdbfe; transition: all 0.15s; }
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 18px; }
+    .tag { padding: 8px 16px; background: var(--primary-light); color: var(--accent); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid #bfdbfe; transition: all 0.15s; }
     .tag:hover { background: var(--accent); color: white; }
     .tag.copied { background: var(--green); color: white; border-color: var(--green); }
 
     /* TOAST */
-    .toast { position: fixed; bottom: 20px; right: 20px; background: var(--card-bg); color: white; padding: 10px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 8px; opacity: 0; transform: translateY(10px); transition: all 0.25s; z-index: 9999; pointer-events: none; }
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--card-bg); color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 10px; opacity: 0; transform: translateY(10px); transition: all 0.25s; z-index: 9999; pointer-events: none; }
     .toast.show { opacity: 1; transform: translateY(0); }
-    .toast-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+    .toast-dot { width: 10px; height: 10px; border-radius: 50%; background: #4ade80; }
 
     /* TIP BOX */
-    .tip-box { background: var(--green-light); border: 1px solid #a7f3d0; border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px; font-size: 12px; color: #065f46; line-height: 1.6; }
+    .tip-box { background: var(--green-light); border: 1px solid #a7f3d0; border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 16px; font-size: 14.5px; color: #065f46; line-height: 1.6; }
     .tip-box strong { font-weight: 700; }
-    .warning-box { background: var(--orange-light); border: 1px solid #fcd34d; border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px; font-size: 12px; color: #92400e; line-height: 1.6; }
+    .warning-box { background: var(--orange-light); border: 1px solid #fcd34d; border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 16px; font-size: 14.5px; color: #92400e; line-height: 1.6; }
 
-    input[type=text] { width: 100%; padding: 9px 12px; border: 1.5px solid var(--surface-border); border-radius: 6px; font-size: 12px; font-family: 'Outfit', sans-serif; background: white; color: var(--text-primary); outline: none; transition: border-color 0.18s; }
+    input[type=text] { width: 100%; padding: 12px 16px; border: 1.5px solid var(--surface-border); border-radius: 8px; font-size: 14px; font-family: 'Outfit', sans-serif; background: white; color: var(--text-primary); outline: none; transition: border-color 0.18s; }
     input[type=text]:focus { border-color: var(--accent); }
   
-        /* ── TOPBAR ── */
-        .topbar {
-            position: sticky; top: 0; z-index: 100;
+        /* ── TOP BAR ── */
+        .top-bar {
             background: var(--nav-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--surface-border);
-            padding: 14px 32px;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 16px;
-            width: 100%;
+            color: var(--text-primary);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .topbar-left { display: flex; align-items: center; gap: 12px; }
-        .topbar-back {
-            display: flex; align-items: center; gap: 6px;
-            color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
-            text-decoration: none; transition: color 0.2s;
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .topbar-back:hover { color: var(--accent); }
-        .topbar-sep { color: var(--text-secondary); opacity: 0.5; }
-        .topbar-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+
+        .top-bar-icon {
+            width: 34px; height: 34px;
+            background: var(--primary-light);
+            color: var(--accent);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+        }
+
+        .top-bar-title {
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .top-bar-sub {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
         
-        .topbar-contact { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; }
-        .contact-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
-        .contact-link:hover { color: var(--accent); }
+        .btn-theme {
+            background: transparent;
+            border: 1px solid var(--surface-border);
+            color: var(--text-secondary);
+            width: 32px; height: 32px; padding: 0;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .btn-theme:hover { border-color: var(--accent); color: var(--accent); }
 
         @media (max-width: 768px) {
-            .topbar { padding: 12px 20px; flex-wrap: wrap; }
-            .topbar-contact { display: none; /* Hide on mobile */ }
+            .top-bar { padding: 12px 20px; flex-wrap: wrap; }
             .container { margin: 30px auto !important; width: 92% !important; }
             body { padding: 0 0 50px 0 !important; }
         }
 
     </style>
+
+<style id="wa-float-css">
+.wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif, Arial;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.25);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+}
+.wa-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(37,211,102,0.5);
+    animation: wa-pulse 2.5s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes wa-pulse {
+    0%   { transform: scale(1);    opacity: 0.7; }
+    70%  { transform: scale(1.18); opacity: 0;   }
+    100% { transform: scale(1.18); opacity: 0;   }
+}
+.wa-float:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.3);
+}
+.wa-float svg { flex-shrink: 0; transition: transform 0.3s ease; }
+.wa-float:hover svg { transform: rotate(-8deg) scale(1.1); }
+.wa-float-label { white-space: nowrap; }
+@media (max-width: 480px) {
+    .wa-float { bottom: 20px; right: 16px; padding: 14px; border-radius: 50%; width: 56px; height: 56px; justify-content: center; }
+    .wa-float-label { display: none; }
+}
+</style>
+
 </head>
 <body>
     <div class="custom-cursor"></div>
 
-    <div class="topbar">
-        <div class="topbar-left">
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="index.html" style="color:var(--text-secondary); text-decoration:none; display:flex; align-items:center; gap:5px; margin-right:15px; font-weight:600; font-size:17px; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                Portfolio
+            </a>
             <a href="index.html" class="logo" style="margin-right: 16px;">
                 <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
                 <div class="logo-text-block">
@@ -194,40 +279,18 @@
                     <span class="logo-role">Full-Stack Developer</span>
                 </div>
             </a>
-            <span class="topbar-sep">/</span>
-            <span class="topbar-title">LinkedIn Finder</span>
+            <div>
+                <div class="top-bar-title">LinkedIn Client Finder</div>
+                <div class="top-bar-sub">Find people posting "Looking for Freelance Developer" & pitch instantly</div>
+            </div>
         </div>
-        <div class="topbar-contact">
-            <a href="tel:+918310634421" class="contact-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                +91 8310634421
-            </a>
-            <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                sureshsirvi.dev@gmail.com
-            </a>
+        <div style="display:flex; align-items:center; gap:12px;">
+            <div class="profile-badge">
+                👤 Suresh Sirvi · Full-Stack Freelancer
+            </div>
+            <button class="btn-theme" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
         </div>
     </div>
-    <div class="noise-overlay"></div>
-    <div class="grid-bg"></div>
-
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-left">
-    <a href="index.html" class="logo" style="margin-right: 16px;">
-                <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
-                <div class="logo-text-block">
-                    <span class="logo-name">SURESH SIRVI</span>
-                    <span class="logo-role">Full-Stack Developer</span>
-                </div>
-            </a>
-    <div>
-      <div class="topbar-title">LinkedIn Client Finder</div>
-      <div class="topbar-sub">Find people posting "Looking for Freelance Developer" & pitch instantly</div>
-    </div>
-  </div>
-  <div class="profile-badge">👤 Suresh Sirvi · Full-Stack Freelancer</div>
-</div>
 
 <!-- TABS -->
 <div class="tab-nav">
@@ -376,7 +439,7 @@
     </div>
     <div class="search-body">
       <div class="query-box">
-        <span class="query-text" id="q5">("looking for a developer" OR "need a developer" OR "hiring a developer") AND ("startup" OR "founder" OR "CTO" OR "building" OR "MVP")</span>
+        <span class="query-text" id="q5">("looking for a developer" OR "need a developer") (startup OR founder OR CTO)</span>
       </div>
       <div class="action-row">
         <button class="btn btn-li" onclick="launchLI('q5')">
@@ -424,7 +487,7 @@
     </div>
     <div class="search-body">
       <div class="query-box">
-        <span class="query-text" id="q7">("looking for a freelancer" OR "need a freelancer" OR "hiring freelancer") AND ("India" OR "remote" OR "Bangalore" OR "Bengaluru")</span>
+        <span class="query-text" id="q7">("looking for a freelancer" OR "need a freelancer") (India OR remote OR Bangalore)</span>
       </div>
       <div class="action-row">
         <button class="btn btn-li" onclick="launchLI('q7')">
@@ -472,7 +535,7 @@
     </div>
     <div class="search-body">
       <div class="query-box">
-        <span class="query-text" id="q9">("looking for a freelance developer" OR "need a freelance developer") AND ("remote" OR "global" OR "USD" OR "US" OR "UK" OR "Europe")</span>
+        <span class="query-text" id="q9">("freelance developer" OR "freelancer") (remote OR global OR US OR UK)</span>
       </div>
       <div class="action-row">
         <button class="btn btn-li" onclick="launchLI('q9')">
@@ -496,7 +559,7 @@
     </div>
     <div class="search-body">
       <div class="query-box">
-        <span class="query-text" id="q10">("looking for a developer" OR "need a developer" OR "hiring freelancer") AND ("agency" OR "digital agency" OR "outsource" OR "subcontract" OR "white label")</span>
+        <span class="query-text" id="q10">("need a developer" OR "freelancer") (agency OR outsource OR "white label")</span>
       </div>
       <div class="action-row">
         <button class="btn btn-li" onclick="launchLI('q10')">
@@ -625,6 +688,7 @@
       <span class="tag" onclick="copyTag(this)">building a startup need developer</span>
       <span class="tag" onclick="copyTag(this)">need a full stack developer</span>
       <span class="tag" onclick="copyTag(this)">looking for Node.js developer</span>
+      <span class="tag" onclick="copyTag(this)">looking for Java Spring Boot developer</span>
       <span class="tag" onclick="copyTag(this)">build my website freelancer</span>
       <span class="tag" onclick="copyTag(this)">MVP development</span>
       <span class="tag" onclick="copyTag(this)">outsource development</span>
@@ -659,6 +723,8 @@
       <span class="tag" onclick="copyTag(this)">React Native developer freelance</span>
       <span class="tag" onclick="copyTag(this)">React.js developer remote</span>
       <span class="tag" onclick="copyTag(this)">Node.js developer freelance</span>
+      <span class="tag" onclick="copyTag(this)">Java Spring Boot developer remote</span>
+      <span class="tag" onclick="copyTag(this)">Spring Boot developer freelance</span>
       <span class="tag" onclick="copyTag(this)">MERN stack developer</span>
       <span class="tag" onclick="copyTag(this)">full stack JavaScript developer</span>
       <span class="tag" onclick="copyTag(this)">WordPress developer freelance</span>
@@ -686,13 +752,13 @@
   </div>
 
   <!-- PITCH 1: Website Developer -->
-  <div class="pitch-card" data-text="Interested! I'm a Full-Stack Developer with 6+ years of experience building websites, mobile apps, and custom web solutions (React.js, Node.js, WordPress, WooCommerce). Available immediately. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Sent you a connection request! 🚀">
+  <div class="pitch-card" data-text="Interested! I'm a Full-Stack Developer with 6+ years of experience building websites, mobile apps, and custom web solutions (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce). Available immediately. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Sent you a connection request! 🚀">
     <div class="pitch-header">
       <span class="pitch-label">💬 For "Looking for Website Developer" Posts</span>
       <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
     </div>
     <div class="pitch-body" onclick="copyCardPitchBody(this)">
-      <div class="pitch-text">Interested! I'm a Full-Stack Developer with 6+ years of experience building websites, mobile apps, and custom web solutions (React.js, Node.js, WordPress, WooCommerce). Available immediately. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Sent you a connection request! 🚀</div>
+      <div class="pitch-text">Interested! I'm a Full-Stack Developer with 6+ years of experience building websites, mobile apps, and custom web solutions (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce). Available immediately. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Sent you a connection request! 🚀</div>
     </div>
   </div>
 
@@ -708,24 +774,24 @@
   </div>
 
   <!-- PITCH 3: Startup / MVP -->
-  <div class="pitch-card" data-text="This is exactly what I do! I help startups build their MVP — React Native apps, React.js web frontends, Node.js backends. 6+ years experience. Budget-friendly rates to get started ($15-$25/hr or fixed price). Can start within 24 hours. Would love to hear more about your project — DM me! 🚀">
+  <div class="pitch-card" data-text="This is exactly what I do! I help startups build their MVP — React Native apps, React.js web frontends, Node.js &amp; Java Spring Boot backends. 6+ years experience. Budget-friendly rates to get started ($15-$25/hr or fixed price). Can start within 24 hours. Would love to hear more about your project — DM me! 🚀">
     <div class="pitch-header">
       <span class="pitch-label">🚀 For Startup Founders / MVP Posts</span>
       <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
     </div>
     <div class="pitch-body" onclick="copyCardPitchBody(this)">
-      <div class="pitch-text">This is exactly what I do! I help startups build their MVP — React Native apps, React.js web frontends, Node.js backends. 6+ years experience. Budget-friendly rates to get started ($15-$25/hr or fixed price). Can start within 24 hours. Would love to hear more about your project — DM me! 🚀</div>
+      <div class="pitch-text">This is exactly what I do! I help startups build their MVP — React Native apps, React.js web frontends, Node.js &amp; Java Spring Boot backends. 6+ years experience. Budget-friendly rates to get started ($15-$25/hr or fixed price). Can start within 24 hours. Would love to hear more about your project — DM me! 🚀</div>
     </div>
   </div>
 
   <!-- PITCH 4: Recommend -->
-  <div class="pitch-card" data-text="Happy to jump in! 🙋‍♂️ I'm Suresh Sirvi — Full-Stack Freelancer (React.js, Node.js, WordPress, WooCommerce, Mobile Apps, WordPress). 6+ years experience, immediate availability. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Feel free to DM me directly!">
+  <div class="pitch-card" data-text="Happy to jump in! 🙋‍♂️ I'm Suresh Sirvi — Full-Stack Freelancer (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps). 6+ years experience, immediate availability. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Feel free to DM me directly!">
     <div class="pitch-header">
       <span class="pitch-label">🤝 For "Recommend a Developer" Posts</span>
       <button class="btn btn-green" onclick="copyCardPitch(this)">📋 Copy</button>
     </div>
     <div class="pitch-body" onclick="copyCardPitchBody(this)">
-      <div class="pitch-text">Happy to jump in! 🙋‍♂️ I'm Suresh Sirvi — Full-Stack Freelancer (React.js, Node.js, WordPress, WooCommerce, Mobile Apps, WordPress). 6+ years experience, immediate availability. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Feel free to DM me directly!</div>
+      <div class="pitch-text">Happy to jump in! 🙋‍♂️ I'm Suresh Sirvi — Full-Stack Freelancer (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps). 6+ years experience, immediate availability. Starter rate: $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Feel free to DM me directly!</div>
     </div>
   </div>
 
@@ -741,7 +807,7 @@ I saw your post about looking for a freelance developer and wanted to reach out!
 
 I'm Suresh Sirvi — Full-Stack Developer with 6+ years of experience building:
 ✅ Mobile apps (React Native — Android & iOS)
-✅ Web apps (React.js, Node.js, WordPress)
+✅ Web apps (React.js, Node.js, Java, Spring Boot, WordPress)
 ✅ Admin panels, CRM, ERP solutions
 ✅ E-commerce (WooCommerce, custom)
 
@@ -765,7 +831,7 @@ I saw your post about looking for a freelance developer and wanted to reach out!
 
 I'm Suresh Sirvi — Full-Stack Developer with 6+ years of experience building:
 ✅ Mobile apps (React Native — Android & iOS)
-✅ Web apps (React.js, Node.js, WordPress)
+✅ Web apps (React.js, Node.js, Java, Spring Boot, WordPress)
 ✅ Admin panels, CRM, ERP solutions
 ✅ E-commerce (WooCommerce, custom)
 
@@ -785,7 +851,7 @@ Suresh Sirvi
   <div class="pitch-card" data-text="Hi [Name]! Saw your post — I'm available and can start immediately.
 
 Quick summary:
-• 6+ yrs Full-Stack Dev (React.js, Node.js, WordPress, Shopify, Mobile Apps)
+• 6+ yrs Full-Stack Dev (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps)
 • 4 live apps on Play Store + App Store
 • Starter rate: $15-$25/hr
 • Available: Immediately
@@ -803,7 +869,7 @@ Happy to do a quick 15-min call to discuss your project!
       <div class="pitch-text">Hi [Name]! Saw your post — I'm available and can start immediately.
 
 Quick summary:
-• 6+ yrs Full-Stack Dev (React.js, Node.js, WordPress, Shopify, Mobile Apps)
+• 6+ yrs Full-Stack Dev (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps)
 • 4 live apps on Play Store + App Store
 • Starter rate: $15-$25/hr
 • Available: Immediately
@@ -935,17 +1001,17 @@ Happy to do a quick 15-min call to discuss your project!
 
   function launchLI(id) {
     const q = document.getElementById(id).textContent;
-    window.open('https://www.linkedin.com/search/results/content/?keywords=' + encodeURIComponent(q) + '&sortBy=date', '_blank');
+    window.open('https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=' + encodeURIComponent(q) + '&sortBy=%22date_posted%22', '_blank');
   }
 
   function launchGoogle(id) {
     const q = document.getElementById(id).textContent;
-    window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank');
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&tbs=qdr:d,sbd:1', '_blank');
   }
 
   function launchGoogleXray(id) {
     const q = document.getElementById(id).textContent;
-    window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&tbs=qdr:d', '_blank');
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&tbs=qdr:d,sbd:1', '_blank');
   }
 
   function copyTag(el) {
@@ -993,5 +1059,12 @@ Happy to do a quick 15-min call to discuss your project!
 
 
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918310634421?text=Hi%20Suresh%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener" id="wa-float" class="wa-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="wa-float-label">Chat with me</span>
+    </a>
+
 </body>
 </html>

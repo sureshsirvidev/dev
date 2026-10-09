@@ -5,14 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Outreach CRM & Toolkit | Suresh Sirvi</title>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <style>
-    
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,7 +18,7 @@
     }
 
     body {
-            font-family: 'Outfit', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 16px;
       font-family: 'Outfit', sans-serif;
       font-size: 16px;
@@ -42,8 +40,8 @@
 
     .header-container {
       max-width: 800px;
-            margin: 50px auto;
-            width: 95%;
+      margin: 50px auto;
+      width: 95%;
       margin: 0 auto;
       padding: 16px 20px;
       display: flex;
@@ -379,6 +377,13 @@
       background: var(--primary-glow);
       border-color: var(--accent);
       color: var(--accent);
+    }
+
+    .keyword-tag.copied {
+      background: #10b981 !important;
+      border-color: #059669 !important;
+      color: white !important;
+      transform: scale(0.97);
     }
 
     /* ── TOAST ── */
@@ -778,71 +783,230 @@
       border-radius: 3px;
       font-weight: 700;
     }
-  
-        /* ── TOPBAR ── */
-        .topbar {
-            position: sticky; top: 0; z-index: 100;
-            background: var(--nav-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--surface-border);
-            padding: 14px 32px;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 16px;
-            width: 100%;
-        }
-        .topbar-left { display: flex; align-items: center; gap: 12px; }
-        .topbar-back {
-            display: flex; align-items: center; gap: 6px;
-            color: var(--text-secondary); font-size: 0.95rem; font-weight: 600;
-            text-decoration: none; transition: color 0.2s;
-        }
-        .topbar-back:hover { color: var(--accent); }
-        .topbar-sep { color: var(--text-secondary); opacity: 0.5; }
-        .topbar-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
-        
-        .topbar-contact { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; }
-        .contact-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
-        .contact-link:hover { color: var(--accent); }
 
-        @media (max-width: 768px) {
-            .topbar { padding: 12px 20px; flex-wrap: wrap; }
-            .topbar-contact { display: none; /* Hide on mobile */ }
-            .container { margin: 30px auto !important; width: 92% !important; }
-            body { padding: 0 0 50px 0 !important; }
-        }
+    /* ── TOPBAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+    }
 
-    </style>
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topbar-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .topbar-back:hover {
+      color: var(--accent);
+    }
+
+    .topbar-sep {
+      color: var(--text-secondary);
+      opacity: 0.5;
+    }
+
+    .topbar-title {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    .topbar-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+      }
+
+      .topbar-contact {
+        display: none;
+        /* Hide on mobile */
+      }
+
+      .container {
+        margin: 30px auto !important;
+        width: 92% !important;
+      }
+
+      body {
+        padding: 0 0 50px 0 !important;
+      }
+    }
+  </style>
+
+  <style id="wa-float-css">
+    .wa-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif, Arial;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    .wa-float::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50px;
+      border: 2px solid rgba(37, 211, 102, 0.5);
+      animation: wa-pulse 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes wa-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+
+      70% {
+        transform: scale(1.18);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1.18);
+        opacity: 0;
+      }
+    }
+
+    .wa-float:hover {
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 16px 48px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .wa-float svg {
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .wa-float:hover svg {
+      transform: rotate(-8deg) scale(1.1);
+    }
+
+    .wa-float-label {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .wa-float {
+        bottom: 20px;
+        right: 16px;
+        padding: 14px;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        justify-content: center;
+      }
+
+      .wa-float-label {
+        display: none;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
-    <div class="custom-cursor"></div>
+  <div class="custom-cursor"></div>
 
-    <div class="topbar">
-        <div class="topbar-left">
-            <a href="index.html" class="logo" style="margin-right: 16px;">
-                <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
-                <div class="logo-text-block">
-                    <span class="logo-name">SURESH SIRVI</span>
-                    <span class="logo-role">Full-Stack Developer</span>
-                </div>
-            </a>
-            <span class="topbar-sep">/</span>
-            <span class="topbar-title">Outreach Copy Hub</span>
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="index.html" class="logo" style="margin-right: 16px;">
+        <img src="profile.png" alt="Suresh Sirvi Logo" class="nav-profile-img">
+        <div class="logo-text-block">
+          <span class="logo-name">SURESH SIRVI</span>
+          <span class="logo-role">Full-Stack Developer</span>
         </div>
-        <div class="topbar-contact">
-            <a href="tel:+918310634421" class="contact-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                +91 8310634421
-            </a>
-            <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                sureshsirvi.dev@gmail.com
-            </a>
-        </div>
+      </a>
+      <span class="topbar-sep">/</span>
+      <span class="topbar-title">Outreach Copy Hub</span>
     </div>
-    <div class="noise-overlay"></div>
-    <div class="grid-bg"></div>
+    <div class="topbar-contact">
+      <a href="https://wa.me/918310634421" target="_blank" rel="noopener" class="contact-link" style="color: #25D366; font-weight: 600;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+        </svg>
+        WhatsApp: +91 8310634421
+      </a>
+      <a href="tel:+918310634421" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
+        +91 8310634421
+      </a>
+      <a href="mailto:sureshsirvi.dev@gmail.com" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        sureshsirvi.dev@gmail.com
+      </a>
+    </div>
+  </div>
+  <div class="noise-overlay"></div>
+  <div class="grid-bg"></div>
 
   <!-- ── HEADER & NAVIGATION ── -->
   <header>
@@ -886,7 +1050,8 @@
         </button>
         <button class="tab-button" data-tab="form-deck">
           <svg fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            <path
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
           </svg>
           Form Deck
         </button>
@@ -910,17 +1075,28 @@
         </div>
         <div class="resources-grid">
           <div class="resource-item">
-            <a class="resource-info"
-              href="https://sureshsirvidev.github.io/dev/resume.html"
-              target="_blank">📄 Resume Link</a>
-            <button class="btn-link-copy"
-              onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
+            <a class="resource-info" href="https://sureshsirvidev.github.io/dev/resume.html" target="_blank">📄 Resume
+              Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
-          
+
+          <div class="resource-item">
+            <a class="resource-info" href="https://wa.me/918310634421" target="_blank" style="color: #25D366; font-weight: 600;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+              WhatsApp</a>
+            <button class="btn-link-copy" onclick="copyText('https://wa.me/918310634421')"
+              title="Copy WhatsApp Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+
           <div class="resource-item">
             <a class="resource-info" href="https://www.linkedin.com/in/suresh-sirvi-261151428" target="_blank">🔗
               LinkedIn</a>
@@ -1015,17 +1191,28 @@
         </div>
         <div class="resources-grid">
           <div class="resource-item">
-            <a class="resource-info"
-              href="https://sureshsirvidev.github.io/dev/resume.html"
-              target="_blank">📄 Resume Link</a>
-            <button class="btn-link-copy"
-              onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
+            <a class="resource-info" href="https://sureshsirvidev.github.io/dev/resume.html" target="_blank">📄 Resume
+              Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
-          
+
+          <div class="resource-item">
+            <a class="resource-info" href="https://wa.me/918310634421" target="_blank" style="color: #25D366; font-weight: 600;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+              WhatsApp</a>
+            <button class="btn-link-copy" onclick="copyText('https://wa.me/918310634421')"
+              title="Copy WhatsApp Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+
           <div class="resource-item">
             <a class="resource-info" href="https://www.linkedin.com/in/suresh-sirvi-261151428" target="_blank">🔗
               LinkedIn</a>
@@ -1136,17 +1323,28 @@
         </div>
         <div class="resources-grid">
           <div class="resource-item">
-            <a class="resource-info"
-              href="https://sureshsirvidev.github.io/dev/resume.html"
-              target="_blank">📄 Resume Link</a>
-            <button class="btn-link-copy"
-              onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
+            <a class="resource-info" href="https://sureshsirvidev.github.io/dev/resume.html" target="_blank">📄 Resume
+              Link</a>
+            <button class="btn-link-copy" onclick="copyText('https://sureshsirvidev.github.io/dev/resume.html')"
               title="Copy Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg></button>
           </div>
-          
+
+          <div class="resource-item">
+            <a class="resource-info" href="https://wa.me/918310634421" target="_blank" style="color: #25D366; font-weight: 600;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+              WhatsApp</a>
+            <button class="btn-link-copy" onclick="copyText('https://wa.me/918310634421')"
+              title="Copy WhatsApp Link"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg></button>
+          </div>
+
           <div class="resource-item">
             <a class="resource-info" href="https://www.linkedin.com/in/suresh-sirvi-261151428" target="_blank">🔗
               LinkedIn</a>
@@ -1286,7 +1484,8 @@
             <!-- Row 5 -->
             <div
               style="background: var(--card-bg); border:1px solid var(--surface-border); padding:10px; border-radius:var(--radius-sm); display: block; gap:6px;">
-              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">5. Direct Google Forms/Docs Contract
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim);">5. Direct Google Forms/Docs
+                Contract
                 Postings</span>
               <input type="text" class="platform-query-input" id="rec-bool-5" readonly
                 value='site:docs.google.com/forms/ AND ("React Native" OR "React") AND "freelance" AND "Remote"'>
@@ -1308,19 +1507,17 @@
           <span class="tpl-title">LinkedIn Search Tags &amp; Snippets</span>
         </div>
         <div class="tpl-body">
-          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 10px;">Click to copy these search terms to
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 10px;">Click to copy these search
+            terms to
             paste into LinkedIn's search bar to find hiring posts:</p>
           <div class="tag-container">
-            <button class="keyword-tag" onclick="copyTag('\" React Native\" AND \"hiring\" AND \"Bangalore\"')">🏷️
-              "React Native" AND "hiring" AND "Bangalore"</button>
-            <button class="keyword-tag" onclick="copyTag('\" React Native\" Bengaluru immediate')">🏷️ "React Native"
-              Bengaluru immediate</button>
-            <button class="keyword-tag" onclick="copyTag('\" actively hiring\" \"React Native\"')">🏷️ "actively hiring"
-              "React Native"</button>
-            <button class="keyword-tag" onclick="copyTag('\" Full Stack\" AND \"React Native\" AND \"immediate\"')">🏷️
-              "Full Stack" AND "React Native" AND "immediate"</button>
-            <button class="keyword-tag" onclick="copyTag('\" React Native Developer\" \"Bangalore\"')">🏷️ "React Native
-              Developer" "Bangalore"</button>
+            <button class="keyword-tag" data-tag='"React Native" AND "hiring" AND "Bangalore"' onclick="copyTag(this)">🏷️ "React Native" AND "hiring" AND "Bangalore"</button>
+            <button class="keyword-tag" data-tag='"React Native" Bengaluru immediate' onclick="copyTag(this)">🏷️ "React Native" Bengaluru immediate</button>
+            <button class="keyword-tag" data-tag='"actively hiring" "React Native"' onclick="copyTag(this)">🏷️ "actively hiring" "React Native"</button>
+            <button class="keyword-tag" data-tag='"Full Stack" AND "React Native" AND "immediate"' onclick="copyTag(this)">🏷️ "Full Stack" AND "React Native" AND "immediate"</button>
+            <button class="keyword-tag" data-tag='"React Native Developer" "Bangalore"' onclick="copyTag(this)">🏷️ "React Native Developer" "Bangalore"</button>
+            <button class="keyword-tag" data-tag='"Java" AND "Spring Boot" AND "freelance"' onclick="copyTag(this)">🏷️ "Java" AND "Spring Boot" AND "freelance"</button>
+            <button class="keyword-tag" data-tag='"Full Stack Developer" "remote contract"' onclick="copyTag(this)">🏷️ "Full Stack Developer" "remote contract"</button>
           </div>
         </div>
       </div>
@@ -1331,21 +1528,23 @@
           <span class="tpl-title">Naukri Key Skills &amp; Search Tags</span>
         </div>
         <div class="tpl-body">
-          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 10px;">Copy these key skills/tags to add
-            to your Naukri profile or search bar to match active hiring software:</p>
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom: 10px;">Copy these key skills/tags to add to your Naukri profile or search bar to match active hiring software:</p>
           <div class="tag-container">
-            <button class="keyword-tag" onclick="copyTag('React Native')">🏷️ React Native</button>
-            <button class="keyword-tag" onclick="copyTag('React.js')">🏷️ React.js</button>
-            <button class="keyword-tag" onclick="copyTag('Node.js')">🏷️ Node.js</button>
-            <button class="keyword-tag" onclick="copyTag('Redux')">🏷️ Redux</button>
-            <button class="keyword-tag" onclick="copyTag('JavaScript')">🏷️ JavaScript</button>
-            <button class="keyword-tag" onclick="copyTag('TypeScript')">🏷️ TypeScript</button>
-            <button class="keyword-tag" onclick="copyTag('Express.js')">🏷️ Express.js</button>
-            <button class="keyword-tag" onclick="copyTag('MongoDB')">🏷️ MongoDB</button>
-            <button class="keyword-tag" onclick="copyTag('Immediate Freelancer')">🏷️ Immediate Freelancer</button>
-            <button class="keyword-tag" onclick="copyTag('MERN Stack')">🏷️ MERN Stack</button>
-            <button class="keyword-tag" onclick="copyTag('Full Stack Freelance Developer')">🏷️ Full Stack Freelance
-              Developer</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ React Native</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ React.js</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Java</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Spring Boot</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Node.js</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Redux</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ JavaScript</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ TypeScript</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Express.js</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ MongoDB</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ WordPress</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Shopify</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Immediate Freelancer</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ MERN Stack</button>
+            <button class="keyword-tag" onclick="copyTag(this)">🏷️ Full Stack Freelance Developer</button>
           </div>
         </div>
       </div>
@@ -2008,234 +2207,439 @@
       </div>
     </div>
 
-        <!-- ── TAB: FORM DECK ── -->
+    <!-- ── TAB: FORM DECK ── -->
     <div class="tab-panel" id="panel-form-deck">
-      <div style="margin-bottom: 12px; background: var(--primary-glow); padding: 12px; border-radius: var(--radius); border: 1px solid var(--accent);">
-        <h3 style="margin-bottom: 6px; font-size: 14px; color: var(--accent); display: flex; align-items: center; gap: 6px;">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      <div
+        style="margin-bottom: 12px; background: var(--primary-glow); padding: 12px; border-radius: var(--radius); border: 1px solid var(--accent);">
+        <h3
+          style="margin-bottom: 6px; font-size: 14px; color: var(--accent); display: flex; align-items: center; gap: 6px;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+          </svg>
           Rapid Portal Form Autofill Deck
         </h3>
-        <button class="btn-copy" style="width: 100%; justify-content: center; background: var(--accent); color: white; border: none; padding: 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; cursor: pointer;" id="btnCopyMasterProfile">
+        <button class="btn-copy"
+          style="width: 100%; justify-content: center; background: var(--accent); color: white; border: none; padding: 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; cursor: pointer;"
+          id="btnCopyMasterProfile">
           Copy Master Profile Clipboard Package
         </button>
       </div>
 
-      <div class="deck-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-bottom: 16px;">
-        <div data-copy-text="https://sureshsirvidev.github.io/dev/resume.html" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+      <div class="deck-grid"
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-bottom: 16px;">
+        <div data-copy-text="https://sureshsirvidev.github.io/dev/resume.html"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Resume URL</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 1</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Resume
+              URL</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 1</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://sureshsirvidev.github.io/dev/resume.html</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            https://sureshsirvidev.github.io/dev/resume.html</div>
         </div>
-        
-        <div data-copy-text="https://www.linkedin.com/in/suresh-sirvi-261151428" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+
+        <div data-copy-text="https://www.linkedin.com/in/suresh-sirvi-261151428"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">LinkedIn Profile</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 3</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">LinkedIn
+              Profile</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 3</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://www.linkedin.com/in/suresh-sirvi-261151428</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            https://www.linkedin.com/in/suresh-sirvi-261151428</div>
         </div>
-        <div data-copy-text="https://github.com/sureshsirvidev" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="https://github.com/sureshsirvidev"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">GitHub Link</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 4</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">GitHub
+              Link</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 4</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://github.com/sureshsirvidev</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            https://github.com/sureshsirvidev</div>
         </div>
-        <div data-copy-text="sureshsirvi.dev@gmail.com" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="sureshsirvi.dev@gmail.com"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Email Address</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 5</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Email
+              Address</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 5</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">sureshsirvi.dev@gmail.com</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            sureshsirvi.dev@gmail.com</div>
         </div>
-        <div data-copy-text="+91 8310634421" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="+91 8310634421"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Phone Number</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 6</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Phone
+              Number</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 6</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">+91 8310634421</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            +91 8310634421</div>
         </div>
-        <div data-copy-text="Immediate (Ready for New Projects)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="Immediate (Ready for New Projects)"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Availability</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 7</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Availability</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 7</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Immediate (Ready for New Projects)</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Immediate (Ready for New Projects)</div>
         </div>
-        <div data-copy-text="$15-$25/hr | £12-£20/hr | ₹400-₹800/hr" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="$15-$25/hr | £12-£20/hr | ₹400-₹800/hr"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Starter Rates / Pricing</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 8</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Starter
+              Rates / Pricing</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 8</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$15-$25/hr | £12-£20/hr | ₹400-₹800/hr</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            $15-$25/hr | £12-£20/hr | ₹400-₹800/hr</div>
         </div>
-        <div data-copy-text="React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Skills (Comma-Separated)</span>
-            <span style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt + 9</span>
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Skills
+              (Comma-Separated)</span>
+            <span
+              style="font-size: 9px; background: rgba(0,0,0,0.06); color: var(--text-dim); padding: 2px 5px; border-radius: 4px; font-weight: 600;">Alt
+              + 9</span>
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, MongoDB, Redux,
+            Firebase, REST APIs, AWS, HTML, CSS, Git</div>
         </div>
-        <div data-copy-text="B.E. in Computer Science - VTU University" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="B.E. in Computer Science - VTU University"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Highest Education</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Highest
+              Education</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B.E. in Computer Science - VTU University</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            B.E. in Computer Science - VTU University</div>
         </div>
-        <div data-copy-text="30% Backend : 70% Frontend" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="30% Backend : 70% Frontend"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Full Stack Split</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Full
+              Stack Split</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">30% Backend : 70% Frontend</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            30% Backend : 70% Frontend</div>
         </div>
-        <div data-copy-text="Electronic City, Bangalore - 560100" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="Electronic City, Bangalore - 560100"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Location / Address</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Location
+              / Address</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Electronic City, Bangalore - 560100</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Electronic City, Bangalore - 560100</div>
         </div>
-        <div data-copy-text="I am a Full Stack JavaScript Developer with approximately 6+ years of experience building production-ready Web, Android, and iOS applications using React Native, React.js, and Node.js. I have a proven track record of deploying scalable solutions and am ready to join immediately." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="I am a Full Stack JavaScript Developer with approximately 6+ years of experience building production-ready Web, Android, and iOS applications using React Native, React.js, Java, Spring Boot, and Node.js. I have a proven track record of deploying scalable solutions and am ready to join immediately."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Tell us about yourself</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Tell
+              us about yourself</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I am a Full Stack JavaScript Developer with approximately 6+ years of experience building production-ready Web, Android, and iOS applications using React Native, React.js, and Node.js. I have a proven track record of deploying scalable solutions and am ready to join immediately.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            I am a Full Stack JavaScript Developer with approximately 6+ years of experience building production-ready
+            Web, Android, and iOS applications using React Native, React.js, Java, Spring Boot, and Node.js. I have a
+            proven track record of deploying scalable solutions and am ready to join immediately.</div>
         </div>
-        <div data-copy-text="I am looking for a stable, growth-oriented role where I can work on impactful products, take ownership of features, and contribute to a fast-paced team environment." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="I am looking for a stable, growth-oriented role where I can work on impactful products, take ownership of features, and contribute to a fast-paced team environment."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why are you looking for a change?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why
+              are you looking for a change?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I am looking for a stable, growth-oriented role where I can work on impactful products, take ownership of features, and contribute to a fast-paced team environment.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            I am looking for a stable, growth-oriented role where I can work on impactful products, take ownership of
+            features, and contribute to a fast-paced team environment.</div>
         </div>
-        <div data-copy-text="I am excited about your impactful products, modern technology stack, and the growth opportunities. I believe my hands-on experience aligns perfectly with your goals." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="I am excited about your impactful products, modern technology stack, and the growth opportunities. I believe my hands-on experience aligns perfectly with your goals."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why do you want to join us?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why
+              do you want to join us?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I am excited about your impactful products, modern technology stack, and the growth opportunities. I believe my hands-on experience aligns perfectly with your goals.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            I am excited about your impactful products, modern technology stack, and the growth opportunities. I believe
+            my hands-on experience aligns perfectly with your goals.</div>
         </div>
-        <div data-copy-text="With my comprehensive full-stack experience in React Native and Node.js, I can jump right in and start contributing from Day 1. I am an immediate freelancer with a track record of delivering high-quality production applications." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="With my comprehensive full-stack experience in React Native, Java, Spring Boot, and Node.js, I can jump right in and start contributing from Day 1. I am an immediate freelancer with a track record of delivering high-quality production applications."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why should we hire you?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Why
+              should we hire you?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">With my comprehensive full-stack experience in React Native and Node.js, I can jump right in and start contributing from Day 1. I am an immediate freelancer with a track record of delivering high-quality production applications.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            With my comprehensive full-stack experience in React Native, Java, Spring Boot, and Node.js, I can jump
+            right in and start contributing from Day 1. I am an immediate freelancer with a track record of delivering
+            high-quality production applications.</div>
         </div>
-        <div data-copy-text="Delivering multiple live mobile and web apps to real customers, achieving seamless performance across platforms, and consistently hitting tight deadlines." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="Delivering multiple live mobile and web apps to real customers, achieving seamless performance across platforms, and consistently hitting tight deadlines."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Biggest achievement?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Biggest
+              achievement?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Delivering multiple live mobile and web apps to real customers, achieving seamless performance across platforms, and consistently hitting tight deadlines.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Delivering multiple live mobile and web apps to real customers, achieving seamless performance across
+            platforms, and consistently hitting tight deadlines.</div>
         </div>
-        <div data-copy-text="Resolving complex performance bottlenecks in React Native and scaling backend APIs, which required deep debugging and optimization under strict timelines." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="Resolving complex performance bottlenecks in React Native and scaling backend APIs, which required deep debugging and optimization under strict timelines."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Biggest challenge?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Biggest
+              challenge?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Resolving complex performance bottlenecks in React Native and scaling backend APIs, which required deep debugging and optimization under strict timelines.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Resolving complex performance bottlenecks in React Native and scaling backend APIs, which required deep
+            debugging and optimization under strict timelines.</div>
         </div>
-        <div data-copy-text="Problem-solving, taking ownership of features end-to-end, teamwork, and quick learning of new technologies." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="Problem-solving, taking ownership of features end-to-end, teamwork, and quick learning of new technologies."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Strengths</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Strengths</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Problem-solving, taking ownership of features end-to-end, teamwork, and quick learning of new technologies.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Problem-solving, taking ownership of features end-to-end, teamwork, and quick learning of new technologies.
+          </div>
         </div>
-        <div data-copy-text="I tend to spend extra time refining and optimizing code for the highest quality, which I actively balance with time management to meet all delivery timelines." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="I tend to spend extra time refining and optimizing code for the highest quality, which I actively balance with time management to meet all delivery timelines."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Weaknesses</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Weaknesses</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">I tend to spend extra time refining and optimizing code for the highest quality, which I actively balance with time management to meet all delivery timelines.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            I tend to spend extra time refining and optimizing code for the highest quality, which I actively balance
+            with time management to meet all delivery timelines.</div>
         </div>
-        <div data-copy-text="My goal is to become a strong Full Stack Software Engineer, architecting and building highly scalable and user-centric products." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="My goal is to become a strong Full Stack Software Engineer, architecting and building highly scalable and user-centric products."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Career goals</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Career
+              goals</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">My goal is to become a strong Full Stack Software Engineer, architecting and building highly scalable and user-centric products.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            My goal is to become a strong Full Stack Software Engineer, architecting and building highly scalable and
+            user-centric products.</div>
         </div>
-        <div data-copy-text="Full Stack Developer / React Native Developer / React.js Developer / Node.js Developer" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="Full Stack Developer / React Native Developer / React.js Developer / Java Spring Boot Developer / Node.js Developer"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred role</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred
+              role</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Full Stack Developer / React Native Developer / React.js Developer / Node.js Developer</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Full Stack Developer / React Native Developer / React.js Developer / Java Spring Boot Developer / Node.js
+            Developer</div>
         </div>
-        <div data-copy-text="Remote Worldwide" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="Remote Worldwide"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred location</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Preferred
+              location</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Remote Worldwide</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Remote Worldwide</div>
         </div>
-        <div data-copy-text="Open to Remote, Hybrid, and Onsite work models." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="Open to Remote, Hybrid, and Onsite work models."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Remote / Hybrid / Onsite?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Remote
+              / Hybrid / Onsite?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Open to Remote, Hybrid, and Onsite work models.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Open to Remote, Hybrid, and Onsite work models.</div>
         </div>
-        <div data-copy-text="While I haven&#39;t had a formal &#39;Lead&#39; title, I have taken ownership of core features, driven technical decisions, and actively mentored junior developers." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="While I haven&#39;t had a formal &#39;Lead&#39; title, I have taken ownership of core features, driven technical decisions, and actively mentored junior developers."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Have you led a team?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Have
+              you led a team?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">While I haven&#39;t had a formal &#39;Lead&#39; title, I have taken ownership of core features, driven technical decisions, and actively mentored junior developers.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            While I haven&#39;t had a formal &#39;Lead&#39; title, I have taken ownership of core features, driven
+            technical decisions, and actively mentored junior developers.</div>
         </div>
-        <div data-copy-text="Yes, I regularly assist teammates, conduct thorough code reviews, and share best practices within the team." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="Yes, I regularly assist teammates, conduct thorough code reviews, and share best practices within the team."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Have you mentored juniors?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Have
+              you mentored juniors?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Yes, I regularly assist teammates, conduct thorough code reviews, and share best practices within the team.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Yes, I regularly assist teammates, conduct thorough code reviews, and share best practices within the team.
+          </div>
         </div>
-        <div data-copy-text="My hands-on experience across the entire software development lifecycle, from frontend and mobile development to backend APIs and deployment, combined with my immediate availability." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="My hands-on experience across the entire software development lifecycle, from frontend and mobile development to backend APIs and deployment, combined with my immediate availability."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">What makes you different?</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">What
+              makes you different?</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">My hands-on experience across the entire software development lifecycle, from frontend and mobile development to backend APIs and deployment, combined with my immediate availability.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            My hands-on experience across the entire software development lifecycle, from frontend and mobile
+            development to backend APIs and deployment, combined with my immediate availability.</div>
         </div>
-        <div data-copy-text="Developing and maintaining mobile and web apps, integrating REST APIs, implementing real-time features, and collaborating closely with cross-functional teams." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="Developing and maintaining mobile and web apps, integrating REST APIs, implementing real-time features, and collaborating closely with cross-functional teams."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Current Responsibilities</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Current
+              Responsibilities</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Developing and maintaining mobile and web apps, integrating REST APIs, implementing real-time features, and collaborating closely with cross-functional teams.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Developing and maintaining mobile and web apps, integrating REST APIs, implementing real-time features, and
+            collaborating closely with cross-functional teams.</div>
         </div>
-        <div data-copy-text="12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">12th Summary</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">12th
+              Summary</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            12th (Science Stream) - Govt Senior Secondary School Sojat City (71%)</div>
         </div>
-        <div data-copy-text="10th - Govt Senior Secondary School Sojat City (74%)" style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div data-copy-text="10th - Govt Senior Secondary School Sojat City (74%)"
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">10th Summary</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">10th
+              Summary</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">10th - Govt Senior Secondary School Sojat City (74%)</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            10th - Govt Senior Secondary School Sojat City (74%)</div>
         </div>
-        <div data-copy-text="~6 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js." style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
+        <div
+          data-copy-text="~6 YOE Full Stack JavaScript Developer specializing in React Native, React.js, Java, Spring Boot, and Node.js."
+          style="text-align: left; background: var(--nav-bg); border: 1px solid var(--surface-border); padding: 8px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; position: relative;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Experience Summary</span>
-            
+            <span
+              style="font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px;">Experience
+              Summary</span>
+
           </div>
-          <div style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">~6 YOE Full Stack JavaScript Developer specializing in React Native, React.js, and Node.js.</div>
+          <div
+            style="font-size: 11px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            ~6 YOE Full Stack JavaScript Developer specializing in React Native, React.js, Java, Spring Boot, and
+            Node.js.</div>
         </div>
       </div>
     </div>
 
-    </div>
+  </div>
 
   <!-- TOAST POPUP -->
   <div class="toast-box" id="toast">
@@ -2248,15 +2652,20 @@
     const TEMPLATES = {
       'li-req': {
         limit: 300,
-        content: `Hi, I'm a Full-Stack Developer with 6+ yrs experience (React.js, Node.js, WordPress, Shopify, Mobile Apps). 
-Available for remote contracts worldwide. 
+        content: `Hi, I'm a Full-Stack Developer with 6+ years of experience in React.js, Node.js, Java, Spring Boot, WordPress, Shopify, and React Native.
+
+Available for remote contracts worldwide.
+
 Portfolio: https://sureshsirvidev.github.io/dev/
+
+WhatsApp: https://wa.me/918310634421
+
 Let's connect!`
       },
       'li-dm': {
         content: `Hi,
 
-I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React, and Node.js. I am available for remote contracts and can join immediately.
+I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React, Java, Spring Boot, and Node.js. I am available for remote contracts and can join immediately.
 
 Key Highlights:
 • Deployed 4+ production React Native apps to Google Play & App Store
@@ -2267,38 +2676,45 @@ Links:
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 I would love to discuss developer opportunities with you. Let me know if we can connect.
 
 Best,
 Suresh Sirvi
-+91 8310634421`
+WhatsApp: https://wa.me/918310634421
+Phone: +91 8310634421`
       },
       'li-comment': {
-        content: `Hi, I'm a Full-Stack Developer (6+ yrs exp) specializing in React Native+ React Js + Node.js. 
+        content: `Hi, I'm a Full-Stack Developer (6+ yrs exp) specializing in React Native + React Js + Java + Spring Boot + Node.js.
 Immediate freelancer ready for technical rounds and project discovery calls.
-Let's connect!
-
-Portfolio: https://sureshsirvidev.github.io/dev/`
+Portfolio: https://sureshsirvidev.github.io/dev/
+WhatsApp: https://wa.me/918310634421 (+91 8310634421)
+Let's connect!`
       },
       'wa-pitch': {
-        content: `Hi, I am reaching out for Full-Time Freelance, Retainer, or Contract Developer work. I am a Full-Stack Developer (6+ YOE) specializing in React Native, React.js, Next.js, and Node.js. Starter Rates: $15 - $25/hr ($) | £12 - £20/hr (£) | ₹400 - ₹800/hr (₹). Ready for immediate start across PST, EST, GMT, and IST.`
-      },
-      'naukri-pitch': {
-        content: `Hello, I am interested in contract developer opportunities. I am a Full-Stack Developer with 6+ years experience in React.js, Node.js, WordPress, WooCommerce, Mobile Apps, and am available for immediate start globally. Starter Rates: $15-$25/hr. Ready for technical discovery.
-
-Portfolio: https://sureshsirvidev.github.io/dev/`
-      },
-      'sms-pitch': {
-        content: `Hi, Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Available immediately for contract roles globally.
+        content: `Hi, I am reaching out for Full-Time Freelance, Retainer, or Contract Developer work. I am a Full-Stack Developer (6+ YOE) specializing in React Native, React.js, Java, Spring Boot, WordPress, Shopify, Next.js, and Node.js. Starter Rates: $15 - $25/hr ($) | £12 - £20/hr (£) | ₹400 - ₹800/hr (₹). Ready for immediate start across PST, EST, GMT, and IST.
 
 Portfolio: https://sureshsirvidev.github.io/dev/
+WhatsApp: https://wa.me/918310634421 (+91 8310634421)`
+      },
+      'naukri-pitch': {
+        content: `Hello, I am interested in contract developer opportunities. I am a Full-Stack Developer with 6+ years experience in React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps, and am available for immediate start globally. Starter Rates: $15-$25/hr. Ready for technical discovery.
+
+Portfolio: https://sureshsirvidev.github.io/dev/
+WhatsApp: https://wa.me/918310634421 (+91 8310634421)`
+      },
+      'sms-pitch': {
+        content: `Hi, Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps. Available immediately for contract roles globally.
+
+Portfolio: https://sureshsirvidev.github.io/dev/
+WhatsApp: https://wa.me/918310634421
 GitHub: https://github.com/sureshsirvidev`
       },
       'cover-letter': {
         content: `Dear Hiring Team,
 
-I am writing to express my interest in joining your team as a Software Developer. With 6 years of professional experience developing end-to-end web and mobile applications using React, React Native, and Node.js, I am confident in my ability to make an immediate impact.
+I am writing to express my interest in joining your team as a Software Developer. With 6 years of professional experience developing end-to-end web and mobile applications using React, React Native, Java, Spring Boot, and Node.js, I am confident in my ability to make an immediate impact.
 
 In my previous roles, I have:
 • Built and deployed 4+ React Native mobile apps to the App Store and Google Play Store
@@ -2309,30 +2725,33 @@ I am available for remote contracts worldwide and can join immediately. You can 
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 Thank you for your consideration. I look forward to speaking with you.
 
 Sincerely,
 Suresh Sirvi
-+91 8310634421 | sureshsirvi.dev@gmail.com`
+WhatsApp: https://wa.me/918310634421 | +91 8310634421 | sureshsirvi.dev@gmail.com`
       },
       'query-immediate-pitch': {
         content: `Hi,
 
-I saw your requirement for freelance developers. I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. 
+I saw your requirement for freelance developers. I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, Java, Spring Boot, and Node.js.
 
-I am available for an immediate contract start globally. 
+I am available for an immediate contract start globally.
 
 My references:
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 I'd love to connect for a brief discussion.
 
 Best,
 Suresh Sirvi
-+91 8310634421`
+WhatsApp: https://wa.me/918310634421
+Phone: +91 8310634421`
       },
       'query-walkin-pitch': {
         content: `Hi,
@@ -2345,19 +2764,21 @@ Here is my profile:
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 Looking forward to your response.
 
 Best,
 Suresh Sirvi
-+91 8310634421`
+WhatsApp: https://wa.me/918310634421
+Phone: +91 8310634421`
       },
       'query-reactnode-pitch': {
         content: `Hi,
 
-I am writing to express my interest in your React JS & Node.js contract requirement. 
+I am writing to express my interest in your React JS, Java, Spring Boot & Node.js contract requirement.
 
-I'm a Full-Stack Developer with 6+ years of experience. I specialize in frontends using React.js and backend architectures using Node.js, Express, and MongoDB. I'm available for immediate freelance start.
+I'm a Full-Stack Developer with 6+ years of experience. I specialize in frontends using React.js, Java, Spring Boot, and backend architectures using Node.js, Express, and MongoDB. I'm available for immediate freelance start.
 
 Summary of qualifications:
 • Deployed production React Native mobile apps and robust web frontends.
@@ -2368,33 +2789,37 @@ My details:
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 Please let me know if we can connect for a short call.
 
 Best,
 Suresh Sirvi
-+91 8310634421`
+WhatsApp: https://wa.me/918310634421
+Phone: +91 8310634421`
       },
       'query-3-4-year-pitch': {
         content: `Hi,
 
-I saw your posting for a freelance Developer requiring 3-6+ years of experience. With 6 years of hands-on experience building mobile apps with React Native (deployed 4+ apps) and web apps with React.js + Node.js, I am an ideal fit.
+I saw your posting for a freelance Developer requiring 3-6+ years of experience. With 6 years of hands-on experience building mobile apps with React Native (deployed 4+ apps), scalable Java & Spring Boot backends, and responsive web apps with React.js & Node.js, I am an ideal fit.
 
 Key strengths:
 • Mobile: React Native, Redux, Store Deployments
-• Frontend & Backend: React.js, Node.js, Express, MongoDB
+• Frontend & Backend: React.js, Node.js, Java, Spring Boot, Express, MongoDB
 • Availability: Immediate freelance start
 
 My references:
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 I would appreciate the chance to discuss how I can contribute.
 
 Best,
 Suresh Sirvi
-+91 8310634421`
+WhatsApp: https://wa.me/918310634421
+Phone: +91 8310634421`
       },
       'query-4-5-year-pitch': {
         content: `Hi,
@@ -2410,12 +2835,14 @@ My links:
 • Resume: https://sureshsirvidev.github.io/dev/resume.html
 • Portfolio: https://sureshsirvidev.github.io/dev/
 • GitHub: https://github.com/sureshsirvidev
+• WhatsApp: https://wa.me/918310634421 (+91 8310634421)
 
 I would love to connect for a short discussion to demonstrate how I can deliver value from day one.
 
 Best,
 Suresh Sirvi
-+91 8310634421`
+WhatsApp: https://wa.me/918310634421
+Phone: +91 8310634421`
       }
     };
 
@@ -2503,8 +2930,29 @@ Suresh Sirvi
       copyText(content, "Template copied!");
     }
 
-    function copyTag(tagValue) {
-      copyText(tagValue, `Tag copied: ${tagValue}`);
+    function copyTag(val) {
+      let text = "";
+      let el = null;
+      if (val && typeof val === 'object' && val.nodeType) {
+        el = val;
+        text = val.getAttribute('data-tag') || val.getAttribute('data-keyword') || val.textContent || "";
+        text = text.replace(/^🏷️\s*/, '').trim();
+      } else if (typeof val === 'string') {
+        text = val.replace(/^🏷️\s*/, '').trim();
+      }
+      if (!text) return;
+
+      copyText(text, `Tag copied: "${text}"`);
+
+      if (el) {
+        el.classList.add('copied');
+        const origHtml = el.innerHTML;
+        el.innerHTML = `✓ Copied!`;
+        setTimeout(() => {
+          el.classList.remove('copied');
+          el.innerHTML = origHtml;
+        }, 1500);
+      }
     }
 
     function launchSearch(platform, queryId, exp = "") {
@@ -2610,7 +3058,7 @@ Suresh Sirvi
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Tell me about yourself / Summarize your professional experience.',
-        answer: "I'm a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. I have built and deployed 4+ production mobile apps to the App Store and Google Play Store, and engineered scalable REST APIs. I'm highly self-driven, based in Bangalore, and ready to join immediately."
+        answer: "I'm a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, Java, Spring Boot, and Node.js. I have built and deployed 4+ production mobile apps to the App Store and Google Play Store, and engineered scalable REST APIs. I'm highly self-driven, based in Bangalore, and ready to join immediately."
       },
       {
         category: 'hr',
@@ -2813,7 +3261,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'As a fullstack engineer, what is your backend : frontend split?',
-        answer: "Backend (Node.js/Express) 30% : Frontend (React Native & React.js) 70%"
+        answer: "Backend (Node.js/Express/Java/Spring Boot) 30% : Frontend (React Native & React.js) 70%"
       },
       {
         category: 'portal',
@@ -2873,7 +3321,7 @@ Suresh Sirvi
         category: 'portal',
         categoryName: 'Form Auto-Fill',
         question: 'Professional Skills (Comma-Separated for Portals)',
-        answer: "React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, Redux, Redux Toolkit, Firebase, Axios, REST APIs, MongoDB, HTML5, CSS3, Git, Postman, Xcode, Android Studio"
+        answer: "React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, Redux, Redux Toolkit, Firebase, Axios, REST APIs, MongoDB, HTML5, CSS3, Git, Postman, Xcode, Android Studio"
       },
       {
         category: 'rn',
@@ -3091,7 +3539,7 @@ Suresh Sirvi
     populatePreviews();
     renderChecklist();
     renderQA();
-  
+
     // Chrome Extension CSP inline-click handler workaround
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('[onclick]').forEach(el => {
@@ -3103,9 +3551,9 @@ Suresh Sirvi
     document.addEventListener('click', (e) => {
       let btn = e.target.closest('[data-click-action]');
       if (!btn) return;
-      
+
       let action = btn.dataset.clickAction;
-      
+
       if (action.startsWith("copyText('")) {
         let text = action.substring(10, action.length - 2);
         copyText(text);
@@ -3127,36 +3575,36 @@ Suresh Sirvi
     });
 
 
-// ── FORM DECK LOGIC ────────────────────────────────────────────────────────────
+    // ── FORM DECK LOGIC ────────────────────────────────────────────────────────────
 
-const formDeckItems = [
-    { shortcut: '1', text: "https://sureshsirvidev.github.io/dev/resume.html" },
-    { shortcut: '3', text: "https://www.linkedin.com/in/suresh-sirvi-261151428" },
-    { shortcut: '4', text: "https://github.com/sureshsirvidev" },
-    { shortcut: '5', text: "sureshsirvi.dev@gmail.com" },
-    { shortcut: '6', text: "+91 8310634421" },
-    { shortcut: '7', text: "Immediate (Ready for New Projects)" },
-    { shortcut: '8', text: "$15-$25/hr | £12-£20/hr | ₹400-₹800/hr" },
-    { shortcut: '9', text: "React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git" }
-];
+    const formDeckItems = [
+      { shortcut: '1', text: "https://sureshsirvidev.github.io/dev/resume.html" },
+      { shortcut: '3', text: "https://www.linkedin.com/in/suresh-sirvi-261151428" },
+      { shortcut: '4', text: "https://github.com/sureshsirvidev" },
+      { shortcut: '5', text: "sureshsirvi.dev@gmail.com" },
+      { shortcut: '6', text: "+91 8310634421" },
+      { shortcut: '7', text: "Immediate (Ready for New Projects)" },
+      { shortcut: '8', text: "$15-$25/hr | £12-£20/hr | ₹400-₹800/hr" },
+      { shortcut: '9', text: "React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git" }
+    ];
 
-document.addEventListener('keydown', (e) => {
-    // Only handle Alt + number
-    if (e.altKey && !e.ctrlKey && !e.shiftKey) {
+    document.addEventListener('keydown', (e) => {
+      // Only handle Alt + number
+      if (e.altKey && !e.ctrlKey && !e.shiftKey) {
         const item = formDeckItems.find(i => i.shortcut === e.key);
         if (item) {
-            e.preventDefault();
-            copyTextFallback(item.text); // copy fallback handles toast inside its normal flow or we can just call copyTextToClipboard
-            copyTextToClipboard(item.text).then(() => {
-                showToast(`Copied Shortcut Alt+${e.key}`);
-            });
+          e.preventDefault();
+          copyTextFallback(item.text); // copy fallback handles toast inside its normal flow or we can just call copyTextToClipboard
+          copyTextToClipboard(item.text).then(() => {
+            showToast(`Copied Shortcut Alt+${e.key}`);
+          });
         }
-    }
-});
+      }
+    });
 
-const btnCopyMasterProfile = document.getElementById('btnCopyMasterProfile');
-if (btnCopyMasterProfile) {
-    btnCopyMasterProfile.addEventListener('click', () => {
+    const btnCopyMasterProfile = document.getElementById('btnCopyMasterProfile');
+    if (btnCopyMasterProfile) {
+      btnCopyMasterProfile.addEventListener('click', () => {
         const masterProfile = `**Suresh Sirvi | Full Stack JavaScript Developer**
 
 **Contact Information**
@@ -3177,7 +3625,7 @@ if (btnCopyMasterProfile) {
 - Availability: Immediate (Ready for New Projects)
 
 **Skills**
-React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git
+React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, MongoDB, Redux, Firebase, REST APIs, AWS, HTML, CSS, Git
 
 **Education**
 - B.E. in Computer Science - VTU University
@@ -3185,35 +3633,62 @@ React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Re
 - 10th - Govt Senior Secondary School Sojat City (74%)`;
 
         copyTextToClipboard(masterProfile).then(() => {
-            showToast('✅ Master Profile Copied!');
+          showToast('✅ Master Profile Copied!');
         });
-    });
-}
+      });
+    }
 
-</script>
+  </script>
 
-    <footer>
+  <footer>
 
-        <div class="container">
-            <div class="footer-bottom">
-                <div class="footer-links" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
-                    <a target="_blank" href="index.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
-                    <a target="_blank" href="resume.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
-                    <a target="_blank" href="pitch-comment.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch &amp; Comment Hub</a>
-                    <a target="_blank" href="all-freelance-platforms.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance Platforms</a>
-                    <a target="_blank" href="email-sender-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email Sender</a>
-                    <a target="_blank" href="find-freelancers-clinets-and-work-on-linkdin.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn Finder</a>
-                    <a target="_blank" href="form-deck-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form Deck</a>
-                    <a target="_blank" href="outreach-copy-hub-extension.html" style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach Copy Hub</a>
-                </div>
-                <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
-            </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-links"
+          style="display:flex; justify-content:center; gap:24px; margin-bottom:16px; flex-wrap:wrap; max-width:900px; margin-left:auto; margin-right:auto; row-gap:12px;">
+          <a target="_blank" href="index.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Home</a>
+          <a target="_blank" href="resume.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Resume</a>
+          <a target="_blank" href="pitch-comment.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Pitch
+            &amp; Comment Hub</a>
+          <a target="_blank" href="all-freelance-platforms.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Freelance
+            Platforms</a>
+          <a target="_blank" href="email-sender-extension.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Email
+            Sender</a>
+          <a target="_blank" href="find-freelancers-clinets-and-work-on-linkdin.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">LinkedIn
+            Finder</a>
+          <a target="_blank" href="form-deck-extension.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Form
+            Deck</a>
+          <a target="_blank" href="outreach-copy-hub-extension.html"
+            style="color:var(--text-primary, #fff); font-weight:600; text-decoration:none; transition:color 0.2s;">Outreach
+            Copy Hub</a>
         </div>
-    </footer>
+        <p>Designed &amp; built by Suresh Sirvi &copy; 2026 · All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
 
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918310634421?text=Hi%20Suresh%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you."
+    target="_blank" rel="noopener" id="wa-float" class="wa-float" aria-label="Chat on WhatsApp"
+    title="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+    </svg>
+    <span class="wa-float-label">Chat with me</span>
+  </a>
+
 </body>
 
 </html>

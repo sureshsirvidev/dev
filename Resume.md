@@ -1,6 +1,6 @@
 # Hi, I'm Suresh Sirvi 👋
 
-### Freelance Full-Stack Developer | React Native | React.js | Node.js
+### Freelance Full-Stack Developer | React Native | React.js | Node.js | Java | Spring Boot
 
 I’m a freelance full-stack developer with 6+ years of experience building mobile apps, web applications, backend APIs, SaaS products, and custom software for businesses and startups.
 
@@ -65,6 +65,8 @@ I help businesses turn ideas, requirements, and existing products into working s
 
 ### Backend
 
+- Java
+- Spring Boot
 - Node.js
 - Express.js
 - REST APIs
@@ -131,7 +133,7 @@ I can handle the mobile UI, navigation, API integration, authentication, notific
 
 ### 🌐 Web Applications
 
-I build responsive and dynamic web applications using React.js, Next.js, Node.js, and modern JavaScript/TypeScript.
+I build responsive and dynamic web applications using React.js, Next.js, Java, Spring Boot, Node.js, and modern JavaScript/TypeScript.
 
 Examples include:
 
@@ -152,7 +154,7 @@ Examples include:
 
 ### ⚙️ Backend & API Development
 
-I develop backend systems and REST APIs using Node.js and Express.js.
+I develop backend systems and REST APIs using Java, Spring Boot, Node.js, and Express.js.
 
 Common backend functionality includes:
 
@@ -471,4 +473,4 @@ I'm always interested in working on practical products that solve real business 
 
 **Suresh Sirvi**  
 Freelance Full-Stack Developer  
-React Native • React.js • Node.js • TypeScript • SaaS • APIs
+React Native • React.js • Node.js • Java • Spring Boot • TypeScript • SaaS • APIs

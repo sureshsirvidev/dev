@@ -12,8 +12,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    
+    :root {
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-glow: rgba(59, 130, 246, 0.4);
+      --secondary: #10b981;
+      --secondary-hover: #059669;
+      --secondary-glow: rgba(16, 185, 129, 0.4);
+      --warning: #f59e0b;
+      --warning-hover: #d97706;
+      --warning-glow: rgba(245, 158, 11, 0.4);
+      --danger: #ef4444;
+      --danger-hover: #dc2626;
+      --danger-glow: rgba(239, 68, 68, 0.4);
+      --input-bg: #0B0F19;
+    }
 
+    [data-theme="light"] {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-glow: rgba(37, 99, 235, 0.3);
+      --secondary: #059669;
+      --secondary-hover: #047857;
+      --secondary-glow: rgba(5, 150, 105, 0.3);
+      --warning: #d97706;
+      --warning-hover: #b45309;
+      --warning-glow: rgba(217, 119, 6, 0.3);
+      --danger: #dc2626;
+      --danger-hover: #b91c1c;
+      --danger-glow: rgba(220, 38, 38, 0.3);
+      --input-bg: #ffffff;
+    }
     * {
       box-sizing: border-box;
       margin: 0;
@@ -711,7 +740,7 @@
 
     .form-input {
       width: 100%;
-      background: #0B0F19;
+      background: var(--input-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 10px 14px;
@@ -755,7 +784,7 @@
     .textarea-output {
       width: 100%;
       min-height: 380px;
-      background: #0B0F19;
+      background: var(--input-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
       padding: 16px;
@@ -958,7 +987,7 @@
     .launcher-query {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      background: #0B0F19;
+      background: var(--input-bg);
       border: 1px solid var(--card-border);
       border-radius: 6px;
       padding: 6px 8px;
@@ -991,7 +1020,7 @@
 
     .search-input {
       width: 100%;
-      background: #0B0F19;
+      background: var(--input-bg);
       border: 1px solid var(--card-border);
       border-radius: 10px;
       padding: 10px 14px 10px 38px;
@@ -1151,7 +1180,7 @@
     .ans-box {
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      background: #0B0F19;
+      background: var(--input-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 12px 16px;
@@ -1738,6 +1767,12 @@
       color: var(--text-primary);
       background: rgba(99,102,241,0.14);
     }
+    .filter-chip.copied, .ats-tag.copied, .keyword-tag.copied {
+      background: #10b981 !important;
+      border-color: #059669 !important;
+      color: white !important;
+      transform: scale(0.97);
+    }
     .radar-platform-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1881,6 +1916,56 @@
         }
 
     </style>
+
+<style id="wa-float-css">
+.wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif, Arial;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.25);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+}
+.wa-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(37,211,102,0.5);
+    animation: wa-pulse 2.5s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes wa-pulse {
+    0%   { transform: scale(1);    opacity: 0.7; }
+    70%  { transform: scale(1.18); opacity: 0;   }
+    100% { transform: scale(1.18); opacity: 0;   }
+}
+.wa-float:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.3);
+}
+.wa-float svg { flex-shrink: 0; transition: transform 0.3s ease; }
+.wa-float:hover svg { transform: rotate(-8deg) scale(1.1); }
+.wa-float-label { white-space: nowrap; }
+@media (max-width: 480px) {
+    .wa-float { bottom: 20px; right: 16px; padding: 14px; border-radius: 50%; width: 56px; height: 56px; justify-content: center; }
+    .wa-float-label { display: none; }
+}
+</style>
+
 </head>
 <body>
     <div class="custom-cursor"></div>
@@ -1898,6 +1983,10 @@
             <span class="topbar-title">Form Deck</span>
         </div>
         <div class="topbar-contact">
+            <a href="https://wa.me/918310634421" target="_blank" rel="noopener" class="contact-link" style="color: #25D366; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                WhatsApp: +91 8310634421
+            </a>
             <a href="tel:+918310634421" class="contact-link">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 +91 8310634421
@@ -2287,7 +2376,16 @@
               </div>
             </div>
 
-
+            <div class="deck-card shortcut-copy-card" onclick="copyDeckValue('https://wa.me/918310634421', 'WhatsApp Link')">
+              <div class="deck-card-hdr">
+                <span class="deck-label">WhatsApp Chat Link</span>
+                <span class="shortcut-badge">Alt + 2</span>
+              </div>
+              <div class="deck-value">https://wa.me/918310634421 (+91 8310634421)</div>
+              <div class="deck-copy-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </div>
+            </div>
 
             <div class="deck-card shortcut-copy-card" onclick="copyDeckValue('https://www.linkedin.com/in/suresh-sirvi-261151428/', 'LinkedIn Link')">
               <div class="deck-card-hdr">
@@ -2355,12 +2453,12 @@
               </div>
             </div>
 
-            <div class="deck-card shortcut-copy-card" onclick="copyDeckValue('React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, Redux, Redux Toolkit, Firebase, Axios, REST APIs, MongoDB, HTML5, CSS3, Git, Postman, Xcode, Android Studio', 'Skills List')">
+            <div class="deck-card shortcut-copy-card" onclick="copyDeckValue('React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, Redux, Redux Toolkit, Firebase, Axios, REST APIs, MongoDB, HTML5, CSS3, Git, Postman, Xcode, Android Studio', 'Skills List')">
               <div class="deck-card-hdr">
                 <span class="deck-label">Skills (Comma-Separated)</span>
                 <span class="shortcut-badge">Alt + 9</span>
               </div>
-              <div class="deck-value">React Native, React.js, JS, TS, Node, MongoDB...</div>
+              <div class="deck-value">React Native, React.js, Java, Spring Boot, Node, MongoDB...</div>
               <div class="deck-copy-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               </div>
@@ -2372,7 +2470,7 @@
               <div class="deck-value">Self-Taught / Portfolio-Driven</div>
             </div>
 
-            <div class="deck-card" onclick="copyDeckValue('Backend (Node.js/Express) 30% : Frontend (React Native & React.js) 70%', 'Full Stack Split')">
+            <div class="deck-card" onclick="copyDeckValue('Backend (Node.js/Express/Java/Spring Boot) 30% : Frontend (React Native & React.js) 70%', 'Full Stack Split')">
               <div class="deck-card-hdr"><span class="deck-label">Full Stack Split</span></div>
               <div class="deck-value">50% Frontend : 50% Backend</div>
             </div>
@@ -2396,7 +2494,7 @@
               <div class="deck-value">I am always interested in working on practical products that solve real business problems, especially those with real business workflows behind the software.</div>
             </div>
 
-            <div class="deck-card" onclick="copyDeckValue('I have hands-on experience delivering production applications across mobile, web, and backend. I’m an Immediate Joiner, quick learner, and can contribute from Day 1., 'Why should we hire you?')">
+            <div class="deck-card" onclick="copyDeckValue('I have hands-on experience delivering production applications across mobile, web, and backend. I’m an Immediate Joiner, quick learner, and can contribute from Day 1.', 'Why should we hire you?')">
               <div class="deck-card-hdr"><span class="deck-label">Why should we hire you?</span></div>
               <div class="deck-value">I help businesses turn ideas, requirements, and existing products into working software across the full development cycle.</div>
             </div>
@@ -2473,9 +2571,9 @@
               <div class="deck-value">10th - Govt Sr Sec School...</div>
             </div>
 
-            <div class="deck-card" onclick="copyDeckValue('Full Stack JavaScript Developer with 6+ years of experience building production-ready Web, Android, iOS, and Backend applications using React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Firebase, and AWS. Experienced in REST APIs, payment integrations, app deployments, and delivering production-ready applications. Immediate Joiner.', 'Experience Summary')">
+            <div class="deck-card" onclick="copyDeckValue('Full Stack Developer with 6+ years of experience building production-ready Web, Android, iOS, and Backend applications using React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, MongoDB, Firebase, and AWS. Experienced in REST APIs, payment integrations, app deployments, and delivering production-ready applications. Immediate Joiner.', 'Experience Summary')">
               <div class="deck-card-hdr"><span class="deck-label">Experience Summary</span></div>
-              <div class="deck-value">3.7+ YOE Full Stack JS Developer...</div>
+              <div class="deck-value">6+ YOE Full Stack Developer (React, Java, Spring Boot, Node)...</div>
             </div>
 
           </div>
@@ -3033,7 +3131,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(16,185,129,0.2);background:rgba(16,185,129,0.08);border-radius:var(--radius-sm);">
               <strong style="color:var(--text-primary);">Keep your top skills current.</strong>
-              <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Use exact recruiter keywords: React Native, Node.js, TypeScript, Redux.</div>
+              <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Use exact recruiter keywords: React Native, Node.js, Java, Spring Boot, TypeScript, Redux.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.08);border-radius:var(--radius-sm);">
               <strong style="color:var(--text-primary);">Use Open to Work and update About daily.</strong>
@@ -3073,7 +3171,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
               <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Attracts both mobile and frontend recruiters.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.08);border-radius:var(--radius-sm);">
-              <strong style="color:var(--text-primary);">Mobile App Engineer | React.js, Node.js, WordPress, WooCommerce, Mobile Apps</strong>
+              <strong style="color:var(--text-primary);">Mobile App Engineer | React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps</strong>
               <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Signals full-stack mobile capability.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(249,115,22,0.2);background:rgba(249,115,22,0.08);border-radius:var(--radius-sm);">
@@ -3188,7 +3286,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(16,185,129,0.2);background:rgba(16,185,129,0.08);border-radius:var(--radius-sm);">
               <strong style="color:var(--text-primary);">Refresh resume and profile keywords.</strong>
-              <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Match exact skills recruiters search for: React Native, Node.js, TypeScript, MongoDB, Firebase.</div>
+              <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Match exact skills recruiters search for: React Native, Node.js, Java, Spring Boot, TypeScript, MongoDB, Firebase.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.08);border-radius:var(--radius-sm);">
               <strong style="color:var(--text-primary);">Keep profile visibility on.</strong>
@@ -3314,7 +3412,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(16,185,129,0.2);background:rgba(16,185,129,0.08);border-radius:var(--radius-sm);">
               <strong style="color:var(--text-primary);">Refresh your top skills daily.</strong>
-              <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Make sure React Native, TypeScript, Node.js, and Redux are visible in your profile.</div>
+              <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">Make sure React Native, Java, Spring Boot, TypeScript, Node.js, and Redux are visible in your profile.</div>
             </div>
             <div style="padding:12px 14px;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.08);border-radius:var(--radius-sm);">
               <strong style="color:var(--text-primary);">Apply fast after matching.</strong>
@@ -3818,7 +3916,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
     // ── DATA PRESETS ──
     const CANDIDATE = {
       name: "Suresh Sirvi",
-      title: "Full-Time Freelancer & Lead Developer (React Native | React.js | Node.js | Next.js)",
+      title: "Full-Time Freelancer & Lead Developer (React Native | React.js | Java | Spring Boot | Node.js | Next.js)",
       experience: "6+ years",
       starterHourlyRate: "$15 – $25 / hr (USD) | £12 – £20 / hr (GBP) | ₹400 – ₹800 / hr (INR)",
       standardHourlyRate: "$30 – $60 / hr (USD) | £25 – £50 / hr (GBP) | ₹1,500 – ₹3,500 / hr (INR)",
@@ -3831,10 +3929,12 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
       targetRegions: "USA 🇺🇸, UK 🇬🇧, India 🇮🇳, Europe 🇪🇺, UAE 🇦🇪, Global 🌐",
       location: "Remote Worldwide",
       phone: "+91 8310634421",
+      whatsapp: "https://wa.me/918310634421",
+      whatsappNumber: "+91 8310634421",
       email: "sureshsirvi.dev@gmail.com",
       portfolio: "https://sureshsirvidev.github.io/dev/",
       resume: "https://sureshsirvidev.github.io/dev/resume.html",
-            linkedin: "https://www.linkedin.com/in/suresh-sirvi-261151428/",
+      linkedin: "https://www.linkedin.com/in/suresh-sirvi-261151428/",
       github: "https://github.com/sureshsirvidev"
     };
 
@@ -3854,7 +3954,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Tell me about yourself / Summarize your professional experience.',
-        answer: "I'm a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, and Node.js. I have built and deployed 4+ production mobile apps to the App Store and Google Play Store, and engineered scalable REST APIs. I'm highly self-driven, based in Bangalore, and ready to join immediately."
+        answer: "I'm a Full-Stack Developer with 6+ years of experience specializing in React Native, React.js, Java, Spring Boot, and Node.js. I have built and deployed 4+ production mobile apps to the App Store and Google Play Store, and engineered scalable REST APIs. I'm highly self-driven, based in Bangalore, and ready to join immediately."
       },
       {
         category: 'hr',
@@ -3908,7 +4008,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Experience Summary',
-        answer: "Full Stack JavaScript Developer with 6+ years of experience building production-ready Web, Android, iOS, and Backend applications using React Native, React.js, JavaScript, TypeScript, Node.js, Express.js, MongoDB, Firebase, and AWS. Experienced in REST APIs, payment integrations, app deployments, and delivering production-ready applications. Immediate Joiner."
+        answer: "Full Stack Developer with 6+ years of experience building production-ready Web, Android, iOS, and Backend applications using React Native, React.js, JavaScript, TypeScript, Java, Spring Boot, Node.js, Express.js, MongoDB, Firebase, and AWS. Experienced in REST APIs, payment integrations, app deployments, and delivering production-ready applications. Immediate Joiner."
       },
       {
         category: 'hr',
@@ -3979,7 +4079,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Skills (Comma-Separated)',
-        answer: "React Native, React.js, JS, TS, Node, MongoDB, Firebase, AWS, REST APIs"
+        answer: "React Native, React.js, Java, Spring Boot, Node.js, Express.js, JS, TS, MongoDB, Firebase, AWS, REST APIs"
       },
       {
         category: 'hr',
@@ -4154,7 +4254,7 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
         category: 'hr',
         categoryName: 'HR & Profile',
         question: 'Why should we hire you for this React Native / Full Stack role?',
-        answer: "I bring 6+ years of hands-on experience building production Web, Android, and iOS apps with React.js, Node.js, WordPress, WooCommerce, Mobile Apps, and MongoDB. I deliver fast, maintainable code, ship apps to the Play Store and App Store, and I am an immediate joiner ready to contribute from day one."
+        answer: "I bring 6+ years of hands-on experience building production Web, Android, and iOS apps with React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps, and MongoDB. I deliver fast, maintainable code, ship apps to the Play Store and App Store, and I am an immediate joiner ready to contribute from day one."
       },
       {
         category: 'rn',
@@ -4367,6 +4467,32 @@ I came across the {{role}} opening at {{company}} and I'm very interested..."></
           showToast("Clipboard copy failed.");
         }
         document.body.removeChild(textArea);
+      }
+    }
+
+    // Copy tag / keyword helper
+    function copyTag(val) {
+      let text = "";
+      let el = null;
+      if (val && typeof val === 'object' && val.nodeType) {
+        el = val;
+        text = val.getAttribute('data-tag') || val.getAttribute('data-keyword') || val.textContent || "";
+        text = text.replace(/^🏷️\s*/, '').trim();
+      } else if (typeof val === 'string') {
+        text = val.replace(/^🏷️\s*/, '').trim();
+      }
+      if (!text) return;
+
+      copyToClipboard(text, `Tag copied: "${text}"`);
+
+      if (el) {
+        el.classList.add('copied');
+        const origHtml = el.innerHTML;
+        el.innerHTML = `✓ Copied!`;
+        setTimeout(() => {
+          el.classList.remove('copied');
+          el.innerHTML = origHtml;
+        }, 1500);
       }
     }
 
@@ -4929,7 +5055,7 @@ Suresh Sirvi
 +91 8310634421`,
         professional: `Dear [Name],
 
-I am writing to express my interest in developer opportunities at [Company]. With 6+ years of professional experience specializing in React Native, React.js, and Node.js, I bring end-to-end mobile engineering capabilities that make me an immediate contributor.
+I am writing to express my interest in developer opportunities at [Company]. With 6+ years of professional experience specializing in React Native, React.js, Java, Spring Boot, and Node.js, I bring end-to-end mobile engineering capabilities that make me an immediate contributor.
 
 During my time at Tech Company, I took full ownership of building, optimizing, and deploying 4+ mobile products to both Google Play and Apple App Store. I have extensive experience with TypeScript, Redux Toolkit, Firebase integrations, payment gateways, and deep linking configurations.
 
@@ -4946,7 +5072,7 @@ Suresh Sirvi
 +91 8310634421`,
         hr: `Hi [Name],
 
-I saw your posting for freelance developer opportunities. I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React, and Node.js. 
+I saw your posting for freelance developer opportunities. I am a Full-Stack Developer with 6+ years of experience specializing in React Native, React, Java, Spring Boot, and Node.js. 
 
 I am available to start immediately across global timezones (PST, EST, GMT, IST). 
 
@@ -5005,7 +5131,7 @@ Suresh Sirvi
 
 I am writing to share my profile for open Full Stack Developer / Software Engineer contract roles at [Company].
 
-I am a Full Stack Developer (React.js + Node.js + React Native) with 6+ years of experience. I am available to start immediately across global timezones. 
+I am a Full Stack Developer (React.js + Node.js + Java + Spring Boot + React Native) with 6+ years of experience. I am available to start immediately across global timezones. 
 
 Details:
 • Starter Rates: $15-$25/hr ($) | £12-£20/hr (£)
@@ -5145,7 +5271,15 @@ Suresh Sirvi
 
       if (channel === 'li-req') {
         // LinkedIn connection request is very short (300 character limit)
-        pitchText = `Hi ${name}, I am a Full-Stack Developer with 6+ yrs experience (React.js, Node.js, WordPress, Shopify, Mobile Apps). Available for remote contracts worldwide. Let's connect! Resume: ${CANDIDATE.resume}`;
+        pitchText = `Hi ${name}, I'm a Full-Stack Developer with 6+ years of experience in React.js, Node.js, Java, Spring Boot, WordPress, Shopify, and React Native.
+
+Available for remote contracts worldwide.
+
+Portfolio: ${CANDIDATE.portfolio}
+
+WhatsApp: ${CANDIDATE.whatsapp}
+
+Let's connect!`;
       } else {
         // Pick based on tone
         pitchText = baseTemplates[tone];
@@ -5158,7 +5292,9 @@ Suresh Sirvi
         .replace(/\[Resume Link\]/g, CANDIDATE.resume)
         .replace(/\[Video Link\]/g, CANDIDATE.videoPitch)
         .replace(/\[LinkedIn Link\]/g, CANDIDATE.linkedin)
-        .replace(/\[GitHub Link\]/g, CANDIDATE.github);
+        .replace(/\[GitHub Link\]/g, CANDIDATE.github)
+        .replace(/\[WhatsApp Link\]/g, CANDIDATE.whatsapp)
+        .replace(/\[Phone\]/g, CANDIDATE.phone);
 
       // Render
       document.getElementById('pitch-output').value = pitchText;
@@ -5251,7 +5387,7 @@ Suresh Sirvi
         // Msg 1 goes into the WhatsApp URL box.
         // Msg 2 is copied to clipboard so they can paste it right after Msg 1 sends.
         const msg1 = `Hi, I am writing to share my profile for open developer roles. I am an *Immediate Joiner* based in Bangalore, with *6+ years of experience* building mobile (React Native) and web applications.`;
-        const msg2 = `Here are my professional links:\n\n📄 Resume: ${CANDIDATE.resume}\n\n
+        const msg2 = `Here are my professional links:\n\n📄 Resume: ${CANDIDATE.resume}\n\n`;
         const copySuccess = await copyToClipboard(msg2, "Message 2 (Links) copied! Paste it after sending Message 1.");
         
         // Launch WhatsApp Web
@@ -5638,18 +5774,18 @@ Suresh Sirvi
       setTimeout(() => { document.getElementById('ats-score-fill').style.width = `${score}%`; }, 50);
 
       document.getElementById('ats-matched-tags').innerHTML = matched.length
-        ? matched.map(s => `<span class="ats-tag match">${s}</span>`).join('')
+        ? matched.map(s => `<span class="ats-tag match" onclick="copyTag(this)" title="Click to copy tag" style="cursor:pointer;">${s}</span>`).join('')
         : '<span style="color:var(--text-dim);font-size:0.8rem;">No direct keyword matches found</span>';
 
       document.getElementById('ats-gap-tags').innerHTML = gaps.length
-        ? gaps.map(s => `<span class="ats-tag gap">${s}</span>`).join('')
+        ? gaps.map(s => `<span class="ats-tag gap" onclick="copyTag(this)" title="Click to copy tag" style="cursor:pointer;">${s}</span>`).join('')
         : '<span style="color:var(--secondary);font-size:0.8rem;">🎉 No significant gaps found!</span>';
 
       const bullets = gaps.filter(g => ATS_BULLET_MAP[g]).map(g =>
         `<div class="bullet-suggestion">• ${ATS_BULLET_MAP[g]}</div>`
       ).join('');
       document.getElementById('ats-bullet-suggestions').innerHTML = bullets ||
-        '<div style="color:var(--text-dim);font-size:0.82rem;">Your existing skills match this JD well. Highlight your React Native and Node.js project impact in your resume!</div>';
+        '<div style="color:var(--text-dim);font-size:0.82rem;">Your existing skills match this JD well. Highlight your React Native, Java, Spring Boot, and Node.js project impact in your resume!</div>';
 
       showToast('JD analyzed successfully!', '🎯');
     }
@@ -5674,7 +5810,7 @@ Suresh Sirvi
       5: {
         channel: 'linkedin',
         label: 'LinkedIn Follow-up Message',
-        message: (r, c, role) => `Hi ${r || '[Recruiter Name]'},\n\nJust circling back on my earlier message about the ${role || 'React Native Developer'} role at ${c || '[Company]'}.\n\nI've been following ${c || "your company"}'s product and I'm genuinely excited about the technical challenges involved. I believe my React.js, Node.js, WordPress, WooCommerce, Mobile Apps background directly maps to your requirements.\n\nHappy to share my portfolio or jump on a quick call this week if the timing works!\n\nCheers,\nSuresh`,
+        message: (r, c, role) => `Hi ${r || '[Recruiter Name]'},\n\nJust circling back on my earlier message about the ${role || 'React Native Developer'} role at ${c || '[Company]'}.\n\nI've been following ${c || "your company"}'s product and I'm genuinely excited about the technical challenges involved. I believe my React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps background directly maps to your requirements.\n\nHappy to share my portfolio or jump on a quick call this week if the timing works!\n\nCheers,\nSuresh`,
         platform: 'https://www.linkedin.com/messaging/'
       },
       7: {
@@ -5724,8 +5860,8 @@ Suresh Sirvi
       const now = Date.now();
       const stale = [];
 
-      Object.values(state.kanban).flat().forEach(job => {
-        const lastUpdated = job.updatedAt || job.addedAt || now;
+      (state.crm || []).forEach(job => {
+        const lastUpdated = job.updatedAt || job.addedAt || (job.date ? new Date(job.date).getTime() : now);
         const daysAgo = Math.floor((now - lastUpdated) / (1000 * 60 * 60 * 24));
         if (daysAgo >= 3) stale.push({ ...job, daysAgo });
       });
@@ -5739,8 +5875,8 @@ Suresh Sirvi
       alertList.innerHTML = stale.map(j => `
         <div class="followup-alert-item">
           <div>
-            <div class="company-name-alert">${j.company}</div>
-            <div class="days-ago">${j.role} · Stage: ${j.stage}</div>
+            <div class="company-name-alert">${j.company || 'Unknown Company'}</div>
+            <div class="days-ago">${j.role || 'Role'} · Stage: ${j.status || j.stage || 'Applied'}</div>
           </div>
           <span class="crm-stale-badge ${j.daysAgo >= 5 ? 'red' : 'yellow'}">${j.daysAgo}d ago${j.daysAgo >= 5 ? ' 🔴' : ' ⚠️'}</span>
         </div>
@@ -6235,6 +6371,7 @@ Suresh Sirvi
         const input = document.getElementById('linkedin-job-keyword');
         if (input) input.value = keyword;
         updateLinkedInLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6246,6 +6383,7 @@ Suresh Sirvi
         const input = document.getElementById('naukri-job-role');
         if (input) input.value = keyword;
         updateNaukriLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6257,6 +6395,7 @@ Suresh Sirvi
         const input = document.getElementById('instahyre-skill');
         if (input) input.value = keyword;
         updateInstahyreLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6268,6 +6407,7 @@ Suresh Sirvi
         const input = document.getElementById('hirist-role');
         if (input) input.value = keyword;
         updateHiristLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6279,6 +6419,7 @@ Suresh Sirvi
         const input = document.getElementById('wellfound-role');
         if (input) input.value = keyword;
         updateWellfoundLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6290,6 +6431,7 @@ Suresh Sirvi
         const input = document.getElementById('cutshort-skills');
         if (input) input.value = keyword;
         updateCutshortLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6301,6 +6443,7 @@ Suresh Sirvi
         const input = document.getElementById('indeed-query');
         if (input) input.value = keyword;
         updateIndeedLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6312,6 +6455,7 @@ Suresh Sirvi
         const input = document.getElementById('glassdoor-query');
         if (input) input.value = keyword;
         updateGlassdoorLinks();
+        copyTag(keyword);
       });
     });
 
@@ -6802,7 +6946,7 @@ Suresh Sirvi
       buildSequences();
       renderCRMAlerts();
       renderCustomTemplates();
-      renderRadarChecklist();
+      if (typeof renderRadarChecklist === 'function') renderRadarChecklist();
     });
   </script>
 
@@ -6828,5 +6972,12 @@ Suresh Sirvi
 
 
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918310634421?text=Hi%20Suresh%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener" id="wa-float" class="wa-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="wa-float-label">Chat with me</span>
+    </a>
+
 </body>
 </html>

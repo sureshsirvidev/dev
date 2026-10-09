@@ -298,6 +298,56 @@
         }
 
     </style>
+
+<style id="wa-float-css">
+.wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif, Arial;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.25);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+}
+.wa-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(37,211,102,0.5);
+    animation: wa-pulse 2.5s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes wa-pulse {
+    0%   { transform: scale(1);    opacity: 0.7; }
+    70%  { transform: scale(1.18); opacity: 0;   }
+    100% { transform: scale(1.18); opacity: 0;   }
+}
+.wa-float:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.3);
+}
+.wa-float svg { flex-shrink: 0; transition: transform 0.3s ease; }
+.wa-float:hover svg { transform: rotate(-8deg) scale(1.1); }
+.wa-float-label { white-space: nowrap; }
+@media (max-width: 480px) {
+    .wa-float { bottom: 20px; right: 16px; padding: 14px; border-radius: 50%; width: 56px; height: 56px; justify-content: center; }
+    .wa-float-label { display: none; }
+}
+</style>
+
 </head>
 
 <body>
@@ -331,48 +381,20 @@
 
     <div class="container">
         <div class="header-title">
-            <h1>🌐 Freelance Client Outreach Dispatcher</h1>
+            <h1>🌐 Full-Stack Project Outreach</h1>
             <div>
-                <span class="starter-badge">🔥 Starter Budget Pricing Active</span>
-                <span class="status-pill">🌍 USA • UK • India • Global</span>
+                <span class="starter-badge">6+ Years Full-Stack</span>
+                <span class="status-pill">Worldwide • Remote • Freelance</span>
             </div>
         </div>
-        <p class="sub-desc">Target client prospects with competitive, budget-friendly starter pricing ($15–$25/hr | £12–£20/hr | ₹400–₹800/hr) to close your initial freelance clients fast!</p>
+        <p class="sub-desc">Write one clear client email or WhatsApp message, add the recipient details, and send it. Keep it simple, personal, and easy for the client to reply.</p>
 
         <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab('email', this)">📧 Email Client Pitch</button>
-            <button class="tab-btn" onclick="switchTab('whatsapp', this)">💬 WhatsApp Client Pitch</button>
+            <button class="tab-btn active" onclick="switchTab('email', this)">📧 Email</button>
+            <button class="tab-btn" onclick="switchTab('whatsapp', this)">💬 WhatsApp</button>
         </div>
 
         <div id="tabContentEmail" class="tab-content active">
-            <div class="region-selector-bar">
-                <div class="selector-item">
-                    <label for="priceTierSelect">💵 Pricing Strategy Tier</label>
-                    <select id="priceTierSelect" onchange="loadSelectedTemplate()">
-                        <option value="starter" selected>🚀 Starter Budget Rates (Fast Client Close: $15–$25/hr | ₹400–₹800/hr)</option>
-                        <option value="standard">💎 Standard Senior Rates ($30–$60/hr | ₹1,500–₹3,500/hr)</option>
-                    </select>
-                </div>
-                <div class="selector-item">
-                    <label for="regionSelect">🌍 Target Country / Region</label>
-                    <select id="regionSelect" onchange="loadSelectedTemplate()">
-                        <option value="usa">🇺🇸 USA & North America ($ USD)</option>
-                        <option value="uk_eu">🇬🇧 UK & Europe (£ GBP / € EUR)</option>
-                        <option value="india">🇮🇳 India & Domestic Hubs (₹ INR)</option>
-                        <option value="global" selected>🌐 Top Global Tech Hubs (Worldwide)</option>
-                    </select>
-                </div>
-                <div class="selector-item">
-                    <label for="templateSelect">🎯 Pitch Strategy & Goal</label>
-                    <select id="templateSelect" onchange="loadSelectedTemplate()">
-                        <option value="cold_pitch">1. Freelance Pitch (Special Starter Rate Offer)</option>
-                        <option value="mvp_proposal">2. Low-Cost Fixed MVP Scope ($500 – $1,200)</option>
-                        <option value="retainer_proposal">3. Budget Monthly Retainer ($500 – $1,800/mo)</option>
-                        <option value="short_pitch">4. Quick Risk-Free Trial Pitch</option>
-                    </select>
-                </div>
-            </div>
-
             <div class="form-group">
                 <label for="recipient">Recipient Email</label>
                 <input type="email" id="recipient" placeholder="client@company.com or founder@startup.io" required autofocus>
@@ -380,12 +402,42 @@
 
             <div class="form-group">
                 <label for="subject">Email Subject Line</label>
-                <input type="text" id="subject" value="Full-Stack Developer | Starter Freelance Rate | Suresh Sirvi">
+                <input type="text" id="subject" value="Web, Mobile & Backend | Freelance Full-Stack Developer Ready to Start | Suresh Sirvi">
             </div>
 
             <div class="form-group">
                 <label for="body">Email Body (Editable Text)</label>
-                <textarea id="body"></textarea>
+                <textarea id="body">Hi,
+
+I saw your requirement for a freelance developer and wanted to introduce myself.
+
+I am Suresh Sirvi, an immediate joiner and freelance full-stack developer with 6+ years of hands-on experience across websites, CMS, e-commerce, mobile apps, web apps, backend APIs, and business software. I work with React.js, Angular, JavaScript, Next.js, Node.js/Express.js, Java Spring Boot, .NET Core, React Native, WordPress, Wix, Shopify, WooCommerce, databases, cloud services, and third-party integrations. I am available for worldwide remote projects and ready to start quickly.
+
+I can support small and large projects end-to-end, from understanding the requirement and planning the right approach to design updates, development, integrations, testing, deployment, fixes, and ongoing improvements.
+
+Projects I can help with:
+• WordPress websites, theme customization, plugin setup, Elementor pages, WooCommerce, fixes, maintenance, and redesigns
+• Wix websites, landing pages, business websites, layout changes, content updates, responsive fixes, and basic SEO setup
+• Shopify stores, theme customization, product pages, collections, checkout-related setup, app integrations, and store improvements
+• Custom websites using HTML, CSS, JavaScript, React.js, Angular, Next.js, Bootstrap, Tailwind CSS, and responsive UI
+• E-commerce, booking, service, portfolio, company, agency, startup, and business websites
+• Web apps, admin dashboards, customer portals, vendor panels, SaaS tools, ERP/CRM-style workflows, and marketplace systems
+• Mobile apps using React Native for Android/iOS with APIs, authentication, maps, notifications, payments, and production builds
+• Backend/API work using Node.js, Express.js, Java Spring Boot, .NET Core, MongoDB, MySQL, PostgreSQL, Firebase, Supabase, AWS, and third-party integrations
+
+Professional links:
+• Portfolio: https://sureshsirvidev.github.io/dev/
+• Resume: https://sureshsirvidev.github.io/dev/resume.html
+• GitHub: https://github.com/sureshsirvidev
+• LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428/
+
+If the role or project is still open, I would be happy to discuss your requirement, understand what you need, and suggest the best way to start. We can discuss budget and timeline after I understand the work clearly.
+
+Best regards,
+Suresh Sirvi
+Freelance Full-Stack Developer
+Phone / WhatsApp: +91 8310634421
+Email: sureshsirvi.dev@gmail.com</textarea>
             </div>
 
             <div class="button-group">
@@ -400,255 +452,62 @@
                 </button>
             </div>
 
-            <p class="note"><strong>💡 Pro Tip:</strong> Click <b>Button 1</b> for auto-fill or <b>Button 2</b> to copy formatted text with clickable blue links for Gmail.</p>
+            <p class="note"><strong>Tip:</strong> Before sending, change the first line to match the exact job post or client requirement.</p>
         </div> <!-- End of tabContentEmail -->
 
-        <!-- WhatsApp Tab Content -->
         <div id="tabContentWhatsApp" class="tab-content">
             <div class="form-group">
                 <label for="waRecipient">Recipient WhatsApp Number</label>
-                <input type="tel" id="waRecipient" placeholder="e.g. 8310634421 (Indian numbers add +91 automatically, or include country code for US/UK/Global)">
+                <input type="tel" id="waRecipient" placeholder="e.g. +1 555 123 4567, +44 7700 900123, or 8310634421">
                 <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
                     <input type="checkbox" id="waUseDesktop" style="width: auto; cursor: pointer; margin: 0;" checked>
-                    <label for="waUseDesktop" style="margin-bottom: 0; cursor: pointer; user-select: none; font-size: 0.85rem; font-weight: normal;">Use WhatsApp Desktop App (instead of Web)</label>
+                    <label for="waUseDesktop" style="margin-bottom: 0; cursor: pointer; user-select: none; font-size: 0.85rem; font-weight: normal; text-transform: none; letter-spacing: 0;">Use WhatsApp Desktop App</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="waBody1">WhatsApp Message 1 (Intro Pitch)</label>
-                <textarea id="waBody1" style="min-height: 160px; font-family: inherit; font-size: 0.92rem;">Hi,
+                <label for="waBody1">WhatsApp Message (Editable Text)</label>
+                <textarea id="waBody1" style="min-height: 360px; font-family: inherit; font-size: 0.92rem;">Hi,
 
-Hope you're having a great week!
+I saw your requirement for a developer and wanted to introduce myself.
 
-I am reaching out to offer my development services for Full-Time Freelance, Retainer, or Contract work at a special starter budget rate.
+I am Suresh Sirvi, an immediate joiner and freelance full-stack developer with 6+ years of experience. I am available for worldwide remote projects and ready to start quickly.
 
-I am a *Full-Stack Developer (6+ years of experience)* building *websites, mobile apps, and custom solutions (React.js, Node.js, WordPress, Shopify)*. I help founders build web apps, mobile MVPs, and REST APIs with fast 24-48h turnarounds.
+I can help with:
+• WordPress, Wix, Shopify, WooCommerce, landing pages, website redesigns, bug fixes, maintenance, speed improvements, and responsive fixes
+• React.js, Angular, JavaScript, Next.js, HTML, CSS, Bootstrap, Tailwind CSS, and custom web apps
+• Node.js/Express.js, Java Spring Boot, .NET Core, REST APIs, databases, Firebase, AWS, payments, maps, and third-party integrations
+• Mobile apps using React Native for Android/iOS
+• Admin dashboards, SaaS tools, ERP/CRM-style systems, booking platforms, vendor panels, and e-commerce systems
 
-*Special Starter Pricing:*
-• Hourly Contract: $15 - $25/hr | £12 - £20/hr | ₹400 - ₹800/hr
-• Fixed MVP Build: $500 - $1,200 | ₹30k - ₹75k
-• Monthly Retainers: $500 - $1,600/mo | ₹25k - ₹80k/mo
-• Timezone Overlap: USA (PST/EST), UK/Europe (GMT/CET), India (IST)
+Portfolio: https://sureshsirvidev.github.io/dev/
+Resume: https://sureshsirvidev.github.io/dev/resume.html
+GitHub: https://github.com/sureshsirvidev
+LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428/
 
-Would love to share my portfolio and build a small test feature or task to prove my value!</textarea>
-            </div>
+If your project is still open, I would be happy to understand the requirement and suggest the best way to start. We can discuss budget and timeline after I understand the work clearly.
 
-            <div class="form-group">
-                <label for="waBody2">WhatsApp Message 2 (Portfolio & Links)</label>
-                <textarea id="waBody2" style="min-height: 180px; font-family: inherit; font-size: 0.92rem;">For your reference, here are my live production apps and professional links:
-
-📱 *Live Mobile Apps:*
-• Productivity App (Android): #
-• Event Booking App (iOS): #
-• Booking Platform Driver (Android): #
-
-🌐 *Live Web Apps:*
-• Booking Platform: #
-• Event Booking App: #
-• Freelancing Marketplace: #
-
-💼 *Professional Links:*
-• LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428
-• GitHub: https://github.com/sureshsirvidev
-• Portfolio: https://sureshsirvidev.github.io/dev/
-• Resume: https://sureshsirvidev.github.io/dev/resume.html
-
-Looking forward to connecting!</textarea>
+Thanks,
+Suresh Sirvi
+WhatsApp/Call: +91 8310634421
+Email: sureshsirvi.dev@gmail.com</textarea>
             </div>
 
             <div class="button-group">
                 <button class="btn btn-primary" onclick="sendWhatsAppMessages(1)">
-                    <div>1. Send Message 1</div>
-                    <span>Launches WhatsApp with Msg 1 (Copies Msg 2 to clipboard)</span>
-                </button>
-                <button class="btn btn-secondary" onclick="sendWhatsAppMessages(2)">
-                    <div>2. Send Message 2</div>
-                    <span>Launches WhatsApp with Msg 2 (Backup option)</span>
+                    <div>Send WhatsApp Message</div>
+                    <span>Launches WhatsApp with your editable message</span>
                 </button>
             </div>
 
-            <p class="note"><strong>WhatsApp Flow:</strong> Click <b>Send Message 1</b> to launch WhatsApp. Message 2 is automatically copied to your clipboard—simply press Paste (Cmd+V) and Enter to send Message 2 right after!</p>
-        </div> <!-- End of tabContentWhatsApp -->
+            <p class="note"><strong>Tip:</strong> For WhatsApp, keep the first line personal and send only after checking the number has the correct country code.</p>
+        </div>
     </div> <!-- End of container -->
 
     <!-- Hidden HTML Container for Rich Text Copying -->
     <div id="emailTemplate"></div>
 
     <script>
-        const pricingTiers = {
-            starter: {
-                usa: { currency: "$ USD", rateRange: "$15 – $25 / hr", retainerRange: "$500 – $1,600 / month", mvpRange: "$500 – $1,200" },
-                uk_eu: { currency: "£ GBP / € EUR", rateRange: "£12 – £20 / hr (€15 – €25 / hr)", retainerRange: "£400 – £1,200 / month (€450 – £1,400 / mo)", mvpRange: "£400 – £900 (€450 – £1,000)" },
-                india: { currency: "₹ INR", rateRange: "₹400 – ₹800 / hr", retainerRange: "₹25,000 – ₹80,000 / month", mvpRange: "₹30,000 – ₹75,000" },
-                global: { currency: "$ USD / Multi-Currency", rateRange: "$15 – $25 / hr", retainerRange: "$500 – $1,600 / month", mvpRange: "$500 – $1,200" }
-            },
-            standard: {
-                usa: { currency: "$ USD", rateRange: "$30 – $60 / hr", retainerRange: "$1,500 – $5,000 / month", mvpRange: "$2,500 – $5,000" },
-                uk_eu: { currency: "£ GBP / € EUR", rateRange: "£25 – £50 / hr (€30 – €60 / hr)", retainerRange: "£1,200 – £4,000 / month (€1,400 – £4,500 / mo)", mvpRange: "£2,000 – £4,000" },
-                india: { currency: "₹ INR", rateRange: "₹1,500 – ₹3,500 / hr", retainerRange: "₹80,000 – ₹2,50,000 / month", mvpRange: "₹1,50,000 – ₹3,50,000" },
-                global: { currency: "$ USD / Multi-Currency", rateRange: "$30 – $60+ / hr", retainerRange: "$2,000 – $6,000 / month", mvpRange: "$2,500 – $5,000+" }
-            }
-        };
-
-        const regionMeta = {
-            usa: { flag: "🇺🇸", timezones: "PST, EST, and CST timezones", payments: "Stripe, Wise, PayPal, or USD Wire" },
-            uk_eu: { flag: "🇬🇧 🇪🇺", timezones: "GMT, BST, and CET timezones", payments: "Wise, SEPA, IBAN, or PayPal" },
-            india: { flag: "🇮🇳", timezones: "Remote Worldwide (IST/EST/PST/GMT)", payments: "Razorpay, UPI, or Bank Transfer (NEFT)" },
-            global: { flag: "🌐", timezones: "PST, EST, GMT, CET, and IST (24/7 Global Timezone Overlap)", payments: "Wise, Stripe, PayPal, or Wire" }
-        };
-
-        function getPitchContent(strategyKey, regionKey, tierKey) {
-            const tier = pricingTiers[tierKey] ? pricingTiers[tierKey][regionKey] : pricingTiers.starter[regionKey];
-            const meta = regionMeta[regionKey] || regionMeta.global;
-
-            if (strategyKey === 'cold_pitch') {
-                return {
-                    subject: `Full-Stack Developer | Starter Rate (${tier.rateRange}) | Suresh Sirvi`,
-                    body: `Dear Client / Hiring Manager,
-
-I hope you are doing well.
-
-I am Suresh Sirvi, a Lead Full-Stack Developer with 6+ years of hands-on experience building production-ready Web, Mobile, and Backend applications including websites, mobile apps, and custom software (React.js, Node.js, WordPress, Shopify).
-
-I am currently offering a Special Starter Promotional Rate (${tier.rateRange}) for initial contract projects, fixed MVPs, and monthly retainers to build long-term client relationships.
-
-Technical Expertise:
-• Development: Custom Websites, WordPress, Shopify, Mobile Apps (iOS/Android), SaaS
-• Web Frontend: React.js, Next.js, TypeScript, Redux, Tailwind CSS, Modern UI/UX
-• Backend & APIs: Node.js, Express.js, REST APIs, GraphQL, MongoDB, PostgreSQL
-• Cloud & Tools: AWS, Firebase, Stripe, Razorpay, JWT Auth, Push Notifications, Git
-
-Live Production Apps & Web Projects:
-• Booking Platform – #
-• Event Booking App (iOS) – #
-• Freelancing Marketplace (Web App) – #
-• Productivity App (Android) – #
-• MEDirect – https://medirect.link/
-• Booking Platform Driver (Android) – #
-
-Starter Pricing & Terms:
-• Promotional Starter Hourly Rate: ${tier.rateRange}
-• Starter Retainers: ${tier.retainerRange}
-• Timezone Coverage: Seamless overlap across ${meta.timezones}
-• Billing & Invoicing: ${tier.currency} via ${meta.payments}
-
-Portfolio & Professional Links:
-• Portfolio: https://sureshsirvidev.github.io/dev/
-• GitHub: https://github.com/sureshsirvidev
-• LinkedIn: https://www.linkedin.com/in/suresh-sirvi-261151428
-• Resume: https://sureshsirvidev.github.io/dev/resume.html
-
-I would love to help you build or fix a small feature first at this starter rate so you can test my code quality and delivery speed.
-
-Best Regards,
-
-Suresh Sirvi
-Full-Stack Developer
-<div style="font-size: 13px; color: #555; margin-bottom: 20px;">📞 +91 8310634421 | 📧 sureshsirvi.dev@gmail.com</div>`
-                };
-            } else if (strategyKey === 'mvp_proposal') {
-                return {
-                    subject: `Budget-Friendly Web & Mobile MVP Scope (${tier.mvpRange}) | Suresh Sirvi`,
-                    body: `Hi,
-
-I hope you're having a great week!
-
-I noticed you're looking to build or launch a web or mobile MVP. As a Full-Stack Developer (6+ YOE), I am offering budget-friendly starter MVP packages for startups and founders.
-
-What I offer for Starter MVP Builds:
-1. Complete Build: Frontend (React.js / Next.js), Custom Websites, Mobile Apps, E-commerce (WordPress/Shopify), and Backend Systems.
-2. Clean Codebase: Scalable architecture, database schemas, user authentication, and payment integration.
-3. Rapid 2-Week Delivery: Complete build in 10-14 days with milestone updates in ${meta.timezones}.
-
-Live Production Work:
-• Event Booking iOS App: #
-• Booking Platform: #
-• Freelancing Marketplace: #
-
-Starter MVP Investment:
-• Fixed Package Price: ${tier.mvpRange} (${tier.currency})
-• Includes: 14-day post-launch QA bug fix support included
-
-Let me know if you're open to reviewing a fast feature breakdown or jumping on a 5-minute call!
-
-Best regards,
-
-Suresh Sirvi
-Full-Stack Developer
-<div style="font-size: 13px; color: #555; margin-bottom: 20px;">📞 +91 8310634421 | 📧 sureshsirvi.dev@gmail.com</div>
-Portfolio: https://sureshsirvidev.github.io/dev/`
-                };
-            } else if (strategyKey === 'retainer_proposal') {
-                return {
-                    subject: `Budget Monthly Engineering Retainer (${tier.currency}) — Suresh Sirvi`,
-                    body: `Hi,
-
-I hope you're doing well.
-
-I am proposing an affordable Monthly Engineering Retainer to provide ongoing development support for your web and mobile applications at a very competitive starter rate.
-
-Services Included:
-• Feature updates, UI improvements & WordPress, Shopify, and custom web fixes
-• Node.js REST API maintenance & database tuning
-• App Store & Play Store update deployments
-
-Starter Monthly Retainer Packages (${tier.currency}):
-• Tier 1 (10 Hours / Week): ${tier.currency === '$ USD' ? '$500/mo' : tier.currency.includes('GBP') ? '£400/mo' : tier.currency.includes('INR') ? '₹25,000/mo' : '$500/mo'} — Maintenance & minor feature updates
-• Tier 2 (20 Hours / Week): ${tier.currency === '$ USD' ? '$1,000/mo' : tier.currency.includes('GBP') ? '£800/mo' : tier.currency.includes('INR') ? '₹45,000/mo' : '$1,000/mo'} — Active feature buildout & API development
-• Tier 3 (40 Hours / Week Full-Time): ${tier.currency === '$ USD' ? '$1,800/mo' : tier.currency.includes('GBP') ? '£1,500/mo' : tier.currency.includes('INR') ? '₹80,000/mo' : '$1,800/mo'} — Dedicated full-time contract engineer
-
-Why Choose This Retainer?
-• Highly affordable starter pricing for ongoing dev work
-• Daily updates with overlap in ${meta.timezones}
-• Billing via ${meta.payments}
-
-Portfolio: https://sureshsirvidev.github.io/dev/
-
-Let me know which retainer package fits your budget for this month!
-
-Best regards,
-
-Suresh Sirvi
-<div style="font-size: 13px; color: #555; margin-bottom: 20px;">📞 +91 8310634421 | 📧 sureshsirvi.dev@gmail.com</div>`
-                };
-            } else {
-                return {
-                    subject: `Senior Developer for Short Project / Bug Fix (${tier.rateRange})`,
-                    body: `Hi,
-
-Looking for a reliable Full-Stack or Mobile Developer to fix a bug, build a feature, or launch an app at an affordable starter price?
-
-I'm Suresh, a Full-Stack JavaScript & Mobile Freelancer (6+ YOE) offering starter rates (${tier.rateRange}) for initial client projects.
-
-Quick Highlights:
-• Shipped 4+ live apps on App Store & Play Store (Event Booking App, Productivity App, Booking Platform)
-• Built scalable SaaS web apps (Booking Platform.com, Freelancing Marketplace.com)
-• Budget Starter Rate: ${tier.rateRange} (${tier.currency})
-• Timezone Overlap: ${meta.timezones}
-
-Portfolio: https://sureshsirvidev.github.io/dev/
-Resume: https://sureshsirvidev.github.io/dev/resume.html
-
-I can complete a small test task today to demonstrate my work quality. Let me know!
-
-Best regards,
-Suresh Sirvi
-<div style="margin-top: 15px; font-size: 0.9em; color: #666;">Phone: +91 8310634421 | Email: sureshsirvi.dev@gmail.com`
-                };
-            }
-        }
-
-        function loadSelectedTemplate() {
-            const tierKey = document.getElementById('priceTierSelect').value;
-            const regionKey = document.getElementById('regionSelect').value;
-            const strategyKey = document.getElementById('templateSelect').value;
-            const pitch = getPitchContent(strategyKey, regionKey, tierKey);
-
-            document.getElementById('subject').value = pitch.subject;
-            document.getElementById('body').value = pitch.body;
-            syncRichTextTemplate();
-        }
-
         function syncRichTextTemplate() {
             const bodyText = document.getElementById('body').value;
             
@@ -806,48 +665,23 @@ Suresh Sirvi
             }
 
             const msg1 = document.getElementById('waBody1').value;
-            const msg2 = document.getElementById('waBody2').value;
             const useDesktop = document.getElementById('waUseDesktop').checked;
 
-            if (msgIndex === 1) {
-                const copySuccess = await copyTextToClipboard(msg2);
-
-                if (useDesktop) {
-                    const desktopUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(msg1)}`;
-                    const link = document.createElement('a');
-                    link.href = desktopUrl;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                } else {
-                    const webUrl = `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg1)}`;
-                    window.open(webUrl, '_blank');
-                }
-
-                if (copySuccess) {
-                    alert(useDesktop
-                        ? 'Launching WhatsApp Desktop App with Message 1.\n\nMessage 2 copied to clipboard! Press Paste (Cmd+V) and Enter to send Message 2 immediately after.'
-                        : 'Opening WhatsApp Web with Message 1.\n\nMessage 2 copied to clipboard! Click Send on Msg 1, then Paste (Cmd+V) and Enter to send Message 2.');
-                } else {
-                    alert('Opening WhatsApp Web. Please copy Message 2 manually.');
-                }
+            if (useDesktop) {
+                const desktopUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(msg1)}`;
+                const link = document.createElement('a');
+                link.href = desktopUrl;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             } else {
-                if (useDesktop) {
-                    const desktopUrl = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(msg2)}`;
-                    const link = document.createElement('a');
-                    link.href = desktopUrl;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                } else {
-                    const webUrl = `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg2)}`;
-                    window.open(webUrl, '_blank');
-                }
+                const webUrl = `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg1)}`;
+                window.open(webUrl, '_blank');
             }
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            loadSelectedTemplate();
+            syncRichTextTemplate();
         });
     </script>
 
@@ -873,6 +707,13 @@ Suresh Sirvi
 
 
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918310634421?text=Hi%20Suresh%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener" id="wa-float" class="wa-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="wa-float-label">Chat with me</span>
+    </a>
+
 </body>
 
 </html>

@@ -350,6 +350,56 @@
         @media (max-width: 768px) { .top-bar-contact { display: none; } }
 
     </style>
+
+<style id="wa-float-css">
+.wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif, Arial;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.25);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+}
+.wa-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(37,211,102,0.5);
+    animation: wa-pulse 2.5s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes wa-pulse {
+    0%   { transform: scale(1);    opacity: 0.7; }
+    70%  { transform: scale(1.18); opacity: 0;   }
+    100% { transform: scale(1.18); opacity: 0;   }
+}
+.wa-float:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.3);
+}
+.wa-float svg { flex-shrink: 0; transition: transform 0.3s ease; }
+.wa-float:hover svg { transform: rotate(-8deg) scale(1.1); }
+.wa-float-label { white-space: nowrap; }
+@media (max-width: 480px) {
+    .wa-float { bottom: 20px; right: 16px; padding: 14px; border-radius: 50%; width: 56px; height: 56px; justify-content: center; }
+    .wa-float-label { display: none; }
+}
+</style>
+
 </head>
 <body>
     <div class="custom-cursor"></div>
@@ -400,11 +450,11 @@
   <!-- STATS -->
   <div class="stats-bar">
     <div class="stat-item">
-      <div class="stat-num" id="totalCount">40</div>
+      <div class="stat-num" id="totalCount">18</div>
       <div class="stat-label">Total Templates</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">7</div>
+      <div class="stat-num">6</div>
       <div class="stat-label">Categories</div>
     </div>
     <div class="stat-item">
@@ -412,8 +462,8 @@
       <div class="stat-label">Experience</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">$15/hr</div>
-      <div class="stat-label">Starter Rate</div>
+      <div class="stat-num">Now</div>
+      <div class="stat-label">Ready to Start</div>
     </div>
     <div class="stat-item" style="margin-left:auto;">
       <div style="font-size:11px; opacity:0.8;">Click any card to copy instantly ⚡</div>
@@ -441,7 +491,7 @@
   <div class="cards-grid" id="cardsGrid">
 
     <!-- CONNECT 1 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a Full-Stack Developer (6+ yrs) building websites, mobile apps, and custom solutions (React.js, Node.js, WordPress, Shopify). Available for freelance contracts immediately. Let's connect!">
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a Full-Stack Developer (6+ yrs) building websites, mobile apps, and custom solutions (React.js, Node.js, Java, Spring Boot, WordPress, Shopify). Available for freelance contracts immediately. Let's connect!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #1</span>
@@ -454,12 +504,12 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! I'm a Full-Stack Developer (6+ yrs) building websites, mobile apps, and custom solutions (React.js, Node.js, WordPress, Shopify). Available for freelance contracts immediately. Let's connect!</div>
+        <div class="pitch-text">Hi! I'm a Full-Stack Developer (6+ yrs) building websites, mobile apps, and custom solutions (React.js, Node.js, Java, Spring Boot, WordPress, Shopify). Available for freelance contracts immediately. Let's connect!</div>
       </div>
     </div>
 
     <!-- CONNECT 2 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi, I'm Suresh — Full-Stack Developer with 6+ yrs exp. React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Open to freelance & contract work globally. Would love to connect!">
+    <div class="pitch-card" data-category="connect" data-text="Hi, I'm Suresh — Full-Stack Developer with 6+ yrs exp. React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. Open to freelance & contract work globally. Would love to connect!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #2</span>
@@ -472,12 +522,12 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi, I'm Suresh — Full-Stack Developer with 6+ yrs exp. React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Open to freelance & contract work globally. Would love to connect!</div>
+        <div class="pitch-text">Hi, I'm Suresh — Full-Stack Developer with 6+ yrs exp. React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. Open to freelance & contract work globally. Would love to connect!</div>
       </div>
     </div>
 
     <!-- CONNECT 3 -->
-    <div class="pitch-card" data-category="connect" data-text="Hey! I noticed we share interests in React Native & mobile development. I'm a freelance Full-Stack Dev (6+ yrs) — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Happy to connect and share ideas!">
+    <div class="pitch-card" data-category="connect" data-text="Hey! I noticed we share interests in React Native & mobile development. I'm a freelance Full-Stack Dev (6+ yrs) — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. Happy to connect and share ideas!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #3</span>
@@ -490,12 +540,12 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hey! I noticed we share interests in React Native & mobile development. I'm a freelance Full-Stack Dev (6+ yrs) — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Happy to connect and share ideas!</div>
+        <div class="pitch-text">Hey! I noticed we share interests in React Native & mobile development. I'm a freelance Full-Stack Dev (6+ yrs) — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. Happy to connect and share ideas!</div>
       </div>
     </div>
 
     <!-- CONNECT 4 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a freelance Full-Stack Developer with 6+ yrs building websites, mobile apps, and custom web solutions (React.js, Node.js, WordPress). Available immediately for new contracts. Let's connect!">
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a freelance Full-Stack Developer with 6+ yrs building websites, mobile apps, and custom web solutions (React.js, Node.js, Java, Spring Boot, WordPress). Available immediately for new contracts. Let's connect!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #4</span>
@@ -508,7 +558,7 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! I'm a freelance Full-Stack Developer with 6+ yrs building websites, mobile apps, and custom web solutions (React.js, Node.js, WordPress). Available immediately for new contracts. Let's connect!</div>
+        <div class="pitch-text">Hi! I'm a freelance Full-Stack Developer with 6+ yrs building websites, mobile apps, and custom web solutions (React.js, Node.js, Java, Spring Boot, WordPress). Available immediately for new contracts. Let's connect!</div>
       </div>
     </div>
 
@@ -531,7 +581,7 @@
     </div>
 
     <!-- CONNECT 6 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi! Loved your profile. I'm also a Full-Stack Dev specializing in React Native & Node.js — 6+ yrs, freelance. Always great to connect with fellow developers in the space!">
+    <div class="pitch-card" data-category="connect" data-text="Hi! Loved your profile. I'm also a Full-Stack Dev specializing in React Native, Java, Spring Boot & Node.js — 6+ yrs, freelance. Always great to connect with fellow developers in the space!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #6</span>
@@ -544,12 +594,12 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! Loved your profile. I'm also a Full-Stack Dev specializing in React Native & Node.js — 6+ yrs, freelance. Always great to connect with fellow developers in the space!</div>
+        <div class="pitch-text">Hi! Loved your profile. I'm also a Full-Stack Dev specializing in React Native, Java, Spring Boot & Node.js — 6+ yrs, freelance. Always great to connect with fellow developers in the space!</div>
       </div>
     </div>
 
     <!-- CONNECT 7 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi! I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, WordPress, Shopify, Mobile Apps, 6+ yrs). Portfolio: sureshsirvidev.github.io/dev · Let's connect and collaborate!">
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps, 6+ yrs). Portfolio: sureshsirvidev.github.io/dev · Let's connect and collaborate!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #7</span>
@@ -562,7 +612,7 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, WordPress, Shopify, Mobile Apps, 6+ yrs). Portfolio: sureshsirvidev.github.io/dev · Let's connect and collaborate!</div>
+        <div class="pitch-text">Hi! I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps, 6+ yrs). Portfolio: sureshsirvidev.github.io/dev · Let's connect and collaborate!</div>
       </div>
     </div>
 
@@ -585,7 +635,7 @@
     </div>
 
     <!-- CONNECT 9 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a Full-Stack Freelancer — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ yrs building mobile & web apps. Immediate availability. I'd love to grow my network with fellow tech professionals!">
+    <div class="pitch-card" data-category="connect" data-text="Hi! I'm a Full-Stack Freelancer — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 6+ yrs building mobile & web apps. Immediate availability. I'd love to grow my network with fellow tech professionals!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #9</span>
@@ -598,17 +648,17 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! I'm a Full-Stack Freelancer — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ yrs building mobile & web apps. Immediate availability. I'd love to grow my network with fellow tech professionals!</div>
+        <div class="pitch-text">Hi! I'm a Full-Stack Freelancer — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 6+ yrs building mobile & web apps. Immediate availability. I'd love to grow my network with fellow tech professionals!</div>
       </div>
     </div>
 
     <!-- CONNECT 10 -->
-    <div class="pitch-card" data-category="connect" data-text="Hi! Suresh here — freelance Full-Stack Developer (React.js, Node.js, WordPress, Shopify, Mobile Apps) with 6+ yrs. Starter rates: $15-$25/hr. Available now. Let's connect and see if there's a fit!">
+    <div class="pitch-card" data-category="connect" data-text="Hi! Suresh here — freelance Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps) with 6+ yrs. Starter rates: $15-$25/hr. Available now. Let's connect and see if there's a fit!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Connection Note #10</span>
           <span class="char-badge orange">⚡ 174 chars</span>
-          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Rate Mention</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Ready Now</span>
         </div>
         <button class="btn-copy-card" onclick="copyCard(this)">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -616,7 +666,7 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! Suresh here — freelance Full-Stack Developer (React.js, Node.js, WordPress, Shopify, Mobile Apps) with 6+ yrs. Starter rates: $15-$25/hr. Available now. Let's connect and see if there's a fit!</div>
+        <div class="pitch-text">Hi! Suresh here — freelance Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps) with 6+ yrs. Starter rates: $15-$25/hr. Available now. Let's connect and see if there's a fit!</div>
       </div>
     </div>
 
@@ -631,7 +681,7 @@
     </div>
 
     <!-- COMMENT 1 -->
-    <div class="pitch-card" data-category="comment" data-text="Interested! I'm a Full-Stack Developer with 6+ yrs exp in React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 4 live apps on Play Store & App Store. Available immediately for freelance/contract work. Portfolio: sureshsirvidev.github.io/dev · Dropped a connection request — DM open! 🚀">
+    <div class="pitch-card" data-category="comment" data-text="Interested! I'm a Full-Stack Developer with 6+ yrs exp in React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 4 live apps on Play Store & App Store. Available immediately for freelance/contract work. Portfolio: sureshsirvidev.github.io/dev · Dropped a connection request — DM open! 🚀">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Comment on Hiring Post</span>
@@ -644,12 +694,12 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Interested! I'm a Full-Stack Developer with 6+ yrs exp in React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 4 live apps on Play Store & App Store. Available immediately for freelance/contract work. Portfolio: sureshsirvidev.github.io/dev · Dropped a connection request — DM open! 🚀</div>
+        <div class="pitch-text">Interested! I'm a Full-Stack Developer with 6+ yrs exp in React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 4 live apps on Play Store & App Store. Available immediately for freelance/contract work. Portfolio: sureshsirvidev.github.io/dev · Dropped a connection request — DM open! 🚀</div>
       </div>
     </div>
 
     <!-- COMMENT 2 -->
-    <div class="pitch-card" data-category="comment" data-text="This is exactly what I do! React.js, Node.js, WordPress, WooCommerce, Mobile Apps Full-Stack Developer, 6+ yrs exp, remote. Deployed multiple production-grade apps. Immediate availability. Portfolio: sureshsirvidev.github.io/dev · Would love to discuss — sending you a connection request!">
+    <div class="pitch-card" data-category="comment" data-text="This is exactly what I do! React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps Full-Stack Developer, 6+ yrs exp, remote. Deployed multiple production-grade apps. Immediate availability. Portfolio: sureshsirvidev.github.io/dev · Would love to discuss — sending you a connection request!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Web & Mobile Post Comment</span>
@@ -662,17 +712,17 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">This is exactly what I do! React.js, Node.js, WordPress, WooCommerce, Mobile Apps Full-Stack Developer, 6+ yrs exp, remote. Deployed multiple production-grade apps. Immediate availability. Portfolio: sureshsirvidev.github.io/dev · Would love to discuss — sending you a connection request!</div>
+        <div class="pitch-text">This is exactly what I do! React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps Full-Stack Developer, 6+ yrs exp, remote. Deployed multiple production-grade apps. Immediate availability. Portfolio: sureshsirvidev.github.io/dev · Would love to discuss — sending you a connection request!</div>
       </div>
     </div>
 
     <!-- COMMENT 3 -->
-    <div class="pitch-card" data-category="comment" data-text="Great post! I specialize in exactly this — websites, mobile apps, SaaS, and custom web solutions (React, Node, WordPress). 6+ years of production experience. Available for contract work at starter rates ($15-$25/hr). Portfolio: sureshsirvidev.github.io/dev · Let's connect! 💼">
+    <div class="pitch-card" data-category="comment" data-text="Great post! I specialize in exactly this — websites, mobile apps, SaaS, and custom web solutions across React, Angular, Node, Java Spring Boot, .NET Core, WordPress, Wix, and Shopify. 6+ years of production experience. Portfolio: sureshsirvidev.github.io/dev · Let's connect! 💼">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Value-Add Comment</span>
-          <span class="char-badge orange">Rate Mention</span>
-          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Budget-Friendly</span>
+          <span class="char-badge orange">Ready Now</span>
+          <span class="scenario-badge" style="background:#fef3c7;color:#92400e;">Project First</span>
         </div>
         <button class="btn-copy-card" onclick="copyCard(this)">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -680,12 +730,12 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Great post! I specialize in exactly this — websites, mobile apps, SaaS, and custom web solutions (React, Node, WordPress). 6+ years of production experience. Available for contract work at starter rates ($15-$25/hr). Portfolio: sureshsirvidev.github.io/dev · Let's connect! 💼</div>
+        <div class="pitch-text">Great post! I specialize in exactly this — websites, mobile apps, SaaS, and custom web solutions across React, Angular, Node, Java Spring Boot, .NET Core, WordPress, Wix, and Shopify. 6+ years of production experience. Portfolio: sureshsirvidev.github.io/dev · Let's connect! 💼</div>
       </div>
     </div>
 
     <!-- COMMENT 4 -->
-    <div class="pitch-card" data-category="comment" data-text="I'd love to help! I'm Suresh — Full-Stack Freelancer (React.js, Node.js, WordPress, Shopify, Mobile Apps). 6+ yrs building mobile apps & web solutions. Immediate start. Portfolio: sureshsirvidev.github.io/dev · Sent you a connection request — feel free to DM me anytime! 👋">
+    <div class="pitch-card" data-category="comment" data-text="I'd love to help! I'm Suresh — Full-Stack Freelancer (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps). 6+ yrs building mobile apps & web solutions. Immediate start. Portfolio: sureshsirvidev.github.io/dev · Sent you a connection request — feel free to DM me anytime! 👋">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Friendly Comment</span>
@@ -698,7 +748,7 @@
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">I'd love to help! I'm Suresh — Full-Stack Freelancer (React.js, Node.js, WordPress, Shopify, Mobile Apps). 6+ yrs building mobile apps & web solutions. Immediate start. Portfolio: sureshsirvidev.github.io/dev · Sent you a connection request — feel free to DM me anytime! 👋</div>
+        <div class="pitch-text">I'd love to help! I'm Suresh — Full-Stack Freelancer (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps). 6+ yrs building mobile apps & web solutions. Immediate start. Portfolio: sureshsirvidev.github.io/dev · Sent you a connection request — feel free to DM me anytime! 👋</div>
       </div>
     </div>
 
@@ -721,7 +771,7 @@
     </div>
 
     <!-- COMMENT 6 -->
-    <div class="pitch-card" data-category="comment" data-text="🙋 Available! Full-Stack Developer — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ years. Portfolio: sureshsirvidev.github.io/dev
+    <div class="pitch-card" data-category="comment" data-text="🙋 Available! Full-Stack Developer — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 6+ years. Portfolio: sureshsirvidev.github.io/dev
 Immediate start. DM me!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
@@ -735,13 +785,13 @@ Immediate start. DM me!">
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">🙋 Available! Full-Stack Developer — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ years. Portfolio: sureshsirvidev.github.io/dev
+        <div class="pitch-text">🙋 Available! Full-Stack Developer — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 6+ years. Portfolio: sureshsirvidev.github.io/dev
 Immediate start. DM me!</div>
       </div>
     </div>
 
     <!-- COMMENT 7 -->
-    <div class="pitch-card" data-category="comment" data-text="I have experience with this! Here's what I bring: ✅ Websites & Mobile Apps (Custom, WordPress, Shopify) ✅ React.js web frontends ✅ Node.js / Express REST APIs ✅ Immediate availability. Starter rate $15/hr. Would love to connect and explore this!">
+    <div class="pitch-card" data-category="comment" data-text="I have experience with this! Here's what I bring: ✅ Websites & Mobile Apps (Custom, WordPress, Shopify) ✅ React.js & Java Spring Boot web frontends ✅ Node.js / Express REST APIs ✅ Immediate availability. Starter rate $15/hr. Would love to connect and explore this!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Checklist Comment</span>
@@ -756,7 +806,7 @@ Immediate start. DM me!</div>
       <div class="pitch-body" onclick="copyCardBody(this)">
         <div class="pitch-text">I have experience with this! Here's what I bring:
 ✅ Websites & Mobile Apps (Custom, WordPress, Shopify)
-✅ React.js web frontends
+✅ React.js & Java Spring Boot web frontends
 ✅ Node.js / Express REST APIs
 ✅ Immediate availability. Starter rate $15/hr.
 Would love to connect and explore this!</div>
@@ -764,7 +814,7 @@ Would love to connect and explore this!</div>
     </div>
 
     <!-- COMMENT 8 -->
-    <div class="pitch-card" data-category="comment" data-text="This resonates! I'm a Full-Stack Freelancer available remotely — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ years of hands-on experience building mobile apps and web products. Available immediately. Portfolio: sureshsirvidev.github.io/dev · Let's connect and chat! 🤝">
+    <div class="pitch-card" data-category="comment" data-text="This resonates! I'm a Full-Stack Freelancer available remotely — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 6+ years of hands-on experience building mobile apps and web products. Available immediately. Portfolio: sureshsirvidev.github.io/dev · Let's connect and chat! 🤝">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Resonance Comment</span>
@@ -777,12 +827,12 @@ Would love to connect and explore this!</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">This resonates! I'm a Full-Stack Freelancer available remotely — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ years of hands-on experience building mobile apps and web products. Available immediately. Portfolio: sureshsirvidev.github.io/dev · Let's connect and chat! 🤝</div>
+        <div class="pitch-text">This resonates! I'm a Full-Stack Freelancer available remotely — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. 6+ years of hands-on experience building mobile apps and web products. Available immediately. Portfolio: sureshsirvidev.github.io/dev · Let's connect and chat! 🤝</div>
       </div>
     </div>
 
     <!-- COMMENT 9 -->
-    <div class="pitch-card" data-category="comment" data-text="Raised my hand! 🙋‍♂️ I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, WordPress, WooCommerce, Mobile Apps). Built 4 live production apps. Immediate joiner. My portfolio: sureshsirvidev.github.io/dev — happy to jump on a call anytime!">
+    <div class="pitch-card" data-category="comment" data-text="Raised my hand! 🙋‍♂️ I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps). Built 4 live production apps. Immediate joiner. My portfolio: sureshsirvidev.github.io/dev — happy to jump on a call anytime!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Casual-Enthusiastic Comment</span>
@@ -795,12 +845,12 @@ Would love to connect and explore this!</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Raised my hand! 🙋‍♂️ I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, WordPress, WooCommerce, Mobile Apps). Built 4 live production apps. Immediate start. My portfolio: sureshsirvidev.github.io/dev — happy to jump on a call anytime!</div>
+        <div class="pitch-text">Raised my hand! 🙋‍♂️ I'm Suresh, a freelance Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps). Built 4 live production apps. Immediate start. My portfolio: sureshsirvidev.github.io/dev — happy to jump on a call anytime!</div>
       </div>
     </div>
 
     <!-- COMMENT 10 -->
-    <div class="pitch-card" data-category="comment" data-text="I can take this on! 💪 Full-Stack Developer — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ years. Budget-friendly rates for the right project. Available to start within 24 hrs. DM me or check: sureshsirvidev.github.io/dev">
+    <div class="pitch-card" data-category="comment" data-text="I can take this on! 💪 Full-Stack Developer — React, Angular, Node, Java Spring Boot, .NET Core, WordPress, Wix, Shopify, WooCommerce, and mobile apps. 6+ years. Available to start quickly. DM me or check: sureshsirvidev.github.io/dev">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Bold CTA Comment</span>
@@ -813,7 +863,7 @@ Would love to connect and explore this!</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">I can take this on! 💪 Full-Stack Developer — React.js, Node.js, WordPress, WooCommerce, Mobile Apps. 6+ years. Budget-friendly rates for the right project. Available to start within 24 hrs. DM me or check: sureshsirvidev.github.io/dev</div>
+        <div class="pitch-text">I can take this on! 💪 Full-Stack Developer — React, Angular, Node, Java Spring Boot, .NET Core, WordPress, Wix, Shopify, WooCommerce, and mobile apps. 6+ years. Available to start quickly. DM me or check: sureshsirvidev.github.io/dev</div>
       </div>
     </div>
 
@@ -830,9 +880,9 @@ Would love to connect and explore this!</div>
     <!-- DM 1 -->
     <div class="pitch-card" data-category="dm" data-text="Hi [Name],
 
-I came across your profile and noticed you work with [Company/Startup]. I'm a Full-Stack Developer with 6+ years of experience in React Native, React.js, and Node.js.
+I came across your profile and noticed you work with [Company/Startup]. I'm a Full-Stack Developer with 6+ years of experience in React Native, React.js, Java, Spring Boot, and Node.js.
 
-I've built 4+ production mobile apps (Play Store & App Store) and full-stack web solutions. I'm currently available for freelance contracts at starter rates ($15-$25/hr).
+I build websites, CMS/e-commerce projects, mobile apps, web apps, backend APIs, dashboards, and full-stack business solutions. I'm currently available for freelance and contract projects.
 
 Would love to explore if there's a fit. Here's my portfolio:
 🌐 sureshsirvidev.github.io/dev
@@ -856,9 +906,9 @@ Suresh Sirvi">
       <div class="pitch-body" onclick="copyCardBody(this)">
         <div class="pitch-text">Hi [Name],
 
-I came across your profile and noticed you work with [Company/Startup]. I'm a Full-Stack Developer with 6+ years of experience in React Native, React.js, and Node.js.
+I came across your profile and noticed you work with [Company/Startup]. I'm a Full-Stack Developer with 6+ years of experience in React Native, React.js, Java, Spring Boot, and Node.js.
 
-I've built 4+ production mobile apps (Play Store & App Store) and full-stack web solutions. I'm currently available for freelance contracts at starter rates ($15-$25/hr).
+I build websites, CMS/e-commerce projects, mobile apps, web apps, backend APIs, dashboards, and full-stack business solutions. I'm currently available for freelance and contract projects.
 
 Would love to explore if there's a fit. Here's my portfolio:
 🌐 sureshsirvidev.github.io/dev
@@ -881,7 +931,7 @@ I'm Suresh — Full-Stack Freelancer with 6+ years building:
 • Web apps (React.js + Node.js + Express)
 • REST APIs, Firebase, MongoDB
 
-Starter rate: $15-$25/hr | Fixed MVP: from $500
+I can review the requirement and suggest the best way to start.
 
 Portfolio: sureshsirvidev.github.io/dev
 
@@ -909,7 +959,7 @@ I'm Suresh — Full-Stack Freelancer with 6+ years building:
 • Web apps (React.js + Node.js + Express)
 • REST APIs, Firebase, MongoDB
 
-Starter rate: $15-$25/hr | Fixed MVP: from $500
+I can review the requirement and suggest the best way to start.
 
 Portfolio: sureshsirvidev.github.io/dev
 
@@ -920,7 +970,7 @@ Suresh</div>
     </div>
 
     <!-- DM 3 — SHORT -->
-    <div class="pitch-card" data-category="dm short" data-text="Hi [Name]! Suresh here — Full-Stack Freelancer (React.js, Node.js, WordPress, Shopify, Mobile Apps). 6+ yrs. Immediate start. Starter rates $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Would love to work together!">
+    <div class="pitch-card" data-category="dm short" data-text="Hi [Name]! Suresh here — Full-Stack Freelancer for websites, WordPress, Wix, Shopify, React, Angular, Node, Java Spring Boot, .NET Core, and mobile apps. 6+ yrs. Immediate start. Portfolio: sureshsirvidev.github.io/dev — Would love to work together!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Short DM — Quick Pitch</span>
@@ -933,7 +983,7 @@ Suresh</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi [Name]! Suresh here — Full-Stack Freelancer (React.js, Node.js, WordPress, Shopify, Mobile Apps). 6+ yrs. Immediate start. Starter rates $15-$25/hr. Portfolio: sureshsirvidev.github.io/dev — Would love to work together!</div>
+        <div class="pitch-text">Hi [Name]! Suresh here — Full-Stack Freelancer for websites, WordPress, Wix, Shopify, React, Angular, Node, Java Spring Boot, .NET Core, and mobile apps. 6+ yrs. Immediate start. Portfolio: sureshsirvidev.github.io/dev — Would love to work together!</div>
       </div>
     </div>
 
@@ -944,11 +994,11 @@ I'm reaching out as I noticed your agency works on mobile and web projects. I'm 
 
 My expertise:
 → Websites, Mobile Apps & E-commerce Stores
-→ React.js web frontends
+→ React.js & Java Spring Boot web frontends
 → Node.js / Express backends & REST APIs
 → Firebase, MongoDB, Redux
 
-Rates are very competitive — starting at $15/hr. I can integrate as a team member or handle full-stack modules independently.
+I can integrate as a team member or handle full-stack modules independently. We can discuss budget after understanding the project scope.
 
 Would love to explore a collaboration!
 
@@ -974,11 +1024,11 @@ I'm reaching out as I noticed your agency works on mobile and web projects. I'm 
 
 My expertise:
 → Websites, Mobile Apps & E-commerce Stores
-→ React.js web frontends
+→ React.js & Java Spring Boot web frontends
 → Node.js / Express backends & REST APIs
 → Firebase, MongoDB, Redux
 
-Rates are very competitive — starting at $15/hr. I can integrate as a team member or handle full-stack modules independently.
+I can integrate as a team member or handle full-stack modules independently. We can discuss budget after understanding the project scope.
 
 Would love to explore a collaboration!
 
@@ -1000,7 +1050,7 @@ Suresh Sirvi</div>
     </div>
 
     <!-- INTEREST 1 -->
-    <div class="pitch-card" data-category="interest" data-text="Hi [Name]! I noticed you viewed my profile — thanks for stopping by! I'm a Full-Stack Freelancer building websites, mobile apps, and custom solutions (React.js, Node.js, WordPress, Shopify) (6+ yrs). If you have any projects or requirements, I'd love to chat. My portfolio: sureshsirvidev.github.io/dev 😊">
+    <div class="pitch-card" data-category="interest" data-text="Hi [Name]! I noticed you viewed my profile — thanks for stopping by! I'm a Full-Stack Freelancer building websites, mobile apps, and custom solutions (React.js, Node.js, Java, Spring Boot, WordPress, Shopify) (6+ yrs). If you have any projects or requirements, I'd love to chat. My portfolio: sureshsirvidev.github.io/dev 😊">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Profile View Response</span>
@@ -1013,12 +1063,12 @@ Suresh Sirvi</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi [Name]! I noticed you viewed my profile — thanks for stopping by! I'm a Full-Stack Freelancer building websites, mobile apps, and custom solutions (React.js, Node.js, WordPress, Shopify) (6+ yrs). If you have any projects or requirements, I'd love to chat. My portfolio: sureshsirvidev.github.io/dev 😊</div>
+        <div class="pitch-text">Hi [Name]! I noticed you viewed my profile — thanks for stopping by! I'm a Full-Stack Freelancer building websites, mobile apps, and custom solutions (React.js, Node.js, Java, Spring Boot, WordPress, Shopify) (6+ yrs). If you have any projects or requirements, I'd love to chat. My portfolio: sureshsirvidev.github.io/dev 😊</div>
       </div>
     </div>
 
     <!-- INTEREST 2 -->
-    <div class="pitch-card" data-category="interest" data-text="Hi [Name]! Your profile is really impressive — love how you've built [their work]. I'm Suresh, a fellow freelance Full-Stack Dev (React.js, Node.js, WordPress, Shopify, Mobile Apps). I'd love to connect, share experiences, and explore possible collaborations!">
+    <div class="pitch-card" data-category="interest" data-text="Hi [Name]! Your profile is really impressive — love how you've built [their work]. I'm Suresh, a fellow freelance Full-Stack Dev (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps). I'd love to connect, share experiences, and explore possible collaborations!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Profile Appreciation Message</span>
@@ -1031,12 +1081,12 @@ Suresh Sirvi</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi [Name]! Your profile is really impressive — love how you've built [their work]. I'm Suresh, a fellow freelance Full-Stack Dev (React.js, Node.js, WordPress, Shopify, Mobile Apps). I'd love to connect, share experiences, and explore possible collaborations!</div>
+        <div class="pitch-text">Hi [Name]! Your profile is really impressive — love how you've built [their work]. I'm Suresh, a fellow freelance Full-Stack Dev (React.js, Node.js, Java, Spring Boot, WordPress, Shopify, Mobile Apps). I'd love to connect, share experiences, and explore possible collaborations!</div>
       </div>
     </div>
 
     <!-- INTEREST 3 -->
-    <div class="pitch-card" data-category="interest" data-text="Hi! We have mutual connections and similar backgrounds in Full-Stack development. I'm Suresh — React.js, Node.js, WordPress, WooCommerce, Mobile Apps freelancer (6+ yrs, remote). Would love to add you to my network and potentially collaborate in the future!">
+    <div class="pitch-card" data-category="interest" data-text="Hi! We have mutual connections and similar backgrounds in Full-Stack development. I'm Suresh — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps freelancer (6+ yrs, remote). Would love to add you to my network and potentially collaborate in the future!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Mutual Connection Note</span>
@@ -1049,7 +1099,7 @@ Suresh Sirvi</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! We have mutual connections and similar backgrounds in Full-Stack development. I'm Suresh — React.js, Node.js, WordPress, WooCommerce, Mobile Apps freelancer (6+ yrs, remote). Would love to add you to my network and potentially collaborate in the future!</div>
+        <div class="pitch-text">Hi! We have mutual connections and similar backgrounds in Full-Stack development. I'm Suresh — React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps freelancer (6+ yrs, remote). Would love to add you to my network and potentially collaborate in the future!</div>
       </div>
     </div>
 
@@ -1073,7 +1123,7 @@ Here's what I bring:
 ✅ React.js frontends — responsive, fast, scalable
 ✅ Node.js + Express + MongoDB backends
 ✅ Immediate start (within 24 hours)
-✅ Budget-friendly: $15-$25/hr OR fixed price
+✅ Budget and timeline after understanding the scope
 
 I can share a detailed quote and timeline once we discuss the scope. Would love to jump on a quick call!
 
@@ -1103,7 +1153,7 @@ Here's what I bring:
 ✅ React.js frontends — responsive, fast, scalable
 ✅ Node.js + Express + MongoDB backends
 ✅ Immediate start (within 24 hours)
-✅ Budget-friendly: $15-$25/hr OR fixed price
+✅ Budget and timeline after understanding the scope
 
 I can share a detailed quote and timeline once we discuss the scope. Would love to jump on a quick call!
 
@@ -1154,7 +1204,7 @@ Suresh Sirvi | +91 8310634421</div>
     </div>
 
     <!-- SHORT 1 -->
-    <div class="pitch-card" data-category="short" data-text="Hi! I'm a Full-Stack Developer with 6+ yrs experience (React.js, Node.js, WordPress, Shopify, Mobile Apps). Available for remote contracts worldwide. Portfolio: https://sureshsirvidev.github.io/dev/ Let's connect!">
+    <div class="pitch-card" data-category="short" data-text="Hi, I'm a Full-Stack Developer with 6+ years of experience in React.js, Node.js, Java, Spring Boot, WordPress, Shopify, and React Native. Available for remote contracts worldwide. Portfolio: https://sureshsirvidev.github.io/dev/ WhatsApp: https://wa.me/918310634421 Let's connect!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Original Short Pitch</span>
@@ -1167,12 +1217,12 @@ Suresh Sirvi | +91 8310634421</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi! I'm a Full-Stack Developer with 6+ yrs experience (React.js, Node.js, WordPress, Shopify, Mobile Apps). Available for remote contracts worldwide. Portfolio: https://sureshsirvidev.github.io/dev/ Let's connect!</div>
+        <div class="pitch-text">Hi, I'm a Full-Stack Developer with 6+ years of experience in React.js, Node.js, Java, Spring Boot, WordPress, Shopify, and React Native. Available for remote contracts worldwide. Portfolio: https://sureshsirvidev.github.io/dev/ WhatsApp: https://wa.me/918310634421 Let's connect!</div>
       </div>
     </div>
 
     <!-- SHORT 2 -->
-    <div class="pitch-card" data-category="short" data-text="Suresh Sirvi | Full-Stack Dev | React.js, Node.js, WordPress, WooCommerce, Mobile Apps | 6+ yrs | Immediate start | $15/hr | sureshsirvidev.github.io/dev">
+    <div class="pitch-card" data-category="short" data-text="Suresh Sirvi | Full-Stack Dev | React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps | 6+ yrs | Immediate start | $15/hr | sureshsirvidev.github.io/dev">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">One-Line Bio</span>
@@ -1184,12 +1234,12 @@ Suresh Sirvi | +91 8310634421</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Suresh Sirvi | Full-Stack Dev | React.js, Node.js, WordPress, WooCommerce, Mobile Apps | 6+ yrs | Immediate start | $15/hr | sureshsirvidev.github.io/dev</div>
+        <div class="pitch-text">Suresh Sirvi | Full-Stack Dev | React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps | 6+ yrs | Immediate start | $15/hr | sureshsirvidev.github.io/dev</div>
       </div>
     </div>
 
     <!-- SHORT 3 -->
-    <div class="pitch-card" data-category="short" data-text="Hi Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Available immediately for contract roles globally.
+    <div class="pitch-card" data-category="short" data-text="Hi Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. Available immediately for contract roles globally.
 
 Portfolio: https://sureshsirvidev.github.io/dev/
 Resume: https://sureshsirvidev.github.io/dev/resume.html">
@@ -1204,7 +1254,7 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html">
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, WordPress, WooCommerce, Mobile Apps. Available immediately for contract roles globally.
+        <div class="pitch-text">Hi Suresh Sirvi here. Full Stack Developer (6+ yrs exp) React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps. Available immediately for contract roles globally.
 
 Portfolio: https://sureshsirvidev.github.io/dev/
 Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
@@ -1215,7 +1265,7 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
     <div class="pitch-card" data-category="short" data-text="🚀 Full-Stack Dev available NOW
 ✅ 6+ yrs exp | 4 live apps
 ✅ Full-stack: React + Node.js
-✅ $15-$25/hr starter rate
+✅ Budget after scope discussion
 ✅ Immediate start
 📂 sureshsirvidev.github.io/dev">
       <div class="pitch-card-header">
@@ -1232,14 +1282,14 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
         <div class="pitch-text">🚀 Full-Stack Dev available NOW
 ✅ 6+ yrs exp | 4 live apps
 ✅ Full-stack: React + Node.js
-✅ $15-$25/hr starter rate
+✅ Budget after scope discussion
 ✅ Immediate start
 📂 sureshsirvidev.github.io/dev</div>
       </div>
     </div>
 
     <!-- SHORT 5 -->
-    <div class="pitch-card" data-category="short" data-text="Hi, I'm a Full-Stack Developer (React.js, Node.js, WordPress, WooCommerce, Mobile Apps) with 6+ years experience. Available immediately. Starter rate: $15/hr. Let me know if you need help with your project!">
+    <div class="pitch-card" data-category="short" data-text="Hi, I'm a Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps) with 6+ years experience. Available immediately. Starter rate: $15/hr. Let me know if you need help with your project!">
       <div class="pitch-card-header">
         <div class="pitch-card-meta">
           <span class="pitch-label">Minimal & Clean</span>
@@ -1251,7 +1301,7 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
         </button>
       </div>
       <div class="pitch-body" onclick="copyCardBody(this)">
-        <div class="pitch-text">Hi, I'm a Full-Stack Developer (React.js, Node.js, WordPress, WooCommerce, Mobile Apps) with 6+ years experience. Available immediately. Starter rate: $15/hr. Let me know if you need help with your project!</div>
+        <div class="pitch-text">Hi, I'm a Full-Stack Developer (React.js, Node.js, Java, Spring Boot, WordPress, WooCommerce, Mobile Apps) with 6+ years experience. Available immediately. Starter rate: $15/hr. Let me know if you need help with your project!</div>
       </div>
     </div>
 
@@ -1265,6 +1315,206 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
 </div>
 
 <script>
+  const outreachTemplates = [
+    {
+      category: 'comment short',
+      label: 'Hiring Post Comment',
+      badge: 'Best first reply',
+      scenario: 'Hiring Post',
+      text: `Interested. I am Suresh Sirvi, an immediate joiner and freelance full-stack developer with 6+ years of experience across WordPress, Wix, Shopify, React, Angular, Next.js, Node/Express, Java Spring Boot, .NET Core, and mobile apps. Available for worldwide remote projects. Portfolio: sureshsirvidev.github.io/dev`
+    },
+    {
+      category: 'comment short',
+      label: 'Short Public Comment',
+      badge: 'Clean',
+      scenario: 'Quick Reply',
+      text: `I can help with this. I handle website, CMS, e-commerce, web app, mobile app, backend/API, and dashboard projects. Immediate joiner, 6+ years experience, worldwide remote. Portfolio: sureshsirvidev.github.io/dev`
+    },
+    {
+      category: 'comment',
+      label: 'WordPress / Wix / Shopify Comment',
+      badge: 'Website lead',
+      scenario: 'CMS Work',
+      text: `Interested. I work on WordPress, Wix, Shopify, WooCommerce, landing pages, business websites, redesigns, bug fixes, speed improvements, responsive fixes, and ongoing maintenance. I can start quickly and discuss the project details. Portfolio: sureshsirvidev.github.io/dev`
+    },
+    {
+      category: 'comment',
+      label: 'Full-Stack Hiring Comment',
+      badge: 'Broad stack',
+      scenario: 'Developer Role',
+      text: `This matches my experience. I am a freelance full-stack developer with 6+ years across React, Angular, Next.js, Node/Express, Java Spring Boot, .NET Core, WordPress, Shopify, Wix, React Native, APIs, databases, and dashboards. Ready to start quickly.`
+    },
+    {
+      category: 'dm',
+      label: 'DM After Hiring Post',
+      badge: 'Recommended',
+      scenario: 'Seen Post',
+      text: `Hi [Name],
+
+I saw your post about hiring a developer and wanted to reach out directly.
+
+I am Suresh Sirvi, an immediate joiner and freelance full-stack developer with 6+ years of experience. I handle all types of development work including WordPress, Wix, Shopify, WooCommerce, custom websites, React, Angular, Next.js, Node/Express, Java Spring Boot, .NET Core, React Native mobile apps, backend APIs, dashboards, SaaS, ERP/CRM, and e-commerce systems.
+
+I am available for worldwide remote projects and ready to start quickly. If the role or project is still open, I would be happy to understand the requirement and suggest the best way to begin.
+
+Portfolio: https://sureshsirvidev.github.io/dev/
+Resume: https://sureshsirvidev.github.io/dev/resume.html
+
+Thanks,
+Suresh Sirvi`
+    },
+    {
+      category: 'dm',
+      label: 'Client Project DM',
+      badge: 'Project first',
+      scenario: 'Client Lead',
+      text: `Hi [Name],
+
+I noticed you may need help with [project/website/app]. I can help you plan, build, fix, or improve it.
+
+I work across websites, WordPress, Wix, Shopify, WooCommerce, React, Angular, Next.js, Node.js, Java Spring Boot, .NET Core, APIs, databases, admin dashboards, and mobile apps. I can join immediately and work remotely worldwide.
+
+Please share the requirement when possible. I can review it and suggest the right next step before discussing budget and timeline.
+
+Portfolio: https://sureshsirvidev.github.io/dev/`
+    },
+    {
+      category: 'dm',
+      label: 'Agency Collaboration DM',
+      badge: 'Agency',
+      scenario: 'White Label',
+      text: `Hi [Name],
+
+I saw your agency works on websites, apps, and digital projects. I am Suresh Sirvi, a freelance full-stack developer with 6+ years of experience and immediate availability for remote collaboration.
+
+I can support WordPress, Wix, Shopify, WooCommerce, custom frontend, backend APIs, React, Angular, Next.js, Node/Express, Java Spring Boot, .NET Core, React Native, dashboards, maintenance, and feature development.
+
+I can work as an extra developer for overflow work or take ownership of complete modules. Happy to discuss if you need reliable freelance support.
+
+Portfolio: https://sureshsirvidev.github.io/dev/`
+    },
+    {
+      category: 'dm',
+      label: 'Recruiter DM',
+      badge: 'Role fit',
+      scenario: 'Recruiter',
+      text: `Hi [Name],
+
+I saw your hiring requirement and I am interested.
+
+I am an immediate joiner with 6+ years of full-stack development experience across React, Angular, JavaScript, Next.js, Node/Express, Java Spring Boot, .NET Core, React Native, WordPress, Wix, Shopify, WooCommerce, APIs, databases, and cloud integrations.
+
+I am open to freelance, contract, remote, and long-term project work. Please let me know if my profile fits your requirement.
+
+Portfolio: https://sureshsirvidev.github.io/dev/
+Resume: https://sureshsirvidev.github.io/dev/resume.html`
+    },
+    {
+      category: 'connect',
+      label: 'Connection Note',
+      badge: '300 chars',
+      scenario: 'Connect',
+      text: `Hi [Name], I am Suresh, an immediate joiner and freelance full-stack developer. I work on WordPress, Wix, Shopify, React, Angular, Node, Java Spring Boot, .NET Core, mobile apps, APIs, and dashboards. Open to worldwide remote projects.`
+    },
+    {
+      category: 'connect',
+      label: 'Short Connection Note',
+      badge: 'Simple',
+      scenario: 'Connect',
+      text: `Hi [Name], I saw your work/post and would like to connect. I am a freelance full-stack developer available for websites, apps, backend, CMS, e-commerce, and dashboard projects.`
+    },
+    {
+      category: 'project',
+      label: 'Project Inquiry Reply',
+      badge: 'Detailed',
+      scenario: 'Project Post',
+      text: `Hi [Name],
+
+I can help with this project. I have 6+ years of experience handling different types of development work: WordPress, Wix, Shopify, WooCommerce, custom websites, React, Angular, Next.js, Node/Express, Java Spring Boot, .NET Core, React Native, APIs, databases, admin panels, SaaS, ERP/CRM, booking, marketplace, and e-commerce projects.
+
+I am available immediately for worldwide remote work. Please share the requirement, current status, and expected deliverables. I can review and suggest the best plan to start.`
+    },
+    {
+      category: 'project',
+      label: 'Website Project Reply',
+      badge: 'Website',
+      scenario: 'Website Work',
+      text: `Hi [Name], I can help with your website project. I work on WordPress, Wix, Shopify, WooCommerce, custom websites, landing pages, redesigns, responsive fixes, speed improvements, bug fixes, and maintenance. I am available immediately and can start after understanding the requirement.`
+    },
+    {
+      category: 'project',
+      label: 'App / Backend Reply',
+      badge: 'Technical',
+      scenario: 'App Build',
+      text: `Hi [Name], I can help with this app/backend requirement. My experience includes React, Angular, Next.js, Node/Express, Java Spring Boot, .NET Core, React Native, REST APIs, databases, Firebase, AWS, admin dashboards, SaaS, ERP/CRM, booking, and e-commerce systems. Ready to start quickly.`
+    },
+    {
+      category: 'followup',
+      label: 'Gentle Follow-Up',
+      badge: 'Polite',
+      scenario: 'No Reply',
+      text: `Hi [Name], just following up on my earlier message. I am still interested in helping with your project and can start quickly. Please share the requirement whenever convenient, and I can suggest the best way to begin.`
+    },
+    {
+      category: 'followup',
+      label: 'After Connection Accepted',
+      badge: 'Warm',
+      scenario: 'Connected',
+      text: `Thanks for connecting, [Name]. If you ever need help with websites, WordPress, Wix, Shopify, web apps, mobile apps, backend APIs, dashboards, or full-stack project work, I would be happy to discuss. Portfolio: sureshsirvidev.github.io/dev`
+    },
+    {
+      category: 'short',
+      label: 'One-Line Pitch',
+      badge: 'Fast',
+      scenario: 'Any Platform',
+      text: `Immediate joiner: freelance full-stack developer for websites, WordPress, Wix, Shopify, React, Angular, Node, Java Spring Boot, .NET Core, mobile apps, APIs, and dashboards. Portfolio: sureshsirvidev.github.io/dev`
+    },
+    {
+      category: 'short',
+      label: 'WhatsApp / Social Short',
+      badge: 'Compact',
+      scenario: 'DM',
+      text: `Hi, I am Suresh Sirvi, a freelance full-stack developer with 6+ years experience. I can help with websites, WordPress, Wix, Shopify, web apps, mobile apps, backend APIs, dashboards, and maintenance. Ready to start quickly.`
+    },
+    {
+      category: 'interest',
+      label: 'Show Interest',
+      badge: 'Friendly',
+      scenario: 'Open Door',
+      text: `Hi [Name], I noticed your post/profile and wanted to connect. I work on all types of development projects including websites, CMS, e-commerce, web apps, mobile apps, backend APIs, and dashboards. If you need reliable freelance support, happy to discuss.`
+    }
+  ];
+
+  function escapeHtml(value) {
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function renderCards() {
+    const grid = document.getElementById('cardsGrid');
+    grid.innerHTML = outreachTemplates.map((item, index) => `
+      <div class="pitch-card" data-category="${escapeHtml(item.category)}" data-text="${escapeHtml(item.text)}">
+        <div class="pitch-card-header">
+          <div class="pitch-card-meta">
+            <span class="pitch-label">${escapeHtml(item.label)} #${index + 1}</span>
+            <span class="char-badge green">${escapeHtml(item.badge)}</span>
+            <span class="scenario-badge" style="background:#eef2ff;color:#4f46e5;">${escapeHtml(item.scenario)}</span>
+          </div>
+          <button class="btn-copy-card" onclick="copyCard(this)">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <div class="pitch-body" onclick="copyCardBody(this)">
+          <div class="pitch-text">${escapeHtml(item.text)}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
   function showToast(msg) {
     const t = document.getElementById('toast');
     document.getElementById('toastMsg').textContent = msg;
@@ -1341,6 +1591,7 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
 
   // Count cards on load
   document.addEventListener('DOMContentLoaded', () => {
+    renderCards();
     const count = document.querySelectorAll('.pitch-card').length;
     document.getElementById('totalCount').textContent = count;
   });
@@ -1380,5 +1631,12 @@ Resume: https://sureshsirvidev.github.io/dev/resume.html</div>
         </div>
     </footer>
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918310634421?text=Hi%20Suresh%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener" id="wa-float" class="wa-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="wa-float-label">Chat with me</span>
+    </a>
+
 </body>
 </html>
